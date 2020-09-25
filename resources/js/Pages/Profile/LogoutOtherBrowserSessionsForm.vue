@@ -1,16 +1,16 @@
 <template>
     <jet-action-section>
         <template #title>
-            Browser Sessions
+            Sesi Browser
         </template>
 
         <template #description>
-            Manage and logout your active sessions on other browsers and devices.
+            Mengatur sesi akun anda pada browser.
         </template>
 
         <template #content>
             <div class="max-w-xl text-sm text-gray-600">
-                If necessary, you may logout of all of your other browser sessions across all of your devices. If you feel your account has been compromised, you should also update your password.
+                Jika dibutuhkan, anda bisa logout dari semua perangkat yang pernah digunakan untuk aplikasi ini.
             </div>
 
             <!-- Other Browser Sessions -->
@@ -45,7 +45,7 @@
 
             <div class="flex items-center mt-5">
                 <jet-button @click.native="confirmLogout">
-                    Logout Other Browser Sessions
+                    Logout Sesi dari Browser
                 </jet-button>
 
                 <jet-action-message :on="form.recentlySuccessful" class="ml-3">
