@@ -25,7 +25,9 @@ class BiodataController extends Controller
     public function create()
     {
       $data = Biodata::where('user_id', Auth::user()->id)->latest('id')->first();
-      return Inertia::render('Form/Biodata');
+      return Inertia::render('Form/Biodata', [
+          'data' => $data
+      ]);
     }
 
     public function store(BiodataRequest $request)
