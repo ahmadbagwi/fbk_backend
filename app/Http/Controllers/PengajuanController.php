@@ -55,7 +55,7 @@ class PengajuanController extends Controller
           ]);
 
         if ($pengajuan) {
-          return redirect()->route('dashboard')->with('status', 'Sukses menyimpan data pengajuan');
+          return redirect()->route('pengajuan_show')->with('status', 'Sukses menyimpan data pengajuan');
         } else {
           // return redirect()->route('dashboard')->with('status', 'Gagal menyimpan biodata akun FBK');
           Session::flash('status', 'Gagal menyimpan data'); 
