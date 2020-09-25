@@ -84,7 +84,8 @@
                             </svg>Pilih/Unggah
                           </button>
                         </div>
-                        <jet-input id="rab" type="text" class="mt-1 block w-full" v-model="form.rab" autocomplete="rab" readonly/>
+                        <jet-input id="rab" type="text" class="mt-1 block w-full bg-gray-100" v-model="form.rab" autocomplete="rab" readonly/>
+                        <jet-input-error :message="form.error('rab')" class="mt-2" />
                       </div>
                     </div>
                     <img class="mt-3" :src="form.rab" />
