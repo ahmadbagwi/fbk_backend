@@ -244,7 +244,7 @@
                   </svg>
                   <p>&nbsp;{{ $page.auth.user.name }}</p>
                   </div>
-                  <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert" v-if="$page.flash.message">
+                  <div class="bg-green-100 border border-green-300 text-green-800 px-4 py-3 rounded relative" role="alert" v-if="$page.flash.message">
                     <strong class="font-bold">Info!</strong>
                     <span class="block sm:inline">{{ $page.flash.message }}</span>
                     <span class="absolute top-0 bottom-0 right-0 px-4 py-3">
