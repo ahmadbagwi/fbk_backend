@@ -362,26 +362,33 @@
 
         created() {
           if (this.data !== null) {
-            this.form.permohonan = this.data.permohonan
-            this.form.proposal = this.data.proposal
-            this.form.pertanggungjawaban = this.data.pertanggungjawaban
-            this.form.kesanggupan = this.data.kesanggupan
-            this.form.rekening = this.data.rekening
-            this.form.npwp = this.data.npwp
-            this.form.ktp = this.data.ktp
-            this.form.kk = this.data.kk
-            this.form.integritas = this.data.integritas
-            this.form.riwayat = this.data.riwayat
-            this.form.politik = this.data.politik
-            this.form.domisili = this.data.domisili
-            this.form.komunitas = this.data.komunitas
-            this.form.riwayat = this.data.riwayat
-            this.form.kesekretariatan = this.data.kesekretariatan
-            this.form.prestasi = this.data.prestasi
+            this.form.permohonan = this.data.permohonan,
+            this.form.proposal = this.data.proposal,
+            this.form.pertanggungjawaban = this.data.pertanggungjawaban,
+            this.form.kesanggupan = this.data.kesanggupan,
+            this.form.rekening = this.data.rekening,
+            this.form.npwp = this.data.npwp,
+            this.form.ktp = this.data.ktp,
+            this.form.kk = this.data.kk,
+            this.form.integritas = this.data.integritas,
+            this.form.riwayat = this.data.riwayat,
+            this.form.politik = this.data.politik,
+            this.form.domisili = this.data.domisili,
+            this.form.komunitas = this.data.komunitas,
+            this.form.riwayat = this.data.riwayat,
+            this.form.kesekretariatan = this.data.kesekretariatan,
+            this.form.prestasi = this.data.prestasi,
             this.form.akta = this.data.akta
           }
         },
+
         methods: {
+          submitForm() {
+            this.form.post('/administrasi/store', {
+              preserveScroll: true
+            })
+          },
+
           openFileManager () {
             window.open(`/laravel-filemanager`, 'width=900,height=600')
             var self = this
@@ -526,11 +533,6 @@
             return false
           },
 
-          submitForm() {
-            this.form.post('/administrasi/store', {
-              preserveScroll: true
-            })
-          }
         },
     }
 </script>
