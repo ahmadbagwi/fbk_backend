@@ -2,7 +2,7 @@
     <app-layout>
         <template #header>
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                Form Pengajuan
+                Pengajuan
             </h2>
         </template>
 
@@ -14,7 +14,9 @@
                 </template>
 
                 <template #description>
-                  Silahkan lengkapi data anda
+                  <p>Silahkan lengkapi data anda<br>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed et aliquam libero. Donec iaculis commodo efficitur. Suspendisse aliquam mollis ipsum, eu dictum nunc fermentum a. Curabitur aliquam lacus nisl, ac rutrum lorem placerat vel. 
+                  </p>
                 </template>
 
                 <template #form>
@@ -76,7 +78,7 @@
                       <div class="input-group">
                         <jet-label for="rab" value="RAB" />
                         <div class="input-group-btn">
-                          <button class="text-blue-600 border border-blue-600 px-4 py-2 rounded" @click="openFileManager">
+                          <button class="flex ext-blue-600 border border-blue-600 hover:bg-gray-200 px-4 py-2 rounded" @click.prevent="openFileManager">
                             <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-paperclip" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                               <path fill-rule="evenodd" d="M4.5 3a2.5 2.5 0 0 1 5 0v9a1.5 1.5 0 0 1-3 0V5a.5.5 0 0 1 1 0v7a.5.5 0 0 0 1 0V3a1.5 1.5 0 1 0-3 0v9a2.5 2.5 0 0 0 5 0V5a.5.5 0 0 1 1 0v7a3.5 3.5 0 1 1-7 0V3z"/>
                             </svg>Pilih/Unggah
@@ -88,29 +90,27 @@
                     <img class="mt-3" :src="form.rab" />
 
                     <div class="col-span-6 sm:col-span-4">
-                      <jet-label for="video" value="Video" />
+                      <jet-label for="video" value="Tautan Video" />
                       <jet-input id="video" type="text" class="mt-1 block w-full" v-model="form.video" />
                       <jet-input-error :message="form.error('video')" class="mt-2" />
                     </div>
                     
-                  </template>
+                </template>
 
-                  <template #actions>
-                    <jet-action-message :on="form.recentlySuccessful" class="mr-3">
-                      Tersimpan.
-                    </jet-action-message>
+                <template #actions>
+                  <jet-action-message :on="form.recentlySuccessful" class="mr-3">
+                    Tersimpan.
+                  </jet-action-message>
 
-                    <jet-button :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
-                      Simpan
-                    </jet-button>
-                  </template>
-                </jet-form-section>
+                  <jet-button :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
+                    Simpan
+                  </jet-button>
+                </template>
+              </jet-form-section>
 
-                <jet-section-border />
+              <jet-section-border />
 
-                
-
-                <!-- <delete-user-form class="mt-10 sm:mt-0" /> -->
+              <!-- <delete-user-form class="mt-10 sm:mt-0" /> -->
             </div>
         </div>
     </app-layout>
@@ -185,7 +185,14 @@
             // })
           }
         },
+        
         methods: {
+          submitForm() {
+            this.form.post('/pengajuan/store', {
+              preserveScroll: true
+            })
+          },
+
           openFileManager () {
             window.open(`/laravel-filemanager`, 'width=900,height=600')
             var self = this
@@ -195,11 +202,6 @@
             return false
           },
 
-          submitForm() {
-            this.form.post('/pengajuan/store', {
-              preserveScroll: true
-            })
-          }
         },
     }
 </script>
