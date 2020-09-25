@@ -19,8 +19,8 @@ class Pengajuan extends Migration
             $table->longText('jenis');
             $table->longText('judul');
             $table->longText('konsep');
-            $table->longText('mulai');
-            $table->longText('selesai');
+            $table->date('mulai');
+            $table->date('selesai');
             $table->longText('tahap1');
             $table->longText('tahap2');
             $table->longText('biaya');
