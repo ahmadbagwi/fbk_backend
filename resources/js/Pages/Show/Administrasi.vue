@@ -17,11 +17,11 @@
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed et aliquam libero. Donec iaculis commodo efficitur. Suspendisse aliquam mollis ipsum, eu dictum nunc fermentum a. Curabitur aliquam lacus nisl, ac rutrum lorem placerat vel. 
             </p>
-            <jet-button>
-              <inertia-link  href="/administrasi/create" :active="$page.currentRouteName == 'administrasi_create'">
+            <inertia-link  href="/administrasi/create" :active="$page.currentRouteName == 'administrasi_create'">
+              <jet-button>
                 Tambah/Ubah Data
-              </inertia-link >
-            </jet-button>
+              </jet-button>
+            </inertia-link >
           </template>
 
           <template #laman>
@@ -36,11 +36,13 @@
                     <td class="border px-4 py-2">Surat Permohonan</td>
                     <td class="border px-4 py-2">
                       <div class="input-group-btn">
+                        <a :href="data.permohonan">
                         <button class="flex text-black-600 border border-blue-600 hover:bg-gray-200 px-4 py-2 rounded" >
                           <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-cloud-download-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" d="M8 0a5.53 5.53 0 0 0-3.594 1.342c-.766.66-1.321 1.52-1.464 2.383C1.266 4.095 0 5.555 0 7.318 0 9.366 1.708 11 3.781 11H7.5V5.5a.5.5 0 0 1 1 0V11h4.188C14.502 11 16 9.57 16 7.773c0-1.636-1.242-2.969-2.834-3.194C12.923 1.999 10.69 0 8 0zm-.354 15.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 14.293V11h-1v3.293l-2.146-2.147a.5.5 0 0 0-.708.708l3 3z"/>
-                          </svg>&nbsp;<a :href="data.permohonan">File</a>
+                          </svg>&nbsp;File
                         </button>
+                        </a>
                       </div>
                     </td>
                   </tr>
@@ -48,11 +50,13 @@
                     <td class="border px-4 py-2">Proposal</td>
                     <td class="border px-4 py-2">
                       <div class="input-group-btn">
+                        <a :href="data.proposal">
                         <button class="flex text-black-600 border border-blue-600 hover:bg-gray-200 px-4 py-2 rounded" >
                           <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-cloud-download-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" d="M8 0a5.53 5.53 0 0 0-3.594 1.342c-.766.66-1.321 1.52-1.464 2.383C1.266 4.095 0 5.555 0 7.318 0 9.366 1.708 11 3.781 11H7.5V5.5a.5.5 0 0 1 1 0V11h4.188C14.502 11 16 9.57 16 7.773c0-1.636-1.242-2.969-2.834-3.194C12.923 1.999 10.69 0 8 0zm-.354 15.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 14.293V11h-1v3.293l-2.146-2.147a.5.5 0 0 0-.708.708l3 3z"/>
-                          </svg>&nbsp;<a :href="data.proposal">File</a>
+                          </svg>&nbsp;File
                         </button>
+                        </a>
                       </div>
                     </td>
                   </tr>
@@ -60,11 +64,13 @@
                     <td class="border px-4 py-2">Surat Pertanggung Jawaban Mutlak</td>
                     <td class="border px-4 py-2">
                       <div class="input-group-btn">
+                        <a :href="data.pertanggungjawaban">
                         <button class="flex text-black-600 border border-blue-600 hover:bg-gray-200 px-4 py-2 rounded" >
                           <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-cloud-download-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" d="M8 0a5.53 5.53 0 0 0-3.594 1.342c-.766.66-1.321 1.52-1.464 2.383C1.266 4.095 0 5.555 0 7.318 0 9.366 1.708 11 3.781 11H7.5V5.5a.5.5 0 0 1 1 0V11h4.188C14.502 11 16 9.57 16 7.773c0-1.636-1.242-2.969-2.834-3.194C12.923 1.999 10.69 0 8 0zm-.354 15.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 14.293V11h-1v3.293l-2.146-2.147a.5.5 0 0 0-.708.708l3 3z"/>
-                          </svg>&nbsp;<a :href="data.pertanggungjawaban">File</a>
+                          </svg>&nbsp;File
                         </button>
+                        </a>
                       </div>
                     </td>
                   </tr>
@@ -72,11 +78,13 @@
                     <td class="border px-4 py-2">Surat Kesanggupan Melaksanakan FBK</td>
                     <td class="border px-4 py-2">
                       <div class="input-group-btn">
+                        <a :href="data.kesanggupan">
                         <button class="flex text-black-600 border border-blue-600 hover:bg-gray-200 px-4 py-2 rounded" >
                           <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-cloud-download-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" d="M8 0a5.53 5.53 0 0 0-3.594 1.342c-.766.66-1.321 1.52-1.464 2.383C1.266 4.095 0 5.555 0 7.318 0 9.366 1.708 11 3.781 11H7.5V5.5a.5.5 0 0 1 1 0V11h4.188C14.502 11 16 9.57 16 7.773c0-1.636-1.242-2.969-2.834-3.194C12.923 1.999 10.69 0 8 0zm-.354 15.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 14.293V11h-1v3.293l-2.146-2.147a.5.5 0 0 0-.708.708l3 3z"/>
-                          </svg>&nbsp;<a :href="data.kesanggupan">File</a>
+                          </svg>&nbsp;File
                         </button>
+                        </a>
                       </div>
                     </td>
                   </tr>
@@ -84,11 +92,13 @@
                     <td class="border px-4 py-2">Foto/scan Rekening</td>
                     <td class="border px-4 py-2">
                       <div class="input-group-btn">
+                        <a :href="data.rekening">
                         <button class="flex text-black-600 border border-blue-600 hover:bg-gray-200 px-4 py-2 rounded" >
                           <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-cloud-download-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" d="M8 0a5.53 5.53 0 0 0-3.594 1.342c-.766.66-1.321 1.52-1.464 2.383C1.266 4.095 0 5.555 0 7.318 0 9.366 1.708 11 3.781 11H7.5V5.5a.5.5 0 0 1 1 0V11h4.188C14.502 11 16 9.57 16 7.773c0-1.636-1.242-2.969-2.834-3.194C12.923 1.999 10.69 0 8 0zm-.354 15.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 14.293V11h-1v3.293l-2.146-2.147a.5.5 0 0 0-.708.708l3 3z"/>
-                          </svg>&nbsp;<a :href="data.rekening">File</a>
+                          </svg>&nbsp;File
                         </button>
+                        </a>
                       </div>
                     </td>
                   </tr>
@@ -96,11 +106,13 @@
                     <td class="border px-4 py-2">Foto/scan NPWP</td>
                     <td class="border px-4 py-2">
                       <div class="input-group-btn">
+                        <a :href="data.npwp">
                         <button class="flex text-black-600 border border-blue-600 hover:bg-gray-200 px-4 py-2 rounded" >
                           <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-cloud-download-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" d="M8 0a5.53 5.53 0 0 0-3.594 1.342c-.766.66-1.321 1.52-1.464 2.383C1.266 4.095 0 5.555 0 7.318 0 9.366 1.708 11 3.781 11H7.5V5.5a.5.5 0 0 1 1 0V11h4.188C14.502 11 16 9.57 16 7.773c0-1.636-1.242-2.969-2.834-3.194C12.923 1.999 10.69 0 8 0zm-.354 15.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 14.293V11h-1v3.293l-2.146-2.147a.5.5 0 0 0-.708.708l3 3z"/>
-                          </svg>&nbsp;<a :href="data.npwp">File</a>
+                          </svg>&nbsp;File
                         </button>
+                        </a>
                       </div>
                     </td>
                   </tr>
@@ -108,11 +120,13 @@
                     <td class="border px-4 py-2">Foto/scan KTP</td>
                     <td class="border px-4 py-2">
                       <div class="input-group-btn">
+                        <a :href="data.ktp">
                         <button class="flex text-black-600 border border-blue-600 hover:bg-gray-200 px-4 py-2 rounded" >
                           <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-cloud-download-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" d="M8 0a5.53 5.53 0 0 0-3.594 1.342c-.766.66-1.321 1.52-1.464 2.383C1.266 4.095 0 5.555 0 7.318 0 9.366 1.708 11 3.781 11H7.5V5.5a.5.5 0 0 1 1 0V11h4.188C14.502 11 16 9.57 16 7.773c0-1.636-1.242-2.969-2.834-3.194C12.923 1.999 10.69 0 8 0zm-.354 15.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 14.293V11h-1v3.293l-2.146-2.147a.5.5 0 0 0-.708.708l3 3z"/>
-                          </svg>&nbsp;<a :href="data.ktp">File</a>
+                          </svg>&nbsp;File
                         </button>
+                        </a>
                       </div>
                     </td>
                   </tr>
@@ -120,11 +134,13 @@
                     <td class="border px-4 py-2">Foto/scan KK</td>
                     <td class="border px-4 py-2">
                       <div class="input-group-btn">
+                        <a :href="data.kk">
                         <button class="flex text-black-600 border border-blue-600 hover:bg-gray-200 px-4 py-2 rounded" >
                           <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-cloud-download-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" d="M8 0a5.53 5.53 0 0 0-3.594 1.342c-.766.66-1.321 1.52-1.464 2.383C1.266 4.095 0 5.555 0 7.318 0 9.366 1.708 11 3.781 11H7.5V5.5a.5.5 0 0 1 1 0V11h4.188C14.502 11 16 9.57 16 7.773c0-1.636-1.242-2.969-2.834-3.194C12.923 1.999 10.69 0 8 0zm-.354 15.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 14.293V11h-1v3.293l-2.146-2.147a.5.5 0 0 0-.708.708l3 3z"/>
-                          </svg>&nbsp;<a :href="data.kk">File</a>
+                          </svg>&nbsp;File
                         </button>
+                        </a>
                       </div>
                     </td>
                   </tr>
@@ -132,11 +148,13 @@
                     <td class="border px-4 py-2">Pakta Integritas</td>
                     <td class="border px-4 py-2">
                       <div class="input-group-btn">
+                        <a :href="data.integritas">
                         <button class="flex text-black-600 border border-blue-600 hover:bg-gray-200 px-4 py-2 rounded" >
                           <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-cloud-download-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" d="M8 0a5.53 5.53 0 0 0-3.594 1.342c-.766.66-1.321 1.52-1.464 2.383C1.266 4.095 0 5.555 0 7.318 0 9.366 1.708 11 3.781 11H7.5V5.5a.5.5 0 0 1 1 0V11h4.188C14.502 11 16 9.57 16 7.773c0-1.636-1.242-2.969-2.834-3.194C12.923 1.999 10.69 0 8 0zm-.354 15.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 14.293V11h-1v3.293l-2.146-2.147a.5.5 0 0 0-.708.708l3 3z"/>
-                          </svg>&nbsp;<a :href="data.integritas">File</a>
+                          </svg>&nbsp;File
                         </button>
+                        </a>
                       </div>
                     </td>
                   </tr>
@@ -144,11 +162,13 @@
                     <td class="border px-4 py-2">Foto/scan Riwayat Hidup</td>
                     <td class="border px-4 py-2">
                       <div class="input-group-btn">
+                        <a :href="data.riwayat">
                         <button class="flex text-black-600 border border-blue-600 hover:bg-gray-200 px-4 py-2 rounded" >
                           <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-cloud-download-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" d="M8 0a5.53 5.53 0 0 0-3.594 1.342c-.766.66-1.321 1.52-1.464 2.383C1.266 4.095 0 5.555 0 7.318 0 9.366 1.708 11 3.781 11H7.5V5.5a.5.5 0 0 1 1 0V11h4.188C14.502 11 16 9.57 16 7.773c0-1.636-1.242-2.969-2.834-3.194C12.923 1.999 10.69 0 8 0zm-.354 15.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 14.293V11h-1v3.293l-2.146-2.147a.5.5 0 0 0-.708.708l3 3z"/>
-                          </svg>&nbsp;<a :href="data.riwayat">File</a>
+                          </svg>&nbsp;File
                         </button>
+                        </a>
                       </div>
                     </td>
                   </tr>
@@ -156,11 +176,13 @@
                     <td class="border px-4 py-2">Surat Tidak Terkait Partai Politik</td>
                     <td class="border px-4 py-2">
                       <div class="input-group-btn">
+                        <a :href="data.politik">
                         <button class="flex text-black-600 border border-blue-600 hover:bg-gray-200 px-4 py-2 rounded" >
                           <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-cloud-download-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" d="M8 0a5.53 5.53 0 0 0-3.594 1.342c-.766.66-1.321 1.52-1.464 2.383C1.266 4.095 0 5.555 0 7.318 0 9.366 1.708 11 3.781 11H7.5V5.5a.5.5 0 0 1 1 0V11h4.188C14.502 11 16 9.57 16 7.773c0-1.636-1.242-2.969-2.834-3.194C12.923 1.999 10.69 0 8 0zm-.354 15.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 14.293V11h-1v3.293l-2.146-2.147a.5.5 0 0 0-.708.708l3 3z"/>
-                          </svg>&nbsp;<a :href="data.politik">File</a>
+                          </svg>&nbsp;File
                         </button>
+                        </a>
                       </div>
                     </td>
                   </tr>
@@ -168,11 +190,13 @@
                     <td class="border px-4 py-2">Surat Keterangan Domisili</td>
                     <td class="border px-4 py-2">
                       <div class="input-group-btn">
+                        <a :href="data.domisili">
                         <button class="flex text-black-600 border border-blue-600 hover:bg-gray-200 px-4 py-2 rounded" >
                           <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-cloud-download-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" d="M8 0a5.53 5.53 0 0 0-3.594 1.342c-.766.66-1.321 1.52-1.464 2.383C1.266 4.095 0 5.555 0 7.318 0 9.366 1.708 11 3.781 11H7.5V5.5a.5.5 0 0 1 1 0V11h4.188C14.502 11 16 9.57 16 7.773c0-1.636-1.242-2.969-2.834-3.194C12.923 1.999 10.69 0 8 0zm-.354 15.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 14.293V11h-1v3.293l-2.146-2.147a.5.5 0 0 0-.708.708l3 3z"/>
-                          </svg>&nbsp;<a :href="data.domisili">File</a>
+                          </svg>&nbsp;File
                         </button>
+                        </a>
                       </div>
                     </td>
                   </tr>
@@ -180,11 +204,13 @@
                     <td class="border px-4 py-2">Profil Komunitas/lembaga</td>
                     <td class="border px-4 py-2">
                       <div class="input-group-btn">
+                        <a :href="data.komunitas">
                         <button class="flex text-black-600 border border-blue-600 hover:bg-gray-200 px-4 py-2 rounded" >
                           <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-cloud-download-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" d="M8 0a5.53 5.53 0 0 0-3.594 1.342c-.766.66-1.321 1.52-1.464 2.383C1.266 4.095 0 5.555 0 7.318 0 9.366 1.708 11 3.781 11H7.5V5.5a.5.5 0 0 1 1 0V11h4.188C14.502 11 16 9.57 16 7.773c0-1.636-1.242-2.969-2.834-3.194C12.923 1.999 10.69 0 8 0zm-.354 15.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 14.293V11h-1v3.293l-2.146-2.147a.5.5 0 0 0-.708.708l3 3z"/>
-                          </svg>&nbsp;<a :href="data.komunitas">File</a>
+                          </svg>&nbsp;File
                         </button>
+                        </a>
                       </div>
                     </td>
                   </tr>
@@ -192,11 +218,13 @@
                     <td class="border px-4 py-2">Kesekretariatan</td>
                     <td class="border px-4 py-2">
                       <div class="input-group-btn">
+                        <a :href="data.kesekretariatan">
                         <button class="flex text-black-600 border border-blue-600 hover:bg-gray-200 px-4 py-2 rounded" >
                           <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-cloud-download-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" d="M8 0a5.53 5.53 0 0 0-3.594 1.342c-.766.66-1.321 1.52-1.464 2.383C1.266 4.095 0 5.555 0 7.318 0 9.366 1.708 11 3.781 11H7.5V5.5a.5.5 0 0 1 1 0V11h4.188C14.502 11 16 9.57 16 7.773c0-1.636-1.242-2.969-2.834-3.194C12.923 1.999 10.69 0 8 0zm-.354 15.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 14.293V11h-1v3.293l-2.146-2.147a.5.5 0 0 0-.708.708l3 3z"/>
-                          </svg>&nbsp;<a :href="data.kesekretariatan">File</a>
+                          </svg>&nbsp;File
                         </button>
+                        </a>
                       </div>
                     </td>
                   </tr>
@@ -204,11 +232,13 @@
                     <td class="border px-4 py-2">Kegiatan & Prestasi</td>
                     <td class="border px-4 py-2">
                       <div class="input-group-btn">
+                        <a :href="data.prestasi">
                         <button class="flex text-black-600 border border-blue-600 hover:bg-gray-200 px-4 py-2 rounded" >
                           <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-cloud-download-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" d="M8 0a5.53 5.53 0 0 0-3.594 1.342c-.766.66-1.321 1.52-1.464 2.383C1.266 4.095 0 5.555 0 7.318 0 9.366 1.708 11 3.781 11H7.5V5.5a.5.5 0 0 1 1 0V11h4.188C14.502 11 16 9.57 16 7.773c0-1.636-1.242-2.969-2.834-3.194C12.923 1.999 10.69 0 8 0zm-.354 15.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 14.293V11h-1v3.293l-2.146-2.147a.5.5 0 0 0-.708.708l3 3z"/>
-                          </svg>&nbsp;<a :href="data.prestasi">File</a>
+                          </svg>&nbsp;File
                         </button>
+                        </a>
                       </div>
                     </td>
                   </tr>
@@ -216,11 +246,13 @@
                     <td class="border px-4 py-2">Akta</td>
                     <td class="border px-4 py-2">
                       <div class="input-group-btn">
+                        <a :href="data.akta">
                         <button class="flex text-black-600 border border-blue-600 hover:bg-gray-200 px-4 py-2 rounded" >
                           <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-cloud-download-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" d="M8 0a5.53 5.53 0 0 0-3.594 1.342c-.766.66-1.321 1.52-1.464 2.383C1.266 4.095 0 5.555 0 7.318 0 9.366 1.708 11 3.781 11H7.5V5.5a.5.5 0 0 1 1 0V11h4.188C14.502 11 16 9.57 16 7.773c0-1.636-1.242-2.969-2.834-3.194C12.923 1.999 10.69 0 8 0zm-.354 15.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 14.293V11h-1v3.293l-2.146-2.147a.5.5 0 0 0-.708.708l3 3z"/>
-                          </svg>&nbsp;<a :href="data.akta">File</a>
+                          </svg>&nbsp;File
                         </button>
+                        </a>
                       </div>
                     </td>
                   </tr>
