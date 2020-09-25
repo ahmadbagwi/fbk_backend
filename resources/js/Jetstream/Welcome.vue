@@ -2,18 +2,15 @@
     <div>
         <div class="p-6 sm:px-20 bg-white border-b border-gray-200">
             <div>
-                <jet-application-logo class="block h-12 w-auto" />
+                <h1 class="text-lg text-gray-600">Fasilitasi Bidang Kebudayaan, Kementerian Pendidikan dan Kebudayaan</h1>
             </div>
 
             <div class="mt-8 text-2xl">
-                Welcome to your Jetstream application!
+                Dashboard FBK
             </div>
 
             <div class="mt-6 text-gray-500">
-                Laravel Jetstream provides a beautiful, robust starting point for your next Laravel application. Laravel is designed
-                to help you build your application using a development environment that is simple, powerful, and enjoyable. We believe
-                you should love expressing your creativity through programming, so we have spent time carefully crafting the Laravel
-                ecosystem to be a breath of fresh air. We hope you love it.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed et aliquam libero. Donec iaculis commodo efficitur. Suspendisse aliquam mollis ipsum, eu dictum nunc fermentum a. Curabitur aliquam lacus nisl, ac rutrum lorem placerat vel. 
             </div>
         </div>
 
