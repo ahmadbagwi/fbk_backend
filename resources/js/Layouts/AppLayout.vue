@@ -34,7 +34,7 @@
                             </jet-nav-link>
                         </div>
                         <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                            <jet-nav-link href="/Laporan/show" :active="$page.currentRouteName == 'laporan_show'">
+                            <jet-nav-link href="/laporan/show" :active="$page.currentRouteName == 'laporan_show'">
                                 Laporan
                             </jet-nav-link>
                         </div>
