@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\BiodataController;
 use App\Http\Controllers\PengajuanController;
 use App\Http\Controllers\AdministrasiController;
+use App\Http\Controllers\LaporanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,6 +46,11 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
     Route::get('administrasi/create', [AdministrasiController::class, 'create'])->name('administrasi_create');
     Route::post('administrasi/store', [AdministrasiController::class, 'store'])->name('administrasi_store');
     Route::get('administrasi/show', [AdministrasiController::class, 'show'])->name('administrasi_show');
+
+    Route::get('laporan/create', [LaporanController::class, 'create'])->name('laporan_create');
+    Route::get('laporan/edit', [LaporanController::class, 'edit'])->name('laporan_edit');
+    Route::post('laporan/store', [LaporanController::class, 'store'])->name('laporan_store');
+    Route::get('laporan/show', [LaporanController::class, 'show'])->name('laporan_show');
 });
 
 Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['auth:sanctum']], function () {
