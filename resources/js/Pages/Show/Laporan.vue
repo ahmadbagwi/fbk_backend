@@ -2,7 +2,7 @@
   <app-layout>
     <template #header>
       <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-        Laporan
+        Laporan {{ role }}
       </h2>
     </template>
 
@@ -101,6 +101,7 @@
         props: {
           status: null,
           data: {},
+          role: null
         },
         components: {
             AppLayout,
