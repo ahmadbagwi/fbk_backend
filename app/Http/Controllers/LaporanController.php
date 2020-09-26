@@ -69,9 +69,10 @@ class LaporanController extends Controller
     public function show()
     {
       $data = Laporan::where('user_id', Auth::user()->id)->get();
-
+      $role = auth()->user()->role;
       return Inertia::render('Show/Laporan', [
-          'data' => $data
+          'data' => $data,
+          'role' => $role
       ]);
     }
 
