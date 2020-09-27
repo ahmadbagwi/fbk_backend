@@ -11,7 +11,18 @@
         <laman-admin-section>
 
           <template #laman-admin>
-
+            <download-excel
+              class   = ""
+              :data   = "data"
+              :fields = "json_fields"
+              worksheet = "biodata"
+              name    = "biodata.xls">
+              <button class="flex text-green-700 border-green-400 bg-gray-100 hover:bg-gray-200 px-1 py-1 rounded" >
+                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-paperclip" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" d="M4.5 3a2.5 2.5 0 0 1 5 0v9a1.5 1.5 0 0 1-3 0V5a.5.5 0 0 1 1 0v7a.5.5 0 0 0 1 0V3a1.5 1.5 0 1 0-3 0v9a2.5 2.5 0 0 0 5 0V5a.5.5 0 0 1 1 0v7a3.5 3.5 0 1 1-7 0V3z"/>
+                </svg>&nbsp;Export Data
+              </button> 
+            </download-excel>
             <vue-good-table
               :columns="columns"
               :rows="data"
@@ -107,123 +118,135 @@
 </template>
 
 <script>
-    import AppLayout from './../../Layouts/AppLayout'
-    import JetButton from './../../Jetstream/Button'
-    import LamanAdminSection from './../../Jetstream/LamanAdminSection'
-    import JetInput from './../../Jetstream/Input'
-    import JetInputError from './../../Jetstream/InputError'
-    import JetLabel from './../../Jetstream/Label'
-    import JetActionMessage from './../../Jetstream/ActionMessage'
-    import JetSecondaryButton from './../../Jetstream/SecondaryButton'
-    import JetSectionBorder from './../../Jetstream/SectionBorder'
+  import AppLayout from './../../Layouts/AppLayout'
+  import JetButton from './../../Jetstream/Button'
+  import LamanAdminSection from './../../Jetstream/LamanAdminSection'
+  import JetInput from './../../Jetstream/Input'
+  import JetInputError from './../../Jetstream/InputError'
+  import JetLabel from './../../Jetstream/Label'
+  import JetActionMessage from './../../Jetstream/ActionMessage'
+  import JetSecondaryButton from './../../Jetstream/SecondaryButton'
+  import JetSectionBorder from './../../Jetstream/SectionBorder'
 
-    export default {
-        props: {
-          status: null,
-          data: {},
-        },
-        components: {
-            AppLayout,
-            JetActionMessage,
-            JetButton,
-            LamanAdminSection,
-            JetInput,
-            JetInputError,
-            JetLabel,
-            JetSecondaryButton,
-            JetSectionBorder
-        },
+  export default {
+    props: {
+      status: null,
+      data: {},
+    },
+    components: {
+      AppLayout,
+      JetActionMessage,
+      JetButton,
+      LamanAdminSection,
+      JetInput,
+      JetInputError,
+      JetLabel,
+      JetSecondaryButton,
+      JetSectionBorder
+    },
 
-        data() {
-            return {
-                form: this.$inertia.form({
-                    DeleteId: null,
-                }, {
-                    bag: 'deleteData',
-                    resetOnSuccess: false,
-                }),
-                columns: [
-                  {
-                    label: 'Id',
-                    field: 'id',
-                  },
-                  {
-                    label: 'Kategori',
-                    field: 'kategori',
-                  },
-                  {
-                    label: 'Pengusul',
-                    field: 'nama_pengusul',
-                    // type: 'date',
-                    // dateInputFormat: 'yyyy-MM-dd',
-                    // dateOutputFormat: 'MMM do yy',
-                  },
-                  {
-                    label: 'Penanggung Jawab',
-                    field: 'nama_penananggungjawab',
-                  },
-                  {
-                    label: 'KTP',
-                    field: 'ktp',
-                  },
-                  {
-                    label: 'SK Kemenkumham',
-                    field: 'kemenkumham',
-                  },
-                  {
-                    label: 'Akta',
-                    field: 'akta',
-                  },
-                  {
-                    label: 'NPWP',
-                    field: 'npwp',
-                  },
-                  {
-                    label: 'Alamat',
-                    field: 'alamat',
-                  },
-                  {
-                    label: 'Provinsi',
-                    field: 'provinsi',
-                  },
-                  {
-                    label: 'Kota',
-                    field: 'kota',
-                  },
-                  {
-                    label: 'Telp',
-                    field: 'telp',
-                  },
-                  {
-                    label: 'Email',
-                    field: 'email',
-                  },
-                  {
-                    label: 'Hapus',
-                    field: 'hapus',
-                    sortable: false
-                  }
-                ],
-                options: {
-                  perPage: 100,
-                  headings: {},
-                  sortable: [],
-                  
-                }
-
-            }
+    data() {
+      return {
+        form: this.$inertia.form({
+          deleteId: null,
+        }, {
+          bag: 'deleteData',
+          resetOnSuccess: false,
+        }),
+        columns: [
+        {
+          label: 'User Id',
+          field: 'user_id',
         },
-
-        methods: {
-          deleteData(id){
-            this.form.DeleteId = id
-            console.log(this.form.DeleteId)
-            this.form.post('/admin/biodata/delete', {
-              preserveScroll: true
-            })
-          }
+        {
+          label: 'Kategori',
+          field: 'kategori',
         },
-    }
+        {
+          label: 'Pengusul',
+          field: 'nama_pengusul',
+          // type: 'date',
+          // dateInputFormat: 'yyyy-MM-dd',
+          // dateOutputFormat: 'MMM do yy',
+          },
+          {
+            label: 'Penanggung Jawab',
+            field: 'nama_penananggungjawab',
+          },
+          {
+            label: 'KTP',
+            field: 'ktp',
+          },
+          {
+            label: 'SK Kemenkumham',
+            field: 'kemenkumham',
+          },
+          {
+            label: 'Akta',
+            field: 'akta',
+          },
+          {
+            label: 'NPWP',
+            field: 'npwp',
+          },
+          {
+            label: 'Alamat',
+            field: 'alamat',
+          },
+          {
+            label: 'Provinsi',
+            field: 'provinsi',
+          },
+          {
+            label: 'Kota',
+            field: 'kota',
+          },
+          {
+            label: 'Telp',
+            field: 'telp',
+          },
+          {
+            label: 'Email',
+            field: 'email',
+          },
+          { label: 'Dibuat',
+          field: 'created_at'
+        },
+        {
+          label: 'Hapus',
+          field: 'hapus',
+          sortable: false
+        }
+        ],
+        json_fields: {
+          'User Id': 'user_id',
+          'Kategori': 'kategori',
+          'Pengusul': 'nama_pengusul',
+          'Penanggung Jawab' : 'nama_penananggungjawab',
+          'KTP' : 'ktp',
+          'SK Kemenkumham' : 'kemenkumham',
+          'Akta' : 'akta',
+          'NPWP': 'npwp',
+          'Alamat': 'alamat',
+          'Provinsi': 'provinsi',
+          'Kota': 'kota',
+          'Telp': 'telp',
+          'Email': 'email',
+          'Dibuat': 'created_at'
+        },
+      }
+    },
+
+    methods: {
+      deleteData(id){
+        this.form.deleteId = id
+        console.log(this.form.deleteId)
+        this.form.post('/admin/biodata/delete', {
+          preserveScroll: true
+        })
+      }
+    },
+  }
 </script>
 <style scoped>
   .table-font {
