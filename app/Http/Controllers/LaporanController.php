@@ -14,10 +14,21 @@ use Illuminate\Support\Facades\URL;
 use File;
 
 class LaporanController extends Controller
-{
+{ 
+    public function cek_admin()
+    {
+      if (Auth::user()->role !== 'superadmin') {
+        return abort(401);
+      }
+    }
+
     public function index()
     {
-      // superadmin
+      $this->cek_admin();
+      $data = Laporan::all();
+      return Inertia::render('Admin/Laporan', [
+        'data' => $data
+      ]);
     }
 
     public function detail()
@@ -78,6 +89,15 @@ class LaporanController extends Controller
 
     public function delete()
     {
-      // superadmin
+      $this->cek_admin();
+
+      $id = $request->deleteId;
+      if ($id) {
+        $laporan = Laporan::find($id);
+        $laporan->delete();
+        return redirect()->route('admin_laporan')->with('status', 'Sukses hapus data');
+      } else {
+        return abort(404);
+      }
     }
 }
