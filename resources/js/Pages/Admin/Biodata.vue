@@ -10,56 +10,13 @@
       <div class="max-w-7xl mx-auto py-10 sm:px-6 lg:px-8">
         <laman-admin-section>
 
-
           <template #laman-admin>
 
-            <!-- <v-client-table :data="data" :columns="columns" :options="options">
-
-              <div class="input-group-btn" slot="ktp" slot-scope="props">
-                <a :href="props.row.ktp">
-                  <button class="flex text-black-600 border border-blue-600 hover:bg-gray-200 px-4 py-2 rounded" >
-                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-cloud-download-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                      <path fill-rule="evenodd" d="M8 0a5.53 5.53 0 0 0-3.594 1.342c-.766.66-1.321 1.52-1.464 2.383C1.266 4.095 0 5.555 0 7.318 0 9.366 1.708 11 3.781 11H7.5V5.5a.5.5 0 0 1 1 0V11h4.188C14.502 11 16 9.57 16 7.773c0-1.636-1.242-2.969-2.834-3.194C12.923 1.999 10.69 0 8 0zm-.354 15.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 14.293V11h-1v3.293l-2.146-2.147a.5.5 0 0 0-.708.708l3 3z"/>
-                    </svg>&nbsp;File
-                  </button>
-                </a>
-              </div>
-
-              <div class="input-group-btn" slot="kemenkumham" slot-scope="props">
-                <a :href="props.row.kemenkumham">
-                  <button class="flex text-black-600 border border-blue-600 hover:bg-gray-200 px-4 py-2 rounded" >
-                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-cloud-download-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                      <path fill-rule="evenodd" d="M8 0a5.53 5.53 0 0 0-3.594 1.342c-.766.66-1.321 1.52-1.464 2.383C1.266 4.095 0 5.555 0 7.318 0 9.366 1.708 11 3.781 11H7.5V5.5a.5.5 0 0 1 1 0V11h4.188C14.502 11 16 9.57 16 7.773c0-1.636-1.242-2.969-2.834-3.194C12.923 1.999 10.69 0 8 0zm-.354 15.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 14.293V11h-1v3.293l-2.146-2.147a.5.5 0 0 0-.708.708l3 3z"/>
-                    </svg>&nbsp;File
-                  </button>
-                </a>
-              </div>
-
-              <div class="input-group-btn" slot="akta" slot-scope="props">
-                <a :href="props.row.akta">
-                  <button class="flex text-black-600 border border-blue-600 hover:bg-gray-200 px-4 py-2 rounded" >
-                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-cloud-download-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                      <path fill-rule="evenodd" d="M8 0a5.53 5.53 0 0 0-3.594 1.342c-.766.66-1.321 1.52-1.464 2.383C1.266 4.095 0 5.555 0 7.318 0 9.366 1.708 11 3.781 11H7.5V5.5a.5.5 0 0 1 1 0V11h4.188C14.502 11 16 9.57 16 7.773c0-1.636-1.242-2.969-2.834-3.194C12.923 1.999 10.69 0 8 0zm-.354 15.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 14.293V11h-1v3.293l-2.146-2.147a.5.5 0 0 0-.708.708l3 3z"/>
-                    </svg>&nbsp;File
-                  </button>
-                </a>
-              </div>
-
-
-              <div class="input-group-btn" slot="npwp" slot-scope="props">
-                <a :href="props.row.npwp">
-                  <button class="flex text-black-600 border border-blue-600 hover:bg-gray-200 px-4 py-2 rounded" >
-                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-cloud-download-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                      <path fill-rule="evenodd" d="M8 0a5.53 5.53 0 0 0-3.594 1.342c-.766.66-1.321 1.52-1.464 2.383C1.266 4.095 0 5.555 0 7.318 0 9.366 1.708 11 3.781 11H7.5V5.5a.5.5 0 0 1 1 0V11h4.188C14.502 11 16 9.57 16 7.773c0-1.636-1.242-2.969-2.834-3.194C12.923 1.999 10.69 0 8 0zm-.354 15.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 14.293V11h-1v3.293l-2.146-2.147a.5.5 0 0 0-.708.708l3 3z"/>
-                    </svg>&nbsp;File
-                  </button>
-                </a>
-              </div>
-            </v-client-table> -->
             <vue-good-table
               :columns="columns"
               :rows="data"
               :fixed-header="true"
+              styleClass="vgt-table text-sm"
               :search-options="{
                 enabled: true
               }"
@@ -80,21 +37,61 @@
                 pageLabel: 'page', // for 'pages' mode
                 allLabel: 'All',
               }" >
-              
+
               <template slot="table-row" slot-scope="props">
-                <span v-if="props.column.field == 'hapus'">
+                <span v-if="props.column.field == 'ktp'">
+                  <div class="input-group-btn">
+                    <button class="flex text-green-400 border-green-400 px-1 py-1 rounded" >
+                      <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-paperclip" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M4.5 3a2.5 2.5 0 0 1 5 0v9a1.5 1.5 0 0 1-3 0V5a.5.5 0 0 1 1 0v7a.5.5 0 0 0 1 0V3a1.5 1.5 0 1 0-3 0v9a2.5 2.5 0 0 0 5 0V5a.5.5 0 0 1 1 0v7a3.5 3.5 0 1 1-7 0V3z"/>
+                      </svg>&nbsp;<a :href="props.row.ktp" target="_blank">File</a>
+                    </button>
+                  </div>
+                </span>
+                <span v-else-if="props.column.field == 'kemenkumham'">
+                  <div class="input-group-btn">
+                      <button class="flex text-green-400 border-green-400  px-1 py-1 rounded" >
+                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-paperclip" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                          <path fill-rule="evenodd" d="M4.5 3a2.5 2.5 0 0 1 5 0v9a1.5 1.5 0 0 1-3 0V5a.5.5 0 0 1 1 0v7a.5.5 0 0 0 1 0V3a1.5 1.5 0 1 0-3 0v9a2.5 2.5 0 0 0 5 0V5a.5.5 0 0 1 1 0v7a3.5 3.5 0 1 1-7 0V3z"/>
+                        </svg>&nbsp;<a :href="props.row.kemenkumham" target="_blank">File</a>
+                      </button>
+                  </div>
+                </span>
+                <span v-else-if="props.column.field == 'akta'">
+                  <div class="input-group-btn">
+                      <button class="flex text-green-400 border-green-400  px-1 py-1 rounded" >
+                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-paperclip" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                          <path fill-rule="evenodd" d="M4.5 3a2.5 2.5 0 0 1 5 0v9a1.5 1.5 0 0 1-3 0V5a.5.5 0 0 1 1 0v7a.5.5 0 0 0 1 0V3a1.5 1.5 0 1 0-3 0v9a2.5 2.5 0 0 0 5 0V5a.5.5 0 0 1 1 0v7a3.5 3.5 0 1 1-7 0V3z"/>
+                        </svg>&nbsp;<a :href="props.row.akta" target="_blank">File</a>
+                      </button>
+                  </div>
+                </span>
+
+                <span v-else-if="props.column.field == 'npwp'">
+                  <div class="input-group-btn">
+                      <button class="flex text-green-400 border-green-400  px-1 py-1 rounded" >
+                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-paperclip" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                          <path fill-rule="evenodd" d="M4.5 3a2.5 2.5 0 0 1 5 0v9a1.5 1.5 0 0 1-3 0V5a.5.5 0 0 1 1 0v7a.5.5 0 0 0 1 0V3a1.5 1.5 0 1 0-3 0v9a2.5 2.5 0 0 0 5 0V5a.5.5 0 0 1 1 0v7a3.5 3.5 0 1 1-7 0V3z"/>
+                        </svg>&nbsp;<a :href="props.row.npwp" target="_blank">File</a>
+                      </button>
+                  </div>
+                </span>
+
+                <span v-else-if="props.column.field == 'hapus'">
                   <div class="input-group-btn" @click.prevent="deleteData(props.row.id)">
                       <button class="flex text-red-400 border-red-400  px-1 py-1 rounded" >
                         <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-trash text-danger" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                           <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
                           <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4L4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
-                        </svg><p class="text-sm">Hapus</p>
+                        </svg><p class="text-sm" target="_blank">Hapus</p>
                       </button>
                   </div>
                 </span>
+
                 <span v-else>
                   {{props.formattedRow[props.column.field]}}
                 </span>
+
               </template>
 
             </vue-good-table>
@@ -139,7 +136,12 @@
 
         data() {
             return {
-                //columns: ['id', 'kategori', 'nama_pengusul', 'nama_penananggungjawab', 'ktp', 'kemenkumham', 'akta', 'npwp', 'alamat', 'provinsi', 'kota', 'telp', 'email'],
+                form: this.$inertia.form({
+                    DeleteId: null,
+                }, {
+                    bag: 'deleteData',
+                    resetOnSuccess: false,
+                }),
                 columns: [
                   {
                     label: 'Id',
@@ -165,6 +167,38 @@
                     field: 'ktp',
                   },
                   {
+                    label: 'SK Kemenkumham',
+                    field: 'kemenkumham',
+                  },
+                  {
+                    label: 'Akta',
+                    field: 'akta',
+                  },
+                  {
+                    label: 'NPWP',
+                    field: 'npwp',
+                  },
+                  {
+                    label: 'Alamat',
+                    field: 'alamat',
+                  },
+                  {
+                    label: 'Provinsi',
+                    field: 'provinsi',
+                  },
+                  {
+                    label: 'Kota',
+                    field: 'kota',
+                  },
+                  {
+                    label: 'Telp',
+                    field: 'telp',
+                  },
+                  {
+                    label: 'Email',
+                    field: 'email',
+                  },
+                  {
                     label: 'Hapus',
                     field: 'hapus',
                     sortable: false
@@ -182,8 +216,17 @@
 
         methods: {
           deleteData(id){
-            console.log(id)
+            this.form.DeleteId = id
+            console.log(this.form.DeleteId)
+            this.form.post('/admin/biodata/delete', {
+              preserveScroll: true
+            })
           }
         },
     }
 </script>
+<style scoped>
+  .table-font {
+
+  }
+</style>
