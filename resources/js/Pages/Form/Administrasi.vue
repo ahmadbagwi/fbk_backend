@@ -24,7 +24,7 @@
                       <div class="input-group">
                         <jet-label for="permohonan" value="Surat Permohonan" />
                         <div class="input-group-btn">
-                          <button class="flex text-blue-600 border border-blue-600 hover:bg-gray-200 px-4 py-2 rounded" @click="openFileManager">
+                          <button class="flex text-blue-600 border border-blue-600 hover:bg-gray-200 px-4 py-2 rounded" @click.prevent="openFileManager">
                             <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-paperclip" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                               <path fill-rule="evenodd" d="M4.5 3a2.5 2.5 0 0 1 5 0v9a1.5 1.5 0 0 1-3 0V5a.5.5 0 0 1 1 0v7a.5.5 0 0 0 1 0V3a1.5 1.5 0 1 0-3 0v9a2.5 2.5 0 0 0 5 0V5a.5.5 0 0 1 1 0v7a3.5 3.5 0 1 1-7 0V3z"/>
                             </svg>Pilih/Unggah
@@ -40,7 +40,7 @@
                       <div class="input-group">
                         <jet-label for="proposal" value="Proposal" />
                         <div class="input-group-btn">
-                          <button class="flex text-blue-600 border border-blue-600 hover:bg-gray-200 px-4 py-2 rounded" @click="openFileManager2">
+                          <button class="flex text-blue-600 border border-blue-600 hover:bg-gray-200 px-4 py-2 rounded" @click.prevent="openFileManager2">
                             <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-paperclip" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                               <path fill-rule="evenodd" d="M4.5 3a2.5 2.5 0 0 1 5 0v9a1.5 1.5 0 0 1-3 0V5a.5.5 0 0 1 1 0v7a.5.5 0 0 0 1 0V3a1.5 1.5 0 1 0-3 0v9a2.5 2.5 0 0 0 5 0V5a.5.5 0 0 1 1 0v7a3.5 3.5 0 1 1-7 0V3z"/>
                             </svg>Pilih/Unggah
@@ -56,7 +56,7 @@
                       <div class="input-group">
                         <jet-label for="pertanggungjawaban" value="Surat Pertanggung Jawaban Mutlak" />
                         <div class="input-group-btn">
-                          <button class="flex text-blue-600 border border-blue-600 hover:bg-gray-200 px-4 py-2 rounded" @click="openFileManager3">
+                          <button class="flex text-blue-600 border border-blue-600 hover:bg-gray-200 px-4 py-2 rounded" @click.prevent="openFileManager3">
                             <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-paperclip" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                               <path fill-rule="evenodd" d="M4.5 3a2.5 2.5 0 0 1 5 0v9a1.5 1.5 0 0 1-3 0V5a.5.5 0 0 1 1 0v7a.5.5 0 0 0 1 0V3a1.5 1.5 0 1 0-3 0v9a2.5 2.5 0 0 0 5 0V5a.5.5 0 0 1 1 0v7a3.5 3.5 0 1 1-7 0V3z"/>
                             </svg>Pilih/Unggah
@@ -72,7 +72,7 @@
                       <div class="input-group">
                         <jet-label for="kesanggupan" value="Surat Kesanggupan Melaksanakan FBK" />
                         <div class="input-group-btn">
-                          <button class="flex text-blue-600 border border-blue-600 hover:bg-gray-200 px-4 py-2 rounded" @click="openFileManager4">
+                          <button class="flex text-blue-600 border border-blue-600 hover:bg-gray-200 px-4 py-2 rounded" @click.prevent="openFileManager4">
                             <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-paperclip" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                               <path fill-rule="evenodd" d="M4.5 3a2.5 2.5 0 0 1 5 0v9a1.5 1.5 0 0 1-3 0V5a.5.5 0 0 1 1 0v7a.5.5 0 0 0 1 0V3a1.5 1.5 0 1 0-3 0v9a2.5 2.5 0 0 0 5 0V5a.5.5 0 0 1 1 0v7a3.5 3.5 0 1 1-7 0V3z"/>
                             </svg>Pilih/Unggah
@@ -88,7 +88,7 @@
                       <div class="input-group">
                         <jet-label for="rekening" value="Foto/scan Rekening" />
                         <div class="input-group-btn">
-                          <button class="flex text-blue-600 border border-blue-600 hover:bg-gray-200 px-4 py-2 rounded" @click="openFileManager5">
+                          <button class="flex text-blue-600 border border-blue-600 hover:bg-gray-200 px-4 py-2 rounded" @click.prevent="openFileManager5">
                             <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-paperclip" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                               <path fill-rule="evenodd" d="M4.5 3a2.5 2.5 0 0 1 5 0v9a1.5 1.5 0 0 1-3 0V5a.5.5 0 0 1 1 0v7a.5.5 0 0 0 1 0V3a1.5 1.5 0 1 0-3 0v9a2.5 2.5 0 0 0 5 0V5a.5.5 0 0 1 1 0v7a3.5 3.5 0 1 1-7 0V3z"/>
                             </svg>Pilih/Unggah
@@ -104,7 +104,7 @@
                       <div class="input-group">
                         <jet-label for="npwp" value="Foto/scan NPWP" />
                         <div class="input-group-btn">
-                          <button class="flex text-blue-600 border border-blue-600 hover:bg-gray-200 px-4 py-2 rounded" @click="openFileManager6">
+                          <button class="flex text-blue-600 border border-blue-600 hover:bg-gray-200 px-4 py-2 rounded" @click.prevent="openFileManager6">
                             <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-paperclip" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                               <path fill-rule="evenodd" d="M4.5 3a2.5 2.5 0 0 1 5 0v9a1.5 1.5 0 0 1-3 0V5a.5.5 0 0 1 1 0v7a.5.5 0 0 0 1 0V3a1.5 1.5 0 1 0-3 0v9a2.5 2.5 0 0 0 5 0V5a.5.5 0 0 1 1 0v7a3.5 3.5 0 1 1-7 0V3z"/>
                             </svg>Pilih/Unggah
@@ -120,7 +120,7 @@
                       <div class="input-group">
                         <jet-label for="ktp" value="Foto/scan KTP" />
                         <div class="input-group-btn">
-                          <button class="flex text-blue-600 border border-blue-600 hover:bg-gray-200 px-4 py-2 rounded" @click="openFileManager7">
+                          <button class="flex text-blue-600 border border-blue-600 hover:bg-gray-200 px-4 py-2 rounded" @click.prevent="openFileManager7">
                             <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-paperclip" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                               <path fill-rule="evenodd" d="M4.5 3a2.5 2.5 0 0 1 5 0v9a1.5 1.5 0 0 1-3 0V5a.5.5 0 0 1 1 0v7a.5.5 0 0 0 1 0V3a1.5 1.5 0 1 0-3 0v9a2.5 2.5 0 0 0 5 0V5a.5.5 0 0 1 1 0v7a3.5 3.5 0 1 1-7 0V3z"/>
                             </svg>Pilih/Unggah
@@ -137,7 +137,7 @@
                       <div class="input-group">
                         <jet-label for="kk" value="Foto/scan KK" />
                         <div class="input-group-btn">
-                          <button class="flex text-blue-600 border border-blue-600 hover:bg-gray-200 px-4 py-2 rounded" @click="openFileManager8">
+                          <button class="flex text-blue-600 border border-blue-600 hover:bg-gray-200 px-4 py-2 rounded" @click.prevent="openFileManager8">
                             <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-paperclip" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                               <path fill-rule="evenodd" d="M4.5 3a2.5 2.5 0 0 1 5 0v9a1.5 1.5 0 0 1-3 0V5a.5.5 0 0 1 1 0v7a.5.5 0 0 0 1 0V3a1.5 1.5 0 1 0-3 0v9a2.5 2.5 0 0 0 5 0V5a.5.5 0 0 1 1 0v7a3.5 3.5 0 1 1-7 0V3z"/>
                             </svg>Pilih/Unggah
@@ -154,7 +154,7 @@
                       <div class="input-group">
                         <jet-label for="integritas" value="Pakta Integritas" />
                         <div class="input-group-btn">
-                          <button class="flex text-blue-600 border border-blue-600 hover:bg-gray-200 px-4 py-2 rounded" @click="openFileManager9">
+                          <button class="flex text-blue-600 border border-blue-600 hover:bg-gray-200 px-4 py-2 rounded" @click.prevent="openFileManager9">
                             <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-paperclip" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                               <path fill-rule="evenodd" d="M4.5 3a2.5 2.5 0 0 1 5 0v9a1.5 1.5 0 0 1-3 0V5a.5.5 0 0 1 1 0v7a.5.5 0 0 0 1 0V3a1.5 1.5 0 1 0-3 0v9a2.5 2.5 0 0 0 5 0V5a.5.5 0 0 1 1 0v7a3.5 3.5 0 1 1-7 0V3z"/>
                             </svg>Pilih/Unggah
@@ -170,7 +170,7 @@
                       <div class="input-group">
                         <jet-label for="riwayat" value="Riwayat Hidup" />
                         <div class="input-group-btn">
-                          <button class="flex text-blue-600 border border-blue-600 hover:bg-gray-200 px-4 py-2 rounded" @click="openFileManager10">
+                          <button class="flex text-blue-600 border border-blue-600 hover:bg-gray-200 px-4 py-2 rounded" @click.prevent="openFileManager10">
                             <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-paperclip" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                               <path fill-rule="evenodd" d="M4.5 3a2.5 2.5 0 0 1 5 0v9a1.5 1.5 0 0 1-3 0V5a.5.5 0 0 1 1 0v7a.5.5 0 0 0 1 0V3a1.5 1.5 0 1 0-3 0v9a2.5 2.5 0 0 0 5 0V5a.5.5 0 0 1 1 0v7a3.5 3.5 0 1 1-7 0V3z"/>
                             </svg>Pilih/Unggah
@@ -187,7 +187,7 @@
                       <div class="input-group">
                         <jet-label for="politik" value="Surat Tidak Terkait Partai Politik" />
                         <div class="input-group-btn">
-                          <button class="flex text-blue-600 border border-blue-600 hover:bg-gray-200 px-4 py-2 rounded" @click="openFileManager11">
+                          <button class="flex text-blue-600 border border-blue-600 hover:bg-gray-200 px-4 py-2 rounded" @click.prevent="openFileManager11">
                             <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-paperclip" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                               <path fill-rule="evenodd" d="M4.5 3a2.5 2.5 0 0 1 5 0v9a1.5 1.5 0 0 1-3 0V5a.5.5 0 0 1 1 0v7a.5.5 0 0 0 1 0V3a1.5 1.5 0 1 0-3 0v9a2.5 2.5 0 0 0 5 0V5a.5.5 0 0 1 1 0v7a3.5 3.5 0 1 1-7 0V3z"/>
                             </svg>Pilih/Unggah
@@ -203,7 +203,7 @@
                       <div class="input-group">
                         <jet-label for="domisili" value="Surat Keterangan Domisili" />
                         <div class="input-group-btn">
-                          <button class="flex text-blue-600 border border-blue-600 hover:bg-gray-200 px-4 py-2 rounded" @click="openFileManager12">
+                          <button class="flex text-blue-600 border border-blue-600 hover:bg-gray-200 px-4 py-2 rounded" @click.prevent="openFileManager12">
                             <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-paperclip" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                               <path fill-rule="evenodd" d="M4.5 3a2.5 2.5 0 0 1 5 0v9a1.5 1.5 0 0 1-3 0V5a.5.5 0 0 1 1 0v7a.5.5 0 0 0 1 0V3a1.5 1.5 0 1 0-3 0v9a2.5 2.5 0 0 0 5 0V5a.5.5 0 0 1 1 0v7a3.5 3.5 0 1 1-7 0V3z"/>
                             </svg>Pilih/Unggah
@@ -219,7 +219,7 @@
                       <div class="input-group">
                         <jet-label for="komunitas" value="Profil Komunitas/lembaga" />
                         <div class="input-group-btn">
-                          <button class="flex text-blue-600 border border-blue-600 hover:bg-gray-200 px-4 py-2 rounded" @click="openFileManager13">
+                          <button class="flex text-blue-600 border border-blue-600 hover:bg-gray-200 px-4 py-2 rounded" @click.prevent="openFileManager13">
                             <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-paperclip" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                               <path fill-rule="evenodd" d="M4.5 3a2.5 2.5 0 0 1 5 0v9a1.5 1.5 0 0 1-3 0V5a.5.5 0 0 1 1 0v7a.5.5 0 0 0 1 0V3a1.5 1.5 0 1 0-3 0v9a2.5 2.5 0 0 0 5 0V5a.5.5 0 0 1 1 0v7a3.5 3.5 0 1 1-7 0V3z"/>
                             </svg>Pilih/Unggah
@@ -235,7 +235,7 @@
                       <div class="input-group">
                         <jet-label for="kesekretariatan" value="Kesekretariatan" />
                         <div class="input-group-btn">
-                          <button class="flex text-blue-600 border border-blue-600 hover:bg-gray-200 px-4 py-2 rounded" @click="openFileManager14">
+                          <button class="flex text-blue-600 border border-blue-600 hover:bg-gray-200 px-4 py-2 rounded" @click.prevent="openFileManager14">
                             <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-paperclip" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                               <path fill-rule="evenodd" d="M4.5 3a2.5 2.5 0 0 1 5 0v9a1.5 1.5 0 0 1-3 0V5a.5.5 0 0 1 1 0v7a.5.5 0 0 0 1 0V3a1.5 1.5 0 1 0-3 0v9a2.5 2.5 0 0 0 5 0V5a.5.5 0 0 1 1 0v7a3.5 3.5 0 1 1-7 0V3z"/>
                             </svg>Pilih/Unggah
@@ -252,7 +252,7 @@
                       <div class="input-group">
                         <jet-label for="prestasi" value="Kegiatan & Prestasi" />
                         <div class="input-group-btn">
-                          <button class="flex text-blue-600 border border-blue-600 hover:bg-gray-200 px-4 py-2 rounded" @click="openFileManager15">
+                          <button class="flex text-blue-600 border border-blue-600 hover:bg-gray-200 px-4 py-2 rounded" @click.prevent="openFileManager15">
                             <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-paperclip" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                               <path fill-rule="evenodd" d="M4.5 3a2.5 2.5 0 0 1 5 0v9a1.5 1.5 0 0 1-3 0V5a.5.5 0 0 1 1 0v7a.5.5 0 0 0 1 0V3a1.5 1.5 0 1 0-3 0v9a2.5 2.5 0 0 0 5 0V5a.5.5 0 0 1 1 0v7a3.5 3.5 0 1 1-7 0V3z"/>
                             </svg>Pilih/Unggah
@@ -269,7 +269,7 @@
                       <div class="input-group">
                         <jet-label for="akta" value="Akta Pendirian & SK Kemenkumham" />
                         <div class="input-group-btn">
-                          <button class="flex text-blue-600 border border-blue-600 hover:bg-gray-200 px-4 py-2 rounded" @click="openFileManager16">
+                          <button class="flex text-blue-600 border border-blue-600 hover:bg-gray-200 px-4 py-2 rounded" @click.prevent="openFileManager16">
                             <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-paperclip" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                               <path fill-rule="evenodd" d="M4.5 3a2.5 2.5 0 0 1 5 0v9a1.5 1.5 0 0 1-3 0V5a.5.5 0 0 1 1 0v7a.5.5 0 0 0 1 0V3a1.5 1.5 0 1 0-3 0v9a2.5 2.5 0 0 0 5 0V5a.5.5 0 0 1 1 0v7a3.5 3.5 0 1 1-7 0V3z"/>
                             </svg>Pilih/Unggah
