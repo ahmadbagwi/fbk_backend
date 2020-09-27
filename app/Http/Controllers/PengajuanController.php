@@ -15,14 +15,30 @@ use File;
 
 class PengajuanController extends Controller
 {
+    public function cek_admin()
+    {
+      if (Auth::user()->role !== 'superadmin') {
+        return abort(401);
+      }
+    }
     public function index()
     {
-      // superadmin
+      $this->cek_admin();
+      $data = Pengajuan::all();
+      return Inertia::render('Admin/Pengajuan', [
+        'data' => $data
+      ]);
     }
 
-    public function detail()
+    public function show_admin($id)
     {
-      // superadmin
+      $this->cek_admin();
+
+      $data = Pengajuan::where('id', intval($id))->first();
+      return Inertia::render('Admin/PengajuanShow', [
+        'data' => $data
+      ]);
+      // return var_dump(intval($id));
     }
 
     public function create()
