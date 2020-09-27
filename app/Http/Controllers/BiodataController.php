@@ -14,7 +14,14 @@ class BiodataController extends Controller
 {
     public function index()
     {
-      // superadmin
+      if (Auth::user()->role !== 'superadmin') {
+        return abort(401);
+      } else {
+        $data = Biodata::all();
+        return Inertia::render('Admin/Biodata', [
+            'data' => $data
+        ]);
+      }
     }
 
     public function detail()
