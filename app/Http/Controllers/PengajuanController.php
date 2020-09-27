@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Inertia\Inertia;
 use App\Http\Requests\PengajuanRequest;
 use App\Models\Pengajuan;
+use App\Models\Biodata;
 use Illuminate\Support\Facades\Auth;
 use Session;
 use Validator;
@@ -34,11 +35,23 @@ class PengajuanController extends Controller
     {
       $this->cek_admin();
 
-      $data = Pengajuan::where('id', intval($id))->first();
+      $data = Pengajuan::where('id',intval($id))->first();
       return Inertia::render('Admin/PengajuanShow', [
         'data' => $data
       ]);
-      // return var_dump(intval($id));
+    }
+
+    public function verifikasi(Request $request)
+    {
+      $this->cek_admin();
+
+      $id = $request->id;
+      $status = $request->status;
+      $catatan = $request->catatan;
+      $pemeriksa = $request->pemeriksa;
+      $update = Pengajuan::where('id',intval($id))->update(['status' => $status, 'catatan' => $catatan, 'pemeriksa' => $pemeriksa]);
+      return redirect('admin/pengajuan/show/'.$id)->with('status', 'Sukses memperbarui pengajuan ');
+      
     }
 
     public function create()
@@ -73,7 +86,7 @@ class PengajuanController extends Controller
         if ($pengajuan) {
           return redirect()->route('pengajuan_show')->with('status', 'Sukses menyimpan data pengajuan');
         } else {
-          // return redirect()->route('dashboard')->with('status', 'Gagal menyimpan biodata akun FBK');
+          // return redirect()->route('dashboard')->with('status', 'Gagal menyimpan akun akun FBK');
           Session::flash('status', 'Gagal menyimpan data'); 
           return Session::get('status');
         }
@@ -108,8 +121,18 @@ class PengajuanController extends Controller
         return response()->json($url);
       }
     }  
-    public function delete()
+    public function delete(Request $request)
     {
-      // superadmin
+      $this->cek_admin();
+
+      $id = $request->deleteId;
+      if ($id) {
+        $pengajuan = Pengajuan::find($id);
+        $pengajuan->delete();
+        return redirect()->route('admin_pengajuan')->with('status', 'Sukses hapus data');
+      } else {
+        return abort(404);
+      }
+
     }
 }
