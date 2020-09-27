@@ -32,7 +32,9 @@ class Administrasi extends Migration
             $table->longText('kesekretariatan');
             $table->longText('prestasi');
             $table->longText('akta');
-            $table->string('status', 20)->default('pending');
+            $table->string('status', 20)->default('belum diperiksa');
+            $table->string('catatan', 100)->nullable();
+            $table->string('pemeriksa', 100)->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
