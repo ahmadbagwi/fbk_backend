@@ -57,6 +57,11 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
     Route::get('laporan/show', [LaporanController::class, 'show'])->name('laporan_show');
 
     Route::get('admin/biodata', [BiodataController::class, 'index'])->name('admin_biodata');
+    Route::post('admin/biodata/delete', [BiodataController::class, 'delete'])->name('admin_biodata_delete');
+
+    Route::get('admin/pengajuan', [PengajuanController::class, 'index'])->name('admin_pengajuan');
+    Route::get('admin/pengajuan/show/{id}', [PengajuanController::class, 'show_admin'])->name('admin_pengajuan_show');
+    Route::post('admin/pengajuan/delete', [PengajuanController::class, 'delete'])->name('admin_pengajuan_delete');
 });
 
 Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['auth:sanctum']], function () {
