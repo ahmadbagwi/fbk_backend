@@ -15,14 +15,44 @@ use File;
 
 class AdministrasiController extends Controller
 {
-    public function index()
+    public function cek_admin()
     {
-      // superadmin
+      if (Auth::user()->role !== 'superadmin') {
+        return abort(401);
+      }
     }
 
-    public function detail()
+    public function index()
     {
-      // superadmin
+      $this->cek_admin();
+      $data = Administrasi::all();
+      return Inertia::render('Admin/Administrasi', [
+        'data' => $data
+      ]);
+    }
+
+    public function show_admin($id)
+    {
+      $this->cek_admin();
+
+      $data = Administrasi::where('id',intval($id))->first();
+      return Inertia::render('Admin/AdministrasiShow', [
+        'data' => $data
+      ]);
+    }
+
+    public function verifikasi(Request $request)
+    {
+      $this->cek_admin();
+
+      $id = $request->id;
+      $status = $request->status;
+      $catatan = $request->catatan;
+      $pemeriksa = $request->pemeriksa;
+
+      $update = Administrasi::where('id',intval($id))->update(['status' => $status, 'catatan' => $catatan, 'pemeriksa' => $pemeriksa]);
+      return redirect('admin/administrasi/show/'.$id)->with('status', 'Sukses memperbarui administrasi ');
+      
     }
 
     public function create()
@@ -80,8 +110,18 @@ class AdministrasiController extends Controller
       ]);
     }
 
-    public function delete()
+    public function delete(Request $request)
     {
-      // superadmin
+      $this->cek_admin();
+
+      $id = $request->deleteId;
+      if ($id) {
+        $administrasi = Administrasi::find($id);
+        $administrasi->delete();
+        return redirect()->route('admin_administrasi')->with('status', 'Sukses hapus data');
+      } else {
+        return abort(404);
+      }
+
     }
 }
