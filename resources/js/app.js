@@ -7,10 +7,10 @@ import { InertiaForm } from 'laravel-jetstream'
 import PortalVue from 'portal-vue'
 import {ServerTable, ClientTable, Event} from 'vue-tables-2'
 import wysiwyg from "vue-wysiwyg"
-import VueGoodTablePlugin from 'vue-good-table';
-
-// import the styles 
+import VueGoodTablePlugin from 'vue-good-table'
+import JsonExcel from 'vue-json-excel'
 import 'vue-good-table/dist/vue-good-table.css'
+
 Vue.use(VueGoodTablePlugin);
 Vue.use(InertiaApp);
 Vue.use(InertiaForm);
@@ -26,6 +26,7 @@ Vue.use(wysiwyg, {
   },
    maxHeight: "500px",
 })
+Vue.component('downloadExcel', JsonExcel)
 
 const app = document.getElementById('app');
 
