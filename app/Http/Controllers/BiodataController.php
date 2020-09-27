@@ -88,10 +88,10 @@ class BiodataController extends Controller
     {
       $this->cek_admin();
 
-      $id = $request->DeleteId;
+      $id = $request->deleteId;
       if ($id) {
-        $blog = Biodata::find($id);
-        $blog->delete();
+        $biodata = Biodata::find($id);
+        $biodata->delete();
         return redirect()->route('admin_biodata')->with('status', 'Sukses hapus data');
       } else {
         return abort(404);
