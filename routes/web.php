@@ -22,6 +22,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// Route::get('/', function() {
+//   return Inertia\Inertia::render('Index');
+// })->name('landing');
+
 Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
     Route::get('dashboard', function() {
       return Inertia\Inertia::render('Dashboard');
@@ -51,6 +55,8 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
     Route::get('laporan/edit', [LaporanController::class, 'edit'])->name('laporan_edit');
     Route::post('laporan/store', [LaporanController::class, 'store'])->name('laporan_store');
     Route::get('laporan/show', [LaporanController::class, 'show'])->name('laporan_show');
+
+    Route::get('admin/biodata', [BiodataController::class, 'index'])->name('admin_biodata');
 });
 
 Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['auth:sanctum']], function () {
