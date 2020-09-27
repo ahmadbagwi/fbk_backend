@@ -28,8 +28,16 @@ Route::get('/', function () {
 
 Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
     Route::get('dashboard', function() {
-      return Inertia\Inertia::render('Dashboard');
+      if (auth()->user()->role =='user') {
+        return Inertia\Inertia::render('Dashboard');
+      } else { 
+        return redirect('admin/dashboard');
+      }
     })->name('dashboard');
+
+    Route::get('admin/dashboard', function() {
+      return Inertia\Inertia::render('AdminDashboard');
+    })->name('admin_dashboard');
     
     Route::get('filemanager', function() {
       return Inertia\Inertia::render('FileManager');
@@ -61,7 +69,15 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
 
     Route::get('admin/pengajuan', [PengajuanController::class, 'index'])->name('admin_pengajuan');
     Route::get('admin/pengajuan/show/{id}', [PengajuanController::class, 'show_admin'])->name('admin_pengajuan_show');
+    Route::post('admin/pengajuan/verifikasi', [PengajuanController::class, 'verifikasi'])->name('admin_pengajuan_verifikasi');
     Route::post('admin/pengajuan/delete', [PengajuanController::class, 'delete'])->name('admin_pengajuan_delete');
+
+    Route::get('admin/administrasi', [AdministrasiController::class, 'index'])->name('admin_administrasi');
+    Route::get('admin/administrasi/show/{id}', [AdministrasiController::class, 'show_admin'])->name('admin_administrasi_show');
+    Route::post('admin/administrasi/verifikasi', [AdministrasiController::class, 'verifikasi'])->name('admin_administrasi_verifikasi');
+    Route::post('admin/administrasi/delete', [AdministrasiController::class, 'delete'])->name('admin_administrasi_delete');
+
+    Route::get('admin/laporan', [LaporanController::class, 'index'])->name('admin_laporan');
 });
 
 Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['auth:sanctum']], function () {
