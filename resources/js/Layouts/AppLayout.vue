@@ -17,7 +17,7 @@
                             <jet-nav-link href="/dashboard" :active="$page.currentRouteName == 'dashboard'" v-if="$page.auth.user.role == 'user'">
                                 Dashboard
                             </jet-nav-link>
-                            <jet-nav-link href="admin/dashboard" :active="$page.currentRouteName == 'admin_dashboard'" v-else>
+                            <jet-nav-link href="/admin/dashboard" :active="$page.currentRouteName == 'admin_dashboard'" v-else>
                                 Dashboard
                             </jet-nav-link>
                         </div>
@@ -25,7 +25,7 @@
                             <jet-nav-link href="/biodata/show" :active="$page.currentRouteName == 'biodata_show'" v-if="$page.auth.user.role == 'user'">
                                 Biodata
                             </jet-nav-link>
-                            <jet-nav-link href="admin/biodata" :active="$page.currentRouteName == 'admin_biodata'" v-else>
+                            <jet-nav-link href="/admin/biodata" :active="$page.currentRouteName == 'admin_biodata'" v-else>
                                 Biodata
                             </jet-nav-link>
                         </div>
@@ -33,7 +33,7 @@
                             <jet-nav-link href="/pengajuan/show" :active="$page.currentRouteName == 'pengajuan_show'" v-if="$page.auth.user.role == 'user'">
                                 Pengajuan
                             </jet-nav-link>
-                            <jet-nav-link href="admin/pengajuan" :active="$page.currentRouteName == 'admin_pengajuan'" v-else>
+                            <jet-nav-link href="/admin/pengajuan" :active="$page.currentRouteName == 'admin_pengajuan'" v-else>
                                 Pengajuan
                             </jet-nav-link>
                         </div>
@@ -41,7 +41,7 @@
                             <jet-nav-link href="/administrasi/show" :active="$page.currentRouteName == 'administrasi_show'" v-if="$page.auth.user.role == 'user'">
                                 Administrasi
                             </jet-nav-link>
-                            <jet-nav-link href="admin/administrasi" :active="$page.currentRouteName == 'admin_administrasi'" v-else>
+                            <jet-nav-link href="/admin/administrasi" :active="$page.currentRouteName == 'admin_administrasi'" v-else>
                                 Administrasi
                             </jet-nav-link>
                         </div>
@@ -49,7 +49,7 @@
                             <jet-nav-link href="/laporan/show" :active="$page.currentRouteName == 'laporan_show'" v-if="$page.auth.user.role == 'user'">
                                 Laporan
                             </jet-nav-link>
-                            <jet-nav-link href="admin/laporan" :active="$page.currentRouteName == 'admin_laporan'" v-else>
+                            <jet-nav-link href="/admin/laporan" :active="$page.currentRouteName == 'admin_laporan'" v-else>
                                 Laporan
                             </jet-nav-link>
                         </div>
