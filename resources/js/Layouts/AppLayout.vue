@@ -14,27 +14,42 @@
 
                         <!-- Navigation Links -->
                         <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                            <jet-nav-link href="/dashboard" :active="$page.currentRouteName == 'dashboard'">
+                            <jet-nav-link href="/dashboard" :active="$page.currentRouteName == 'dashboard'" v-if="$page.auth.user.role == 'user'">
+                                Dashboard
+                            </jet-nav-link>
+                            <jet-nav-link href="admin/dashboard" :active="$page.currentRouteName == 'admin_dashboard'" v-else>
                                 Dashboard
                             </jet-nav-link>
                         </div>
                         <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                            <jet-nav-link href="/biodata/show" :active="$page.currentRouteName == 'biodata_show'">
+                            <jet-nav-link href="/biodata/show" :active="$page.currentRouteName == 'biodata_show'" v-if="$page.auth.user.role == 'user'">
+                                Biodata
+                            </jet-nav-link>
+                            <jet-nav-link href="admin/biodata" :active="$page.currentRouteName == 'admin_biodata'" v-else>
                                 Biodata
                             </jet-nav-link>
                         </div>
                         <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                            <jet-nav-link href="/pengajuan/show" :active="$page.currentRouteName == 'pengajuan_show'">
+                            <jet-nav-link href="/pengajuan/show" :active="$page.currentRouteName == 'pengajuan_show'" v-if="$page.auth.user.role == 'user'">
+                                Pengajuan
+                            </jet-nav-link>
+                            <jet-nav-link href="admin/pengajuan" :active="$page.currentRouteName == 'admin_pengajuan'" v-else>
                                 Pengajuan
                             </jet-nav-link>
                         </div>
                         <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                            <jet-nav-link href="/administrasi/show" :active="$page.currentRouteName == 'administrasi_show'">
+                            <jet-nav-link href="/administrasi/show" :active="$page.currentRouteName == 'administrasi_show'" v-if="$page.auth.user.role == 'user'">
+                                Administrasi
+                            </jet-nav-link>
+                            <jet-nav-link href="admin/administrasi" :active="$page.currentRouteName == 'admin_administrasi'" v-else>
                                 Administrasi
                             </jet-nav-link>
                         </div>
                         <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                            <jet-nav-link href="/laporan/show" :active="$page.currentRouteName == 'laporan_show'">
+                            <jet-nav-link href="/laporan/show" :active="$page.currentRouteName == 'laporan_show'" v-if="$page.auth.user.role == 'user'">
+                                Laporan
+                            </jet-nav-link>
+                            <jet-nav-link href="admin/laporan" :active="$page.currentRouteName == 'admin_laporan'" v-else>
                                 Laporan
                             </jet-nav-link>
                         </div>
@@ -134,19 +149,34 @@
             <!-- Responsive Navigation Menu -->
             <div :class="{'block': showingNavigationDropdown, 'hidden': ! showingNavigationDropdown}" class="sm:hidden">
                 <div class="pt-2 pb-3 space-y-1">
-                    <jet-responsive-nav-link href="/dashboard" :active="$page.currentRouteName == 'dashboard'">
+                    <jet-responsive-nav-link href="/dashboard" :active="$page.currentRouteName == 'dashboard'" v-if="$page.auth.user.role == 'user'">
                         Dashboard
                     </jet-responsive-nav-link>
-                    <jet-responsive-nav-link href="/biodata/show" :active="$page.currentRouteName == 'biodata_show'">
+                    <jet-responsive-nav-link href="/admin/dashboard" :active="$page.currentRouteName == 'admin_dashboard'" v-else>
+                        Dashboard
+                    </jet-responsive-nav-link>
+                    <jet-responsive-nav-link href="/biodata/show" :active="$page.currentRouteName == 'biodata_show'" v-if="$page.auth.user.role == 'user'">
                         Biodata
                     </jet-responsive-nav-link>
-                    <jet-responsive-nav-link href="/pengajuan/show" :active="$page.currentRouteName == 'pengajuan_show'">
+                    <jet-responsive-nav-link href="/admin/biodata" :active="$page.currentRouteName == 'admin_biodata'" v-else>
+                        Biodata
+                    </jet-responsive-nav-link>
+                    <jet-responsive-nav-link href="/pengajuan/show" :active="$page.currentRouteName == 'pengajuan_show'" v-if="$page.auth.user.role == 'user'">
                         Pengajuan
                     </jet-responsive-nav-link>
-                    <jet-responsive-nav-link href="/administrasi/show" :active="$page.currentRouteName == 'administrasi_show'">
+                    <jet-responsive-nav-link href="/admin/pengajuan" :active="$page.currentRouteName == 'admin_pengajuan'" v-else>
+                        Pengajuan
+                    </jet-responsive-nav-link>
+                    <jet-responsive-nav-link href="/administrasi/show" :active="$page.currentRouteName == 'administrasi_show'" v-if="$page.auth.user.role == 'user'">
                         Administrasi
                     </jet-responsive-nav-link>
-                    <jet-responsive-nav-link href="/laporan/show" :active="$page.currentRouteName == 'laporan_show'">
+                    <jet-responsive-nav-link href="/admin/administrasi" :active="$page.currentRouteName == 'admin_administrasi'" v-else>
+                        Administrasi
+                    </jet-responsive-nav-link>
+                    <jet-responsive-nav-link href="/laporan/show" :active="$page.currentRouteName == 'laporan_show'" v-if="$page.auth.user.role == 'user'">
+                        Laporan
+                    </jet-responsive-nav-link>
+                    <jet-responsive-nav-link href="/admin/laporan" :active="$page.currentRouteName == 'admin_laporan'" v-else>
                         Laporan
                     </jet-responsive-nav-link>
                     <jet-responsive-nav-link href="/filemanager" :active="$page.currentRouteName == 'filemanager'">
@@ -227,15 +257,21 @@
           <header class="bg-white shadow">
               <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
                   <slot name="header"></slot>
-                  <br>
-
-                  <div class="col-span-6 flex items-center bg-gray-500 text-white text-sm font-bold px-4 py-3" role="alert">
-                  <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-person-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M13.468 12.37C12.758 11.226 11.195 10 8 10s-4.757 1.225-5.468 2.37A6.987 6.987 0 0 0 8 15a6.987 6.987 0 0 0 5.468-2.63z"/>
-                    <path fill-rule="evenodd" d="M8 9a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
-                    <path fill-rule="evenodd" d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8z"/>
-                  </svg>
-                  <p>&nbsp;{{ $page.auth.user.name }}</p>
+                  <div class="col-span-6 flex items-center bg-gray-500 text-white text-sm font-bold px-4 py-3" role="alert" v-if="$page.auth.user.role == 'user'">
+                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-person-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M13.468 12.37C12.758 11.226 11.195 10 8 10s-4.757 1.225-5.468 2.37A6.987 6.987 0 0 0 8 15a6.987 6.987 0 0 0 5.468-2.63z"/>
+                      <path fill-rule="evenodd" d="M8 9a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                      <path fill-rule="evenodd" d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8z"/>
+                    </svg>
+                    <p>&nbsp;{{ $page.auth.user.name }}</p>
+                  </div>
+                  <div class="col-span-6 flex items-center bg-red-600 text-white text-sm font-bold px-4 py-3" role="alert" v-if="$page.auth.user.role == 'superadmin'">
+                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-person-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M13.468 12.37C12.758 11.226 11.195 10 8 10s-4.757 1.225-5.468 2.37A6.987 6.987 0 0 0 8 15a6.987 6.987 0 0 0 5.468-2.63z"/>
+                      <path fill-rule="evenodd" d="M8 9a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                      <path fill-rule="evenodd" d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8z"/>
+                    </svg>
+                    <p>&nbsp;{{ $page.auth.user.name }} - {{ $page.auth.user.role }}</p>
                   </div>
                   <div class="bg-green-100 border border-green-300 text-green-800 px-4 py-3 rounded relative" role="alert" v-if="$page.flash.message">
                     <strong class="font-bold">Info!</strong>
