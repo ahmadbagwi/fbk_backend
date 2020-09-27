@@ -12,16 +12,20 @@ use Validator;
 
 class BiodataController extends Controller
 {
-    public function index()
+    public function cek_admin()
     {
       if (Auth::user()->role !== 'superadmin') {
         return abort(401);
-      } else {
-        $data = Biodata::all();
-        return Inertia::render('Admin/Biodata', [
-            'data' => $data
-        ]);
       }
+    }
+
+    public function index()
+    {
+      $this->cek_admin();
+      $data = Biodata::all();
+      return Inertia::render('Admin/Biodata', [
+        'data' => $data
+      ]);
     }
 
     public function detail()
@@ -40,31 +44,6 @@ class BiodataController extends Controller
     public function store(BiodataRequest $request)
     {
         $validated = $request->validated();
-
-        // $validatedData = $request->validate([
-        //     'kategori' => 'required',
-        //     'nama_pengusul' => 'required|max:200',
-        //     'nama_penananggungjawab' => 'required|max:200',
-        //     'ktp' => 'required|max:300',
-        //     'kemenkumham' => 'required|max:300',
-        //     'akta' => 'required|max:300',
-        //     'npwp' => 'required|max:300',
-        //     'alamat' => 'required|max:300',
-        //     'provinsi' => 'required|max:300',
-        //     'kota' => 'required|max:300',
-        //     'telp' => 'required|max:15',
-        //     'email' => 'required|email|max:100'
-        // ]);
-
-        // if ($validatedData) {
-        //   return response()->json('validasi');
-          // return Session::flash('validasi', 'Sukses Validasi'); 
-          // return Session::get('status');
-        // } else {
-        //   return response()->json('gagal validasi');
-          //return Session::flash('validasi', 'Gagal Validasi'); 
-          // return Session::get('status');
-        // }
 
         $biodata = Biodata::updateOrCreate(
           [
@@ -105,8 +84,18 @@ class BiodataController extends Controller
       ]);
     }
 
-    public function delete()
+    public function delete(Request $request)
     {
-      // superadmin
+      $this->cek_admin();
+
+      $id = $request->DeleteId;
+      if ($id) {
+        $blog = Biodata::find($id);
+        $blog->delete();
+        return redirect()->route('admin_biodata')->with('status', 'Sukses hapus data');
+      } else {
+        return abort(404);
+      }
+
     }
 }
