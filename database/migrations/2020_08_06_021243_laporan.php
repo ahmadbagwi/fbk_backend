@@ -19,8 +19,8 @@ class Laporan extends Migration
             $table->date('terima');
             $table->date('mulai');
             $table->date('selesai');
-            $table->longText('laporan80');
-            $table->longText('laporan20');
+            $table->longText('laporan80')->nullable();
+            $table->longText('laporan20')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
