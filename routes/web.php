@@ -78,6 +78,7 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
     Route::post('admin/administrasi/delete', [AdministrasiController::class, 'delete'])->name('admin_administrasi_delete');
 
     Route::get('admin/laporan', [LaporanController::class, 'index'])->name('admin_laporan');
+    Route::post('admin/laporan/delete', [LaporanController::class, 'delete'])->name('admin_laporan_delete');
 });
 
 Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['auth:sanctum']], function () {

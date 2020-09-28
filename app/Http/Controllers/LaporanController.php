@@ -87,7 +87,7 @@ class LaporanController extends Controller
       ]);
     }
 
-    public function delete()
+    public function delete(Request $request)
     {
       $this->cek_admin();
 
