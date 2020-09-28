@@ -28,19 +28,19 @@
                         <option value="Komunitas">Komunitas</option>
                         <option value="Perseorangan">Perseorangan</option>
                       </select>
-                      <jet-input-error :message="form.error('kategori')" class="mt-2" />
+                      <jet-input-error :message="errors.kategori" class="mt-2" />
                     </div>
 
                     <div class="col-span-6 sm:col-span-4">
                       <jet-label for="nama_pengusul" value="Nama Pengusul" />
                       <jet-input id="nama_pengusul" type="text" class="mt-1 block w-full" v-model="form.nama_pengusul" autocomplete="nama_pengusul" />
-                      <jet-input-error :message="form.error('nama_pengusul')" class="mt-2" />
+                      <jet-input-error :message="errors.nama_pengusul" class="mt-2" />
                     </div>
 
                     <div class="col-span-6 sm:col-span-4">
-                      <jet-label for="nama_penananggungjawab" value="Nama Penananggungjawab" />
-                      <jet-input id="nama_penananggungjawab" type="text" class="mt-1 block w-full" v-model="form.nama_penananggungjawab" autocomplete="nama_penananggungjawab" />
-                      <jet-input-error :message="form.error('nama_penananggungjawab')" class="mt-2" />
+                      <jet-label for="nama_penanggungjawab" value="Nama Penananggungjawab" />
+                      <jet-input id="nama_penanggungjawab" type="text" class="mt-1 block w-full" v-model="form.nama_penanggungjawab" autocomplete="nama_penanggungjawab" />
+                      <jet-input-error :message="errors.nama_penanggungjawab" class="mt-2" />
                     </div>
 
                     <div class="col-span-6 sm:col-span-4">
@@ -57,7 +57,7 @@
                           </button>
                         </div>
                         <jet-input id="ktp" type="text" class="mt-1 block w-full bg-gray-100" v-model="form.ktp" readonly/>
-                        <jet-input-error :message="form.error('ktp')" class="mt-2" />
+                        <jet-input-error :message="errors.ktp" class="mt-2" />
                       </div>
                     </div>
                     <img class="mt-3" :src="form.ktp" />
@@ -73,7 +73,7 @@
                           </button>
                         </div>
                         <jet-input id="kemenkumham" type="text" class="mt-1 block w-full bg-gray-100" v-model="form.kemenkumham" readonly/>
-                        <jet-input-error :message="form.error('kemenkumham')" class="mt-2" />
+                        <jet-input-error :message="errors.kemenkumham" class="mt-2" />
                       </div>
                     </div>
                     <img class="mt-3" :src="form.kemenkumham" />
@@ -89,7 +89,7 @@
                           </button>
                         </div>
                         <jet-input id="akta" type="text" class="mt-1 block w-full bg-gray-100" v-model="form.akta" readonly/>
-                        <jet-input-error :message="form.error('akta')" class="mt-2" />
+                        <jet-input-error :message="errors.akta" class="mt-2" />
                       </div>
                     </div>
                     <img class="mt-3" :src="form.akta" />
@@ -105,7 +105,7 @@
                           </button>
                         </div>
                         <jet-input id="npwp" type="text" class="mt-1 block w-full bg-gray-100" v-model="form.npwp"readonly/>
-                        <jet-input-error :message="form.error('npwp')" class="mt-2" />
+                        <jet-input-error :message="errors.npwp" class="mt-2" />
                       </div>
                     </div>
                     <img class="mt-3" :src="form.npwp" />
@@ -113,37 +113,42 @@
                     <div class="col-span-6 sm:col-span-4">
                       <jet-label for="alamat" value="Alamat" />
                       <jet-input id="alamat" type="text" class="mt-1 block w-full" v-model="form.alamat" autocomplete="alamat" />
-                      <jet-input-error :message="form.error('alamat')" class="mt-2" />
+                      <jet-input-error :message="errors.alamat" class="mt-2" />
                     </div>
 
                     <div class="col-span-6 sm:col-span-4">
                       <jet-label for="provinsi" value="Provinsi" />
                       <jet-input id="provinsi" type="text" class="mt-1 block w-full" v-model="form.provinsi" autocomplete="provinsi" />
-                      <jet-input-error :message="form.error('provinsi')" class="mt-2" />
+                      <jet-input-error :message="errors.provinsi" class="mt-2" />
                     </div>
 
                     <div class="col-span-6 sm:col-span-4">
                       <jet-label for="kota" value="Kota" />
                       <jet-input id="kota" type="text" class="mt-1 block w-full" v-model="form.kota" autocomplete="kota" />
-                      <jet-input-error :message="form.error('kota')" class="mt-2" />
+                      <jet-input-error :message="errors.kota" class="mt-2" />
                     </div>
 
                     <div class="col-span-6 sm:col-span-4">
                       <jet-label for="telp" value="Telp" />
                       <jet-input id="telp" type="text" class="mt-1 block w-full" v-model="form.telp" autocomplete="telp" />
-                      <jet-input-error :message="form.error('telp')" class="mt-2" />
+                      <jet-input-error :message="errors.telp" class="mt-2" />
                     </div>
 
                     <div class="col-span-6 sm:col-span-4">
                       <jet-label for="email" value="Email" />
                       <jet-input id="email" type="email" class="mt-1 block w-full" v-model="form.email" readonly />
-                      <jet-input-error :message="form.error('email')" class="mt-2" />
+                      <jet-input-error :message="errors.email" class="mt-2" />
                     </div>
                   </template>
 
                   <template #actions>
                     <jet-action-message :on="form.recentlySuccessful" class="mr-3">
-                      Tersimpan.
+                      <span v-if="errors">
+                        Error periksa kembali input anda
+                      </span>
+                      <span v-else>
+                        Tersimpan
+                      </span>
                     </jet-action-message>
 
                     <jet-button :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
@@ -172,7 +177,8 @@
     export default {
         props: {
           message: '',
-          data: {}
+          data: {},
+          errors: {}
         },
 
         components: {
@@ -192,7 +198,7 @@
                 form: this.$inertia.form({
                     kategori: null,
                     nama_pengusul: this.$page.auth.user.name,
-                    nama_penananggungjawab: null,
+                    nama_penanggungjawab: null,
                     ktp: null,
                     kemenkumham: null,
                     akta: null,
@@ -214,7 +220,7 @@
           if (this.data !== null) {
             this.form.kategori = this.data.kategori
             this.form.nama_pengusul = this.data.nama_pengusul
-            this.form.nama_penananggungjawab = this.data.nama_penananggungjawab
+            this.form.nama_penanggungjawab = this.data.nama_penanggungjawab
             this.form.ktp = this.data.ktp
             this.form.kemenkumham = this.data.kemenkumham
             this.form.akta = this.data.akta

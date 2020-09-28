@@ -42,7 +42,7 @@
                   </tr>
                   <tr>
                     <td class="border px-4 py-2">Nama Penanggungjawab</td>
-                    <td class="border px-4 py-2">{{ data.nama_penananggungjawab }}</td>
+                    <td class="border px-4 py-2">{{ data.nama_penanggungjawab }}</td>
                   </tr>
                   <tr>
                     <td class="border px-4 py-2">KTP</td>
