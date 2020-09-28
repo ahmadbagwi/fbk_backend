@@ -28,7 +28,7 @@ class Akun extends Migration
             $table->longText('kota');
             $table->longText('telp');
             $table->string('email', 50)->unique();
-            $table->string('status', 20)->default('pending');
+            $table->string('status', 20)->default('belum diperiksa');
             $table->timestamps();
             $table->softDeletes();
         });
