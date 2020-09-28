@@ -20,23 +20,22 @@
                 </template>
 
                 <template #form>
-
                     <div class="col-span-6 sm:col-span-4">
                       <jet-label for="terima" value="Tanggal Terima Dana" />
                       <jet-input id="terima" type="date" class="mt-1 block w-full" v-model="form.terima" />
-                      <jet-input-error :message="form.error('terima')" class="mt-2" />
+                      <jet-input-error :message="errors.terima" class="mt-2" />
                     </div>
 
                     <div class="col-span-3 sm:col-span-3">
                       <jet-label for="mulai" value="Tanggal Pelaksanaan Kegiatan (mulai)" />
                       <jet-input id="mulai" type="date" class="mt-1 block w-full" v-model="form.mulai" />
-                      <jet-input-error :message="form.error('mulai')" class="mt-2" />
+                      <jet-input-error :message="errors.mulai" class="mt-2" />
                     </div>
 
                     <div class="col-span-3 sm:col-span-3">
                       <jet-label for="selesai" value="Tanggal Pelaksanaan Kegiatan (selesai)" />
                       <jet-input id="selesai" type="date" class="mt-1 block w-full" v-model="form.selesai" />
-                      <jet-input-error :message="form.error('selesai')" class="mt-2" />
+                      <jet-input-error :message="errors.selesai" class="mt-2" />
                     </div>
 
                     <div class="col-span-6 sm:col-span-4">
@@ -50,7 +49,7 @@
                           </button>
                         </div>
                         <jet-input id="laporan80" type="text" class="mt-1 block w-full bg-gray-100" v-model="form.laporan80" readonly/>
-                        <jet-input-error :message="form.error('laporan80')" class="mt-2" />
+                        <jet-input-error :message="errors.laporan80" class="mt-2" />
                       </div>
                     </div>
 
@@ -65,7 +64,7 @@
                           </button>
                         </div>
                         <jet-input id="laporan20" type="text" class="mt-1 block w-full bg-gray-100" v-model="form.laporan20" readonly/>
-                        <jet-input-error :message="form.error('laporan20')" class="mt-2" />
+                        <jet-input-error :message="errors.laporan20" class="mt-2" />
                       </div>
                     </div>
                     
@@ -73,7 +72,12 @@
 
                 <template #actions>
                   <jet-action-message :on="form.recentlySuccessful" class="mr-3">
-                    Tersimpan.
+                    <span v-if="errors">
+                      Terdapat kesalahan harap periksa kembali input anda
+                    </span>
+                    <span v-else>
+                      Tersimpan
+                    </span>
                   </jet-action-message>
 
                   <jet-button :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
@@ -104,7 +108,8 @@
     export default {
         props: {
           message: '',
-          data: {}
+          data: {},
+          errors: {}
         },
 
         components: {
