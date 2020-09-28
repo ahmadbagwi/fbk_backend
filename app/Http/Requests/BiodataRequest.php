@@ -26,7 +26,7 @@ class BiodataRequest extends FormRequest
         return [
             'kategori' => 'required',
             'nama_pengusul' => 'required|max:200',
-            'nama_penananggungjawab' => 'required|max:200',
+            'nama_penanggungjawab' => 'required|max:200',
             'ktp' => 'required|max:300',
             'kemenkumham' => 'required|max:300',
             'akta' => 'required|max:300',
@@ -44,7 +44,7 @@ class BiodataRequest extends FormRequest
         return [
             'kategori.required' => 'Kategori harus dipilih',
             'nama_pengusul.required' => 'Nama pengusul harus diisi maksimal 200 karakter',
-            'nama_penananggungjawab.required' => 'Nama penananggungjawab harus diisi maksimal 200 karakter',
+            'nama_penanggungjawab.required' => 'Nama penanggungjawab harus diisi maksimal 200 karakter',
             'ktp.required' => 'File KTP harus dipilih/diunggah',
             'kemenkumham.required' => 'File SK Kemenkumham harus dipilih/diunggah',
             'akta.required' => 'File Akta harus dipilih/diunggah',

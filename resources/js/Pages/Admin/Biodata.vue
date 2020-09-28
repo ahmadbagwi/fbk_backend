@@ -14,7 +14,6 @@
             <download-excel
               class   = ""
               :data   = "data"
-              :fields = "json_fields"
               worksheet = "biodata"
               name    = "biodata.xls">
               <button class="flex text-green-700 border-green-400 bg-gray-100 hover:bg-gray-200 px-1 py-1 rounded" >
@@ -171,7 +170,7 @@
           },
           {
             label: 'Penanggung Jawab',
-            field: 'nama_penananggungjawab',
+            field: 'nama_penanggungjawab',
           },
           {
             label: 'KTP',
@@ -222,7 +221,7 @@
           'User Id': 'user_id',
           'Kategori': 'kategori',
           'Pengusul': 'nama_pengusul',
-          'Penanggung Jawab' : 'nama_penananggungjawab',
+          'Penanggung Jawab' : 'nama_penanggungjawab',
           'KTP' : 'ktp',
           'SK Kemenkumham' : 'kemenkumham',
           'Akta' : 'akta',

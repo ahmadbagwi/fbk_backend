@@ -18,7 +18,7 @@ class Akun extends Migration
             $table->unsignedBigInteger('user_id');
             $table->longText('kategori');
             $table->longText('nama_pengusul');
-            $table->longText('nama_penananggungjawab');
+            $table->longText('nama_penanggungjawab');
             $table->longText('ktp');
             $table->longText('kemenkumham');
             $table->longText('akta');

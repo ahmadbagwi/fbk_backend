@@ -52,7 +52,7 @@ class BiodataController extends Controller
           [
             'kategori' => $request->kategori,
             'nama_pengusul' => $request->nama_pengusul,
-            'nama_penananggungjawab' => $request->nama_penananggungjawab,
+            'nama_penanggungjawab' => $request->nama_penanggungjawab,
             'ktp' => $request->ktp,
             'kemenkumham' => $request->kemenkumham,
             'akta' => $request->akta,
