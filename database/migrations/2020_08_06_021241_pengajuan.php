@@ -25,7 +25,7 @@ class Pengajuan extends Migration
             $table->longText('tahap2');
             $table->longText('biaya');
             $table->longText('rab');
-            $table->longText('video');
+            $table->longText('video')->nullable();
             $table->string('status', 20)->default('belum diperiksa');
             $table->string('catatan', 100)->nullable();
             $table->string('pemeriksa', 100)->nullable();
