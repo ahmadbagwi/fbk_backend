@@ -2,7 +2,7 @@
   <app-layout>
     <template #header>
       <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-        <h1>Selamat Datang Admin Dashboard</h1>
+        <h1>Selamat Datang Admin</h1>
       </h2>
     </template>
     <div class="py-12">
