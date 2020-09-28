@@ -59,6 +59,12 @@ return [
                 'image/svg+xml',
                 'application/pdf',
                 'text/plain',
+                'application/doc',
+                'application/docx',
+                'application/odt',
+                'application/xls',
+                'application/xlsx',
+                'application/ods',
             ],
         ],
         'image' => [
