@@ -2,7 +2,7 @@
   <app-layout>
     <template #header>
       <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-        Pengajuan
+        Verifikasi Pengajuan
       </h2>
     </template>
 
