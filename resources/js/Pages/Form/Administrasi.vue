@@ -31,7 +31,7 @@
                           </button>
                         </div>
                         <jet-input id="permohonan" type="text" class="mt-1 block w-full bg-gray-100" v-model="form.permohonan"  readonly/>
-                        <jet-input-error :message="form.error('permohonan')" class="mt-2" />
+                        <jet-input-error :message="errors.permohonan" class="mt-2" />
                       </div>
                     </div>
                     <img class="mt-3" :src="form.permohonan" />
@@ -47,7 +47,7 @@
                           </button>
                         </div>
                         <jet-input id="proposal" type="text" class="mt-1 block w-full bg-gray-100" v-model="form.proposal"  readonly/>
-                        <jet-input-error :message="form.error('proposal')" class="mt-2" />
+                        <jet-input-error :message="errors.proposal" class="mt-2" />
                       </div>
                     </div>
                     <img class="mt-3" :src="form.proposal" />
@@ -63,7 +63,7 @@
                           </button>
                         </div>
                         <jet-input id="pertanggungjawaban" type="text" class="mt-1 block w-full bg-gray-100" v-model="form.pertanggungjawaban" readonly/>
-                        <jet-input-error :message="form.error('pertanggungjawaban')" class="mt-2" />
+                        <jet-input-error :message="errors.pertanggungjawaban" class="mt-2" />
                       </div>
                     </div>
                     <img class="mt-3" :src="form.pertanggungjawaban" />
@@ -79,7 +79,7 @@
                           </button>
                         </div>
                         <jet-input id="kesanggupan" type="text" class="mt-1 block w-full bg-gray-100" v-model="form.kesanggupan" readonly/>
-                        <jet-input-error :message="form.error('kesanggupan')" class="mt-2" />
+                        <jet-input-error :message="errors.kesanggupan" class="mt-2" />
                       </div>
                     </div>
                     <img class="mt-3" :src="form.kesanggupan" />
@@ -95,7 +95,7 @@
                           </button>
                         </div>
                         <jet-input id="rekening" type="text" class="mt-1 block w-full bg-gray-100" v-model="form.rekening" readonly/>
-                        <jet-input-error :message="form.error('rekening')" class="mt-2" />
+                        <jet-input-error :message="errors.rekening" class="mt-2" />
                       </div>
                     </div>
                     <img class="mt-3" :src="form.rekening" />
@@ -111,7 +111,7 @@
                           </button>
                         </div>
                         <jet-input id="npwp" type="text" class="mt-1 block w-full bg-gray-100" v-model="form.npwp" readonly/>
-                        <jet-input-error :message="form.error('npwp')" class="mt-2" />
+                        <jet-input-error :message="errors.npwp" class="mt-2" />
                       </div>
                     </div>
                     <img class="mt-3" :src="form.npwp" />
@@ -127,7 +127,7 @@
                           </button>
                         </div>
                         <jet-input id="ktp" type="text" class="mt-1 block w-full bg-gray-100" v-model="form.ktp" readonly/>
-                        <jet-input-error :message="form.error('ktp')" class="mt-2" />
+                        <jet-input-error :message="errors.ktp" class="mt-2" />
                         <legend class="text-gray-500 text-sm">*Lembaga – organisasi   unggah KTP ketua , sekretaris, bendahara </legend>
                       </div>
                     </div>
@@ -144,7 +144,7 @@
                           </button>
                         </div>
                         <jet-input id="kk" type="text" class="mt-1 block w-full bg-gray-100" v-model="form.kk" readonly/>
-                        <jet-input-error :message="form.error('kk')" class="mt-2" />
+                        <jet-input-error :message="errors.kk" class="mt-2" />
                         <legend class="text-gray-500 text-sm">*Lembaga – organisasi   unggah KK ketua , sekretaris, bendahara </legend>
                       </div>
                     </div>
@@ -161,7 +161,7 @@
                           </button>
                         </div>
                         <jet-input id="integritas" type="text" class="mt-1 block w-full bg-gray-100" v-model="form.integritas" readonly/>
-                        <jet-input-error :message="form.error('integritas')" class="mt-2" />
+                        <jet-input-error :message="errors.integritas" class="mt-2" />
                       </div>
                     </div>
                     <img class="mt-3" :src="form.integritas" />
@@ -177,7 +177,7 @@
                           </button>
                         </div>
                         <jet-input id="riwayat" type="text" class="mt-1 block w-full bg-gray-100" v-model="form.riwayat" readonly/>
-                        <jet-input-error :message="form.error('riwayat')" class="mt-2" />
+                        <jet-input-error :message="errors.riwayat" class="mt-2" />
                         <legend class="text-gray-500 text-sm">*Lembaga – organisasi   unggah riwayat hidup ketua , sekretaris, bendahara </legend>
                       </div>
                     </div>
@@ -194,7 +194,7 @@
                           </button>
                         </div>
                         <jet-input id="politik" type="text" class="mt-1 block w-full bg-gray-100" v-model="form.politik" readonly/>
-                        <jet-input-error :message="form.error('politik')" class="mt-2" />
+                        <jet-input-error :message="errors.politik" class="mt-2" />
                       </div>
                     </div>
                     <img class="mt-3" :src="form.politik" />
@@ -210,7 +210,7 @@
                           </button>
                         </div>
                         <jet-input id="domisili" type="text" class="mt-1 block w-full bg-gray-100" v-model="form.domisili" readonly/>
-                        <jet-input-error :message="form.error('domisili')" class="mt-2" />
+                        <jet-input-error :message="errors.domisili" class="mt-2" />
                       </div>
                     </div>
                     <img class="mt-3" :src="form.domisili" />
@@ -226,7 +226,7 @@
                           </button>
                         </div>
                         <jet-input id="komunitas" type="text" class="mt-1 block w-full bg-gray-100" v-model="form.komunitas" readonly/>
-                        <jet-input-error :message="form.error('komunitas')" class="mt-2" />
+                        <jet-input-error :message="errors.komunitas" class="mt-2" />
                       </div>
                     </div>
                     <img class="mt-3" :src="form.komunitas" />
@@ -242,7 +242,7 @@
                           </button>
                         </div>
                         <jet-input id="kesekretariatan" type="text" class="mt-1 block w-full bg-gray-100" v-model="form.kesekretariatan" readonly/>
-                        <jet-input-error :message="form.error('kesekretariatan')" class="mt-2" />
+                        <jet-input-error :message="errors.kesekretariatan" class="mt-2" />
                         <legend class="text-gray-500 text-sm">*Struktur organisasi, jumlah anggota, foto sekretariat, papan nama </legend>
                       </div>
                     </div>
@@ -259,7 +259,7 @@
                           </button>
                         </div>
                         <jet-input id="prestasi" type="text" class="mt-1 block w-full bg-gray-100" v-model="form.prestasi" readonly/>
-                        <jet-input-error :message="form.error('prestasi')" class="mt-2" />
+                        <jet-input-error :message="errors.prestasi" class="mt-2" />
                         <legend class="text-gray-500 text-sm">*Foto dan lampiran prestasi </legend>
                       </div>
                     </div>
@@ -276,7 +276,7 @@
                           </button>
                         </div>
                         <jet-input id="akta" type="text" class="mt-1 block w-full bg-gray-100" v-model="form.akta" readonly/>
-                        <jet-input-error :message="form.error('akta')" class="mt-2" />
+                        <jet-input-error :message="errors.akta" class="mt-2" />
                       </div>
                     </div>
                     <img class="mt-3" :src="form.akta" />
@@ -285,7 +285,12 @@
 
                   <template #actions>
                     <jet-action-message :on="form.recentlySuccessful" class="mr-3">
-                      Tersimpan.
+                      <span v-if="errors">
+                        Error periksa kembali input anda
+                      </span>
+                      <span v-else>
+                        Tersimpan
+                      </span>
                     </jet-action-message>
 
                     <jet-button :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
@@ -318,7 +323,8 @@
     export default {
         props: {
           message: '',
-          data: {}
+          data: {},
+          errors: {}
         },
 
         components: {

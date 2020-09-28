@@ -73,13 +73,12 @@
                 <template #actions>
                   <jet-action-message :on="form.recentlySuccessful" class="mr-3">
                     <span v-if="errors">
-                      Terdapat kesalahan harap periksa kembali input anda
+                      Error periksa kembali input anda
                     </span>
                     <span v-else>
                       Tersimpan
                     </span>
                   </jet-action-message>
-
                   <jet-button :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
                     Simpan
                   </jet-button>

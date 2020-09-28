@@ -28,50 +28,49 @@
                         <option value="Pendayagunaan Ruang Publik">Pendayagunaan Ruang Publik</option>
                         <option value="Penciptaan Karya Kreatif Inovatif">Penciptaan Karya Kreatif Inovatif</option>
                       </select>
-                      <jet-input-error :message="form.error('jenis')" class="mt-2" />
+                      <jet-input-error :message="errors.jenis" class="mt-2" />
                     </div>
 
                     <div class="col-span-6 sm:col-span-4">
                       <jet-label for="judul" value="Judul" />
                       <jet-input id="judul" type="text" class="mt-1 block w-full" v-model="form.judul" autocomplete="judul" />
-                      <jet-input-error :message="form.error('judul')" class="mt-2" />
+                      <jet-input-error :message="errors.judul" class="mt-2" />
                     </div>
 
                     <div class="col-span-6 sm:col-span-4">
                       <jet-label for="konsep" value="Konsep" />
                       <wysiwyg  v-model="form.konsep"/>
-                      <!-- <jet-input id="konsep" type="text" class="mt-1 block w-full" v-model="form.konsep" autocomplete="konsep" /> -->
-                      <jet-input-error :message="form.error('konsep')" class="mt-2" />
+                      <jet-input-error :message="errors.konsep" class="mt-2" />
                     </div>
 
                     <div class="col-span-3 sm:col-span-3">
                       <jet-label for="mulai" value="Tanggal Mulai" />
                       <jet-input id="mulai" type="date" class="mt-1 block w-full" v-model="form.mulai" autocomplete="mulai" />
-                      <jet-input-error :message="form.error('mulai')" class="mt-2" />
+                      <jet-input-error :message="errors.mulai" class="mt-2" />
                     </div>
 
                     <div class="col-span-3 sm:col-span-3">
                       <jet-label for="selesai" value="Tanggal Selesai" />
                       <jet-input id="selesai" type="date" class="mt-1 block w-full" v-model="form.selesai" autocomplete="selesai" />
-                      <jet-input-error :message="form.error('selesai')" class="mt-2" />
+                      <jet-input-error :message="error.selesai" class="mt-2" />
                     </div>
 
                     <div class="col-span-6 sm:col-span-4">
                       <jet-label for="tahap1" value="Pelaksanaan Tahap 1" />
                       <wysiwyg  v-model="form.tahap1"/>
-                      <jet-input-error :message="form.error('tahap1')" class="mt-2" />
+                      <jet-input-error :message="errors.tahap1" class="mt-2" />
                     </div>
 
                     <div class="col-span-6 sm:col-span-4">
                       <jet-label for="tahap2" value="Pelaksanaan Tahap 2" />
                       <wysiwyg  v-model="form.tahap2"/>
-                      <jet-input-error :message="form.error('tahap2')" class="mt-2" />
+                      <jet-input-error :message="errors.tahap2" class="mt-2" />
                     </div>
 
                     <div class="col-span-6 sm:col-span-4">
                       <jet-label for="biaya" value="Biaya" />
                       <jet-input id="biaya" type="text" class="mt-1 block w-full" v-model="form.biaya" />
-                      <jet-input-error :message="form.error('biaya')" class="mt-2" />
+                      <jet-input-error :message="errors.biaya" class="mt-2" />
                     </div>
 
                     <div class="col-span-6 sm:col-span-4">
@@ -85,7 +84,7 @@
                           </button>
                         </div>
                         <jet-input id="rab" type="text" class="mt-1 block w-full bg-gray-100" v-model="form.rab" autocomplete="rab" readonly/>
-                        <jet-input-error :message="form.error('rab')" class="mt-2" />
+                        <jet-input-error :message="errors.rab" class="mt-2" />
                       </div>
                     </div>
                     <img class="mt-3" :src="form.rab" />
@@ -93,14 +92,19 @@
                     <div class="col-span-6 sm:col-span-4">
                       <jet-label for="video" value="Tautan Video" />
                       <jet-input id="video" type="text" class="mt-1 block w-full" v-model="form.video" />
-                      <jet-input-error :message="form.error('video')" class="mt-2" />
+                      <jet-input-error :message="errors.video" class="mt-2" />
                     </div>
                     
                 </template>
 
                 <template #actions>
                   <jet-action-message :on="form.recentlySuccessful" class="mr-3">
-                    Tersimpan.
+                    <span v-if="errors">
+                      Error periksa kembali input anda
+                    </span>
+                    <span v-else>
+                      Tersimpan
+                    </span>
                   </jet-action-message>
 
                   <jet-button :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
@@ -131,7 +135,8 @@
     export default {
         props: {
           message: '',
-          data: {}
+          data: {},
+          errors: {}
         },
 
         components: {
