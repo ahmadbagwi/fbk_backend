@@ -2,6 +2,7 @@
 
 namespace App\Handlers;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 
 class LfmConfigHandler extends \UniSharp\LaravelFilemanager\Handlers\ConfigHandler
 {
@@ -11,10 +12,10 @@ class LfmConfigHandler extends \UniSharp\LaravelFilemanager\Handlers\ConfigHandl
       $name_slug = Str::slug($name, '_');
       $role = auth()->user()->role;
 
-        if($role == "superadmin"){
-          return 'superadmin';
-        }else{
-          return 'superadmin/'.$name_slug;
-        }
+      if($role == "superadmin"){
+        return 'superadmin';
+      }else{
+        return 'superadmin/'.$name_slug;
+      }
     }
 }
