@@ -64,6 +64,17 @@ return [
                 'application/pdf',
                 'application/*',
                 'text/plain',
+                'audio/aac',
+                'video/mpeg',
+                'audio/ogg',
+                'video/ogg',
+                'video/x-msvideo',
+                'audio/wav',
+                'audio/webm',
+                'video/webm',
+                'video/3gpp',
+                'audio/*',
+                'video/mp4'
             ],
         ],
         'image' => [
