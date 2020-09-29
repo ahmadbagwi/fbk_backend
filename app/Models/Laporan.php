@@ -11,7 +11,7 @@ class Laporan extends Model
     use HasFactory, SoftDeletes;
 
     protected $table = 'laporan';
-    protected $fillable = ['user_id', 'terima', 'mulai', 'selesai', 'laporan80', 'laporan20'];
+    protected $fillable = ['user_id', 'kegiatan', 'terima', 'mulai', 'selesai', 'laporan80', 'laporan20'];
 
     public function user()
     {
