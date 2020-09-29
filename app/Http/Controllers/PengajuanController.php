@@ -25,7 +25,7 @@ class PengajuanController extends Controller
     public function index()
     {
       $this->cek_admin();
-      $data = Pengajuan::with('user')->get();
+      $data = Pengajuan::leftJoin('users', 'users.id', '=', 'pengajuan.user_id')->select('users.name', 'pengajuan.*')->get();
       return Inertia::render('Admin/Pengajuan', [
         'data' => $data
       ]);
@@ -35,7 +35,7 @@ class PengajuanController extends Controller
     {
       $this->cek_admin();
 
-      $data = Pengajuan::with('user')->where('id',intval($id))->first();
+      $data = Pengajuan::leftJoin('users', 'users.id', '=', 'pengajuan.user_id')->where('user_id', Auth::user()->id)->select('users.name', 'pengajuan.*')->first();
       return Inertia::render('Admin/PengajuanShow', [
         'data' => $data
       ]);
@@ -94,11 +94,9 @@ class PengajuanController extends Controller
 
     public function show()
     {
-      $status = Pengajuan::where('user_id', Auth::user()->id)->value('status');
-      $data = Pengajuan::where('user_id', Auth::user()->id)->latest('id')->first();
+      $data = Pengajuan::leftJoin('users', 'users.id', '=', 'pengajuan.user_id')->where('user_id', Auth::user()->id)->select('users.name', 'pengajuan.*')->first();
 
       return Inertia::render('Show/Pengajuan', [
-          'status' => $status,
           'data' => $data
       ]);
     }

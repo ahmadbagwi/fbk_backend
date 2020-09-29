@@ -25,7 +25,7 @@ class LaporanController extends Controller
     public function index()
     {
       $this->cek_admin();
-      $data = Laporan::with('user')->get();
+      $data = Laporan::leftJoin('users', 'users.id', '=', 'laporan.user_id')->select('users.name', 'laporan.*')->get();
       return Inertia::render('Admin/Laporan', [
         'data' => $data
       ]);
@@ -80,7 +80,7 @@ class LaporanController extends Controller
 
     public function show()
     {
-      $data = Laporan::with('user')->where('user_id', Auth::user()->id)->get();
+      $data = Laporan::leftJoin('users', 'users.id', '=', 'laporan.user_id')->where('user_id', Auth::user()->id)->select('users.name', 'laporan.*')->first();
       $role = auth()->user()->role;
       return Inertia::render('Show/Laporan', [
           'data' => $data,

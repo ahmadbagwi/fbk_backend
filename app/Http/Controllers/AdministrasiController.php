@@ -25,7 +25,7 @@ class AdministrasiController extends Controller
     public function index()
     {
       $this->cek_admin();
-      $data = Administrasi::with('user')->get();
+      $data = Administrasi::leftJoin('users', 'users.id', '=', 'administrasi.user_id')->select('users.name', 'administrasi.*')->get();
       return Inertia::render('Admin/Administrasi', [
         'data' => $data
       ]);
@@ -35,7 +35,7 @@ class AdministrasiController extends Controller
     {
       $this->cek_admin();
 
-      $data = Administrasi::with('user')->where('id',intval($id))->first();
+      $data = leftJoin('users', 'users.id', '=', 'administrasi.user_id')->select('users.name', 'administrasi.*')->where('id',intval($id))->first();
       return Inertia::render('Admin/AdministrasiShow', [
         'data' => $data
       ]);
@@ -101,11 +101,9 @@ class AdministrasiController extends Controller
 
     public function show()
     {
-      $status = Administrasi::where('user_id', Auth::user()->id)->value('status');
-      $data = Administrasi::where('user_id', Auth::user()->id)->latest('id')->first();
+      $data = Administrasi::leftJoin('users', 'users.id', '=', 'administrasi.user_id')->select('users.name', 'administrasi.*')->where('user_id', Auth::user()->id)->first();
 
       return Inertia::render('Show/Administrasi', [
-          'status' => $status,
           'data' => $data
       ]);
     }
