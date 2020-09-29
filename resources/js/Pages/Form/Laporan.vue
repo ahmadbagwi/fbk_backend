@@ -10,7 +10,7 @@
             <div class="max-w-7xl mx-auto py-10 sm:px-6 lg:px-8">
               <jet-form-section @submitted="submitForm">
                 <template #title>
-                  Form Pengajuan
+                  Form Laporan {{ $page.auth.user.kegiatan }}
                 </template>
 
                 <template #description>
@@ -40,7 +40,8 @@
 
                     <div class="col-span-6 sm:col-span-4">
                       <div class="input-group">
-                        <jet-label for="laporan80" value="Laporan 80%" />
+                        <jet-label for="laporan80" value="Laporan 80%" v-if="$page.auth.user.kegiatan=='FBK'"/>
+                        <jet-label for="laporan80" value="Laporan Awal" v-else />
                         <div class="input-group-btn">
                           <button class="flex ext-blue-600 border border-blue-600 hover:bg-gray-200 px-4 py-2 rounded" @click.prevent="openFileManager">
                             <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-paperclip" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -55,7 +56,8 @@
 
                     <div class="col-span-6 sm:col-span-4">
                       <div class="input-group">
-                        <jet-label for="laporan20" value="Laporan Akhir 20%" />
+                        <jet-label for="laporan20" value="Laporan Akhir 20%"  v-if="$page.auth.user.kegiatan=='FBK'"/>
+                        <jet-label for="laporan20" value="Laporan Akhir" v-else />
                         <div class="input-group-btn">
                           <button class="flex ext-blue-600 border border-blue-600 hover:bg-gray-200 px-4 py-2 rounded" @click.prevent="openFileManager2">
                             <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-paperclip" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
