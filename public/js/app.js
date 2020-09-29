@@ -3875,6 +3875,9 @@ __webpack_require__.r(__webpack_exports__);
         label: 'User Id',
         field: 'user_id'
       }, {
+        label: 'Nama',
+        field: 'user.name'
+      }, {
         label: 'Surat Permohonan',
         field: 'surat_permohonan'
       }, {
@@ -3944,6 +3947,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Jetstream_ActionMessage__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./../../Jetstream/ActionMessage */ "./resources/js/Jetstream/ActionMessage.vue");
 /* harmony import */ var _Jetstream_SecondaryButton__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./../../Jetstream/SecondaryButton */ "./resources/js/Jetstream/SecondaryButton.vue");
 /* harmony import */ var _Jetstream_SectionBorder__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./../../Jetstream/SectionBorder */ "./resources/js/Jetstream/SectionBorder.vue");
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -4690,6 +4701,9 @@ __webpack_require__.r(__webpack_exports__);
         label: 'User Id',
         field: 'user_id'
       }, {
+        label: 'Nama',
+        field: 'user.name'
+      }, {
         label: 'Tanggal Terima Dana',
         field: 'terima'
       }, {
@@ -4890,6 +4904,9 @@ __webpack_require__.r(__webpack_exports__);
         label: 'User Id',
         field: 'user_id'
       }, {
+        label: 'Nama',
+        field: 'user.name'
+      }, {
         label: 'Jenis',
         field: 'jenis'
       }, {
@@ -4960,6 +4977,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Jetstream_ActionMessage__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./../../Jetstream/ActionMessage */ "./resources/js/Jetstream/ActionMessage.vue");
 /* harmony import */ var _Jetstream_SecondaryButton__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./../../Jetstream/SecondaryButton */ "./resources/js/Jetstream/SecondaryButton.vue");
 /* harmony import */ var _Jetstream_SectionBorder__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./../../Jetstream/SectionBorder */ "./resources/js/Jetstream/SectionBorder.vue");
+//
+//
+//
+//
 //
 //
 //
@@ -6263,6 +6284,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Jetstream_ActionMessage__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./../../Jetstream/ActionMessage */ "./resources/js/Jetstream/ActionMessage.vue");
 /* harmony import */ var _Jetstream_SecondaryButton__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./../../Jetstream/SecondaryButton */ "./resources/js/Jetstream/SecondaryButton.vue");
 /* harmony import */ var _Jetstream_SectionBorder__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./../../Jetstream/SectionBorder */ "./resources/js/Jetstream/SectionBorder.vue");
+//
+//
 //
 //
 //
@@ -8215,6 +8238,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 
 
@@ -8243,64 +8272,13 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      form: this.$inertia.form({
-        kategori: '',
-        ktp: null,
-        kemenkumham: null,
-        akta: null,
-        npwp: null,
-        alamat: null,
-        provinsi: null,
-        kota: null,
-        telp: null,
-        email: this.$page.auth.user.email
-      }, {
+      form: this.$inertia.form({}, {
         bag: 'submitForm',
         resetOnSuccess: false
       })
     };
   },
   methods: {
-    openFileManager: function openFileManager() {
-      window.open("/laravel-filemanager", 'width=900,height=600');
-      var self = this;
-
-      window.SetUrl = function (items) {
-        self.form.ktp = items[0].url;
-      };
-
-      return false;
-    },
-    openFileManager2: function openFileManager2() {
-      window.open("/laravel-filemanager", 'width=900,height=600');
-      var self = this;
-
-      window.SetUrl = function (items) {
-        self.form.kemenkumham = items[0].url;
-      };
-
-      return false;
-    },
-    openFileManager3: function openFileManager3() {
-      window.open("/laravel-filemanager", 'width=900,height=600');
-      var self = this;
-
-      window.SetUrl = function (items) {
-        self.form.akta = items[0].url;
-      };
-
-      return false;
-    },
-    openFileManager4: function openFileManager4() {
-      window.open("/laravel-filemanager", 'width=900,height=600');
-      var self = this;
-
-      window.SetUrl = function (items) {
-        self.form.npwp = items[0].url;
-      };
-
-      return false;
-    },
     submitForm: function submitForm() {
       this.form.post('/biodata/store', {
         preserveScroll: true
@@ -51122,6 +51100,26 @@ var render = function() {
                           _c("div", [
                             _c("tr", [
                               _c("td", { staticClass: "border px-4 py-2" }, [
+                                _vm._v("User Id")
+                              ]),
+                              _vm._v(" "),
+                              _c("td", { staticClass: "border px-4 py-2" }, [
+                                _vm._v(_vm._s(_vm.data.user_id))
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _c("tr", [
+                              _c("td", { staticClass: "border px-4 py-2" }, [
+                                _vm._v("Nama")
+                              ]),
+                              _vm._v(" "),
+                              _c("td", { staticClass: "border px-4 py-2" }, [
+                                _vm._v(_vm._s(_vm.data.user.name))
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _c("tr", [
+                              _c("td", { staticClass: "border px-4 py-2" }, [
                                 _vm._v("Surat Permohonan")
                               ]),
                               _vm._v(" "),
@@ -53573,6 +53571,16 @@ var render = function() {
                               _vm._v(" "),
                               _c("td", { staticClass: "border px-4 py-2" }, [
                                 _vm._v(_vm._s(_vm.data.user_id))
+                              ])
+                            ]),
+                            _vm._v(" "),
+                            _c("tr", [
+                              _c("td", { staticClass: "border px-4 py-2" }, [
+                                _vm._v("Nama")
+                              ]),
+                              _vm._v(" "),
+                              _c("td", { staticClass: "border px-4 py-2" }, [
+                                _vm._v(_vm._s(_vm.data.user.name))
                               ])
                             ]),
                             _vm._v(" "),
@@ -56680,7 +56688,11 @@ var render = function() {
                   key: "title",
                   fn: function() {
                     return [
-                      _vm._v("\n              Form Pengajuan\n            ")
+                      _vm._v(
+                        "\n              Form Laporan " +
+                          _vm._s(_vm.$page.auth.user.kegiatan) +
+                          "\n            "
+                      )
                     ]
                   },
                   proxy: true
@@ -56802,9 +56814,19 @@ var render = function() {
                           "div",
                           { staticClass: "input-group" },
                           [
-                            _c("jet-label", {
-                              attrs: { for: "laporan80", value: "Laporan 80%" }
-                            }),
+                            _vm.$page.auth.user.kegiatan == "FBK"
+                              ? _c("jet-label", {
+                                  attrs: {
+                                    for: "laporan80",
+                                    value: "Laporan 80%"
+                                  }
+                                })
+                              : _c("jet-label", {
+                                  attrs: {
+                                    for: "laporan80",
+                                    value: "Laporan Awal"
+                                  }
+                                }),
                             _vm._v(" "),
                             _c("div", { staticClass: "input-group-btn" }, [
                               _c(
@@ -56877,12 +56899,19 @@ var render = function() {
                           "div",
                           { staticClass: "input-group" },
                           [
-                            _c("jet-label", {
-                              attrs: {
-                                for: "laporan20",
-                                value: "Laporan Akhir 20%"
-                              }
-                            }),
+                            _vm.$page.auth.user.kegiatan == "FBK"
+                              ? _c("jet-label", {
+                                  attrs: {
+                                    for: "laporan20",
+                                    value: "Laporan Akhir 20%"
+                                  }
+                                })
+                              : _c("jet-label", {
+                                  attrs: {
+                                    for: "laporan20",
+                                    value: "Laporan Akhir"
+                                  }
+                                }),
                             _vm._v(" "),
                             _c("div", { staticClass: "input-group-btn" }, [
                               _c(
@@ -60581,7 +60610,13 @@ var render = function() {
                 {
                   key: "title",
                   fn: function() {
-                    return [_vm._v("\n          Data Laporan\n        ")]
+                    return [
+                      _vm._v(
+                        "\n          Data Laporan " +
+                          _vm._s(_vm.$page.auth.user.kegiatan) +
+                          "\n        "
+                      )
+                    ]
                   },
                   proxy: true
                 },
@@ -60659,6 +60694,14 @@ var render = function() {
                             [
                               _c("tr", [
                                 _c("th", { staticClass: "border px-4 py-2" }, [
+                                  _vm._v("Nama")
+                                ]),
+                                _vm._v(" "),
+                                _c("th", { staticClass: "border px-4 py-2" }, [
+                                  _vm._v("Kegiatan")
+                                ]),
+                                _vm._v(" "),
+                                _c("th", { staticClass: "border px-4 py-2" }, [
                                   _vm._v("Tanggal Terima Dana")
                                 ]),
                                 _vm._v(" "),
@@ -60672,17 +60715,45 @@ var render = function() {
                                   )
                                 ]),
                                 _vm._v(" "),
-                                _c("th", { staticClass: "border px-4 py-2" }, [
-                                  _vm._v("Laporan 80%")
-                                ]),
+                                _vm.$page.auth.user.kegiatan == "FBK"
+                                  ? _c(
+                                      "th",
+                                      { staticClass: "border px-4 py-2" },
+                                      [_vm._v("Laporan 80%")]
+                                    )
+                                  : _c(
+                                      "th",
+                                      { staticClass: "border px-4 py-2" },
+                                      [_vm._v("Laporan Awal")]
+                                    ),
                                 _vm._v(" "),
-                                _c("th", { staticClass: "border px-4 py-2" }, [
-                                  _vm._v("Laporan 20%")
-                                ])
+                                _vm.$page.auth.user.kegiatan == "FBK"
+                                  ? _c(
+                                      "th",
+                                      { staticClass: "border px-4 py-2" },
+                                      [_vm._v("Laporan 20%")]
+                                    )
+                                  : _c(
+                                      "th",
+                                      { staticClass: "border px-4 py-2" },
+                                      [_vm._v("Laporan Akhir")]
+                                    )
                               ]),
                               _vm._v(" "),
                               _vm._l(_vm.data, function(item) {
                                 return _c("tr", { key: item.id }, [
+                                  _c(
+                                    "td",
+                                    { staticClass: "border px-4 py-2" },
+                                    [_vm._v(_vm._s(item.user.name))]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "td",
+                                    { staticClass: "border px-4 py-2" },
+                                    [_vm._v(_vm._s(item.kegiatan))]
+                                  ),
+                                  _vm._v(" "),
                                   _c(
                                     "td",
                                     { staticClass: "border px-4 py-2" },
