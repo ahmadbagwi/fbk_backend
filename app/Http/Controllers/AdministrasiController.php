@@ -25,7 +25,7 @@ class AdministrasiController extends Controller
     public function index()
     {
       $this->cek_admin();
-      $data = Administrasi::all();
+      $data = Administrasi::with('user')->get();
       return Inertia::render('Admin/Administrasi', [
         'data' => $data
       ]);
@@ -35,7 +35,7 @@ class AdministrasiController extends Controller
     {
       $this->cek_admin();
 
-      $data = Administrasi::where('id',intval($id))->first();
+      $data = Administrasi::with('user')->where('id',intval($id))->first();
       return Inertia::render('Admin/AdministrasiShow', [
         'data' => $data
       ]);

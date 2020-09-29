@@ -25,7 +25,7 @@ class PengajuanController extends Controller
     public function index()
     {
       $this->cek_admin();
-      $data = Pengajuan::all();
+      $data = Pengajuan::with('user')->get();
       return Inertia::render('Admin/Pengajuan', [
         'data' => $data
       ]);
@@ -35,7 +35,7 @@ class PengajuanController extends Controller
     {
       $this->cek_admin();
 
-      $data = Pengajuan::where('id',intval($id))->first();
+      $data = Pengajuan::with('user')->where('id',intval($id))->first();
       return Inertia::render('Admin/PengajuanShow', [
         'data' => $data
       ]);
