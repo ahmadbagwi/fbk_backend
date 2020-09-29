@@ -35,7 +35,7 @@ class PengajuanController extends Controller
     {
       $this->cek_admin();
 
-      $data = Pengajuan::leftJoin('users', 'users.id', '=', 'pengajuan.user_id')->where('user_id', Auth::user()->id)->select('users.name', 'pengajuan.*')->first();
+      $data = Pengajuan::leftJoin('users', 'users.id', '=', 'pengajuan.user_id')->where('pengajuan.id', $id)->select('users.name', 'pengajuan.*')->first();
       return Inertia::render('Admin/PengajuanShow', [
         'data' => $data
       ]);
