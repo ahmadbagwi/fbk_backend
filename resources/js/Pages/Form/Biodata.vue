@@ -198,7 +198,7 @@
                 form: this.$inertia.form({
                     kategori: null,
                     nama_pengusul: this.$page.auth.user.name,
-                    nama_penanggungjawab: null,
+                    nama_penanggungjawab: '',
                     ktp: null,
                     kemenkumham: null,
                     akta: null,
