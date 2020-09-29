@@ -69,7 +69,7 @@
 
                     <div class="col-span-6 sm:col-span-4">
                       <jet-label for="biaya" value="Biaya" />
-                      <jet-input id="biaya" type="text" class="mt-1 block w-full" v-model="form.biaya" />
+                      <jet-input id="biaya" type="number" class="mt-1 block w-full" v-model="form.biaya" />
                       <jet-input-error :message="errors.biaya" class="mt-2" />
                     </div>
 
