@@ -45,14 +45,14 @@
                     <!-- <th class="border px-4 py-2">Ubah</th> -->
                   </tr>
                   <tr v-for="item in data" :key="item.id">
-                    <td class="border px-4 py-2">{{ item.user.name }}</td>
+                    <td class="border px-4 py-2">{{ item.name }}</td>
                     <td class="border px-4 py-2">{{ item.kegiatan }}</td>
                     <td class="border px-4 py-2">{{ item.terima }}</td>
                     <td class="border px-4 py-2">{{ item.mulai }}</td>
                     <td class="border px-4 py-2"><span v-html="item.selesai"></span></td>
                     <td class="border px-4 py-2">
                       <div class="input-group-btn">
-                        <a :href="item.laporan80">
+                        <a :href="item.laporan80" target="_blank">
                         <button class="flex text-black-600 border border-blue-600 hover:bg-gray-200 px-4 py-2 rounded" >
                           <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-cloud-download-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" d="M8 0a5.53 5.53 0 0 0-3.594 1.342c-.766.66-1.321 1.52-1.464 2.383C1.266 4.095 0 5.555 0 7.318 0 9.366 1.708 11 3.781 11H7.5V5.5a.5.5 0 0 1 1 0V11h4.188C14.502 11 16 9.57 16 7.773c0-1.636-1.242-2.969-2.834-3.194C12.923 1.999 10.69 0 8 0zm-.354 15.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 14.293V11h-1v3.293l-2.146-2.147a.5.5 0 0 0-.708.708l3 3z"/>
@@ -62,7 +62,7 @@
                       </div>
                     </td>
                     <td class="border px-4 py-2">
-                      <div class="input-group-btn">
+                      <div class="input-group-btn" target="_blank">
                         <a :href="item.laporan20">
                         <button class="flex text-black-600 border border-blue-600 hover:bg-gray-200 px-4 py-2 rounded" >
                           <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-cloud-download-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -72,9 +72,6 @@
                         </a>
                       </div>
                     </td>
-                    <!-- <td class="border px-4 py-2">
-                      <a :href="item.id">Ubah</a>
-                    </td> -->
                   </tr>
                 </div>
               </table>
