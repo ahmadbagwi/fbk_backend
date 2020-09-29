@@ -52,7 +52,7 @@
                     <div class="col-span-3 sm:col-span-3">
                       <jet-label for="selesai" value="Tanggal Selesai" />
                       <jet-input id="selesai" type="date" class="mt-1 block w-full" v-model="form.selesai" autocomplete="selesai" />
-                      <jet-input-error :message="error.selesai" class="mt-2" />
+                      <jet-input-error :message="errors.selesai" class="mt-2" />
                     </div>
 
                     <div class="col-span-6 sm:col-span-4">
@@ -175,20 +175,16 @@
 
         created() {
           if (this.data !== null) {
-            this.form.jenis = this.data.jenis,
-            this.form.judul = this.data.judul,
-            this.form.konsep = this.data.konsep,
-            this.form.mulai = this.data.mulai,
+            this.form.jenis = this.data.jenis
+            this.form.judul = this.data.judul
+            this.form.konsep = this.data.konsep
+            this.form.mulai = this.data.mulai
             this.form.selesai = this.data.selesai
             this.form.tahap1 = this.data.tahap1
             this.form.tahap2 = this.data.tahap2
             this.form.biaya = this.data.biaya
             this.form.rab = this.data.rab
             this.form.video = this.data.video
-            // Object.keys(this.data).forEach( key => {
-            //   if ($this.form == $this.data)
-            //   this.form.key == this.data[key]
-            // })
           }
         },
         
