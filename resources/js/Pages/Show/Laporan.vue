@@ -49,7 +49,7 @@
                     <td class="border px-4 py-2">{{ item.kegiatan }}</td>
                     <td class="border px-4 py-2">{{ item.terima }}</td>
                     <td class="border px-4 py-2">{{ item.mulai }}</td>
-                    <td class="border px-4 py-2"><span v-html="item.selesai"></span></td>
+                    <td class="border px-4 py-2">{{ item.selesai }}</td>
                     <td class="border px-4 py-2">
                       <div class="input-group-btn">
                         <a :href="item.laporan80" target="_blank">
@@ -102,9 +102,7 @@
 
   export default {
     props: {
-      status: null,
       data: {},
-      role: null
     },
     components: {
       AppLayout,
