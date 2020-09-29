@@ -6,9 +6,11 @@ use Illuminate\Http\Request;
 use Inertia\Inertia;
 use App\Http\Requests\BiodataRequest;
 use App\Models\Biodata;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Session;
 use Validator;
+use Illuminate\Support\Facades\Hash;
 
 class BiodataController extends Controller
 {
@@ -16,6 +18,52 @@ class BiodataController extends Controller
     {
       if (Auth::user()->role !== 'superadmin') {
         return abort(401);
+      }
+    }
+
+    public function user()
+    {
+      $this->cek_admin();
+      $data = User::all();
+      return Inertia::render('Admin/User', [
+        'data' => $data
+      ]);
+    }
+
+    public function user_show($id)
+    {
+      $this->cek_admin();
+      $data = User::where('id', intval($id))->first();
+
+      return Inertia::render('Form/User', [
+        'data' => $data
+      ]);
+    }
+
+    public function user_update(Request $request)
+    {
+      $this->validate($request, [
+        'name' => 'required|max:50',
+        'email' => 'required|email|max:50',
+        'password' => 'required||confirmed|min:6',
+        'role' => 'required|max:50',
+        'kegiatan' => 'required|max:50',
+      ]);
+
+      $user = User::updateOrCreate(
+        [
+          'id' => $request->id
+        ],
+        [
+          'name' => $request->name,
+          'email' => $request->email,
+          'password' => Hash::make($request->password),
+          'role' => $request->role,
+          'kegiatan' => $request->kegiatan
+        ]);
+
+      if ($user) {
+        return redirect()->route('admin_user')->with('status', 'Sukses menyimpan akun');
       }
     }
 
@@ -75,12 +123,10 @@ class BiodataController extends Controller
 
     public function show()
     {
-      $status = Biodata::where('user_id', Auth::user()->id)->value('status');
       $data = Biodata::where('user_id', Auth::user()->id)->latest('id')->first();
 
       return Inertia::render('Show/Biodata', [
-          'status' => $status,
-          'data' => $data
+          'data' => $data,
       ]);
     }
 
@@ -93,6 +139,20 @@ class BiodataController extends Controller
         $biodata = Biodata::find($id);
         $biodata->delete();
         return redirect()->route('admin_biodata')->with('status', 'Sukses hapus data');
+      } else {
+        return abort(404);
+      }
+    }
+    
+    public function user_delete(Request $request)
+    {
+      $this->cek_admin();
+
+      $id = $request->deleteId;
+      if ($id) {
+        $user = User::find($id);
+        $user->delete();
+        return redirect()->route('admin_user')->with('status', 'Sukses hapus data');
       } else {
         return abort(404);
       }
