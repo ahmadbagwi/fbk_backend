@@ -192,7 +192,7 @@
         },
         {
           label: 'Nama',
-          field: 'user.name',
+          field: 'name',
         },
         {
           label: 'Surat Permohonan',

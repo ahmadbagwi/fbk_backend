@@ -24,7 +24,7 @@
                   </tr>
                   <tr>
                     <td class="border px-4 py-2">Nama</td>
-                    <td class="border px-4 py-2">{{ data.user.name }}</td>
+                    <td class="border px-4 py-2">{{ data.name }}</td>
                   </tr>
                   <tr>
                     <td class="border px-4 py-2">Surat Permohonan</td>
