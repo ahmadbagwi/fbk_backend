@@ -10,7 +10,7 @@
       <div class="max-w-7xl mx-auto py-10 sm:px-6 lg:px-8">
         <laman-section>
           <template #title>
-            Data Laporan
+            Data Laporan {{ $page.auth.user.kegiatan }}
           </template>
 
           <template #description>
@@ -33,14 +33,20 @@
               <table class="table-auto">
                 <div>
                   <tr>
+                    <th class="border px-4 py-2">Nama</th>
+                    <th class="border px-4 py-2">Kegiatan</th>
                     <th class="border px-4 py-2">Tanggal Terima Dana</th>
                     <th class="border px-4 py-2">Tanggal Pelaksanaan Kegiatan (mulai)</th>
                     <th class="border px-4 py-2">Tanggal Pelaksanaan Kegiatan (selesai)</th>
-                    <th class="border px-4 py-2">Laporan 80%</th>
-                    <th class="border px-4 py-2">Laporan 20%</th>
+                    <th class="border px-4 py-2" v-if="$page.auth.user.kegiatan=='FBK'">Laporan 80%</th>
+                    <th class="border px-4 py-2" v-else>Laporan Awal</th>
+                    <th class="border px-4 py-2" v-if="$page.auth.user.kegiatan=='FBK'">Laporan 20%</th>
+                    <th class="border px-4 py-2" v-else>Laporan Akhir</th>
                     <!-- <th class="border px-4 py-2">Ubah</th> -->
                   </tr>
                   <tr v-for="item in data" :key="item.id">
+                    <td class="border px-4 py-2">{{ item.user.name }}</td>
+                    <td class="border px-4 py-2">{{ item.kegiatan }}</td>
                     <td class="border px-4 py-2">{{ item.terima }}</td>
                     <td class="border px-4 py-2">{{ item.mulai }}</td>
                     <td class="border px-4 py-2"><span v-html="item.selesai"></span></td>
@@ -87,97 +93,54 @@
 </template>
 
 <script>
-    import AppLayout from './../../Layouts/AppLayout'
-    import JetButton from './../../Jetstream/Button'
-    import LamanSection from './../../Jetstream/LamanSection'
-    import JetInput from './../../Jetstream/Input'
-    import JetInputError from './../../Jetstream/InputError'
-    import JetLabel from './../../Jetstream/Label'
-    import JetActionMessage from './../../Jetstream/ActionMessage'
-    import JetSecondaryButton from './../../Jetstream/SecondaryButton'
-    import JetSectionBorder from './../../Jetstream/SectionBorder'
+  import AppLayout from './../../Layouts/AppLayout'
+  import JetButton from './../../Jetstream/Button'
+  import LamanSection from './../../Jetstream/LamanSection'
+  import JetInput from './../../Jetstream/Input'
+  import JetInputError from './../../Jetstream/InputError'
+  import JetLabel from './../../Jetstream/Label'
+  import JetActionMessage from './../../Jetstream/ActionMessage'
+  import JetSecondaryButton from './../../Jetstream/SecondaryButton'
+  import JetSectionBorder from './../../Jetstream/SectionBorder'
 
-    export default {
-        props: {
-          status: null,
-          data: {},
-          role: null
-        },
-        components: {
-            AppLayout,
-            JetActionMessage,
-            JetButton,
-            LamanSection,
-            JetInput,
-            JetInputError,
-            JetLabel,
-            JetSecondaryButton,
-            JetSectionBorder
-        },
+  export default {
+    props: {
+      status: null,
+      data: {},
+      role: null
+    },
+    components: {
+      AppLayout,
+      JetActionMessage,
+      JetButton,
+      LamanSection,
+      JetInput,
+      JetInputError,
+      JetLabel,
+      JetSecondaryButton,
+      JetSectionBorder
+    },
 
-        data() {
-            return {
-                form: this.$inertia.form({
-                    kategori: '',
-                    ktp: null,
-                    kemenkumham: null,
-                    akta: null,
-                    npwp: null,
-                    alamat: null,
-                    provinsi: null,
-                    kota: null,
-                    telp: null,
-                    email: this.$page.auth.user.email
-                }, {
-                    bag: 'submitForm',
-                    resetOnSuccess: false,
-                }),
+    data() {
+      return {
+        form: this.$inertia.form({
 
-            }
-        },
+        }, {
+          bag: 'submitForm',
+          resetOnSuccess: false,
+        }),
 
-        methods: {
-          openFileManager () {
-            window.open(`/laravel-filemanager`, 'width=900,height=600')
-            var self = this
-            window.SetUrl = function (items) {
-              self.form.ktp = items[0].url
-            }
-            return false
-          },
+      }
+    },
 
-          openFileManager2 () {
-            window.open(`/laravel-filemanager`, 'width=900,height=600')
-            var self = this
-            window.SetUrl = function (items) {
-              self.form.kemenkumham = items[0].url
-            }
-            return false
-          },
+    methods: {
 
-          openFileManager3 () {
-            window.open(`/laravel-filemanager`, 'width=900,height=600')
-            var self = this
-            window.SetUrl = function (items) {
-              self.form.akta = items[0].url
-            }
-            return false
-          },
 
-          openFileManager4 () {
-            window.open(`/laravel-filemanager`, 'width=900,height=600')
-            var self = this
-            window.SetUrl = function (items) {
-              self.form.npwp = items[0].url
-            }
-            return false
-          },
-
-          submitForm() {
-            this.form.post('/biodata/store', {
-              preserveScroll: true
-            })
-          }
-        },
-    }
+      submitForm() {
+        this.form.post('/biodata/store', {
+          preserveScroll: true
+        })
+      }
+    },
+  }
 </script>
