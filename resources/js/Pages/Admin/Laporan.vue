@@ -113,7 +113,6 @@
 
   export default {
     props: {
-      status: null,
       data: {},
     },
     components: {
@@ -143,7 +142,11 @@
         },
         {
           label: 'Nama',
-          field: 'user.name',
+          field: 'name',
+        },
+        {
+          label: 'Kegiatan',
+          field: 'kegiatan',
         },
         {
           label: 'Tanggal Terima Dana',
