@@ -129,7 +129,6 @@
 
   export default {
     props: {
-      status: null,
       data: {},
     },
     components: {
