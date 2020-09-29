@@ -13,7 +13,7 @@
                         </div>
 
                         <!-- Navigation Links -->
-                        <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                        <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex" v-if="$page.auth.user.kegiatan == 'FBK'">
                             <jet-nav-link href="/dashboard" :active="$page.currentRouteName == 'dashboard'" v-if="$page.auth.user.role == 'user'">
                                 Dashboard
                             </jet-nav-link>
@@ -21,7 +21,7 @@
                                 Dashboard
                             </jet-nav-link>
                         </div>
-                        <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                        <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex" v-if="$page.auth.user.kegiatan == 'FBK'">
                             <jet-nav-link href="/biodata/show" :active="$page.currentRouteName == 'biodata_show'" v-if="$page.auth.user.role == 'user'">
                                 Biodata
                             </jet-nav-link>
@@ -29,7 +29,7 @@
                                 Biodata
                             </jet-nav-link>
                         </div>
-                        <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                        <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex" v-if="$page.auth.user.kegiatan == 'FBK'">
                             <jet-nav-link href="/pengajuan/show" :active="$page.currentRouteName == 'pengajuan_show'" v-if="$page.auth.user.role == 'user'">
                                 Pengajuan
                             </jet-nav-link>
@@ -37,7 +37,7 @@
                                 Pengajuan
                             </jet-nav-link>
                         </div>
-                        <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                        <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex" v-if="$page.auth.user.kegiatan == 'FBK'">
                             <jet-nav-link href="/administrasi/show" :active="$page.currentRouteName == 'administrasi_show'" v-if="$page.auth.user.role == 'user'">
                                 Administrasi
                             </jet-nav-link>
