@@ -35,7 +35,7 @@ class AdministrasiController extends Controller
     {
       $this->cek_admin();
 
-      $data = leftJoin('users', 'users.id', '=', 'administrasi.user_id')->select('users.name', 'administrasi.*')->where('id',intval($id))->first();
+      $data = Administrasi::leftJoin('users', 'users.id', '=', 'administrasi.user_id')->select('users.name', 'administrasi.*')->where('administrasi.id',intval($id))->first();
       return Inertia::render('Admin/AdministrasiShow', [
         'data' => $data
       ]);
