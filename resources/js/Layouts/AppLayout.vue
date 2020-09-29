@@ -58,6 +58,11 @@
                                 File Manager
                             </jet-nav-link>
                         </div>
+                        <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex" v-if="$page.auth.user.role == 'superadmin'">
+                            <jet-nav-link href="/admin/user" :active="$page.currentRouteName == 'admin_user'">
+                                User
+                            </jet-nav-link>
+                        </div>
                         
                     </div>
 
