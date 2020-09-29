@@ -2974,6 +2974,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -3876,7 +3879,7 @@ __webpack_require__.r(__webpack_exports__);
         field: 'user_id'
       }, {
         label: 'Nama',
-        field: 'user.name'
+        field: 'name'
       }, {
         label: 'Surat Permohonan',
         field: 'surat_permohonan'
@@ -4441,7 +4444,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
-    status: null,
     data: {}
   },
   components: {
@@ -4675,7 +4677,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
-    status: null,
     data: {}
   },
   components: {
@@ -4702,7 +4703,10 @@ __webpack_require__.r(__webpack_exports__);
         field: 'user_id'
       }, {
         label: 'Nama',
-        field: 'user.name'
+        field: 'name'
+      }, {
+        label: 'Kegiatan',
+        field: 'kegiatan'
       }, {
         label: 'Tanggal Terima Dana',
         field: 'terima'
@@ -4905,7 +4909,7 @@ __webpack_require__.r(__webpack_exports__);
         field: 'user_id'
       }, {
         label: 'Nama',
-        field: 'user.name'
+        field: 'name'
       }, {
         label: 'Jenis',
         field: 'jenis'
@@ -5119,7 +5123,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
-    status: null,
     data: {}
   },
   components: {
@@ -7768,11 +7771,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
 
 
 
@@ -7800,66 +7798,13 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      form: this.$inertia.form({
-        kategori: '',
-        nama_pengusul: this.$page.auth.user.name,
-        nama_penananggungjawab: null,
-        ktp: null,
-        kemenkumham: null,
-        akta: null,
-        npwp: null,
-        alamat: null,
-        provinsi: null,
-        kota: null,
-        telp: null,
-        email: this.$page.auth.user.email
-      }, {
+      form: this.$inertia.form({}, {
         bag: 'submitForm',
         resetOnSuccess: false
       })
     };
   },
   methods: {
-    openFileManager: function openFileManager() {
-      window.open("/laravel-filemanager", 'width=900,height=600');
-      var self = this;
-
-      window.SetUrl = function (items) {
-        self.form.ktp = items[0].url;
-      };
-
-      return false;
-    },
-    openFileManager2: function openFileManager2() {
-      window.open("/laravel-filemanager", 'width=900,height=600');
-      var self = this;
-
-      window.SetUrl = function (items) {
-        self.form.kemenkumham = items[0].url;
-      };
-
-      return false;
-    },
-    openFileManager3: function openFileManager3() {
-      window.open("/laravel-filemanager", 'width=900,height=600');
-      var self = this;
-
-      window.SetUrl = function (items) {
-        self.form.akta = items[0].url;
-      };
-
-      return false;
-    },
-    openFileManager4: function openFileManager4() {
-      window.open("/laravel-filemanager", 'width=900,height=600');
-      var self = this;
-
-      window.SetUrl = function (items) {
-        self.form.npwp = items[0].url;
-      };
-
-      return false;
-    },
     submitForm: function submitForm() {
       this.form.post('/biodata/store', {
         preserveScroll: true
@@ -8026,15 +7971,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -8062,66 +7998,13 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      form: this.$inertia.form({
-        kategori: '',
-        nama_pengusul: this.$page.auth.user.name,
-        nama_penananggungjawab: null,
-        ktp: null,
-        kemenkumham: null,
-        akta: null,
-        npwp: null,
-        alamat: null,
-        provinsi: null,
-        kota: null,
-        telp: null,
-        email: this.$page.auth.user.email
-      }, {
+      form: this.$inertia.form({}, {
         bag: 'submitForm',
         resetOnSuccess: false
       })
     };
   },
   methods: {
-    openFileManager: function openFileManager() {
-      window.open("/laravel-filemanager", 'width=900,height=600');
-      var self = this;
-
-      window.SetUrl = function (items) {
-        self.form.ktp = items[0].url;
-      };
-
-      return false;
-    },
-    openFileManager2: function openFileManager2() {
-      window.open("/laravel-filemanager", 'width=900,height=600');
-      var self = this;
-
-      window.SetUrl = function (items) {
-        self.form.kemenkumham = items[0].url;
-      };
-
-      return false;
-    },
-    openFileManager3: function openFileManager3() {
-      window.open("/laravel-filemanager", 'width=900,height=600');
-      var self = this;
-
-      window.SetUrl = function (items) {
-        self.form.akta = items[0].url;
-      };
-
-      return false;
-    },
-    openFileManager4: function openFileManager4() {
-      window.open("/laravel-filemanager", 'width=900,height=600');
-      var self = this;
-
-      window.SetUrl = function (items) {
-        self.form.npwp = items[0].url;
-      };
-
-      return false;
-    },
     submitForm: function submitForm() {
       this.form.post('/biodata/store', {
         preserveScroll: true
@@ -8150,9 +8033,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Jetstream_ActionMessage__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./../../Jetstream/ActionMessage */ "./resources/js/Jetstream/ActionMessage.vue");
 /* harmony import */ var _Jetstream_SecondaryButton__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./../../Jetstream/SecondaryButton */ "./resources/js/Jetstream/SecondaryButton.vue");
 /* harmony import */ var _Jetstream_SectionBorder__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./../../Jetstream/SectionBorder */ "./resources/js/Jetstream/SectionBorder.vue");
-//
-//
-//
 //
 //
 //
@@ -8411,11 +8291,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
 
 
 
@@ -8443,66 +8318,13 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      form: this.$inertia.form({
-        kategori: '',
-        nama_pengusul: this.$page.auth.user.name,
-        nama_penananggungjawab: null,
-        ktp: null,
-        kemenkumham: null,
-        akta: null,
-        npwp: null,
-        alamat: null,
-        provinsi: null,
-        kota: null,
-        telp: null,
-        email: this.$page.auth.user.email
-      }, {
+      form: this.$inertia.form({}, {
         bag: 'submitForm',
         resetOnSuccess: false
       })
     };
   },
   methods: {
-    openFileManager: function openFileManager() {
-      window.open("/laravel-filemanager", 'width=900,height=600');
-      var self = this;
-
-      window.SetUrl = function (items) {
-        self.form.ktp = items[0].url;
-      };
-
-      return false;
-    },
-    openFileManager2: function openFileManager2() {
-      window.open("/laravel-filemanager", 'width=900,height=600');
-      var self = this;
-
-      window.SetUrl = function (items) {
-        self.form.kemenkumham = items[0].url;
-      };
-
-      return false;
-    },
-    openFileManager3: function openFileManager3() {
-      window.open("/laravel-filemanager", 'width=900,height=600');
-      var self = this;
-
-      window.SetUrl = function (items) {
-        self.form.akta = items[0].url;
-      };
-
-      return false;
-    },
-    openFileManager4: function openFileManager4() {
-      window.open("/laravel-filemanager", 'width=900,height=600');
-      var self = this;
-
-      window.SetUrl = function (items) {
-        self.form.npwp = items[0].url;
-      };
-
-      return false;
-    },
     submitForm: function submitForm() {
       this.form.post('/biodata/store', {
         preserveScroll: true
@@ -48299,7 +48121,31 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _vm._m(0),
+    _c(
+      "div",
+      { staticClass: "p-6 sm:px-20 bg-white border-b border-gray-200" },
+      [
+        _c("div", [
+          _c("h1", { staticClass: "text-lg text-gray-600" }, [
+            _vm._v("Dashboard " + _vm._s(_vm.$page.auth.user.kegiatan))
+          ])
+        ]),
+        _vm._v(" "),
+        _vm.$page.auth.user.kegiatan == "FBK"
+          ? _c("div", { staticClass: "mt-6 text-gray-500" }, [
+              _vm._v(
+                "\n            Pada halaman dashboard ini anda dapat melakukan pengisian kelengkapan data dan melihat status verifikasi setiap formulir.\n        "
+              )
+            ])
+          : _c("div", { staticClass: "mt-6 text-gray-500" }, [
+              _vm._v(
+                "\n            Pada halaman dashboard ini anda dapat melakukan pengisian laporan kegiatan " +
+                  _vm._s(_vm.$page.auth.user.kegiatan) +
+                  "\n        "
+              )
+            ])
+      ]
+    ),
     _vm._v(" "),
     _c(
       "div",
@@ -48307,173 +48153,163 @@ var render = function() {
         staticClass: "bg-gray-200 bg-opacity-25 grid grid-cols-1 md:grid-cols-2"
       },
       [
-        _c("div", { staticClass: "p-6" }, [
-          _c("div", { staticClass: "flex items-center" }, [
-            _c(
-              "svg",
-              {
-                staticClass: "w-8 h-8 text-gray-400",
-                attrs: {
-                  fill: "none",
-                  stroke: "currentColor",
-                  "stroke-linecap": "round",
-                  "stroke-linejoin": "round",
-                  "stroke-width": "2",
-                  viewBox: "0 0 24 24"
-                }
-              },
-              [
-                _c("path", {
-                  attrs: {
-                    d:
-                      "M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
-                  }
-                })
-              ]
-            ),
-            _vm._v(" "),
-            _vm._m(1)
-          ]),
-          _vm._v(" "),
-          _vm._m(2)
-        ]),
-        _vm._v(" "),
-        _c(
-          "div",
-          {
-            staticClass:
-              "p-6 border-t border-gray-200 md:border-t-0 md:border-l"
-          },
-          [
-            _c("div", { staticClass: "flex items-center" }, [
-              _c(
-                "svg",
-                {
-                  staticClass: "w-8 h-8 text-gray-400",
-                  attrs: {
-                    fill: "none",
-                    stroke: "currentColor",
-                    "stroke-linecap": "round",
-                    "stroke-linejoin": "round",
-                    "stroke-width": "2",
-                    viewBox: "0 0 24 24"
-                  }
-                },
-                [
-                  _c("path", {
+        _vm.$page.auth.user.kegiatan == "FBK"
+          ? _c("div", { staticClass: "p-6" }, [
+              _c("div", { staticClass: "flex items-center" }, [
+                _c(
+                  "svg",
+                  {
+                    staticClass: "w-8 h-8 text-gray-400",
                     attrs: {
-                      d:
-                        "M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"
+                      fill: "none",
+                      stroke: "currentColor",
+                      "stroke-linecap": "round",
+                      "stroke-linejoin": "round",
+                      "stroke-width": "2",
+                      viewBox: "0 0 24 24"
                     }
-                  }),
-                  _c("path", {
-                    attrs: { d: "M15 13a3 3 0 11-6 0 3 3 0 016 0z" }
-                  })
-                ]
-              ),
+                  },
+                  [
+                    _c("path", {
+                      attrs: {
+                        d:
+                          "M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
+                      }
+                    })
+                  ]
+                ),
+                _vm._v(" "),
+                _vm._m(0)
+              ]),
               _vm._v(" "),
-              _vm._m(3)
-            ]),
-            _vm._v(" "),
-            _vm._m(4)
-          ]
-        ),
+              _vm._m(1)
+            ])
+          : _vm._e(),
         _vm._v(" "),
-        _c("div", { staticClass: "p-6 border-t border-gray-200" }, [
-          _c("div", { staticClass: "flex items-center" }, [
-            _c(
-              "svg",
-              {
-                staticClass: "w-8 h-8 text-gray-400",
-                attrs: {
-                  fill: "none",
-                  stroke: "currentColor",
-                  "stroke-linecap": "round",
-                  "stroke-linejoin": "round",
-                  "stroke-width": "2",
-                  viewBox: "0 0 24 24"
-                }
-              },
-              [
-                _c("path", {
-                  attrs: {
-                    d:
-                      "M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
-                  }
-                })
-              ]
-            ),
-            _vm._v(" "),
-            _vm._m(5)
-          ]),
-          _vm._v(" "),
-          _vm._m(6)
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "p-6 border-t border-gray-200 md:border-l" }, [
-          _c("div", { staticClass: "flex items-center" }, [
-            _c(
-              "svg",
-              {
-                staticClass: "w-8 h-8 text-gray-400",
-                attrs: {
-                  fill: "none",
-                  stroke: "currentColor",
-                  "stroke-linecap": "round",
-                  "stroke-linejoin": "round",
-                  "stroke-width": "2",
-                  viewBox: "0 0 24 24"
-                }
-              },
-              [
-                _c("path", {
-                  attrs: {
-                    d:
-                      "M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
-                  }
-                })
-              ]
-            ),
-            _vm._v(" "),
-            _c(
+        _vm.$page.auth.user.kegiatan == "FBK"
+          ? _c(
               "div",
               {
                 staticClass:
-                  "ml-4 text-lg text-gray-600 leading-7 font-semibold"
+                  "p-6 border-t border-gray-200 md:border-t-0 md:border-l"
               },
-              [_vm._v("Menu Laporan")]
+              [
+                _c("div", { staticClass: "flex items-center" }, [
+                  _c(
+                    "svg",
+                    {
+                      staticClass: "w-8 h-8 text-gray-400",
+                      attrs: {
+                        fill: "none",
+                        stroke: "currentColor",
+                        "stroke-linecap": "round",
+                        "stroke-linejoin": "round",
+                        "stroke-width": "2",
+                        viewBox: "0 0 24 24"
+                      }
+                    },
+                    [
+                      _c("path", {
+                        attrs: {
+                          d:
+                            "M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"
+                        }
+                      }),
+                      _c("path", {
+                        attrs: { d: "M15 13a3 3 0 11-6 0 3 3 0 016 0z" }
+                      })
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _vm._m(2)
+                ]),
+                _vm._v(" "),
+                _vm._m(3)
+              ]
             )
-          ]),
-          _vm._v(" "),
-          _vm._m(7)
-        ])
+          : _vm._e(),
+        _vm._v(" "),
+        _vm.$page.auth.user.kegiatan == "FBK"
+          ? _c("div", { staticClass: "p-6 border-t border-gray-200" }, [
+              _c("div", { staticClass: "flex items-center" }, [
+                _c(
+                  "svg",
+                  {
+                    staticClass: "w-8 h-8 text-gray-400",
+                    attrs: {
+                      fill: "none",
+                      stroke: "currentColor",
+                      "stroke-linecap": "round",
+                      "stroke-linejoin": "round",
+                      "stroke-width": "2",
+                      viewBox: "0 0 24 24"
+                    }
+                  },
+                  [
+                    _c("path", {
+                      attrs: {
+                        d:
+                          "M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
+                      }
+                    })
+                  ]
+                ),
+                _vm._v(" "),
+                _vm._m(4)
+              ]),
+              _vm._v(" "),
+              _vm._m(5)
+            ])
+          : _vm._e(),
+        _vm._v(" "),
+        _vm.$page.auth.user.kegiatan == "FBK"
+          ? _c(
+              "div",
+              { staticClass: "p-6 border-t border-gray-200 md:border-l" },
+              [
+                _c("div", { staticClass: "flex items-center" }, [
+                  _c(
+                    "svg",
+                    {
+                      staticClass: "w-8 h-8 text-gray-400",
+                      attrs: {
+                        fill: "none",
+                        stroke: "currentColor",
+                        "stroke-linecap": "round",
+                        "stroke-linejoin": "round",
+                        "stroke-width": "2",
+                        viewBox: "0 0 24 24"
+                      }
+                    },
+                    [
+                      _c("path", {
+                        attrs: {
+                          d:
+                            "M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
+                        }
+                      })
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass:
+                        "ml-4 text-lg text-gray-600 leading-7 font-semibold"
+                    },
+                    [_vm._v("Menu Laporan")]
+                  )
+                ]),
+                _vm._v(" "),
+                _vm._m(6)
+              ]
+            )
+          : _vm._e()
       ]
     )
   ])
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "p-6 sm:px-20 bg-white border-b border-gray-200" },
-      [
-        _c("div", [
-          _c("h1", { staticClass: "text-lg text-gray-600" }, [
-            _vm._v("Dashboard FBK")
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "mt-6 text-gray-500" }, [
-          _vm._v(
-            "\n            Pada halaman dashboard ini anda dapat melakukan pengisian kelengkapan data dan melihat status verifikasi setiap formulir.\n        "
-          )
-        ])
-      ]
-    )
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -48595,159 +48431,181 @@ var render = function() {
                 )
               ]),
               _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "hidden space-x-8 sm:-my-px sm:ml-10 sm:flex" },
-                [
-                  _vm.$page.auth.user.role == "user"
-                    ? _c(
-                        "jet-nav-link",
-                        {
-                          attrs: {
-                            href: "/dashboard",
-                            active: _vm.$page.currentRouteName == "dashboard"
-                          }
-                        },
-                        [
-                          _vm._v(
-                            "\n                            Dashboard\n                        "
+              _vm.$page.auth.user.kegiatan == "FBK"
+                ? _c(
+                    "div",
+                    {
+                      staticClass: "hidden space-x-8 sm:-my-px sm:ml-10 sm:flex"
+                    },
+                    [
+                      _vm.$page.auth.user.role == "user"
+                        ? _c(
+                            "jet-nav-link",
+                            {
+                              attrs: {
+                                href: "/dashboard",
+                                active:
+                                  _vm.$page.currentRouteName == "dashboard"
+                              }
+                            },
+                            [
+                              _vm._v(
+                                "\n                            Dashboard\n                        "
+                              )
+                            ]
                           )
-                        ]
-                      )
-                    : _c(
-                        "jet-nav-link",
-                        {
-                          attrs: {
-                            href: "/admin/dashboard",
-                            active:
-                              _vm.$page.currentRouteName == "admin_dashboard"
-                          }
-                        },
-                        [
-                          _vm._v(
-                            "\n                            Dashboard\n                        "
+                        : _c(
+                            "jet-nav-link",
+                            {
+                              attrs: {
+                                href: "/admin/dashboard",
+                                active:
+                                  _vm.$page.currentRouteName ==
+                                  "admin_dashboard"
+                              }
+                            },
+                            [
+                              _vm._v(
+                                "\n                            Dashboard\n                        "
+                              )
+                            ]
                           )
-                        ]
-                      )
-                ],
-                1
-              ),
+                    ],
+                    1
+                  )
+                : _vm._e(),
               _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "hidden space-x-8 sm:-my-px sm:ml-10 sm:flex" },
-                [
-                  _vm.$page.auth.user.role == "user"
-                    ? _c(
-                        "jet-nav-link",
-                        {
-                          attrs: {
-                            href: "/biodata/show",
-                            active: _vm.$page.currentRouteName == "biodata_show"
-                          }
-                        },
-                        [
-                          _vm._v(
-                            "\n                            Biodata\n                        "
+              _vm.$page.auth.user.kegiatan == "FBK"
+                ? _c(
+                    "div",
+                    {
+                      staticClass: "hidden space-x-8 sm:-my-px sm:ml-10 sm:flex"
+                    },
+                    [
+                      _vm.$page.auth.user.role == "user"
+                        ? _c(
+                            "jet-nav-link",
+                            {
+                              attrs: {
+                                href: "/biodata/show",
+                                active:
+                                  _vm.$page.currentRouteName == "biodata_show"
+                              }
+                            },
+                            [
+                              _vm._v(
+                                "\n                            Biodata\n                        "
+                              )
+                            ]
                           )
-                        ]
-                      )
-                    : _c(
-                        "jet-nav-link",
-                        {
-                          attrs: {
-                            href: "/admin/biodata",
-                            active:
-                              _vm.$page.currentRouteName == "admin_biodata"
-                          }
-                        },
-                        [
-                          _vm._v(
-                            "\n                            Biodata\n                        "
+                        : _c(
+                            "jet-nav-link",
+                            {
+                              attrs: {
+                                href: "/admin/biodata",
+                                active:
+                                  _vm.$page.currentRouteName == "admin_biodata"
+                              }
+                            },
+                            [
+                              _vm._v(
+                                "\n                            Biodata\n                        "
+                              )
+                            ]
                           )
-                        ]
-                      )
-                ],
-                1
-              ),
+                    ],
+                    1
+                  )
+                : _vm._e(),
               _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "hidden space-x-8 sm:-my-px sm:ml-10 sm:flex" },
-                [
-                  _vm.$page.auth.user.role == "user"
-                    ? _c(
-                        "jet-nav-link",
-                        {
-                          attrs: {
-                            href: "/pengajuan/show",
-                            active:
-                              _vm.$page.currentRouteName == "pengajuan_show"
-                          }
-                        },
-                        [
-                          _vm._v(
-                            "\n                            Pengajuan\n                        "
+              _vm.$page.auth.user.kegiatan == "FBK"
+                ? _c(
+                    "div",
+                    {
+                      staticClass: "hidden space-x-8 sm:-my-px sm:ml-10 sm:flex"
+                    },
+                    [
+                      _vm.$page.auth.user.role == "user"
+                        ? _c(
+                            "jet-nav-link",
+                            {
+                              attrs: {
+                                href: "/pengajuan/show",
+                                active:
+                                  _vm.$page.currentRouteName == "pengajuan_show"
+                              }
+                            },
+                            [
+                              _vm._v(
+                                "\n                            Pengajuan\n                        "
+                              )
+                            ]
                           )
-                        ]
-                      )
-                    : _c(
-                        "jet-nav-link",
-                        {
-                          attrs: {
-                            href: "/admin/pengajuan",
-                            active:
-                              _vm.$page.currentRouteName == "admin_pengajuan"
-                          }
-                        },
-                        [
-                          _vm._v(
-                            "\n                            Pengajuan\n                        "
+                        : _c(
+                            "jet-nav-link",
+                            {
+                              attrs: {
+                                href: "/admin/pengajuan",
+                                active:
+                                  _vm.$page.currentRouteName ==
+                                  "admin_pengajuan"
+                              }
+                            },
+                            [
+                              _vm._v(
+                                "\n                            Pengajuan\n                        "
+                              )
+                            ]
                           )
-                        ]
-                      )
-                ],
-                1
-              ),
+                    ],
+                    1
+                  )
+                : _vm._e(),
               _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "hidden space-x-8 sm:-my-px sm:ml-10 sm:flex" },
-                [
-                  _vm.$page.auth.user.role == "user"
-                    ? _c(
-                        "jet-nav-link",
-                        {
-                          attrs: {
-                            href: "/administrasi/show",
-                            active:
-                              _vm.$page.currentRouteName == "administrasi_show"
-                          }
-                        },
-                        [
-                          _vm._v(
-                            "\n                            Administrasi\n                        "
+              _vm.$page.auth.user.kegiatan == "FBK"
+                ? _c(
+                    "div",
+                    {
+                      staticClass: "hidden space-x-8 sm:-my-px sm:ml-10 sm:flex"
+                    },
+                    [
+                      _vm.$page.auth.user.role == "user"
+                        ? _c(
+                            "jet-nav-link",
+                            {
+                              attrs: {
+                                href: "/administrasi/show",
+                                active:
+                                  _vm.$page.currentRouteName ==
+                                  "administrasi_show"
+                              }
+                            },
+                            [
+                              _vm._v(
+                                "\n                            Administrasi\n                        "
+                              )
+                            ]
                           )
-                        ]
-                      )
-                    : _c(
-                        "jet-nav-link",
-                        {
-                          attrs: {
-                            href: "/admin/administrasi",
-                            active:
-                              _vm.$page.currentRouteName == "admin_administrasi"
-                          }
-                        },
-                        [
-                          _vm._v(
-                            "\n                            Administrasi\n                        "
+                        : _c(
+                            "jet-nav-link",
+                            {
+                              attrs: {
+                                href: "/admin/administrasi",
+                                active:
+                                  _vm.$page.currentRouteName ==
+                                  "admin_administrasi"
+                              }
+                            },
+                            [
+                              _vm._v(
+                                "\n                            Administrasi\n                        "
+                              )
+                            ]
                           )
-                        ]
-                      )
-                ],
-                1
-              ),
+                    ],
+                    1
+                  )
+                : _vm._e(),
               _vm._v(" "),
               _c(
                 "div",
@@ -51114,7 +50972,7 @@ var render = function() {
                               ]),
                               _vm._v(" "),
                               _c("td", { staticClass: "border px-4 py-2" }, [
-                                _vm._v(_vm._s(_vm.data.user.name))
+                                _vm._v(_vm._s(_vm.data.name))
                               ])
                             ]),
                             _vm._v(" "),
@@ -53580,7 +53438,7 @@ var render = function() {
                               ]),
                               _vm._v(" "),
                               _c("td", { staticClass: "border px-4 py-2" }, [
-                                _vm._v(_vm._s(_vm.data.user.name))
+                                _vm._v(_vm._s(_vm.data.name))
                               ])
                             ]),
                             _vm._v(" "),
@@ -58889,7 +58747,7 @@ var render = function() {
                   key: "laman",
                   fn: function() {
                     return [
-                      _vm.status !== null
+                      _vm.data.status !== null
                         ? _c("div", [
                             _c(
                               "div",
@@ -58919,13 +58777,27 @@ var render = function() {
                                 ),
                                 _vm._v(" "),
                                 _c("p", [
-                                  _vm._v("Status " + _vm._s(_vm.status))
+                                  _vm._v("Status " + _vm._s(_vm.data.status))
                                 ])
                               ]
                             ),
                             _vm._v(" "),
                             _c("table", { staticClass: "table-auto" }, [
                               _c("div", [
+                                _c("tr", [
+                                  _c(
+                                    "td",
+                                    { staticClass: "border px-4 py-2" },
+                                    [_vm._v("Nama")]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "td",
+                                    { staticClass: "border px-4 py-2" },
+                                    [_vm._v(_vm._s(_vm.data.name))]
+                                  )
+                                ]),
+                                _vm._v(" "),
                                 _c("tr", [
                                   _c(
                                     "td",
@@ -60001,13 +59873,6 @@ var render = function() {
                     ]
                   },
                   proxy: true
-                },
-                {
-                  key: "actions",
-                  fn: function() {
-                    return undefined
-                  },
-                  proxy: true
                 }
               ])
             }),
@@ -60116,7 +59981,7 @@ var render = function() {
                   key: "laman",
                   fn: function() {
                     return [
-                      _vm.status !== null
+                      _vm.data.status !== null
                         ? _c("div", [
                             _c(
                               "div",
@@ -60146,27 +60011,13 @@ var render = function() {
                                 ),
                                 _vm._v(" "),
                                 _c("p", [
-                                  _vm._v("Status " + _vm._s(_vm.status))
+                                  _vm._v("Status " + _vm._s(_vm.data.status))
                                 ])
                               ]
                             ),
                             _vm._v(" "),
                             _c("table", { staticClass: "table-auto" }, [
                               _c("div", [
-                                _c("tr", [
-                                  _c(
-                                    "td",
-                                    { staticClass: "border px-4 py-2" },
-                                    [_vm._v("Kategori")]
-                                  ),
-                                  _vm._v(" "),
-                                  _c(
-                                    "td",
-                                    { staticClass: "border px-4 py-2" },
-                                    [_vm._v(_vm._s(_vm.data.kategori))]
-                                  )
-                                ]),
-                                _vm._v(" "),
                                 _c("tr", [
                                   _c(
                                     "td",
@@ -60178,6 +60029,20 @@ var render = function() {
                                     "td",
                                     { staticClass: "border px-4 py-2" },
                                     [_vm._v(_vm._s(_vm.data.nama_pengusul))]
+                                  )
+                                ]),
+                                _vm._v(" "),
+                                _c("tr", [
+                                  _c(
+                                    "td",
+                                    { staticClass: "border px-4 py-2" },
+                                    [_vm._v("Kategori")]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "td",
+                                    { staticClass: "border px-4 py-2" },
+                                    [_vm._v(_vm._s(_vm.data.kategori))]
                                   )
                                 ]),
                                 _vm._v(" "),
@@ -60535,13 +60400,6 @@ var render = function() {
                     ]
                   },
                   proxy: true
-                },
-                {
-                  key: "actions",
-                  fn: function() {
-                    return undefined
-                  },
-                  proxy: true
                 }
               ])
             }),
@@ -60745,7 +60603,7 @@ var render = function() {
                                   _c(
                                     "td",
                                     { staticClass: "border px-4 py-2" },
-                                    [_vm._v(_vm._s(item.user.name))]
+                                    [_vm._v(_vm._s(item.name))]
                                   ),
                                   _vm._v(" "),
                                   _c(
@@ -60788,7 +60646,12 @@ var render = function() {
                                         [
                                           _c(
                                             "a",
-                                            { attrs: { href: item.laporan80 } },
+                                            {
+                                              attrs: {
+                                                href: item.laporan80,
+                                                target: "_blank"
+                                              }
+                                            },
                                             [
                                               _c(
                                                 "button",
@@ -60840,7 +60703,10 @@ var render = function() {
                                     [
                                       _c(
                                         "div",
-                                        { staticClass: "input-group-btn" },
+                                        {
+                                          staticClass: "input-group-btn",
+                                          attrs: { target: "_blank" }
+                                        },
                                         [
                                           _c(
                                             "a",
@@ -60994,7 +60860,7 @@ var render = function() {
                           attrs: {
                             href: "/pengajuan/create",
                             active:
-                              _vm.$page.currentRouteName == "biodata_create"
+                              _vm.$page.currentRouteName == "pengajuan_create"
                           }
                         },
                         [
@@ -61014,7 +60880,7 @@ var render = function() {
                   key: "laman",
                   fn: function() {
                     return [
-                      _vm.status !== null
+                      _vm.data.status !== null
                         ? _c("div", [
                             _c(
                               "div",
@@ -61044,13 +60910,32 @@ var render = function() {
                                 ),
                                 _vm._v(" "),
                                 _c("p", [
-                                  _vm._v("Status " + _vm._s(_vm.status))
+                                  _vm._v(
+                                    "Status " +
+                                      _vm._s(_vm.data.status) +
+                                      "   " +
+                                      _vm._s(_vm.data.catatan)
+                                  )
                                 ])
                               ]
                             ),
                             _vm._v(" "),
                             _c("table", { staticClass: "table-auto" }, [
                               _c("div", [
+                                _c("tr", [
+                                  _c(
+                                    "td",
+                                    { staticClass: "border px-4 py-2" },
+                                    [_vm._v("Nama")]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "td",
+                                    { staticClass: "border px-4 py-2" },
+                                    [_vm._v(_vm._s(_vm.data.name))]
+                                  )
+                                ]),
+                                _vm._v(" "),
                                 _c("tr", [
                                   _c(
                                     "td",
@@ -61198,7 +61083,12 @@ var render = function() {
                                         [
                                           _c(
                                             "a",
-                                            { attrs: { href: _vm.data.rab } },
+                                            {
+                                              attrs: {
+                                                href: _vm.data.rab,
+                                                target: "_blank"
+                                              }
+                                            },
                                             [
                                               _c(
                                                 "button",
@@ -61274,13 +61164,6 @@ var render = function() {
                           ])
                         : _c("div", [_c("h2", [_vm._v("Data belum tersedia")])])
                     ]
-                  },
-                  proxy: true
-                },
-                {
-                  key: "actions",
-                  fn: function() {
-                    return undefined
                   },
                   proxy: true
                 }
