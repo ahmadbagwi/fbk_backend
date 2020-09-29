@@ -23,6 +23,7 @@ class CreateUsersTable extends Migration
             $table->string('current_team_id')->nullable();
             $table->text('profile_photo_path')->nullable();
             $table->string('role', 20)->default('user');
+            $table->string('kegiatan', 100)->nullable();
             $table->timestamps();
         });
     }

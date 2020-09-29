@@ -16,6 +16,7 @@ class Laporan extends Migration
         Schema::create('laporan', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
+            $table->string('kegiatan', 100)->nullable();
             $table->date('terima');
             $table->date('mulai');
             $table->date('selesai');
