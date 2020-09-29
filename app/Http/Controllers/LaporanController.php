@@ -80,11 +80,9 @@ class LaporanController extends Controller
 
     public function show()
     {
-      $data = Laporan::leftJoin('users', 'users.id', '=', 'laporan.user_id')->where('user_id', Auth::user()->id)->select('users.name', 'laporan.*')->first();
-      $role = auth()->user()->role;
+      $data = Laporan::leftJoin('users', 'users.id', '=', 'laporan.user_id')->where('user_id', Auth::user()->id)->select('users.name', 'laporan.*')->get();
       return Inertia::render('Show/Laporan', [
           'data' => $data,
-          'role' => $role
       ]);
     }
 
