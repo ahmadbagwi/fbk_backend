@@ -31,6 +31,10 @@
                     <td class="border px-4 py-2">{{ data.user_id }}</td>
                   </tr>
                   <tr>
+                    <td class="border px-4 py-2">Nama</td>
+                    <td class="border px-4 py-2">{{ data.user.name }}</td>
+                  </tr>
+                  <tr>
                     <td class="border px-4 py-2">Jenis</td>
                     <td class="border px-4 py-2">{{ data.jenis }}</td>
                   </tr>

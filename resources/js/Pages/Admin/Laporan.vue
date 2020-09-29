@@ -142,6 +142,10 @@
           field: 'user_id',
         },
         {
+          label: 'Nama',
+          field: 'user.name',
+        },
+        {
           label: 'Tanggal Terima Dana',
           field: 'terima',
         },

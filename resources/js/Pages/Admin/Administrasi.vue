@@ -191,6 +191,10 @@
           field: 'user_id',
         },
         {
+          label: 'Nama',
+          field: 'user.name',
+        },
+        {
           label: 'Surat Permohonan',
           field: 'surat_permohonan',
         },

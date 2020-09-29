@@ -19,6 +19,14 @@
               <table class="table-auto">
                 <div>
                   <tr>
+                    <td class="border px-4 py-2">User Id</td>
+                    <td class="border px-4 py-2">{{ data.user_id }}</td>
+                  </tr>
+                  <tr>
+                    <td class="border px-4 py-2">Nama</td>
+                    <td class="border px-4 py-2">{{ data.user.name }}</td>
+                  </tr>
+                  <tr>
                     <td class="border px-4 py-2">Surat Permohonan</td>
                     <td class="border px-4 py-2">
                       <div class="input-group-btn">

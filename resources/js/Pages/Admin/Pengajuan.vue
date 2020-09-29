@@ -145,6 +145,10 @@
           field: 'user_id',
         },
         {
+          label: 'Nama',
+          field: 'user.name',
+        },
+        {
           label: 'Jenis',
           field: 'jenis',
         },
