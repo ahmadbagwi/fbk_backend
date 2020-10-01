@@ -6,6 +6,7 @@ use Illuminate\Support\ServiceProvider;
 use Session;
 use Inertia\Inertia;
 use Auth;
+use Illuminate\Support\Facades\Schema;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -38,27 +39,7 @@ class AppServiceProvider extends ServiceProvider
         ];
       });
 
-      // Inertia::share('errorBags', function () {
-      //   return [
-      //     'message' => Session::get('errors'),
-      //   ];
-      // });
-
-      // Inertia::share('errors', function () {
-      //   return Session::get('errors')
-      //           ? Session::get('errors')->getBag('default')->getMessages()
-      //           : (object) [];
-      // });
-
-      // Inertia::share([
-      //   'flash' => [
-      //     'message' => Session::get('status')
-      //   ],
-
-      //   'errors' => [
-      //     'message' => Session::get('errors')
-      //   ],
-      // ]);
+      Schema::defaultStringLength(191);
 
       Inertia::share('auth.user', function () {
         if (Auth::user()) {
