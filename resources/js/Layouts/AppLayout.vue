@@ -301,7 +301,6 @@
 </template>
 
 <script>
-    import {FadeTransition} from 'vue2-transitions'
     import JetApplicationLogo from './../Jetstream/ApplicationLogo'
     import JetApplicationMark from './../Jetstream/ApplicationMark'
     import JetDropdown from './../Jetstream/Dropdown'
