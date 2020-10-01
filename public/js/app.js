@@ -2970,13 +2970,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -48531,14 +48524,22 @@ var render = function() {
         _vm.$page.auth.user.kegiatan == "FBK"
           ? _c("div", { staticClass: "mt-6 text-gray-500" }, [
               _vm._v(
-                "\n            Pada halaman dashboard ini anda dapat melakukan pengisian kelengkapan data dan melihat status verifikasi setiap formulir.\n        "
+                "\n            Pada halaman dashboard ini anda dapat melakukan pengisian kelengkapan data dan melihat status verifikasi setiap formulir.\n            "
+              ),
+              _c("br"),
+              _vm._v(
+                "\n            File pendukung (film, video, foto dll) di unggah ke file manager.\n        "
               )
             ])
           : _c("div", { staticClass: "mt-6 text-gray-500" }, [
               _vm._v(
                 "\n            Pada halaman dashboard ini anda dapat melakukan pengisian laporan kegiatan " +
                   _vm._s(_vm.$page.auth.user.kegiatan) +
-                  "\n        "
+                  "."
+              ),
+              _c("br"),
+              _vm._v(
+                "\n            File pendukung (film, video, foto dll) di unggah ke file manager.\n        "
               )
             ])
       ]
