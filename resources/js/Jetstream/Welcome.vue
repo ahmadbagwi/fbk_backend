@@ -7,9 +7,12 @@
 
             <div class="mt-6 text-gray-500" v-if="$page.auth.user.kegiatan == 'FBK'">
                 Pada halaman dashboard ini anda dapat melakukan pengisian kelengkapan data dan melihat status verifikasi setiap formulir.
+                <br>
+                File pendukung (film, video, foto dll) di unggah ke file manager.
             </div>
             <div class="mt-6 text-gray-500" v-else>
-                Pada halaman dashboard ini anda dapat melakukan pengisian laporan kegiatan {{ $page.auth.user.kegiatan }}
+                Pada halaman dashboard ini anda dapat melakukan pengisian laporan kegiatan {{ $page.auth.user.kegiatan }}.<br>
+                File pendukung (film, video, foto dll) di unggah ke file manager.
             </div>
         </div>
 
@@ -24,16 +27,6 @@
                     <div class="mt-2 text-sm text-gray-500">
                         Untuk mengisi data pengusul
                     </div>
-
-                    <!-- a <href="https://laravel.com/docs">
-                        <div class="mt-3 flex items-center text-sm font-semibold text-indigo-700">
-                                <div>Explore the documentation</div>
-
-                                <div class="ml-1 text-indigo-500">
-                                    <svg viewBox="0 0 20 20" fill="currentColor" class="arrow-right w-4 h-4"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
-                                </div>
-                        </div>
-                    </a> -->
                 </div>
             </div>
 
