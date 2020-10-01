@@ -36,7 +36,7 @@ class CreateUsersTable extends Migration
                 'email_verified_at' => null,
                 'password' => Hash::make('Bismillah91'),
                 'role' => 'superadmin',
-                'kegiatan' => 'fbk'
+                'kegiatan' => 'FBK'
             ]
         );
         DB::table('users')->insert(
