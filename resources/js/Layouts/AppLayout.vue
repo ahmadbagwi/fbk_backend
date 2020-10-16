@@ -1,15 +1,16 @@
 <template>
-    <div class="min-h-screen bg-gray-100">
-        <nav class="bg-white border-b border-gray-100">
+  <fade-transition origin="center" mode="out-in" :duration="250">
+    <div class="min-h-screen bg-app-layout">
+        <nav class="bg-gray-800 border-b border-gray-100">
             <!-- Primary Navigation Menu -->
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex justify-between h-16">
                     <div class="flex">
                         <!-- Logo -->
                         <div class="flex-shrink-0 flex items-center">
-                            <a href="/dashboard">
-                                <jet-application-mark class="block h-9 w-auto" />
-                            </a>
+                            <inertia-link :href="`/dashboard`">
+                                <jet-application-mark class="block h-16 w-auto" />
+                            </inertia-link>
                         </div>
 
                         <!-- Navigation Links -->
@@ -65,11 +66,14 @@
                         </div>
                         
                     </div>
-
+                    <div align="right" class="flex-1 my-auto text-white">
+                      <b-icon icon="person-circle" aria-hidden="true"></b-icon>&nbsp;{{ $page.user.name }}
+                    </div>
                     <!-- Settings Dropdown -->
                     <div class="hidden sm:flex sm:items-center sm:ml-6">
                         <div class="ml-3 relative">
                             <jet-dropdown align="right" width="48">
+
                                 <template #trigger>
                                     <button class="flex text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-gray-300 transition duration-150 ease-in-out">
                                         <img class="h-8 w-8 rounded-full object-cover" :src="$page.user.profile_photo_url" :alt="$page.user.name" />
@@ -261,29 +265,11 @@
           <header class="bg-white shadow">
               <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
                   <slot name="header"></slot>
-                  <div class="col-span-6 flex items-center bg-gray-500 text-white text-sm font-bold px-4 py-3" role="alert" v-if="$page.auth.user.role == 'user'">
-                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-person-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M13.468 12.37C12.758 11.226 11.195 10 8 10s-4.757 1.225-5.468 2.37A6.987 6.987 0 0 0 8 15a6.987 6.987 0 0 0 5.468-2.63z"/>
-                      <path fill-rule="evenodd" d="M8 9a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
-                      <path fill-rule="evenodd" d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8z"/>
-                    </svg>
-                    <p>&nbsp;{{ $page.auth.user.name }}</p>
-                  </div>
-                  <div class="col-span-6 flex items-center bg-red-600 text-white text-sm font-bold px-4 py-3" role="alert" v-if="$page.auth.user.role == 'superadmin'">
-                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-person-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M13.468 12.37C12.758 11.226 11.195 10 8 10s-4.757 1.225-5.468 2.37A6.987 6.987 0 0 0 8 15a6.987 6.987 0 0 0 5.468-2.63z"/>
-                      <path fill-rule="evenodd" d="M8 9a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
-                      <path fill-rule="evenodd" d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8z"/>
-                    </svg>
-                    <p>&nbsp;{{ $page.auth.user.name }} - {{ $page.auth.user.role }}</p>
-                  </div>
-                  <div class="bg-green-100 border border-green-300 text-green-800 px-4 py-3 rounded relative" role="alert" v-if="$page.flash.message">
-                    <strong class="font-bold">Info!</strong>
-                    <span class="block sm:inline">{{ $page.flash.message }}</span>
-                    <span class="absolute top-0 bottom-0 right-0 px-4 py-3">
-                      <svg class="fill-current h-6 w-6 text-red-500" role="button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><title>Close</title><path d="M14.348 14.849a1.2 1.2 0 0 1-1.697 0L10 11.819l-2.651 3.029a1.2 1.2 0 1 1-1.697-1.697l2.758-3.15-2.759-3.152a1.2 1.2 0 1 1 1.697-1.697L10 8.183l2.651-3.031a1.2 1.2 0 1 1 1.697 1.697l-2.758 3.152 2.758 3.15a1.2 1.2 0 0 1 0 1.698z"/></svg>
-                    </span>
-                  </div>
+                    <div class="inline-block bg-green-100 border border-green-300 text-green-800 px-4 py-3 rounded relative" role="alert" v-if="$page.flash.message">
+                      <strong class="font-bold">Info!</strong>
+                      <span class="block sm:inline">{{ $page.flash.message }}</span>
+                      <b-icon icon="x-circle" aria-hidden="true" @click.prevent="$page.flash.message = null"></b-icon>
+                    </div>
               </div>
           </header>
 
@@ -296,6 +282,7 @@
         <portal-target name="modal" multiple>
         </portal-target>
     </div>
+  </fade-transition>
 </template>
 
 <script>
@@ -305,6 +292,7 @@
     import JetDropdownLink from './../Jetstream/DropdownLink'
     import JetNavLink from './../Jetstream/NavLink'
     import JetResponsiveNavLink from './../Jetstream/ResponsiveNavLink'
+    import {FadeTransition} from 'vue2-transitions'
 
     export default {
         components: {
@@ -313,7 +301,8 @@
             JetDropdown,
             JetDropdownLink,
             JetNavLink,
-            JetResponsiveNavLink
+            JetResponsiveNavLink,
+            FadeTransition
         },
 
         data() {
@@ -351,5 +340,8 @@
     }
 </script>
 <style scoped>
-  
+  .bg-app-layout{
+    background-color: #DFDBE5;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cg fill='%231c5b85' fill-opacity='0.08'%3E%3Cpath fill-rule='evenodd' d='M11 0l5 20H6l5-20zm42 31a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM0 72h40v4H0v-4zm0-8h31v4H0v-4zm20-16h20v4H20v-4zM0 56h40v4H0v-4zm63-25a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm10 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM53 41a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm10 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm10 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-30 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-28-8a5 5 0 0 0-10 0h10zm10 0a5 5 0 0 1-10 0h10zM56 5a5 5 0 0 0-10 0h10zm10 0a5 5 0 0 1-10 0h10zm-3 46a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm10 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM21 0l5 20H16l5-20zm43 64v-4h-4v4h-4v4h4v4h4v-4h4v-4h-4zM36 13h4v4h-4v-4zm4 4h4v4h-4v-4zm-4 4h4v4h-4v-4zm8-8h4v4h-4v-4z'/%3E%3C/g%3E%3C/svg%3E");
+  }
 </style>
