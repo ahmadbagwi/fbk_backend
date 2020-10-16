@@ -9,7 +9,10 @@ import wysiwyg from "vue-wysiwyg"
 import VueGoodTablePlugin from 'vue-good-table'
 import JsonExcel from 'vue-json-excel'
 import 'vue-good-table/dist/vue-good-table.css'
+import { BootstrapVueIcons } from 'bootstrap-vue'
+import 'bootstrap-vue/dist/bootstrap-vue-icons.min.css'
 
+Vue.use(BootstrapVueIcons)
 Vue.use(VueGoodTablePlugin);
 Vue.use(InertiaApp);
 Vue.use(InertiaForm);
