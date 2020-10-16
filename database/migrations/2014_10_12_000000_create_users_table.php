@@ -45,7 +45,7 @@ class CreateUsersTable extends Migration
                 'name' => 'Pandu Wijaya',
                 'email' => 'wijayapandu12@gmail.com',
                 'email_verified_at' => null,
-                'password' => Hash::make('Bismillah91'),
+                'password' => Hash::make('qwerty123'),
                 'role' => 'superadmin',
                 'kegiatan' => 'FBK'
             ]
