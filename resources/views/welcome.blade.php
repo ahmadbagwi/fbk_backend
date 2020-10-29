@@ -10,15 +10,18 @@
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 
   <!-- Styles -->
-  <link rel="stylesheet" href="{{ asset('css/fbk.css') }}">
   <link rel="stylesheet" href="{{ asset('css/fbk.min.css') }}">
+  <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
   <style>
 
   </style>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
   <style>
     body {
       font-family: 'Nunito';
+    }
+    .container-fbk {
+      background: url(/storage/files/kain_tenun_toraja.JPG);
     }
     .bg-box-landing {
       background-color: #DFDBE5;
@@ -30,12 +33,12 @@
   <div class="container-fbk relative flex items-top justify-center min-h-screen sm:items-center sm:pt-0">
 
     <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
-      <div class="flex bg-gray-900 justify-center align-middle pt-8 sm:justify-start sm:pt-0 row inline-block,">
-        <div class="col-2">
-          <img src="/storage/files/logo_kemdikbud.png" class="align-middle img-fluid">
+      <div class="flex align-middle pt-8 sm:justify-start sm:pt-0 row inline-block,">
+        <div class="flex p-1 col-span-1">
+          <img src="/storage/files/logo_kemdikbud.png" class="align-middle img-fluid text-center">
         </div>
-        <div class="col-10 inline align-middle justify-content-start text-left">
-          <h2 class="text-white font-bold mt-4 text-5xl align-middle ">Fasilitasi Bidang Kebudayaan</h2>
+        <div class="flex p-1 col-span-4 inline align-middle text-left">
+          <h2 class="text-white font-bold items-center content-center text-xl my-auto sm:text-3xl xl:text-5xl align-middle text-left">Fasilitasi Bidang Kebudayaan</h2>
         </div>
       </div>
 
@@ -106,9 +109,9 @@
               @auth
               <div class="col justify-content-start">
                 <div class="mt-2 text-gray-900 dark:text-gray-400 text-sm">
-                  <div class="d-inline-block">
+                  <div class="flex">
                     <a href="{{ url('/dashboard') }}">
-                    <button type="button" class="p-2 m-2 bg-red-200 text-lg btn btn-sm btn-outline-secondary">
+                    <button type="button" class="inline-flex bg-blue-500 hover:bg-orange-500 hover:shadow-md text-md text-white shadow my-1 py-2 px-4 border-b-2 border-blue-700 hover:border-blue-800 rounded-lg items-center transition ease-in-out duration-150">
                       <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-person-check-fill d-inline-block" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                         <path fill-rule="evenodd" d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm9.854-2.854a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L12.5 7.793l2.646-2.647a.5.5 0 0 1 .708 0z"/>
                       </svg>&nbsp; Dashboard
@@ -118,31 +121,25 @@
                 </div>
               </div>
               @else
-              <div class="col justify-content-start">
-                <div class="mt-2 text-gray-900 dark:text-gray-400 text-lg">
-                  <div class="d-inline-block">
-                    <a href="{{ route('login') }}">
-                    <button type="button" class="p-2 m-2 bg-red-200 text-lg btn btn-sm btn-outline-secondary">
-                      <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-person-check-fill d-inline-block" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd" d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm9.854-2.854a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L12.5 7.793l2.646-2.647a.5.5 0 0 1 .708 0z"/>
-                      </svg>&nbsp; Login
-                    </button>
-                    </a>
-                  </div>
+              <div class="flex w-full p-2 m-2">
+                <div class="flex">
+                  <a href="{{ route('login') }}" class="mx-auto p-2 text-gray-800">
+                  <button type="button" class="inline-flex bg-blue-500 hover:bg-orange-500 hover:shadow-md text-md text-white shadow my-1 py-2 px-4 border-b-2 border-blue-700 hover:border-blue-800 rounded-lg items-center transition ease-in-out duration-150">
+                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-person-check-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                      <path fill-rule="evenodd" d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm9.854-2.854a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L12.5 7.793l2.646-2.647a.5.5 0 0 1 .708 0z"/>
+                    </svg>&nbsp; Login
+                  </button>
+                  </a>
                 </div>
-              </div>
-              @if (Route::has('register'))
-              <div class="col justify-content-start text-left">
-                <div class="mt-2 text-gray-900 dark:text-gray-400 text-lg">
-                  <div class="d-inline-block">
-                    <a href="{{ route('register') }}" class="ml-4 text-gray-700 underline">
-                    <button type="button" class="p-2 m-2 bg-red-200 btn btn-sm btn-outline-success">
-                      <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-person-plus-fill d-inline-block" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd" d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm7.5-3a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z"/>
-                      </svg>&nbsp; Daftar
-                    </button>
-                    </a>
-                  </div>
+                @if (Route::has('register'))
+                <div class="flex">
+                  <a href="{{ route('register') }}" class="mx-auto p-2 text-gray-800">
+                  <button type="button" class="inline-flex items-center px-4 py-2 my-1 bg-green-600 border-b-2 border-green-800 rounded-lg text-md text-white tracking-widest hover:bg-orange-700 hover:shadow-lg active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray transition ease-in-out duration-150">
+                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-person-plus-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                      <path fill-rule="evenodd" d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm7.5-3a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z"/>
+                    </svg>&nbsp; Daftar
+                  </button>
+                  </a>
                 </div>
               </div>
               @endif
