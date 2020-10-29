@@ -11,7 +11,7 @@ Aplikasi ini dibuat untuk tujuan digitalisasi pendaftaran program Fasilitasi Bid
 - Input dan pengelolaan Pengajuan.
 - Input dan pengelolaan Administrasi.
 - Input dan pengelolaan Laporan.
-- File Manager [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- File Manager
 
 
 ## Spesifikasi
@@ -22,7 +22,7 @@ Aplikasi ini dibuat untuk tujuan digitalisasi pendaftaran program Fasilitasi Bid
 
 ## Requirement
 
-- Php 7.3.
+- PHP 7.3.
 - Node JS dengan NVM 12.18.2 => node v12.18.2 (npm v6.14.5).
 - MariaDB 10.4.14 atau MySQL yang telah support JSON
 
