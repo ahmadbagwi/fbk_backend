@@ -10,13 +10,13 @@
       <div class="max-w-7xl mx-auto py-10 sm:px-6 lg:px-8">
         <laman-section>
           <template #title>
-            FORMULIR ADMINISTRASI FASILITASI BANTUAN BIDANG KEBUDAYAAN (FBK) 
+            Data Administrasi
           </template>
 
           <template #description>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed et aliquam libero. Donec iaculis commodo efficitur. Suspendisse aliquam mollis ipsum, eu dictum nunc fermentum a. Curabitur aliquam lacus nisl, ac rutrum lorem placerat vel. 
-            </p>
+
+            </p><br>
             <inertia-link  href="/administrasi/create" :active="$page.currentRouteName == 'administrasi_create'">
               <jet-button>
                 Tambah/Ubah Data

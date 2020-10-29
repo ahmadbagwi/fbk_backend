@@ -15,8 +15,8 @@
 
           <template #description>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed et aliquam libero. Donec iaculis commodo efficitur. Suspendisse aliquam mollis ipsum, eu dictum nunc fermentum a. Curabitur aliquam lacus nisl, ac rutrum lorem placerat vel. 
-            </p>
+
+            </p><br>
             <inertia-link  href="/biodata/create" :active="$page.currentRouteName == 'biodata_create'">
               <jet-button>
                 Tambah/Ubah Data
