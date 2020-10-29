@@ -262,7 +262,7 @@
             </div>
         </nav>
           <!-- Page Heading -->
-          <header class="bg-white shadow">
+          <header class="bg-white shadow border-b-2 border-blue-500">
               <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
                   <slot name="header"></slot>
                     <div class="inline-block bg-green-100 border border-green-300 text-green-800 px-4 py-3 rounded relative" role="alert" v-if="$page.flash.message">
@@ -286,62 +286,75 @@
 </template>
 
 <script>
-    import JetApplicationLogo from './../Jetstream/ApplicationLogo'
-    import JetApplicationMark from './../Jetstream/ApplicationMark'
-    import JetDropdown from './../Jetstream/Dropdown'
-    import JetDropdownLink from './../Jetstream/DropdownLink'
-    import JetNavLink from './../Jetstream/NavLink'
-    import JetResponsiveNavLink from './../Jetstream/ResponsiveNavLink'
-    import {FadeTransition} from 'vue2-transitions'
+  import JetApplicationLogo from './../Jetstream/ApplicationLogo'
+  import JetApplicationMark from './../Jetstream/ApplicationMark'
+  import JetDropdown from './../Jetstream/Dropdown'
+  import JetDropdownLink from './../Jetstream/DropdownLink'
+  import JetNavLink from './../Jetstream/NavLink'
+  import JetResponsiveNavLink from './../Jetstream/ResponsiveNavLink'
+  import {FadeTransition} from 'vue2-transitions'
 
-    export default {
-        components: {
-            JetApplicationLogo,
-            JetApplicationMark,
-            JetDropdown,
-            JetDropdownLink,
-            JetNavLink,
-            JetResponsiveNavLink,
-            FadeTransition
-        },
+  export default {
+    components: {
+      JetApplicationLogo,
+      JetApplicationMark,
+      JetDropdown,
+      JetDropdownLink,
+      JetNavLink,
+      JetResponsiveNavLink,
+      FadeTransition
+    },
 
-        data() {
-            return {
-                
-                showingNavigationDropdown: false,
-            }
-        },
+    data() {
+      return {
 
-        created() {
-          console.log(this.$page.currentRouteName)
-        },
+        showingNavigationDropdown: false,
+      }
+    },
 
-        methods: {
-            switchToTeam(team) {
-                this.$inertia.put('/current-team', {
-                    'team_id': team.id
-                }, {
-                    preserveState: false
-                })
-            },
+    created() {
+      console.log(this.$page.currentRouteName)
+    },
 
-            logout() {
-                axios.post('/logout').then(response => {
-                    window.location = '/';
-                })
-            },
-        },
+    methods: {
+      switchToTeam(team) {
+        this.$inertia.put('/current-team', {
+          'team_id': team.id
+        }, {
+          preserveState: false
+        })
+      },
 
-        computed: {
-            path() {
-                return window.location.pathname
-            }
-        }
+      logout() {
+        axios.post('/logout').then(response => {
+          window.location = '/';
+        })
+      },
+    },
+
+    computed: {
+      path() {
+        return window.location.pathname
+      }
     }
+  }
 </script>
 <style scoped>
   .bg-app-layout{
     background-color: #DFDBE5;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cg fill='%231c5b85' fill-opacity='0.08'%3E%3Cpath fill-rule='evenodd' d='M11 0l5 20H6l5-20zm42 31a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM0 72h40v4H0v-4zm0-8h31v4H0v-4zm20-16h20v4H20v-4zM0 56h40v4H0v-4zm63-25a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm10 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM53 41a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm10 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm10 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-30 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-28-8a5 5 0 0 0-10 0h10zm10 0a5 5 0 0 1-10 0h10zM56 5a5 5 0 0 0-10 0h10zm10 0a5 5 0 0 1-10 0h10zm-3 46a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm10 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM21 0l5 20H16l5-20zm43 64v-4h-4v4h-4v4h4v4h4v-4h4v-4h-4zM36 13h4v4h-4v-4zm4 4h4v4h-4v-4zm-4 4h4v4h-4v-4zm8-8h4v4h-4v-4z'/%3E%3C/g%3E%3C/svg%3E");
+  }
+
+  .bg-biru {
+    background-color: #1D7CBF!important;
+  }
+
+  .bg-oren {
+    background-color: #F7A31C;
+  }
+
+  .text-oren {
+    color: #F7A31C;
+    font-weight: 700;
   }
 </style>
