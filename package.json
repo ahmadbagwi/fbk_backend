@@ -31,6 +31,7 @@
         "vue-good-table": "^2.21.0",
         "vue-json-excel": "^0.2.98",
         "vue-wysiwyg": "^1.7.2",
+        "vue2-datepicker": "^3.7.0",
         "vue2-transitions": "^0.3.0"
     }
 }
