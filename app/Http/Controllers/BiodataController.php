@@ -149,7 +149,9 @@ class BiodataController extends Controller
       $this->cek_admin();
 
       $id = $request->deleteId;
-      if ($id) {
+      if ($id <= 2) {
+        return abort 401;
+      } else if ($id > 2) {
         $user = User::find($id);
         $user->delete();
         return redirect()->route('admin_user')->with('status', 'Sukses hapus data');
