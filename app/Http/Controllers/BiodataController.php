@@ -150,7 +150,7 @@ class BiodataController extends Controller
 
       $id = $request->deleteId;
       if ($id <= 2) {
-        return abort 401;
+        return abort(401);
       } else if ($id > 2) {
         $user = User::find($id);
         $user->delete();
