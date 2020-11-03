@@ -45,14 +45,12 @@
 
                     <div class="col-span-3 sm:col-span-3">
                       <jet-label for="mulai" value="Tanggal Mulai" />
-                      <!-- <jet-input id="mulai" type="date" class="mt-1 block w-full" v-model="form.mulai" autocomplete="mulai" /> -->
                       <date-picker v-model="form.mulai" type="date" format="DD-MM-YYYY" valueType="YYYY-MM-DD" class="mt-1 block w-full"></date-picker>
                       <jet-input-error :message="errors.mulai" class="mt-2" />
                     </div>
 
                     <div class="col-span-3 sm:col-span-3">
                       <jet-label for="selesai" value="Tanggal Selesai" />
-                      <!-- <jet-input id="selesai" type="date" class="mt-1 block w-full" v-model="form.selesai" autocomplete="selesai" /> -->
                       <date-picker v-model="form.selesai" type="date" format="DD-MM-YYYY" valueType="YYYY-MM-DD" class="mt-1 block w-full"></date-picker>
                       <jet-input-error :message="errors.selesai" class="mt-2" />
                     </div>
@@ -79,9 +77,11 @@
                       <div class="input-group">
                         <jet-label for="rab" value="RAB" />
                         <div class="input-group-btn">
-                          <button-attach>
-                            <span @click.prevent="openFileManager">Pilih/Unggah</span>
-                          </button-attach>
+                          <div @click.prevent="openFileManager">
+                            <button-attach>
+                              Pilih/Unggah
+                            </button-attach>
+                          </div>
                         </div>
                         <jet-input id="rab" type="text" class="mt-1 block w-full bg-gray-100" v-model="form.rab" autocomplete="rab" readonly/>
                         <jet-input-error :message="errors.rab" class="mt-2" />

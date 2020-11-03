@@ -24,9 +24,11 @@
                       <div class="input-group">
                         <jet-label for="permohonan" value="Surat Permohonan" />
                         <div class="input-group-btn">
-                          <button-attach>
-                            <span @click.prevent="openFileManager">Pilih/Unggah</span>
-                          </button-attach>
+                          <div @click.prevent="openFileManager">
+                            <button-attach>
+                              Pilih/Unggah
+                            </button-attach>
+                          </div>
                         </div>
                         <jet-input id="permohonan" type="text" class="mt-1 block w-full bg-gray-100" v-model="form.permohonan"  readonly/>
                         <jet-input-error :message="errors.permohonan" class="mt-2" />
@@ -38,9 +40,11 @@
                       <div class="input-group">
                         <jet-label for="proposal" value="Proposal" />
                         <div class="input-group-btn">
-                          <button-attach>
-                            <span @click.prevent="openFileManager2">Pilih/Unggah</span>
-                          </button-attach>
+                          <div @click.prevent="openFileManager2">
+                            <button-attach>
+                              Pilih/Unggah
+                            </button-attach>
+                          </div>
                         </div>
                         <jet-input id="proposal" type="text" class="mt-1 block w-full bg-gray-100" v-model="form.proposal"  readonly/>
                         <jet-input-error :message="errors.proposal" class="mt-2" />
@@ -52,9 +56,11 @@
                       <div class="input-group">
                         <jet-label for="pertanggungjawaban" value="Surat Pertanggung Jawaban Mutlak" />
                         <div class="input-group-btn">
-                          <button-attach>
-                            <span @click.prevent="openFileManager3">Pilih/Unggah</span>
-                          </button-attach>
+                          <div @click.prevent="openFileManager3">
+                            <button-attach>
+                              Pilih/Unggah
+                            </button-attach>
+                          </div>
                         </div>
                         <jet-input id="pertanggungjawaban" type="text" class="mt-1 block w-full bg-gray-100" v-model="form.pertanggungjawaban" readonly/>
                         <jet-input-error :message="errors.pertanggungjawaban" class="mt-2" />
@@ -66,9 +72,11 @@
                       <div class="input-group">
                         <jet-label for="kesanggupan" value="Surat Kesanggupan Melaksanakan FBK" />
                         <div class="input-group-btn">
-                          <button-attach>
-                            <span @click.prevent="openFileManager4">Pilih/Unggah</span>
-                          </button-attach>
+                          <div @click.prevent="openFileManager4">
+                            <button-attach>
+                              Pilih/Unggah
+                            </button-attach>
+                          </div>
                         </div>
                         <jet-input id="kesanggupan" type="text" class="mt-1 block w-full bg-gray-100" v-model="form.kesanggupan" readonly/>
                         <jet-input-error :message="errors.kesanggupan" class="mt-2" />
@@ -80,9 +88,11 @@
                       <div class="input-group">
                         <jet-label for="rekening" value="Foto/scan Rekening" />
                         <div class="input-group-btn">
-                          <button-attach>
-                            <span @click.prevent="openFileManager5">Pilih/Unggah</span>
-                          </button-attach>
+                          <div @click.prevent="openFileManager5">
+                            <button-attach>
+                              Pilih/Unggah
+                            </button-attach>
+                          </div>
                         </div>
                         <jet-input id="rekening" type="text" class="mt-1 block w-full bg-gray-100" v-model="form.rekening" readonly/>
                         <jet-input-error :message="errors.rekening" class="mt-2" />
@@ -94,9 +104,11 @@
                       <div class="input-group">
                         <jet-label for="npwp" value="Foto/scan NPWP" />
                         <div class="input-group-btn">
-                          <button-attach>
-                            <span @click.prevent="openFileManager6">Pilih/Unggah</span>
-                          </button-attach>
+                          <div @click.prevent="openFileManager6">
+                            <button-attach>
+                              Pilih/Unggah
+                            </button-attach>
+                          </div>
                         </div>
                         <jet-input id="npwp" type="text" class="mt-1 block w-full bg-gray-100" v-model="form.npwp" readonly/>
                         <jet-input-error :message="errors.npwp" class="mt-2" />
@@ -108,9 +120,11 @@
                       <div class="input-group">
                         <jet-label for="ktp" value="Foto/scan KTP" />
                         <div class="input-group-btn">
-                          <button-attach>
-                            <span @click.prevent="openFileManager7">Pilih/Unggah</span>
-                          </button-attach>
+                          <div @click.prevent="openFileManager7">
+                            <button-attach>
+                              Pilih/Unggah
+                            </button-attach>
+                          </div>
                         </div>
                         <jet-input id="ktp" type="text" class="mt-1 block w-full bg-gray-100" v-model="form.ktp" readonly/>
                         <jet-input-error :message="errors.ktp" class="mt-2" />
@@ -123,9 +137,11 @@
                       <div class="input-group">
                         <jet-label for="kk" value="Foto/scan KK" />
                         <div class="input-group-btn">
-                          <button-attach>
-                            <span @click.prevent="openFileManager8">Pilih/Unggah</span>
-                          </button-attach>
+                          <div @click.prevent="openFileManager8">
+                            <button-attach>
+                              Pilih/Unggah
+                            </button-attach>
+                          </div>
                         </div>
                         <jet-input id="kk" type="text" class="mt-1 block w-full bg-gray-100" v-model="form.kk" readonly/>
                         <jet-input-error :message="errors.kk" class="mt-2" />
@@ -138,9 +154,11 @@
                       <div class="input-group">
                         <jet-label for="integritas" value="Pakta Integritas" />
                         <div class="input-group-btn">
-                          <button-attach>
-                            <span @click.prevent="openFileManager9">Pilih/Unggah</span>
-                          </button-attach>
+                          <div @click.prevent="openFileManager9">
+                            <button-attach>
+                              Pilih/Unggah
+                            </button-attach>
+                          </div>
                         </div>
                         <jet-input id="integritas" type="text" class="mt-1 block w-full bg-gray-100" v-model="form.integritas" readonly/>
                         <jet-input-error :message="errors.integritas" class="mt-2" />
@@ -152,9 +170,11 @@
                       <div class="input-group">
                         <jet-label for="riwayat" value="Riwayat Hidup" />
                         <div class="input-group-btn">
-                          <button-attach>
-                            <span @click.prevent="openFileManager10">Pilih/Unggah</span>
-                          </button-attach>
+                          <div @click.prevent="openFileManager10">
+                            <button-attach>
+                              Pilih/Unggah
+                            </button-attach>
+                          </div>
                         </div>
                         <jet-input id="riwayat" type="text" class="mt-1 block w-full bg-gray-100" v-model="form.riwayat" readonly/>
                         <jet-input-error :message="errors.riwayat" class="mt-2" />
@@ -167,9 +187,11 @@
                       <div class="input-group">
                         <jet-label for="politik" value="Surat Tidak Terkait Partai Politik" />
                         <div class="input-group-btn">
-                          <button-attach>
-                            <span @click.prevent="openFileManager11">Pilih/Unggah</span>
-                          </button-attach>
+                          <div @click.prevent="openFileManager11">
+                            <button-attach>
+                              Pilih/Unggah
+                            </button-attach>
+                          </div>
                         </div>
                         <jet-input id="politik" type="text" class="mt-1 block w-full bg-gray-100" v-model="form.politik" readonly/>
                         <jet-input-error :message="errors.politik" class="mt-2" />
@@ -181,9 +203,11 @@
                       <div class="input-group">
                         <jet-label for="domisili" value="Surat Keterangan Domisili" />
                         <div class="input-group-btn">
-                          <button-attach>
-                            <span @click.prevent="openFileManager12">Pilih/Unggah</span>
-                          </button-attach>
+                          <div @click.prevent="openFileManager12">
+                            <button-attach>
+                              Pilih/Unggah
+                            </button-attach>
+                          </div>
                         </div>
                         <jet-input id="domisili" type="text" class="mt-1 block w-full bg-gray-100" v-model="form.domisili" readonly/>
                         <jet-input-error :message="errors.domisili" class="mt-2" />
@@ -195,9 +219,11 @@
                       <div class="input-group">
                         <jet-label for="komunitas" value="Profil Komunitas/lembaga" />
                         <div class="input-group-btn">
-                          <button-attach>
-                            <span @click.prevent="openFileManager13">Pilih/Unggah</span>
-                          </button-attach>
+                          <div @click.prevent="openFileManager13">
+                            <button-attach>
+                              Pilih/Unggah
+                            </button-attach>
+                          </div>
                         </div>
                         <jet-input id="komunitas" type="text" class="mt-1 block w-full bg-gray-100" v-model="form.komunitas" readonly/>
                         <jet-input-error :message="errors.komunitas" class="mt-2" />
@@ -209,9 +235,11 @@
                       <div class="input-group">
                         <jet-label for="kesekretariatan" value="Kesekretariatan" />
                         <div class="input-group-btn">
-                          <button-attach>
-                            <span @click.prevent="openFileManager14">Pilih/Unggah</span>
-                          </button-attach>
+                          <div @click.prevent="openFileManager14">
+                            <button-attach>
+                              Pilih/Unggah
+                            </button-attach>
+                          </div>
                         </div>
                         <jet-input id="kesekretariatan" type="text" class="mt-1 block w-full bg-gray-100" v-model="form.kesekretariatan" readonly/>
                         <jet-input-error :message="errors.kesekretariatan" class="mt-2" />
@@ -224,9 +252,11 @@
                       <div class="input-group">
                         <jet-label for="prestasi" value="Kegiatan & Prestasi" />
                         <div class="input-group-btn">
-                          <button-attach>
-                            <span @click.prevent="openFileManager15">Pilih/Unggah</span>
-                          </button-attach>
+                          <div @click.prevent="openFileManager15">
+                            <button-attach>
+                              Pilih/Unggah
+                            </button-attach>
+                          </div>
                         </div>
                         <jet-input id="prestasi" type="text" class="mt-1 block w-full bg-gray-100" v-model="form.prestasi" readonly/>
                         <jet-input-error :message="errors.prestasi" class="mt-2" />
@@ -239,9 +269,11 @@
                       <div class="input-group">
                         <jet-label for="akta" value="Akta Pendirian & SK Kemenkumham" />
                         <div class="input-group-btn">
-                          <button-attach>
-                            <span @click.prevent="openFileManager16">Pilih/Unggah</span>
-                          </button-attach>
+                          <div @click.prevent="openFileManager16">
+                            <button-attach>
+                              Pilih/Unggah
+                            </button-attach>
+                          </div>
                         </div>
                         <jet-input id="akta" type="text" class="mt-1 block w-full bg-gray-100" v-model="form.akta" readonly/>
                         <jet-input-error :message="errors.akta" class="mt-2" />

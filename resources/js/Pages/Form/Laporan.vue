@@ -45,9 +45,11 @@
                 <jet-label for="laporan80" value="Laporan 80%" v-if="$page.auth.user.kegiatan=='FBK'"/>
                 <jet-label for="laporan80" value="Laporan Awal" v-else />
                 <div class="input-group-btn">
-                  <button-attach>
-                    <span @click.prevent="openFileManager">Pilih/Unggah</span>
-                  </button-attach>
+                  <div @click.prevent="openFileManager">
+                    <button-attach>
+                      Pilih/Unggah
+                    </button-attach>
+                  </div>
                 </div>
                 <jet-input id="laporan80" type="text" class="mt-1 block w-full bg-gray-100" v-model="form.laporan80" readonly/>
                 <jet-input-error :message="errors.laporan80" class="mt-2" />
@@ -59,9 +61,11 @@
                 <jet-label for="laporan20" value="Laporan Akhir 20%"  v-if="$page.auth.user.kegiatan=='FBK'"/>
                 <jet-label for="laporan20" value="Laporan Akhir" v-else />
                 <div class="input-group-btn">
-                  <button-attach>
-                    <span @click.prevent="openFileManager2">Pilih/Unggah</span>
-                  </button-attach>
+                  <div @click.prevent="openFileManager2">
+                    <button-attach>
+                      Pilih/Unggah
+                    </button-attach>
+                  </div>
                 </div>
                 <jet-input id="laporan20" type="text" class="mt-1 block w-full bg-gray-100" v-model="form.laporan20" readonly/>
                 <jet-input-error :message="errors.laporan20" class="mt-2" />
