@@ -19,8 +19,9 @@ use App\Http\Controllers\LaporanController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    // return view('welcome');
+    return Inertia\Inertia::render('Landing');
+})->name('landing page');
 
 // Route::get('/', function() {
 //   return Inertia\Inertia::render('Index');
