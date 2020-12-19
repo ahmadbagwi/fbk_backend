@@ -64,4 +64,9 @@ class User extends Authenticatable
     {
       return $this->hasOne('App\Models\Biodata');
     }
+
+    public function profil()
+    {
+        return $this->hasMany('App\Models\Profil');
+    }
 }
