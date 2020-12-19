@@ -11,7 +11,9 @@ import JsonExcel from 'vue-json-excel'
 import 'vue-good-table/dist/vue-good-table.css'
 import { BootstrapVueIcons } from 'bootstrap-vue'
 import 'bootstrap-vue/dist/bootstrap-vue-icons.min.css'
+import CKEditor from 'ckeditor4-vue'
 
+Vue.use( CKEditor )
 Vue.use(BootstrapVueIcons)
 Vue.use(VueGoodTablePlugin);
 Vue.use(InertiaApp);
@@ -27,6 +29,7 @@ Vue.use(wysiwyg, {
   },
    maxHeight: "500px",
 })
+
 Vue.component('downloadExcel', JsonExcel)
 
 const app = document.getElementById('app');
