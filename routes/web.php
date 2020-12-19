@@ -6,6 +6,7 @@ use App\Http\Controllers\BiodataController;
 use App\Http\Controllers\PengajuanController;
 use App\Http\Controllers\AdministrasiController;
 use App\Http\Controllers\LaporanController;
+use App\Http\Controllers\ProfilController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,7 +21,17 @@ use App\Http\Controllers\LaporanController;
 
 Route::get('/', function () {
     // return view('welcome');
-    return Inertia\Inertia::render('Landing');
+    return Inertia\Inertia::render('Landing', [
+        'data' => [
+          'penerima' => [
+              'dokumentasi' => App\Models\Profil::where('kategori', 'like', '%' . 'dokumentasi' . '%')->get(),
+              'penciptaan' => App\Models\Profil::where('kategori', 'like', '%' . 'penciptaan' . '%')->get(),
+              'pendayagunaan' => App\Models\Profil::where('kategori', 'like', '%' . 'pendayagunaan' . '%')->get(),
+          ]
+          
+        ]
+        // 'komite' => 
+    ]);
 })->name('landing page');
 
 // Route::get('/', function() {
@@ -60,7 +71,7 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
     Route::post('administrasi/store', [AdministrasiController::class, 'store'])->name('administrasi_store');
     Route::get('administrasi/show', [AdministrasiController::class, 'show'])->name('administrasi_show');
 
-    Route::get('laporan/create', [LaporanController::class, 'create'])->name('laporan_create');
+    Route::get('laporan/create/{id}', [LaporanController::class, 'create'])->name('laporan_create');
     Route::get('laporan/edit', [LaporanController::class, 'edit'])->name('laporan_edit');
     Route::post('laporan/store', [LaporanController::class, 'store'])->name('laporan_store');
     Route::get('laporan/show', [LaporanController::class, 'show'])->name('laporan_show');
@@ -85,7 +96,14 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
     Route::get('admin/user/show/{id}', [BiodataController::class, 'user_show'])->name('admin_user_show');
     Route::post('admin/user/update', [BiodataController::class, 'user_update'])->name('admin_user_update');
     Route::post('admin/user/delete', [BiodataController::class, 'user_delete'])->name('admin_user_delete');
-});
+
+    Route::get('admin/profil', [ProfilController::class, 'index'])->name('admin_profil');
+    Route::get('profil/{id}', [ProfilController::class, 'show'])->name('profil_show');
+    Route::get('admin/profil/create/{id}', [ProfilController::class, 'create'])->name('profil_create');
+    Route::post('admin/profil/store', [ProfilController::class, 'store'])->name('profil_store');
+    Route::post('admin/profil/import', [ProfilController::class, 'importExcel'])->name('profil_import');
+    Route::post('admin/profil/destroy', [ProfilController::class, 'destroy'])->name('profil_destroy');
+  });
 
 Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['auth:sanctum']], function () {
      \UniSharp\LaravelFilemanager\Lfm::routes();
