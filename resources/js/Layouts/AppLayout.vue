@@ -14,7 +14,7 @@
                         </div>
 
                         <!-- Navigation Links -->
-                        <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex" v-if="$page.auth.user.kegiatan == 'FBK'">
+                        <div class="hidden space-x-8 sm:-my-px sm:ml-4 sm:flex" v-if="$page.auth.user.kegiatan == 'FBK'">
                             <jet-nav-link href="/dashboard" :active="$page.currentRouteName == 'dashboard'" v-if="$page.auth.user.role == 'user'">
                                 Dashboard
                             </jet-nav-link>
@@ -22,7 +22,7 @@
                                 Dashboard
                             </jet-nav-link>
                         </div>
-                        <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex" v-if="$page.auth.user.kegiatan == 'FBK'">
+                        <div class="hidden space-x-8 sm:-my-px sm:ml-4 sm:flex" v-if="$page.auth.user.kegiatan == 'FBK'">
                             <jet-nav-link href="/biodata/show" :active="$page.currentRouteName == 'biodata_show'" v-if="$page.auth.user.role == 'user'">
                                 Biodata
                             </jet-nav-link>
@@ -30,7 +30,7 @@
                                 Biodata
                             </jet-nav-link>
                         </div>
-                        <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex" v-if="$page.auth.user.kegiatan == 'FBK'">
+                        <div class="hidden space-x-8 sm:-my-px sm:ml-4 sm:flex" v-if="$page.auth.user.kegiatan == 'FBK'">
                             <jet-nav-link href="/pengajuan/show" :active="$page.currentRouteName == 'pengajuan_show'" v-if="$page.auth.user.role == 'user'">
                                 Pengajuan
                             </jet-nav-link>
@@ -38,7 +38,7 @@
                                 Pengajuan
                             </jet-nav-link>
                         </div>
-                        <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex" v-if="$page.auth.user.kegiatan == 'FBK'">
+                        <div class="hidden space-x-8 sm:-my-px sm:ml-4 sm:flex" v-if="$page.auth.user.kegiatan == 'FBK'">
                             <jet-nav-link href="/administrasi/show" :active="$page.currentRouteName == 'administrasi_show'" v-if="$page.auth.user.role == 'user'">
                                 Administrasi
                             </jet-nav-link>
@@ -46,7 +46,7 @@
                                 Administrasi
                             </jet-nav-link>
                         </div>
-                        <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                        <div class="hidden space-x-8 sm:-my-px sm:ml-4 sm:flex">
                             <jet-nav-link href="/laporan/show" :active="$page.currentRouteName == 'laporan_show'" v-if="$page.auth.user.role == 'user'">
                                 Laporan
                             </jet-nav-link>
@@ -54,14 +54,19 @@
                                 Laporan
                             </jet-nav-link>
                         </div>
-                        <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                        <div class="hidden space-x-8 sm:-my-px sm:ml-4 sm:flex">
                             <jet-nav-link href="/filemanager" :active="$page.currentRouteName == 'filemanager'">
                                 File Manager
                             </jet-nav-link>
                         </div>
-                        <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex" v-if="$page.auth.user.role == 'superadmin'">
+                        <div class="hidden space-x-8 sm:-my-px sm:ml-4 sm:flex" v-if="$page.auth.user.role == 'superadmin'">
                             <jet-nav-link href="/admin/user" :active="$page.currentRouteName == 'admin_user'">
                                 User
+                            </jet-nav-link>
+                        </div>
+                        <div class="hidden space-x-8 sm:-my-px sm:ml-4 sm:flex" v-if="$page.auth.user.role == 'superadmin'">
+                            <jet-nav-link href="/admin/profil" :active="$page.currentRouteName == 'admin_profil'">
+                                Profil
                             </jet-nav-link>
                         </div>
                         
