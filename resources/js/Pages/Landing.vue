@@ -4,7 +4,7 @@
       <div class="w-full">
         <div class="bg-white overflow-hidden shadow-xl rounded shadow">
           <Slider />
-          <Penerima />
+          <Penerima :penerima="penerima"/>
           <TextBg />
           <Komite />
           <News />
@@ -34,10 +34,11 @@
       Footer
     },
     props: {
+      data: {},
     },
     data() {
       return {
-      
+        penerima: this.data.penerima
       }
     }
   }
