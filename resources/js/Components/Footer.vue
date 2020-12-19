@@ -42,7 +42,7 @@
       </p>
     </div>
   </div> -->
-  <div class="w-full mx-auto my-8 p-8 grid grid-cols-2 gap-4 h-auto">
+  <div class="w-full mx-auto my-8 p-8 grid grid-cols-2 gap-4 h-auto border-t-2 border-blue-500">
     <div class="col-span-2 p-2 grid grid-cols-2 gap-4">
         <img src="/storage/kemdikbud.png">
     </div>
