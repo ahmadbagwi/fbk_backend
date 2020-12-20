@@ -9,7 +9,7 @@
             <div class="max-w-7xl mx-auto py-10 sm:px-6 lg:px-8">
               <jet-form-section @submitted="submitForm">
                 <template #title>
-                  Form Data Pengusul
+                  Form Data Penerima
                 </template>
                 <template #description>
                   <div class="mx-4 w-40 max-w-40 berita-create inline">
@@ -208,7 +208,7 @@
         this.form.kata_kunci = this.data.kata_kunci
         this.form.nama_penerima = this.data.nama_penerima
         this.form.foto_penerima = this.data.foto_penerima
-        this.form.profil_penerima = this.data.foto_penerima
+        this.form.profil_penerima = this.data.profil_penerima
         this.form.kontak = this.data.kontak
         this.form.media_sosial = this.data.media_sosial
       }
