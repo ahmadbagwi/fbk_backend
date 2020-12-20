@@ -3,7 +3,23 @@
     <div class="grid grid-cols-3 gap-2 mt-10 px-10">
       <div class="col-span-3 shadow-md rounded-lg p-1">
         <div class="text-gray-800 text-center text-sm px-1">
-          <img :src="blog.featured" class="block w-full mx-auto">
+          <div class="block z-30 relative opacity-85 p-2 px-4 sm:p-2 flex justify-between">
+            <inertia-link href="/">
+              <div class="text-white flex">
+                <img class="h-10 md:h-16" src="/storage/kemdikbud-putih.png">
+                <div class="flex-column">
+                  <div class="text-sm sm:text-2xl font-bold">Fasilitasi Bidang</div> 
+                  <div class="text-md sm:text-3xl font-bold leading-4">Kebudayaan</div>
+                </div>
+              </div>
+            </inertia-link>
+            <div class="flex p-1 sm:p-4">
+              <!-- <input type="text" class="w-28 sm:w-full rounded p-1 shadow" placeholder="Cari"> -->
+            </div>
+          </div>
+          <div class="z-0 -mt-20">
+              <img :src="`${blog.featured}`">
+          </div>
           <h3 v-html="blog.judul" class="text-2xl text-center font-bold"></h3>
           <div class="p-2 text-md">
             <span v-html="blog.konten"></span>
