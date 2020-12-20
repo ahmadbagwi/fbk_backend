@@ -4,10 +4,10 @@
       <div class="w-full">
         <div class="bg-white overflow-hidden shadow-xl rounded shadow">
           <Slider />
-          <Penerima :penerima="penerima"/>
+          <Penerima :penerima="penerima" />
           <TextBg />
-          <Komite />
-          <News />
+          <Komite :komite="komite" />
+          <BlogGrid :blog="blog"/>
           <Footer />
         </div>
       </div>
@@ -21,7 +21,7 @@
   import Penerima from './../Components/Penerima'
   import TextBg from './../Components/TextBg'
   import Komite from './../Components/Komite'
-  import News from './../Components/News'
+  import BlogGrid from './../Components/BlogGrid'
   import Footer from './../Components/Footer'
   export default {
     components: {
@@ -30,7 +30,7 @@
       Penerima,
       TextBg,
       Komite,
-      News,
+      BlogGrid,
       Footer
     },
     props: {
@@ -38,7 +38,9 @@
     },
     data() {
       return {
-        penerima: this.data.penerima
+        penerima: this.data.penerima,
+        komite: this.data.komite,
+        blog: this.data.blog
       }
     }
   }
