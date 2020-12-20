@@ -27,7 +27,7 @@ class ProfilController extends Controller
     public function show ($id)
     {
         $data = Profil::where('id', $id)->first();
-        $penerimaAcak = Profil::all()->random(6);
+        $penerimaAcak = Profil::all()->random(3);
         return Inertia::render('Show/Profil', [
           'data' => $data,
           'penerimaAcak' => $penerimaAcak,
@@ -37,7 +37,7 @@ class ProfilController extends Controller
     public function arsip ($slug)
     {
         $slug_kategori = ucwords($slug);
-        $data = Profil::where('kategori', 'like', $slug_kategori . '%')->get();
+        $data = Profil::where('kategori', 'like', $slug . '%')->get();
         return Inertia::render('ArsipProfil', [
           'data' => $data,
       ]);
