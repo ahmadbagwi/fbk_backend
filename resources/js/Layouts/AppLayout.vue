@@ -69,6 +69,12 @@
                                 Profil
                             </jet-nav-link>
                         </div>
+
+                        <div class="hidden space-x-8 sm:-my-px sm:ml-4 sm:flex" v-if="$page.auth.user.role == 'superadmin'">
+                            <jet-nav-link href="/admin/blog" :active="$page.currentRouteName == 'admin_blog'">
+                                Blog
+                            </jet-nav-link>
+                        </div>
                         
                     </div>
                     <div align="right" class="flex-1 my-auto text-white">
