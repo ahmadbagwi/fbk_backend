@@ -5,15 +5,19 @@
     </h2>
     <div class="slider-mobile sm:hidden">
       <splide :options="options_mobile">
-        <splide-slide v-for="list in data" :key="list.id">
-          <img :src="list.img" class="mx-auto w-28 max-w-xs rounded-full">
+        <splide-slide v-for="list in komite" :key="list.id">
+          <inertia-link :href="`/arsip/blog/komite`">
+            <img :src="list.featured" class="mx-auto w-28 max-w-xs rounded-full">
+          </inertia-link>
         </splide-slide>
       </splide>
     </div>
     <div class="slider-desktop hidden sm:block">
       <splide :options="options">
-        <splide-slide v-for="list in data" :key="list.id">
-          <img :src="list.img" class="mx-auto w-40 max-w-xs rounded-full">
+        <splide-slide v-for="list in komite" :key="list.id">
+          <inertia-link :href="`/arsip/blog/komite`">
+            <img :src="list.featured" class="mx-auto w-40 max-w-xs rounded-full">
+          </inertia-link>
         </splide-slide>
       </splide>
     </div>
@@ -29,7 +33,9 @@ export default {
     Splide,
     SplideSlide,
   },
-
+  props: {
+    komite: {}
+  },
   data () {
     return {
       data: [
