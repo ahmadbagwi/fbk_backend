@@ -26,7 +26,7 @@ Route::get('/', function () {
           'penerima' => [
               'dokumentasi' => App\Models\Profil::where('kategori', 'like', 'Dokumentasi' . '%')->get(),
               'penciptaan' => App\Models\Profil::where('kategori', 'like', 'Penciptaan' . '%')->get(),
-              'pendayagunaan' => App\Models\Profil::where('kategori', 'like', 'Pendayaagunaan' . '%')->get(),
+              'pendayagunaan' => App\Models\Profil::where('kategori', 'like', 'Pendayagunaan' . '%')->get(),
           ],
           'komite' => App\Models\Blog::where('kategori', 'komite')->get(),
           'blog' => App\Models\Blog::where('kategori', 'blog')->get()
