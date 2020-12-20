@@ -67,7 +67,7 @@
           return 'Dokumentasi Karya/Pengetahuan Maestro';
         } else if (this.data[0].kategori == 'Penciptaan Karya Kreatif Inovatif') {
           return 'Penciptaan Karya Kreatif Inovatif';
-        } else {
+        } else if (this.data[0].kategori == 'Pendayagunaan Ruang Publik'){
           return 'Pendayagunaan Ruang Publik';
         }
       }
