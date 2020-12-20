@@ -14,7 +14,7 @@
             <img :src="list.featured" class="block w-full mx-auto">
             <h3 v-html="list.judul" class="text-center font-bold"></h3>
             <div class="p-2">
-              <span v-html="list.konten"></span>
+              <span v-html="list.meta"></span>
             </div>
           </inertia-link>
         </div>
