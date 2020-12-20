@@ -9,7 +9,10 @@
         </div>
       </div>
       <div class="flex p-1 sm:p-4">
-        <input type="text" class="w-28 sm:w-full rounded p-1 shadow" placeholder="Cari">
+        <form @submit="cari" class="flex">
+          <input v-model="form.kata_kunci" type="text" class="w-28 sm:w-full rounded p-1 shadow" placeholder="Cari">
+          <button type="submit" class="mx-1 p-1 rounded bg-gray-200 hover:bg-gray-100">Cari</button>
+        </form>
       </div>
     </div>
     <div class="z-0 -mt-20">
@@ -25,17 +28,24 @@
 <script>
 import { Splide, SplideSlide } from '@splidejs/vue-splide'
 import '@splidejs/splide/dist/css/themes/splide-skyblue.min.css'
+// import Button from '../Jetstream/Button.vue'
 // import Input from '../Jetstream/Input.vue'
 
 export default {
   components: {
     Splide,
-    SplideSlide,
+    SplideSlide
+
     // Input,
   },
 
   data () {
     return {
+      kata_kunci: '',
+      form: this.$inertia.form({
+          id: null,
+          kata_kunci: '',
+      }),
       data: [
         {id: 1, img: '/storage/slider-1.png'},
         {id: 2, img: '/storage/slider-2.jpg'},
@@ -51,6 +61,20 @@ export default {
         // height : '8rem',
       },
     }
+  },
+
+  methods: {
+    cari () {
+      // this.$router.push(`/cari/${this.kata_kunci}`)
+      this.form.post(`/cari`)
+    },
+    // cariData () {
+    //   axios.get(`/cari/`, {
+    //     params: {
+    //       keyword: this.keyword
+    //     }
+    //   })
+    // }
   }
 }
 </script>
