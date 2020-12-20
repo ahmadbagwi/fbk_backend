@@ -6,7 +6,7 @@
     <div class="slider-mobile sm:hidden">
       <splide :options="options_mobile">
         <splide-slide v-for="list in komite" :key="list.id">
-          <inertia-link :href="`/arsip/blog/komite`">
+          <inertia-link :href="`/arsip/blog/komite#${list.slug}`">
             <img :src="list.featured" class="mx-auto w-28 max-w-xs rounded-full">
           </inertia-link>
         </splide-slide>
@@ -15,7 +15,7 @@
     <div class="slider-desktop hidden sm:block">
       <splide :options="options">
         <splide-slide v-for="list in komite" :key="list.id">
-          <inertia-link :href="`/arsip/blog/komite`">
+          <inertia-link :href="`/arsip/blog/komite#${list.slug}`">
             <img :src="list.featured" class="mx-auto w-40 max-w-xs rounded-full">
           </inertia-link>
         </splide-slide>
