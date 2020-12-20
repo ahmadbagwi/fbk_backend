@@ -11,15 +11,15 @@
         </div>
       </inertia-link>
       <div class="flex p-1 sm:p-4">
-        <input type="text" class="w-28 sm:w-full rounded p-1 shadow" placeholder="Cari">
+        <!-- <input type="text" class="w-28 sm:w-full rounded p-1 shadow" placeholder="Cari"> -->
       </div>
     </div>
     <div class="z-0 -mt-20">
-        <img :src="`/${profil.foto}`">
+        <img :src="`${profil.foto}`">
     </div>
     <div class="p-4 block">
       <div class="flex-column mx-auto text-center pb-2 border-b border-gray-500">
-        <img :src="`/${profil.foto_penerima}`" class="rounded-full shadow w-40 mx-auto">
+        <img :src="`${profil.foto_penerima}`" class="rounded-full shadow w-40 mx-auto">
         <div class="font-bold text-2xl">&#128195; {{profil.nama_project}}</div>
         <div class="font-bold text-2xl">&#128203; {{profil.nama_penerima}}</div>
       </div>
@@ -55,7 +55,7 @@
     </div>
     <div class="p-4 block">
       <inertia-link href="/">
-        <button class="flex w-24 max-w-24 text-white-700 border-green-400 bg-blue-400 hover:bg-gray-200 px-1 py-1 rounded shadow" >
+        <button class="flex w-24 max-w-24 text-white-700 border-green-400 bg-gray-100 hover:bg-gray-200 px-1 py-1 rounded shadow" >
         &#8656; &nbsp;Kembali
         </button>
       </inertia-link>
