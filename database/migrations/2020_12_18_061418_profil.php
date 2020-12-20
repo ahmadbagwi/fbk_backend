@@ -22,13 +22,13 @@ class Profil extends Migration
             $table->string('waktu', 100)->nullable();
             $table->integer('nominal_diajukan')->unsigned()->nullable();
             $table->integer('nominal_disetujui')->unsigned()->nullable();
-            $table->longText('deskripsi')->nullable()->default('text');
-            $table->string('kata_kunci', 200)->nullable()->default('fbk');
+            $table->longText('deskripsi')->nullable();
+            $table->string('kata_kunci', 200)->nullable();
             $table->string('foto_penerima', 200)->nullable();
             $table->string('nama_penerima', 200);
-            $table->longText('profil_penerima')->nullable()->default('text');
-            $table->string('kontak', 100)->nullable()->default('text');
-            $table->string('media_sosial', 100)->nullable()->default('text'); 
+            $table->longText('profil_penerima')->nullable();
+            $table->string('kontak', 100)->nullable();
+            $table->string('media_sosial', 100)->nullable(); 
             $table->timestamps();
             $table->softDeletes();
         });
