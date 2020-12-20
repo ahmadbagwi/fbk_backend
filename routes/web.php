@@ -7,6 +7,7 @@ use App\Http\Controllers\PengajuanController;
 use App\Http\Controllers\AdministrasiController;
 use App\Http\Controllers\LaporanController;
 use App\Http\Controllers\ProfilController;
+use App\Http\Controllers\BlogController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,23 +21,36 @@ use App\Http\Controllers\ProfilController;
 */
 
 Route::get('/', function () {
-    // return view('welcome');
     return Inertia\Inertia::render('Landing', [
         'data' => [
           'penerima' => [
-              'dokumentasi' => App\Models\Profil::where('kategori', 'like', '%' . 'dokumentasi' . '%')->get(),
-              'penciptaan' => App\Models\Profil::where('kategori', 'like', '%' . 'penciptaan' . '%')->get(),
-              'pendayagunaan' => App\Models\Profil::where('kategori', 'like', '%' . 'pendayagunaan' . '%')->get(),
-          ]
-          
+              'dokumentasi' => App\Models\Profil::where('kategori', 'like', 'Dokumentasi' . '%')->get(),
+              'penciptaan' => App\Models\Profil::where('kategori', 'like', 'Penciptaan' . '%')->get(),
+              'pendayagunaan' => App\Models\Profil::where('kategori', 'like', 'Pendayaagunaan' . '%')->get(),
+          ],
+          'komite' => App\Models\Blog::where('kategori', 'komite')->get(),
+          'blog' => App\Models\Blog::where('kategori', 'blog')->get()
         ]
-        // 'komite' => 
     ]);
 })->name('landing page');
 
-// Route::get('/', function() {
-//   return Inertia\Inertia::render('Index');
-// })->name('landing');
+Route::post('/cari', function (Request $request) {
+  $hasil_cari = [];
+  $cari_profil = App\Models\Profil::where('nama_project', 'like', '%' . $request->kata_kunci . '%')->orWhere('nama_penerima', 'like', '%' . $request->kata_kunci . '%')->get();
+  // $cari_berita = App\Models\Blog::where('judul', 'like', '%' . $request->kata_kunci . '%')->orWhere('konten', 'like', '%' . $request->kata_kunci . '%')->get();
+
+  if ($cari_profil) {
+    array_push($hasil_cari, $cari_profil);
+  }
+  // dd($hasil_cari);
+  // if($cari_berita) {
+  //   array_push($hasil_cari, $cari_berita);
+  // }
+  return redirect('/arsip/profil/Dokumentasi');
+  // return Inertia\Inertia::render('Cari', [
+  //     'data' => $hasil_cari,
+  //     ]);
+})->name('cari');
 
 Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
     Route::get('dashboard', function() {
@@ -58,9 +72,6 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
     Route::get('biodata/create', [BiodataController::class, 'create'])->name('biodata_create');
     Route::post('biodata/store', [BiodataController::class, 'store'])->name('biodata_store');
     Route::get('biodata/show', [BiodataController::class, 'show'])->name('biodata_show');
-    // Route::get('biodata/show', function() {
-    //   return Inertia\Inertia::render('Show/Biodata');
-    // })->name('show.biodata');
 
     Route::get('pengajuan/create', [PengajuanController::class, 'create'])->name('pengajuan_create');
     Route::post('pengajuan/store', [PengajuanController::class, 'store'])->name('pengajuan_store');
@@ -98,12 +109,23 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
     Route::post('admin/user/delete', [BiodataController::class, 'user_delete'])->name('admin_user_delete');
 
     Route::get('admin/profil', [ProfilController::class, 'index'])->name('admin_profil');
-    Route::get('profil/{id}', [ProfilController::class, 'show'])->name('profil_show');
     Route::get('admin/profil/create/{id}', [ProfilController::class, 'create'])->name('profil_create');
     Route::post('admin/profil/store', [ProfilController::class, 'store'])->name('profil_store');
     Route::post('admin/profil/import', [ProfilController::class, 'importExcel'])->name('profil_import');
     Route::post('admin/profil/destroy', [ProfilController::class, 'destroy'])->name('profil_destroy');
+
+    Route::get('admin/blog', [BlogController::class, 'index'])->name('admin_blog');
+    Route::get('admin/blog/create/{id}', [BlogController::class, 'create'])->name('blog_create');
+    Route::post('admin/blog/store', [BlogController::class, 'store'])->name('blog_store');
+    Route::post('admin/blog/import', [BlogController::class, 'importExcel'])->name('blog_import');
+    Route::post('admin/blog/destroy', [BlogController::class, 'destroy'])->name('blog_destroy');
   });
+
+Route::get('profil/{id}', [ProfilController::class, 'show'])->name('profil_show');
+Route::get('arsip/profil/{slug}', [ProfilController::class, 'arsip'])->name('profil_arsip');
+
+Route::get('blog/{slug}', [BlogController::class, 'show'])->name('blog_show');
+Route::get('arsip/blog/{slug}', [BlogController::class, 'arsip'])->name('blog_arsip');
 
 Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['auth:sanctum']], function () {
      \UniSharp\LaravelFilemanager\Lfm::routes();
