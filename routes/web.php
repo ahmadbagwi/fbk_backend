@@ -29,7 +29,8 @@ Route::get('/', function () {
               'pendayagunaan' => App\Models\Profil::where('kategori', 'like', 'Pendayagunaan' . '%')->get(),
           ],
           'komite' => App\Models\Blog::where('kategori', 'komite')->get(),
-          'blog' => App\Models\Blog::where('kategori', 'blog')->get()
+          'blog' => App\Models\Blog::where('kategori', 'blog')->limit(3)->orderBy('created_at', 'desc')->get(),
+          'faq' => App\Models\Blog::where('kategori', 'faq')->get()
         ]
     ]);
 })->name('landing page');
@@ -106,6 +107,10 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
     Route::post('admin/blog/store', [BlogController::class, 'store'])->name('blog_store');
     Route::post('admin/blog/import', [BlogController::class, 'importExcel'])->name('blog_import');
     Route::post('admin/blog/destroy', [BlogController::class, 'destroy'])->name('blog_destroy');
+
+    Route::get('admin/faq', [BlogController::class, 'faq'])->name('admin_faq');
+    Route::get('admin/faq/create/{id}', [BlogController::class, 'create_faq'])->name('faq_create');
+    Route::post('admin/faq/store', [BlogController::class, 'store_faq'])->name('faq_store');
   });
 
 Route::get('profil/{id}', [ProfilController::class, 'show'])->name('profil_show');
