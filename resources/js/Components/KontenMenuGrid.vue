@@ -8,7 +8,7 @@
               &#128195;
             </div>
             <div class="judul text-center text-md md:text-2xl font-bold">
-              Profil
+              Profil Penerima
             </div>
           </inertia-link>
         </div>
@@ -25,7 +25,7 @@
         <div class="col-span-2 md:col-span-1 p-4 w-40 rounded-md hover:shadow-none cursor-pointer shadow-md bg-gray-300 flex-column mx-auto border-2 border-gray-400">
           <inertia-link href="/filemanager">
             <div class="icon text-center text-4xl md:text-6xl font-bold">
-              &#9995;
+              &#128194;
             </div>
             <div class="judul text-center text-md md:text-2xl font-bold">
               File Manager
@@ -35,7 +35,7 @@
         <div class="col-span-2 md:col-span-1 p-4 w-40 rounded-md hover:shadow-none cursor-pointer shadow-md bg-gray-300 flex-column mx-auto border-2 border-gray-400">
           <inertia-link href="/user/profile">
             <div class="icon text-center text-md md:text-4xl md:text-6xl font-bold">
-              &#10067;
+              &#128100;
             </div>
             <div class="judul text-center text-2xl font-bold">
               Akun
