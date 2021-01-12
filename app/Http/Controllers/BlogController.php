@@ -17,8 +17,16 @@ class BlogController extends Controller
 {
     public function index()
     {
-      $data = Blog::orderBy('created_at', 'desc')->limit(5000)->get();
+      $data = Blog::where('kategori', 'blog')->orWhere('kategori', 'komite')->orderBy('created_at', 'desc')->get();
       return Inertia::render('Admin/Blog', [
+        'data' => $data
+      ]);
+    }
+
+    public function faq()
+    {
+      $data = Blog::orderBy('created_at', 'desc')->where('kategori', 'faq')->get();
+      return Inertia::render('Admin/FAQ', [
         'data' => $data
       ]);
     }
@@ -26,10 +34,10 @@ class BlogController extends Controller
     public function show ($slug)
     {
         $data = Blog::where('slug', $slug)->first();
-        // ambil semua arsip
-        // $data = Blog::all();
+        $blogAcak = Blog::where('kategori', 'blog')->get()->random(3);
         return Inertia::render('Show/Blog', [
           'data' => $data,
+          'blogAcak' => $blogAcak
       ]);
     }
 
@@ -58,6 +66,14 @@ class BlogController extends Controller
       ]);
     }
 
+    public function create_faq($id = null)
+    {
+      $data = $id ? Blog::where('id', $id)->first() : null;
+      return Inertia::render('Form/FAQ', [
+        'data' => $data
+      ]);
+    }
+
     public function store(BlogRequest $request)
     {
         $validated = $request->validated();
@@ -82,6 +98,31 @@ class BlogController extends Controller
 
         if ($blog) {
           return redirect()->route('admin_blog')->with('status', 'Sukses menyimpan ' . $request->judul);
+        } 
+    }
+
+    public function store_faq(Request $request)
+    {
+        $slug = $request->slug ?? Str::slug($request->judul, '-').'_'.rand();
+        $faq = Blog::updateOrCreate(
+          [
+            'id' => $request->id
+          ],
+          [
+            'user_id' => auth()->user()->id,
+            'tanggal' => date('Y-m-d'),
+            'judul' => $request->judul,
+            'slug' => $slug,
+            'kategori' => 'faq',
+            'meta' => $request->judul,
+            'kata_kunci' => $request->judul,
+            'featured' => '',
+            'konten' => $request->konten,
+            'status' => 'aktif'
+          ]);
+
+        if ($faq) {
+          return redirect()->route('admin_faq')->with('status', 'Sukses menyimpan ' . $request->judul);
         } 
     }
 
