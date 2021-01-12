@@ -4,6 +4,7 @@
       <div class="w-full">
         <div class="bg-white overflow-hidden shadow-xl rounded shadow">
           <BlogFull :blog="blog" />
+          <BlogGrid :blog="blogAcak" />
           <Footer />
         </div>
       </div>
@@ -14,17 +15,18 @@
 <script>
   import FbkLayout from './../../Layouts/FbkLayout'
   import BlogFull from './../../Components/BlogFull'
-  import PenerimaGrid from './../../Components/PenerimaGrid'
+  import BlogGrid from './../../Components/BlogGrid'
   import Footer from './../../Components/Footer'
   export default {
     components: {
       FbkLayout,
       BlogFull,
-      PenerimaGrid,
+      BlogGrid,
       Footer
     },
     props: {
       data: {},
+      blogAcak: {}
     },
     data() {
       return {
