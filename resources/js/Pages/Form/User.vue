@@ -48,8 +48,9 @@
 
                     <div class="col-span-6 sm:col-span-4">
                       <jet-label for="role" value="Role" />
-                      <select id="role" type="text" class="mt-1 block w-full block appearance-none bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" v-model="form.role">
+                      <select v-model="form.role" id="role" type="text" class="mt-1 block w-full block appearance-none bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
                         <option value="user">user</option>
+                        <option value="konten">penulis konten</option>
                         <option value="superadmin">superadmin</option>
                       </select>
                       <jet-input-error :message="errors.role" class="mt-2" />
