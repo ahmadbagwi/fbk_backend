@@ -12,10 +12,7 @@ import 'vue-good-table/dist/vue-good-table.css'
 import { BootstrapVueIcons } from 'bootstrap-vue'
 import 'bootstrap-vue/dist/bootstrap-vue-icons.min.css'
 import CKEditor from 'ckeditor4-vue'
-import VueAxios from 'vue-axios'
-import axios from 'axios'
 
-Vue.use(VueAxios, axios)
 Vue.use( CKEditor )
 Vue.use(BootstrapVueIcons)
 Vue.use(VueGoodTablePlugin);
