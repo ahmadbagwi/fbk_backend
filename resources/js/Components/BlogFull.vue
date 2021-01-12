@@ -2,7 +2,7 @@
   <div class="w-full mx-auto">
     <div class="grid grid-cols-3 gap-2 mt-10 px-10">
       <div class="col-span-3 shadow-md rounded-lg p-1">
-        <div class="text-gray-800 text-center text-sm px-1">
+        <div class="text-gray-800 text-sm px-1">
           <div class="block z-30 relative opacity-85 p-2 px-4 sm:p-2 flex justify-between">
             <inertia-link href="/">
               <div class="text-white flex">
