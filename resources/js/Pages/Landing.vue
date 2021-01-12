@@ -8,6 +8,7 @@
           <TextBg />
           <Komite :komite="komite" />
           <BlogGrid :blog="blog"/>
+          <FAQGrid :faq="faq" />
           <Footer />
         </div>
       </div>
@@ -22,6 +23,7 @@
   import TextBg from './../Components/TextBg'
   import Komite from './../Components/Komite'
   import BlogGrid from './../Components/BlogGrid'
+  import FAQGrid from './../Components/FAQGrid'
   import Footer from './../Components/Footer'
   export default {
     components: {
@@ -31,6 +33,7 @@
       TextBg,
       Komite,
       BlogGrid,
+      FAQGrid,
       Footer
     },
     props: {
@@ -40,7 +43,8 @@
       return {
         penerima: this.data.penerima,
         komite: this.data.komite,
-        blog: this.data.blog
+        blog: this.data.blog,
+        faq: this.data.faq
       }
     }
   }
