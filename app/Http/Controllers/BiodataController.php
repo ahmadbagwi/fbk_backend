@@ -40,6 +40,14 @@ class BiodataController extends Controller
       ]);
     }
 
+    public function create_akun()
+    {
+      $this->cek_admin();
+      return Inertia::render('Form/User', [
+        'data' => null
+      ]);
+    }
+
     public function user_update(Request $request)
     {
       $this->validate($request, [
