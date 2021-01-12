@@ -78,6 +78,11 @@
                                 Blog
                             </jet-nav-link>
                         </div>
+                        <div class="hidden space-x-8 sm:-my-px sm:ml-4 sm:flex" v-if="$page.auth.user.role != 'user'">
+                            <jet-nav-link href="/admin/faq" :active="$page.currentRouteName == 'admin_faq'">
+                                FAQ
+                            </jet-nav-link>
+                        </div>
                         
                     </div>
                     <div align="right" class="flex-1 my-auto text-white">
@@ -213,6 +218,9 @@
                     </jet-responsive-nav-link>
                     <jet-responsive-nav-link href="/admin/blog" :active="$page.currentRouteName == 'admin_blog'" v-if="$page.auth.user.role != 'user'">
                         Blog
+                    </jet-responsive-nav-link>
+                    <jet-responsive-nav-link href="/admin/faq" :active="$page.currentRouteName == 'admin_faq'" v-if="$page.auth.user.role != 'user'">
+                        FAQ
                     </jet-responsive-nav-link>
                 </div>
 
