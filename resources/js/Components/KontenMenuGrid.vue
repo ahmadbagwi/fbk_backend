@@ -33,12 +33,12 @@
           </inertia-link>
         </div>
         <div class="col-span-2 md:col-span-1 p-4 w-40 rounded-md hover:shadow-none cursor-pointer shadow-md bg-gray-300 flex-column mx-auto border-2 border-gray-400">
-          <inertia-link href="/user/profile">
+          <inertia-link href="/admin/faq">
             <div class="icon text-center text-md md:text-4xl md:text-6xl font-bold">
-              &#128100;
+              &#10067;
             </div>
             <div class="judul text-center text-2xl font-bold">
-              Akun
+              FAQ
             </div>
           </inertia-link>
         </div>
