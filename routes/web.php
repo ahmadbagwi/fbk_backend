@@ -36,14 +36,12 @@ Route::get('/', function () {
 
 Route::get('cari-data', [ProfilController::class, 'cari'])->name('cari');
 
-Route::get('test', function () {
-  echo "hello world";
-})->name('test-aja');
-
 Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
     Route::get('dashboard', function() {
       if (auth()->user()->role =='user') {
         return Inertia\Inertia::render('Dashboard');
+      } else if (auth()->user()->role == 'konten') {
+        return Inertia\Inertia::render('KontenDashboard');
       } else { 
         return redirect('admin/dashboard');
       }
@@ -92,6 +90,7 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
     Route::post('admin/laporan/delete', [LaporanController::class, 'delete'])->name('admin_laporan_delete');
 
     Route::get('admin/user', [BiodataController::class, 'user'])->name('admin_user');
+    Route::get('admin/user/create', [BiodataController::class, 'create_akun'])->name('admin_user_create_akun');
     Route::get('admin/user/show/{id}', [BiodataController::class, 'user_show'])->name('admin_user_show');
     Route::post('admin/user/update', [BiodataController::class, 'user_update'])->name('admin_user_update');
     Route::post('admin/user/delete', [BiodataController::class, 'user_delete'])->name('admin_user_delete');
