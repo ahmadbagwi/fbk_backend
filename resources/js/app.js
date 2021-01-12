@@ -22,7 +22,6 @@ Vue.use(VueGoodTablePlugin);
 Vue.use(InertiaApp);
 Vue.use(InertiaForm);
 Vue.use(PortalVue);
-
 Vue.use(wysiwyg, {
   image: {
     uploadURL: "/upload",
@@ -32,11 +31,18 @@ Vue.use(wysiwyg, {
   },
    maxHeight: "500px",
 })
-
 Vue.component('downloadExcel', JsonExcel)
 
-const app = document.getElementById('app');
+const formatCurrency = {}
+formatCurrency.install = function (Vue, options) {
+  Vue.prototype.$currency = function (value) {
+    let val = (value/1).toFixed(0).replace('.', ',')
+    return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")
+  }
+}
+Vue.use(formatCurrency)
 
+const app = document.getElementById('app');
 new Vue({
   render: (h) =>
   h(InertiaApp, {
