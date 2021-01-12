@@ -15,7 +15,7 @@
                   {{ list.judul }} <span class="text-right">&#128315;</span>
                 </div>
                 <div v-show="show == list.id" class="flex p-2 text-sm font-semibold text-gray-600">
-                  {{ list.konten }}
+                  <span v-html="list.konten"></span>
                 </div>
               </div>
             </div>
