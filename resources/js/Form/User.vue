@@ -104,7 +104,7 @@
                             </svg>Pilih/Unggah
                           </button>
                         </div>
-                        <jet-input id="npwp" type="text" class="mt-1 block w-full bg-gray-100" v-model="form.npwp"readonly/>
+                        <jet-input id="npwp" type="text" class="mt-1 block w-full bg-gray-100" v-model="form.npwp" readonly/>
                         <jet-input-error :message="errors.npwp" class="mt-2" />
                       </div>
                     </div>
