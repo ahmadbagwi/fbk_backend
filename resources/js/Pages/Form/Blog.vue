@@ -13,8 +13,8 @@
             Form Blog
           </template>
           <template #description>
-            <div class="mx-4 w-40 max-w-40 berita-create inline">
-              <inertia-link href="/admin/berita">
+            <div class="mx-4 w-40 max-w-40 blog-create inline">
+              <inertia-link href="/admin/blog">
                 <button class="flex w-24 max-w-24 text-blue-700 border-green-400 bg-gray-100 hover:bg-gray-200 px-1 py-1 rounded shadow" >
                 &#8656; &nbsp;Kembali
                 </button>
