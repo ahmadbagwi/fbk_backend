@@ -23,7 +23,7 @@
         <div class="font-bold text-2xl">&#128195; {{profil.nama_project}}</div>
         <div class="font-bold text-2xl">&#128203; {{profil.nama_penerima}}</div>
       </div>
-      <div class="flex-column sm:flex my-2">
+      <div class="flex justify-center my-2">
         <div class="p-2 mx-1 rounded bg-green-500 shadow text-gray-200">
           &#128194; {{ profil.kategori }}
         </div>
@@ -33,6 +33,14 @@
         <div class="p-2 mx-1 rounded bg-red-500 shadow text-gray-200">
           &#9993; {{ profil.kontak }}
         </div>
+      </div>
+      <div class="flex justify-center mx-2">
+        <span v-if="diajukan != '0'" class="bg-blue-500 text-gray-100 rounded p-2 mx-1">
+          Diajukan {{ diajukan }}
+        </span>
+        <span v-if="disetujui != '0'" class="bg-green-500 text-gray-100 rounded p-2 mx-1">
+          Disetujui {{ disetujui }}
+        </span>
       </div>
       <div class="grid grid-cols-4 gap-6 md:p-8 break-normal">
         <div class="col-span-4 md:col-span-4 my-4 break-normal pb-4 border-b border-gray-500">
@@ -51,6 +59,11 @@
             <span v-html="profil.profil_penerima" class="break-normal"></span>
           </p>
         </div>
+      </div>
+    </div>
+    <div class="p-4 block">
+      <div class="flex justify-center">
+        <span v-if="profil.media_sosial" class="bg-gray-300 rounded p-2 shadow hover:shadow-none text-gray-600">{{ profil.media_sosial }}</span>
       </div>
     </div>
     <div class="p-4 block">
@@ -79,6 +92,14 @@ export default {
         {id: 3, img: '/storage/profile.jpeg', text: 'Lorem Ipsum 3'},
       ],
     }
-  }
+  },
+  computed: {
+    diajukan: function () {
+      return this.$currency(this.profil.nominal_diajukan)
+    },
+    disetujui: function () {
+      return this.$currency(this.profil.nominal_disetujui)
+    },
+  },
 }
 </script>
