@@ -7,7 +7,7 @@
           <h3 class="text-2xl text-gray-700 text-center font-semibold mx-1">
             Hasil Pencarian
           </h3>
-          <PenerimaGrid :penerimaAcakGrid="cari" />
+          <PenerimaGrid :penerimaAcakGrid="data" />
           <div class="p-4 block mx-center">
             <inertia-link href="/">
               <button class="flex w-24 max-w-24 text-white-700 border-green-400 bg-gray-100 hover:bg-gray-200 px-1 py-1 rounded shadow" >
@@ -38,6 +38,7 @@
     },
     props: {
       data: {},
+      keyword: ''
     },
     data() {
       return {
