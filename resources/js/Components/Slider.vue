@@ -54,11 +54,5 @@ export default {
       },
     }
   },
-
-  methods: {
-    cariData () {
-      this.axios.get('/cari-data')
-    }
-  }
 }
 </script>
