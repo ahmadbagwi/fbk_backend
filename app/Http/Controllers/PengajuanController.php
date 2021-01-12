@@ -112,10 +112,10 @@ class PengajuanController extends Controller
       $file_extension = $file->getClientOriginalExtension();
       $file_slug = Str::slug($file_name, '_').".".$file_extension;
 
-      $upload_dir = public_path('storage/files/').Auth::user()->id;
+      $upload_dir = public_path('storage/files/upload');
 
       if ($file->move($upload_dir, $file_slug)) {
-        $url = URL::to('/storage/files/'.Auth::user()->id.'/'.$file_slug);
+        $url = URL::to('/storage/files/upload/'.$file_slug);
         return response()->json($url);
       }
     }  
