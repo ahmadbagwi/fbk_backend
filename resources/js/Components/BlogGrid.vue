@@ -3,7 +3,7 @@
     <div class="title text-center py-4">
       <h2 class="text-3xl">
         <inertia-link href="/arsip/blog/blog">
-          -NEWS <span class="font-bold">POOL-</span>
+          -Berita <span class="font-bold">FBK-</span>
         </inertia-link>
       </h2>
     </div>
