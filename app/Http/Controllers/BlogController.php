@@ -147,7 +147,7 @@ class BlogController extends Controller
       $upload_dir = public_path('storage/files/').Auth::user()->id;
 
       if ($file->move($upload_dir, $file_slug)) {
-        $url = URL::to('/storage/files/'.Auth::user()->id.'/'.$file_slug);
+        $url = URL::to('/storage/files/superadmin/'.$file_slug);
         return response()->json($url);
       }
     }  
