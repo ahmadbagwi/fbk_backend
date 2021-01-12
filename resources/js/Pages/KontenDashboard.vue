@@ -1,5 +1,5 @@
 <template>
-  <KontenAppLayout>
+  <AppLayout>
     <template #header>
       <h2 class="font-semibold text-xl .bg-green-400 leading-tight">
         <h1>Selamat Datang Admin</h1>
@@ -14,17 +14,17 @@
         </div>
       </div>
     </fade-transition>
-  </KontenAppLayout>
+  </AppLayout>
 </template>
 
 <script>
-  import KontenAppLayout from './../Layouts/KontenAppLayout'
+  import AppLayout from './../Layouts/AppLayout'
   import KontenMenuGrid from './../Components/KontenMenuGrid'
   import {FadeTransition} from 'vue2-transitions'
 
   export default {
     components: {
-      KontenAppLayout,
+      AppLayout,
       KontenMenuGrid,
       FadeTransition
     },

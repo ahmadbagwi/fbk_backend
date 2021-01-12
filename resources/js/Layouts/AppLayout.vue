@@ -18,6 +18,9 @@
                             <jet-nav-link href="/dashboard" :active="$page.currentRouteName == 'dashboard'" v-if="$page.auth.user.role == 'user'">
                                 Dashboard
                             </jet-nav-link>
+                            <jet-nav-link href="/dashboard" :active="$page.currentRouteName == 'dashboard'" v-else-if="$page.auth.user.role == 'konten'">
+                                Dashboard
+                            </jet-nav-link>
                             <jet-nav-link href="/admin/dashboard" :active="$page.currentRouteName == 'admin_dashboard'" v-else>
                                 Dashboard
                             </jet-nav-link>
@@ -26,7 +29,7 @@
                             <jet-nav-link href="/biodata/show" :active="$page.currentRouteName == 'biodata_show'" v-if="$page.auth.user.role == 'user'">
                                 Biodata
                             </jet-nav-link>
-                            <jet-nav-link href="/admin/biodata" :active="$page.currentRouteName == 'admin_biodata'" v-else>
+                            <jet-nav-link href="/admin/biodata" :active="$page.currentRouteName == 'admin_biodata'" v-else-if="$page.auth.user.role == 'superadmin'">
                                 Biodata
                             </jet-nav-link>
                         </div>
@@ -34,7 +37,7 @@
                             <jet-nav-link href="/pengajuan/show" :active="$page.currentRouteName == 'pengajuan_show'" v-if="$page.auth.user.role == 'user'">
                                 Pengajuan
                             </jet-nav-link>
-                            <jet-nav-link href="/admin/pengajuan" :active="$page.currentRouteName == 'admin_pengajuan'" v-else>
+                            <jet-nav-link href="/admin/pengajuan" :active="$page.currentRouteName == 'admin_pengajuan'" v-else-if="$page.auth.user.role == 'superadmin'">
                                 Pengajuan
                             </jet-nav-link>
                         </div>
@@ -42,7 +45,7 @@
                             <jet-nav-link href="/administrasi/show" :active="$page.currentRouteName == 'administrasi_show'" v-if="$page.auth.user.role == 'user'">
                                 Administrasi
                             </jet-nav-link>
-                            <jet-nav-link href="/admin/administrasi" :active="$page.currentRouteName == 'admin_administrasi'" v-else>
+                            <jet-nav-link href="/admin/administrasi" :active="$page.currentRouteName == 'admin_administrasi'" v-else-if="$page.auth.user.role == 'superadmin'">
                                 Administrasi
                             </jet-nav-link>
                         </div>
@@ -50,7 +53,7 @@
                             <jet-nav-link href="/laporan/show" :active="$page.currentRouteName == 'laporan_show'" v-if="$page.auth.user.role == 'user'">
                                 Laporan
                             </jet-nav-link>
-                            <jet-nav-link href="/admin/laporan" :active="$page.currentRouteName == 'admin_laporan'" v-else>
+                            <jet-nav-link href="/admin/laporan" :active="$page.currentRouteName == 'admin_laporan'" v-else-if="$page.auth.user.role == 'superadmin'">
                                 Laporan
                             </jet-nav-link>
                         </div>
@@ -64,13 +67,13 @@
                                 User
                             </jet-nav-link>
                         </div>
-                        <div class="hidden space-x-8 sm:-my-px sm:ml-4 sm:flex" v-if="$page.auth.user.role == 'superadmin'">
+                        <div class="hidden space-x-8 sm:-my-px sm:ml-4 sm:flex" v-if="$page.auth.user.role != 'user'">
                             <jet-nav-link href="/admin/profil" :active="$page.currentRouteName == 'admin_profil'">
                                 Profil
                             </jet-nav-link>
                         </div>
 
-                        <div class="hidden space-x-8 sm:-my-px sm:ml-4 sm:flex" v-if="$page.auth.user.role == 'superadmin'">
+                        <div class="hidden space-x-8 sm:-my-px sm:ml-4 sm:flex" v-if="$page.auth.user.role != 'user'">
                             <jet-nav-link href="/admin/blog" :active="$page.currentRouteName == 'admin_blog'">
                                 Blog
                             </jet-nav-link>
@@ -172,35 +175,44 @@
                     <jet-responsive-nav-link href="/dashboard" :active="$page.currentRouteName == 'dashboard'" v-if="$page.auth.user.role == 'user'">
                         Dashboard
                     </jet-responsive-nav-link>
-                    <jet-responsive-nav-link href="/admin/dashboard" :active="$page.currentRouteName == 'admin_dashboard'" v-else>
+                    <jet-responsive-nav-link href="/dashboard" :active="$page.currentRouteName == 'dashboard'" v-if="$page.auth.user.role == 'konten'">
+                        Dashboard
+                    </jet-responsive-nav-link>
+                    <jet-responsive-nav-link href="/admin/dashboard" :active="$page.currentRouteName == 'admin_dashboard'" v-else-if="$page.auth.user.role == 'superadmin'">
                         Dashboard
                     </jet-responsive-nav-link>
                     <jet-responsive-nav-link href="/biodata/show" :active="$page.currentRouteName == 'biodata_show'" v-if="$page.auth.user.role == 'user'">
                         Biodata
                     </jet-responsive-nav-link>
-                    <jet-responsive-nav-link href="/admin/biodata" :active="$page.currentRouteName == 'admin_biodata'" v-else>
+                    <jet-responsive-nav-link href="/admin/biodata" :active="$page.currentRouteName == 'admin_biodata'" v-else-if="$page.auth.user.role == 'superadmin'">
                         Biodata
                     </jet-responsive-nav-link>
                     <jet-responsive-nav-link href="/pengajuan/show" :active="$page.currentRouteName == 'pengajuan_show'" v-if="$page.auth.user.role == 'user'">
                         Pengajuan
                     </jet-responsive-nav-link>
-                    <jet-responsive-nav-link href="/admin/pengajuan" :active="$page.currentRouteName == 'admin_pengajuan'" v-else>
+                    <jet-responsive-nav-link href="/admin/pengajuan" :active="$page.currentRouteName == 'admin_pengajuan'" v-else-if="$page.auth.user.role == 'superadmin'">
                         Pengajuan
                     </jet-responsive-nav-link>
                     <jet-responsive-nav-link href="/administrasi/show" :active="$page.currentRouteName == 'administrasi_show'" v-if="$page.auth.user.role == 'user'">
                         Administrasi
                     </jet-responsive-nav-link>
-                    <jet-responsive-nav-link href="/admin/administrasi" :active="$page.currentRouteName == 'admin_administrasi'" v-else>
+                    <jet-responsive-nav-link href="/admin/administrasi" :active="$page.currentRouteName == 'admin_administrasi'" v-else-if="$page.auth.user.role == 'superadmin'">
                         Administrasi
                     </jet-responsive-nav-link>
                     <jet-responsive-nav-link href="/laporan/show" :active="$page.currentRouteName == 'laporan_show'" v-if="$page.auth.user.role == 'user'">
                         Laporan
                     </jet-responsive-nav-link>
-                    <jet-responsive-nav-link href="/admin/laporan" :active="$page.currentRouteName == 'admin_laporan'" v-else>
+                    <jet-responsive-nav-link href="/admin/laporan" :active="$page.currentRouteName == 'admin_laporan'" v-else-if="$page.auth.user.role == 'superadmin'">
                         Laporan
                     </jet-responsive-nav-link>
                     <jet-responsive-nav-link href="/filemanager" :active="$page.currentRouteName == 'filemanager'">
                         File Manager
+                    </jet-responsive-nav-link>
+                    <jet-responsive-nav-link href="/admin/profil" :active="$page.currentRouteName == 'admin_profil'" v-if="$page.auth.user.role != 'user'">
+                        Profil
+                    </jet-responsive-nav-link>
+                    <jet-responsive-nav-link href="/admin/blog" :active="$page.currentRouteName == 'admin_blog'" v-if="$page.auth.user.role != 'user'">
+                        Blog
                     </jet-responsive-nav-link>
                 </div>
 
