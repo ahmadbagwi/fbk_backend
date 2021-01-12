@@ -34,23 +34,11 @@ Route::get('/', function () {
     ]);
 })->name('landing page');
 
-Route::post('/cari', function (Request $request) {
-  $hasil_cari = [];
-  $cari_profil = App\Models\Profil::where('nama_project', 'like', '%' . $request->kata_kunci . '%')->orWhere('nama_penerima', 'like', '%' . $request->kata_kunci . '%')->get();
-  // $cari_berita = App\Models\Blog::where('judul', 'like', '%' . $request->kata_kunci . '%')->orWhere('konten', 'like', '%' . $request->kata_kunci . '%')->get();
+Route::get('cari-data', [ProfilController::class, 'cari'])->name('cari');
 
-  if ($cari_profil) {
-    array_push($hasil_cari, $cari_profil);
-  }
-  // dd($hasil_cari);
-  // if($cari_berita) {
-  //   array_push($hasil_cari, $cari_berita);
-  // }
-  return redirect('/arsip/profil/Dokumentasi');
-  // return Inertia\Inertia::render('Cari', [
-  //     'data' => $hasil_cari,
-  //     ]);
-})->name('cari');
+Route::get('test', function () {
+  echo "hello world";
+})->name('test-aja');
 
 Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
     Route::get('dashboard', function() {

@@ -121,6 +121,18 @@ class ProfilController extends Controller
         
     }
 
+    public function cari(Request $request)
+    {
+      $keyword = $request->keyword;
+      $cari_profil = Profil::where('nama_project', 'like', '%' . $keyword . '%')->orWhere('nama_penerima', 'like', '%' . $keyword . '%')->get();
+
+    
+      return Inertia::render('Cari', [
+        'data' => $cari_profil,
+        'keyword' => $keyword
+      ]);
+    } 
+
     public function destroy(Request $request)
     {
         $id = $request->id;
