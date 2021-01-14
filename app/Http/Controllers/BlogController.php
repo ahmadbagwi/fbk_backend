@@ -17,7 +17,7 @@ class BlogController extends Controller
 {
     public function index()
     {
-      $data = Blog::where('kategori', 'blog')->orWhere('kategori', 'komite')->orderBy('created_at', 'desc')->get();
+      $data = Blog::where('kategori', 'blog')->orWhere('kategori', 'komite')->orderBy('updated_at', 'desc')->get();
       return Inertia::render('Admin/Blog', [
         'data' => $data
       ]);
@@ -25,7 +25,7 @@ class BlogController extends Controller
 
     public function faq()
     {
-      $data = Blog::orderBy('created_at', 'desc')->where('kategori', 'faq')->get();
+      $data = Blog::orderBy('updated_at', 'desc')->where('kategori', 'faq')->get();
       return Inertia::render('Admin/FAQ', [
         'data' => $data
       ]);
@@ -44,7 +44,7 @@ class BlogController extends Controller
     public function arsip ($slug)
     {
         // $slug_kategori = ucwords($slug);
-        $data = Blog::where('kategori', 'like', $slug . '%')->get();
+        $data = Blog::where('kategori', 'like', $slug . '%')->orderBy('updated_at', 'desc')->get();
         if ($slug == 'komite') {
           return Inertia::render('ArsipKomite', [
             'data' => $data,

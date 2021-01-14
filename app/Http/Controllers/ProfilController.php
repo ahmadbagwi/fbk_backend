@@ -37,7 +37,7 @@ class ProfilController extends Controller
     public function arsip ($slug)
     {
         $slug_kategori = ucwords($slug);
-        $data = Profil::where('kategori', 'like', $slug . '%')->get();
+        $data = Profil::where('kategori', 'like', $slug . '%')->orderBy('updated_at', 'desc')->get();
         return Inertia::render('ArsipProfil', [
           'data' => $data,
       ]);
