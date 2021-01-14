@@ -24,9 +24,9 @@ Route::get('/', function () {
     return Inertia\Inertia::render('Landing', [
         'data' => [
           'penerima' => [
-              'dokumentasi' => App\Models\Profil::where('kategori', 'like', 'Dokumentasi' . '%')->get(),
-              'penciptaan' => App\Models\Profil::where('kategori', 'like', 'Penciptaan' . '%')->get(),
-              'pendayagunaan' => App\Models\Profil::where('kategori', 'like', 'Pendayagunaan' . '%')->get(),
+              'dokumentasi' => App\Models\Profil::where('kategori', 'like', 'Dokumentasi' . '%')->orderBy('updated_at', 'desc')->get(),
+              'penciptaan' => App\Models\Profil::where('kategori', 'like', 'Penciptaan' . '%')->orderBy('updated_at', 'desc')->get(),
+              'pendayagunaan' => App\Models\Profil::where('kategori', 'like', 'Pendayagunaan' . '%')->orderBy('updated_at', 'desc')->get(),
           ],
           'komite' => App\Models\Blog::where('kategori', 'komite')->get(),
           'blog' => App\Models\Blog::where('kategori', 'blog')->limit(3)->orderBy('created_at', 'desc')->get(),
