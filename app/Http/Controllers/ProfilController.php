@@ -17,7 +17,7 @@ class ProfilController extends Controller
 {
     public function index()
     {
-        $data = Profil::all();
+        $data = Profil::orderBy('updated_at', 'desc')->get();
 
         return Inertia::render('Admin/Profil', [
             'data' => $data
