@@ -28,7 +28,7 @@ class Profil extends Migration
             $table->string('nama_penerima', 200);
             $table->longText('profil_penerima')->nullable();
             $table->string('kontak', 100)->nullable();
-            $table->string('media_sosial', 100)->nullable(); 
+            $table->longText('media_sosial')->nullable(); 
             $table->timestamps();
             $table->softDeletes();
         });
