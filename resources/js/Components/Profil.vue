@@ -15,7 +15,7 @@
       </div>
     </div>
     <div class="z-0 -mt-20">
-        <img :src="`${profil.foto}`">
+        <img :src="`${profil.foto}`" class="object-cover w-full mx-auto">
     </div>
     <div class="p-4 block">
       <div class="flex-column mx-auto text-center pb-2 border-b border-gray-500">
@@ -43,37 +43,18 @@
                 <img src="/storage/waktu.svg" class="text-white w-20 mr-2">
                 <span class="text-white font-bold flex items-center">{{ profil.waktu }}</span>
               </div>
-              <div class="p-4 bg-pink-300 my-1 flex">
+              <div class="p-4 bg-blue-500 my-1 flex">
                 <img src="/storage/disetujui.svg" class="text-white w-20 mr-2">
                 <span class="text-white font-bold flex items-center">{{ disetujui }}</span>
               </div>
             </div>
           </div>
-          <div class="col-span-3 md:col-span-1 bg-red-500 m-3 p-8 flex">
+          <div class="col-span-3 md:col-span-1 bg-pink-400 m-3 p-8 flex">
             <img src="/storage/email.svg" class="text-white w-20 mr-2">
                 <span class="text-white font-bold flex items-center">{{ profil.kontak }}</span>
           </div>
         </div>
       </div>
-      <!-- <div class="flex flex-wrap justify-center my-2">
-        <div class="p-2 mx-1 rounded bg-green-500 shadow text-gray-200 my-1">
-          &#128194; {{ profil.kategori }}
-        </div>
-        <div class="p-2 mx-1 rounded bg-blue-500 shadow text-gray-200 my-1">
-          &#128197; {{ profil.waktu }}
-        </div>
-        <div class="p-2 mx-1 rounded bg-red-500 shadow text-gray-200 my-1">
-          &#9993; {{ profil.kontak }}
-        </div>
-      </div>
-      <div class="flex flex-wrap justify-center mx-2">
-        <span v-if="diajukan != '0'" class="bg-blue-500 text-gray-100 rounded p-2 mx-1 my-1">
-          Diajukan {{ diajukan }}
-        </span>
-        <span v-if="disetujui != '0'" class="bg-green-500 text-gray-100 rounded p-2 mx-1 my-1">
-          Disetujui {{ disetujui }}
-        </span>
-      </div> -->
       <div class="grid grid-cols-4 gap-6 md:p-8 break-normal">
         <div class="col-span-4 md:col-span-4 my-4 break-normal pb-4 border-b border-gray-500">
           <h2 class="text-2xl text-gray-700">
@@ -95,25 +76,25 @@
     </div>
     <div class="p-4 block">
       <div class="grid grid-cols-4 gap-4">
-        <span v-if="url_facebook != ''" class="col-span-4 md:col-span-1 mx-2">
+        <span v-if="url_facebook" class="col-span-4 md:col-span-1 mx-2">
           <a :href="url_facebook" target="_blank" class="flex">
             <img src="/storage/facebook.png" class="w-8">
             <span class="text-md md:text-lg text-gray-600 mx-2">{{ akun_facebook }}</span>
           </a>
         </span>
-        <span v-if="url_twitter != ''" class="col-span-4 md:col-span-1 mx-2">
+        <span v-if="url_twitter" class="col-span-4 md:col-span-1 mx-2">
           <a :href="url_twitter" target="_blank" class="flex">
             <img src="/storage/twitter.png" class="w-8">
             <span class="text-md md:text-lg text-gray-600 mx-2">{{ akun_twitter }}</span>
           </a>
         </span>
-        <span v-if="url_instagram != ''" class="col-span-4 md:col-span-1 mx-2">
+        <span v-if="url_instagram" class="col-span-4 md:col-span-1 mx-2">
           <a :href="url_instagram" target="_blank" class="flex">
             <img src="/storage/instagram.png" class="w-8">
             <span class="text-md md:text-lg text-gray-600 mx-2">{{ akun_instagram }}</span>
           </a>
         </span>
-        <span v-if="url_youtube != ''" class="col-span-4 md:col-span-1 mx-2">
+        <span v-if="url_youtube" class="col-span-4 md:col-span-1 mx-2">
           <a :href="url_youtube" target="_blank" class="flex">
             <img src="/storage/youtube.png" class="w-8">
             <span class="text-md md:text-lg text-gray-600 mx-2">Youtube</span>

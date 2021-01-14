@@ -20,7 +20,7 @@
     <div class="z-0 -mt-20">
       <splide :options="options">
         <splide-slide v-for="list in data" :key="list.id" class="z-0">
-          <img :src="list.img">
+          <img :src="list.img" class="w-full object-cover">
         </splide-slide>
       </splide>
     </div>
