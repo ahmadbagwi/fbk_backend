@@ -111,25 +111,25 @@
                       <span class="text-lg font-bold text-center my-2">Media sosial</span>
                       <div class="flex flex-wrap my-2 md:justify-between">
                         <jet-label for="" value="Akun FB" class="w-auto mr-1"/>
-                        <jet-input id="akun_facebook" type="text" class="mt-1 block w-auto mr-2" v-model="akun_facebook" />
+                        <jet-input id="akun_facebook" type="text" class="mt-1 block w-auto mr-2" v-model="form.akun_facebook" />
                         <jet-label for="" value="URL FB" class="w-auto mr-1"/>
-                        <jet-input id="url_facebook" type="text" class="mt-1 block w-auto" v-model="url_facebook" />
+                        <jet-input id="url_facebook" type="text" class="mt-1 block w-auto" v-model="form.url_facebook" />
                       </div>
                       <div class="flex flex-wrap my-2 md:justify-between">
                         <jet-label for="" value="Akun Twitter" class="w-auto mr-1"/>
-                        <jet-input id="akun_twitter" type="text" class="mt-1 block w-auto mr-2" v-model="akun_twitter" />
+                        <jet-input id="akun_twitter" type="text" class="mt-1 block w-auto mr-2" v-model="form.akun_twitter" />
                         <jet-label for="" value="URL Twitter" class="w-auto mr-1"/>
-                        <jet-input id="url_twitter" type="text" class="mt-1 block w-auto" v-model="url_twitter" />
+                        <jet-input id="url_twitter" type="text" class="mt-1 block w-auto" v-model="form.url_twitter" />
                       </div>
                       <div class="flex flex-wrap my-2 md:justify-between">
                         <jet-label for="" value="Akun Instagram" class="w-auto mr-1"/>
-                        <jet-input id="akun_intagram" type="text" class="mt-1 block w-auto mr-2" v-model="akun_instagram" />
+                        <jet-input id="akun_intagram" type="text" class="mt-1 block w-auto mr-2" v-model="form.akun_instagram" />
                         <jet-label for="" value="URL Instagram" class="w-auto mr-1"/>
-                        <jet-input id="url_instagram" type="text" class="mt-1 block w-auto" v-model="url_instagram" />
+                        <jet-input id="url_instagram" type="text" class="mt-1 block w-auto" v-model="form.url_instagram" />
                       </div>
                       <div class="flex flex-wrap my-2">
                         <jet-label for="" value="URL Youtube" class="w-auto mr-1"/>
-                        <jet-input id="url_youtube" type="text" class="mt-1 block w-auto" v-model="url_youtube" />
+                        <jet-input id="url_youtube" type="text" class="mt-1 block w-auto" v-model="form.url_youtube" />
                       </div>
                     </div>
                   </template>
@@ -188,13 +188,6 @@
 
     data() {
       return {
-        akun_facebook: '',
-        akun_twitter: '',
-        akun_instagram: '',
-        url_facebook: '',
-        url_twitter: '',
-        url_instagram: '',
-        url_youtube: '',
         form: this.$inertia.form({
           id: null,
           // user_id: null,
@@ -211,6 +204,13 @@
           profil_penerima: null,
           kontak: null,
           media_sosial: null,
+          akun_facebook: '',
+          akun_twitter: '',
+          akun_instagram: '',
+          url_facebook: '',
+          url_twitter: '',
+          url_instagram: '',
+          url_youtube: '',
         }, {
           bag: 'submitForm',
           resetOnSuccess: false,
@@ -219,28 +219,6 @@
           // The configuration of the editor.
         }
       }
-    },
-    computed: {
-      gabunganMedsos: function () {
-        let gabungan = `${this.akun_facebook},${this.url_facebook},${this.akun_twitter},${this.url_twitter},${this.akun_instagram},${this.url_instagram},${this.url_youtube}`  
-        this.form.media_sosial = gabungan
-        return gabungan
-      },
-      // pecahMedsos: function () {
-      //   let array_medsos = []
-      //   if (this.data !== null) {
-      //     array_medsos.push(this.data.media_sosial.split(","))
-      //     this.akun_facebook = array_medsos[0][0]
-      //     this.url_facebook = array_medsos[0][1]
-      //     this.akun_twitter = array_medsos[0][2]
-      //     this.url_twitter = array_medsos[0][3]
-      //     this.akun_instagram = array_medsos[0][4]
-      //     this.url_instagram = array_medsos[0][5]
-      //     this.url_youtube = array_medsos[0][6] 
-      //   }
-
-      //   return array_medsos
-      // }
     },
     created() {
       if (this.data !== null) {
@@ -262,17 +240,23 @@
         
         let array_medsos = []
         array_medsos.push(this.data.media_sosial.split(","))
-        this.akun_facebook = array_medsos[0][0]
-        this.url_facebook = array_medsos[0][1]
-        this.akun_twitter = array_medsos[0][2]
-        this.url_twitter = array_medsos[0][3]
-        this.akun_instagram = array_medsos[0][4]
-        this.url_instagram = array_medsos[0][5]
-        this.url_youtube = array_medsos[0][6] 
+        this.form.akun_facebook = array_medsos[0][0]
+        this.form.url_facebook = array_medsos[0][1]
+        this.form.akun_twitter = array_medsos[0][2]
+        this.form.url_twitter = array_medsos[0][3]
+        this.form.akun_instagram = array_medsos[0][4]
+        this.form.url_instagram = array_medsos[0][5]
+        this.form.url_youtube = array_medsos[0][6] 
       
       }
     },
-
+    // computed: {
+    //   gabunganMedsos: function () {
+    //     let gabungan = `${this.akun_facebook},${this.url_facebook},${this.akun_twitter},${this.url_twitter},${this.akun_instagram},${this.url_instagram},${this.url_youtube}`  
+    //     this.form.media_sosial = gabungan
+    //     return gabungan
+    //   },
+    // },
     methods: {
       openFileManager1 () {
         window.open(`/laravel-filemanager`, 'width=900,height=600')

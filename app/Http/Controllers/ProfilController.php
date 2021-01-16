@@ -55,7 +55,7 @@ class ProfilController extends Controller
     public function store(Request $request)
     {
         // $validated = $request->validated();
-
+        $media_sosial = $request->akun_facebook.','.$request->url_facebook.','.$request->akun_twitter.','.$request->url_twitter.','.$request->akun_instagram.','.$request->url_instagram.','.$request->url_youtube;
         $profil = Profil::updateOrCreate(
           [
             'id' => $request->id
@@ -74,7 +74,7 @@ class ProfilController extends Controller
             'nama_penerima' => $request->nama_penerima,
             'profil_penerima' => $request->profil_penerima,
             'kontak' => $request->kontak,
-            'media_sosial' => $request->media_sosial,
+            'media_sosial' => $media_sosial,
           ]);
 
         if ($profil) {
