@@ -29,11 +29,11 @@
             <div class="flex flex-col">
               <div class="p-4 bg-blue-300 my-1 flex">
                 <img src="/storage/kategori.svg" class="text-white w-20 mr-2">
-                <span class="text-white font-bold flex items-center">{{ profil.kategori }}</span>
+                <span class="text-white font-bold flex items-center break-words">{{ profil.kategori }}</span>
               </div>
               <div class="p-4 bg-blue-200 my-1 flex">
                 <img src="/storage/diajukan.svg" class="text-white w-20 mr-2">
-                <span class="text-white font-bold flex items-center">{{ diajukan }}</span>
+                <span class="text-white font-bold flex items-center break-words">Diajukan {{ diajukan }}</span>
               </div>
             </div>
           </div>
@@ -41,17 +41,17 @@
             <div class="flex flex-col">
               <div class="p-4 bg-blue-400 my-1 flex">
                 <img src="/storage/waktu.svg" class="text-white w-20 mr-2">
-                <span class="text-white font-bold flex items-center">{{ profil.waktu }}</span>
+                <span class="text-white font-bold flex items-center break-words">{{ profil.waktu }}</span>
               </div>
               <div class="p-4 bg-blue-500 my-1 flex">
                 <img src="/storage/disetujui.svg" class="text-white w-20 mr-2">
-                <span class="text-white font-bold flex items-center">{{ disetujui }}</span>
+                <span class="text-white font-bold flex items-center break-words">Disetujui {{ disetujui }}</span>
               </div>
             </div>
           </div>
           <div class="col-span-3 md:col-span-1 bg-pink-400 m-3 p-8 flex">
             <img src="/storage/email.svg" class="text-white w-20 mr-2">
-                <span class="text-white font-bold flex items-center">{{ profil.kontak }}</span>
+                <span class="text-white font-bold flex items-center break-words">{{ profil.kontak }}</span>
           </div>
         </div>
       </div>
