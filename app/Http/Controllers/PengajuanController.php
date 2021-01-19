@@ -104,7 +104,6 @@ class PengajuanController extends Controller
     public function upload(Request $request)
     {
       // upload API url for vue-wysiwyg
-
       $file = $request->file;
       $file_ori_name = $file->getClientOriginalName();
       $file_path = realpath($file);
