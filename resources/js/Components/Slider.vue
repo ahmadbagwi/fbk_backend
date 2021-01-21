@@ -19,8 +19,8 @@
     </div>
     <div class="z-0 -mt-20">
       <splide :options="options">
-        <splide-slide v-for="list in data" :key="list.id" class="z-0">
-          <img :src="list.img" class="w-full object-cover">
+        <splide-slide v-for="list in slider.nilai.split(',')" :key="list.id" class="z-0">
+          <img :src="list" class="w-full object-contain">
         </splide-slide>
       </splide>
     </div>
@@ -36,7 +36,9 @@ export default {
     Splide,
     SplideSlide,
   },
-
+  props: {
+    slider: {}
+  },
   data () {
     return {
       kata_kunci: '',
@@ -49,8 +51,8 @@ export default {
         rewind : true,
         gap    : '1rem',
         autoplay: true,
-        autoWidth: true,
-        autoHeight: true,
+        // autoWidth: true,
+        // autoHeight: true,
       },
     }
   },
