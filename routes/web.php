@@ -8,6 +8,7 @@ use App\Http\Controllers\AdministrasiController;
 use App\Http\Controllers\LaporanController;
 use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\PengaturanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,6 +29,7 @@ Route::get('/', function () {
               'penciptaan' => App\Models\Profil::where('kategori', 'like', 'Penciptaan' . '%')->orderBy('updated_at', 'desc')->get(),
               'pendayagunaan' => App\Models\Profil::where('kategori', 'like', 'Pendayagunaan' . '%')->orderBy('updated_at', 'desc')->get(),
           ],
+          'slider' => App\Models\Pengaturan::where('nama', 'slider')->where('status', 'terbit')->first(),
           'komite' => App\Models\Blog::where('kategori', 'komite')->get(),
           'blog' => App\Models\Blog::where('kategori', 'blog')->limit(3)->orderBy('created_at', 'desc')->get(),
           'faq' => App\Models\Blog::where('kategori', 'faq')->get()
@@ -111,6 +113,10 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
     Route::get('admin/faq', [BlogController::class, 'faq'])->name('admin_faq');
     Route::get('admin/faq/create/{id}', [BlogController::class, 'create_faq'])->name('faq_create');
     Route::post('admin/faq/store', [BlogController::class, 'store_faq'])->name('faq_store');
+
+    Route::get('admin/slider', [PengaturanController::class, 'index_slider'])->name('admin_slider');
+    Route::get('admin/slider/create/{id}', [PengaturanController::class, 'create_slider'])->name('slider_crate');
+    Route::post('admin/slider/store', [PengaturanController::class, 'store_slider'])->name('slider_store');
   });
 
 Route::get('profil/{id}', [ProfilController::class, 'show'])->name('profil_show');
