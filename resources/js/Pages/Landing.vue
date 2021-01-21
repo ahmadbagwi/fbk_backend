@@ -3,7 +3,7 @@
     <div class="py-0">
       <div class="w-full">
         <div class="bg-white overflow-hidden shadow-xl rounded shadow">
-          <Slider />
+          <Slider :slider="slider"/>
           <Penerima :penerima="penerima" />
           <TextBg />
           <Komite :komite="komite" />
@@ -41,6 +41,7 @@
     },
     data() {
       return {
+        slider: this.data.slider,
         penerima: this.data.penerima,
         komite: this.data.komite,
         blog: this.data.blog,
