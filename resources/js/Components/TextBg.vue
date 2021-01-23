@@ -5,7 +5,7 @@
         APA ITU <span class="font-bold">FBK 2020-</span>
       </h2>
       <p class="text-xl text-gray-100 leading-10">
-        <span class="font-bold text-2xl">"Fasilitasi Bidang Kebudayaan</span> adalah salah satu upaya Pemerintah melalui Direktorat Jenderal Kebudayaan Kementerian Pendidikan dan Kebudayaan mewujudkan strategi pemajuan kebudayaan."
+        <span class="font-bold text-2xl">Fasilitasi Bidang Kebudayaan</span> adalah kegiatan pendukungan berupa fasilitasi dana hibah yang diberikan kepada suatu kelompok kebudayaan atau perseorangan, tidak diperuntukan untuk pembangunan fisik dan non-komersial, serta dapat dimanfaatkan langsung oleh masyarakat maupun pihak-pihak yang terkait bidang kebudayaan (stakeholder) untuk mendorong upaya pemajuan kebudayaan secara langsung dan menyeluruh.
       </p>
     </div>
     <div class="col-span-2 sm:col-span-1 p-2">
@@ -26,22 +26,6 @@
             “Indonesia Bahagia berlandaskan keanekaragaman budaya yang mencerdaskan, mendamaikan dan menyejahterakan rakyat Indonesia seluruhnya” disepakati sebagai visi pemajuan kebudayaan 20 tahun ke depan. Oleh karena itu dalam penyusunannya, Strategi Pemajuan Kebudayaan dilandaskan kepada Trisakti, yakni asas berdaulat dalam politik, mandiri dalam ekonomi, dan berkepribadian dalam kebudayaan. FBK menjadi salah satu upaya yang dianggap dapat menjadi wadah untuk menjalankan amanat tujuh agenda strategis kebudayaan, yang menempatkan masyarakat sebagai pemilik dan penggerak kebudayaan nasional. Masyarakat adalah unsur yang paling utama untuk memajukan ekosistem kebudayaan di daerahnya masing-masing, hingga nantinya berujung ke pemajuan kebudayaan secara nasional.
           </p> 
         </div>
-        <!-- <div class="p-2 border-b-2 border-gray-100">
-          <h3 class="text-lg font-semibold text-gray-200">
-            Pengumuman
-          </h3>
-          <p class="text-gray-100">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec porta felis est, non varius velit placerat id.
-          </p>
-        </div>
-        <div class="p-2 border-b-2 border-gray-100">
-          <h3 class="text-lg font-semibold text-gray-200">
-            Mekanisme
-          </h3>
-          <p class="text-gray-100">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec porta felis est, non varius velit placerat id.
-          </p>
-        </div> -->
       </div>
     </div>
   </div>
