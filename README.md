@@ -1,5 +1,8 @@
 <p align="center"><a href="https://kebudayaan.kemdikbud.go.id" target="_blank"><img src="http://fbk.kemdikbud.go.id/storage/files/logo_kemdikbud.png" width="auto"></a></p>
 
+## BIG UPDATE
+- Aplikasi ini akan diubah menjadi hanya backend
+- Frontend akan dipisahkan menjadi nuxt js
 
 ## Tentang
 
