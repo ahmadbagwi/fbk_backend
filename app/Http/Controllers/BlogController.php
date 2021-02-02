@@ -35,7 +35,7 @@ class BlogController extends Controller
     {
         $data = Blog::where('slug', $slug)->first();
         $blogAcak = Blog::where('kategori', 'blog')->get()->random(3);
-        return Inertia::render('Show/Blog', [
+        return response()->json([
           'data' => $data,
           'blogAcak' => $blogAcak
       ]);
@@ -46,12 +46,12 @@ class BlogController extends Controller
         // $slug_kategori = ucwords($slug);
         $data = Blog::where('kategori', 'like', $slug . '%')->orderBy('updated_at', 'desc')->get();
         if ($slug == 'komite') {
-          return Inertia::render('ArsipKomite', [
-            'data' => $data,
+          return response()->json([
+            'data' => $data
           ]);
         } else {
-          return Inertia::render('ArsipBlog', [
-            'data' => $data,
+          return response()->json([
+            'data' => $data
           ]);
         }
         

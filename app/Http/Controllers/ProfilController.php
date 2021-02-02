@@ -28,7 +28,7 @@ class ProfilController extends Controller
     {
         $data = Profil::where('id', $id)->first();
         $penerimaAcak = Profil::all()->random(3);
-        return Inertia::render('Show/Profil', [
+        return response()->json([
           'data' => $data,
           'penerimaAcak' => $penerimaAcak,
       ]);
@@ -38,8 +38,8 @@ class ProfilController extends Controller
     {
         $slug_kategori = ucwords($slug);
         $data = Profil::where('kategori', 'like', $slug . '%')->orderBy('updated_at', 'desc')->get();
-        return Inertia::render('ArsipProfil', [
-          'data' => $data,
+        return response()->json([
+          'data' => $data
       ]);
     }
 
@@ -123,13 +123,11 @@ class ProfilController extends Controller
 
     public function cari(Request $request)
     {
-      $keyword = $request->keyword;
-      $cari_profil = Profil::where('nama_project', 'like', '%' . $keyword . '%')->orWhere('nama_penerima', 'like', '%' . $keyword . '%')->get();
-
-    
-      return Inertia::render('Cari', [
+      $kata_kunci = $request->kata_kunci;
+      $cari_profil = Profil::where('nama_project', 'like', '%' . $kata_kunci . '%')->orWhere('nama_penerima', 'like', '%' . $kata_kunci . '%')->get();
+      return response()->json([
         'data' => $cari_profil,
-        'keyword' => $keyword
+        'kata_kunci' => $kata_kunci
       ]);
     } 
 

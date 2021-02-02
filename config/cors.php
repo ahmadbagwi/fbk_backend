@@ -15,11 +15,27 @@ return [
     |
     */
 
-    'paths' => ['api/*'],
+    'paths' => [
+        'api/*',
+        'landing',
+        'landing/*',
+        'cari-penerima',
+        'cari-penerima/',
+        'login',
+        'dashboard',
+        'dashboard/*',
+        'profil-penerima/*',
+        'blog/*',
+        'arsip/*'
+    ],
 
     'allowed_methods' => ['*'],
 
-    'allowed_origins' => ['*'],
+    'allowed_origins' => [
+        '*',
+        'http://fbk.local',
+        'http://backend.fbk.local'
+    ],
 
     'allowed_origins_patterns' => [],
 
@@ -29,6 +45,6 @@ return [
 
     'max_age' => 0,
 
-    'supports_credentials' => false,
+    'supports_credentials' => true,
 
 ];

@@ -45,9 +45,9 @@ export default {
 }
 </script>
 <style scoped>
-  .bg-text {
-    background-image: url('/storage/bg-text.png');
+  /*.bg-text {
+    background-image: url('static/bg-text.png');
     background-position: center;
     background-size: cover;
-  }
+  }*/
 </style>

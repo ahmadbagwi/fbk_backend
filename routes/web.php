@@ -37,6 +37,7 @@ Route::get('/', function () {
     ]);
 })->name('landing page');
 
+
 Route::get('cari-data', [ProfilController::class, 'cari'])->name('cari');
 
 Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
@@ -122,9 +123,33 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
 Route::get('profil/{id}', [ProfilController::class, 'show'])->name('profil_show');
 Route::get('arsip/profil/{slug}', [ProfilController::class, 'arsip'])->name('profil_arsip');
 
-Route::get('blog/{slug}', [BlogController::class, 'show'])->name('blog_show');
-Route::get('arsip/blog/{slug}', [BlogController::class, 'arsip'])->name('blog_arsip');
+
 
 Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['auth:sanctum']], function () {
      \UniSharp\LaravelFilemanager\Lfm::routes();
 });
+
+
+// Big update, pisahkan frontend (nuxt), Route baru untuk json
+Route::get('/landing', function () {
+    return response()->json([
+        'data' => [
+            'slider' => App\Models\Pengaturan::where('nama', 'slider')->where('status', 'terbit')->first(),
+            'penerima' => [
+                'dokumentasi' => App\Models\Profil::where('kategori', 'like', 'Dokumentasi' . '%')->orderBy('updated_at', 'desc')->get(),
+                'penciptaan' => App\Models\Profil::where('kategori', 'like', 'Penciptaan' . '%')->orderBy('updated_at', 'desc')->get(),
+                'pendayagunaan' => App\Models\Profil::where('kategori', 'like', 'Pendayagunaan' . '%')->orderBy('updated_at', 'desc')->get(),
+            ],
+            'intro' => App\Models\Blog::where('kategori', 'intro')->get(),
+            'komite' => App\Models\Blog::where('kategori', 'komite')->get(),
+            'blog' => App\Models\Blog::where('kategori', 'blog')->limit(3)->orderBy('created_at', 'desc')->get(),
+            'faq' => App\Models\Blog::where('kategori', 'faq')->get()
+        ]
+    ]);
+})->name('landing');
+
+Route::get('profil-penerima/{id}', [ProfilController::class, 'show'])->name('profil_penerima');
+Route::get('arsip/profil-penerima/{slug}', [ProfilController::class, 'arsip'])->name('arsip_profil_penerima');
+Route::get('blog/{slug}', [BlogController::class, 'show'])->name('blog_show');
+Route::get('arsip/blog/{slug}', [BlogController::class, 'arsip'])->name('arsip_blog');
+Route::get('cari-penerima', [ProfilController::class, 'cari'])->name('cari_penerima');

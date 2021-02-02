@@ -11,6 +11,10 @@
         {
             "type": "vcs",
             "url": "https://github.com/ahmadbagwi/laravel-filemanager.git"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/ahmadbagwi/laravel-visitors-statistics.git"
         }
     ],
     "require": {
@@ -24,7 +28,8 @@
         "laravel/sanctum": "^2.6",
         "laravel/tinker": "^2.0",
         "rap2hpoutre/fast-excel": "^2.2",
-        "unisharp/laravel-filemanager": "dev-ahmadbagwi"
+        "unisharp/laravel-filemanager": "dev-ahmadbagwi",
+        "aleksa/laravel-visitors-statistics": "dev-ahmadbagwi"
     },
     "require-dev": {
         "facade/ignition": "^2.3.6",
