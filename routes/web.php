@@ -165,5 +165,8 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
 
 // route untuk semua fitur admin untuk role superadmin & user
 Route::group(['middleware' => ['auth:sanctum', 'cek_admin']], function () {
-    Route::get('/dashboard/admin/user', [UserController::class, 'index'])->name('admin_user');
+    Route::get('/dashboard/admin/biodata', [BiodataController::class, 'biodata'])->name('admin_biodata');
+    Route::get('/dashboard/admin/pengajuan', [PengajuanController::class, 'pengajuan'])->name('admin_pengajuan');
+    Route::get('/dashboard/admin/blog', [BlogController::class, 'blog'])->name('admin_blog');
+    Route::post('/dashboard/admin/blog/post', [BlogController::class, 'blog_post'])->name('admin_blog_post');
 });
