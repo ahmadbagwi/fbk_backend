@@ -29,7 +29,8 @@ return [
         'dashboard/*',
         'profil-penerima/*',
         'blog/*',
-        'arsip/*'
+        'arsip/*',
+        'upload'
     ],
 
     'allowed_methods' => ['*'],
