@@ -14,18 +14,10 @@ use Illuminate\Support\Facades\Hash;
 
 class BiodataController extends Controller
 {
-    public function cek_admin()
+    public function biodata()
     {
-      if (Auth::user()->role !== 'superadmin') {
-        return abort(401);
-      }
-    }
-
-    public function user()
-    {
-      $this->cek_admin();
-      $data = User::all();
-      return Inertia::render('Admin/User', [
+      $data = Biodata::with('user')->get();
+      return response()->json([
         'data' => $data
       ]);
     }
