@@ -16,24 +16,17 @@ use File;
 
 class PengajuanController extends Controller
 {
-    public function cek_admin()
+    public function pengajuan()
     {
-      if (Auth::user()->role !== 'superadmin') {
-        return abort(401);
-      }
-    }
-    public function index()
-    {
-      $this->cek_admin();
       $data = Pengajuan::leftJoin('users', 'users.id', '=', 'pengajuan.user_id')->select('users.name', 'pengajuan.*')->get();
-      return Inertia::render('Admin/Pengajuan', [
+      return response()->json([
         'data' => $data
       ]);
     }
 
     public function show_admin($id)
     {
-      $this->cek_admin();
+
 
       $data = Pengajuan::leftJoin('users', 'users.id', '=', 'pengajuan.user_id')->where('pengajuan.id', $id)->select('users.name', 'pengajuan.*')->first();
       return Inertia::render('Admin/PengajuanShow', [
@@ -43,7 +36,7 @@ class PengajuanController extends Controller
 
     public function verifikasi(Request $request)
     {
-      $this->cek_admin();
+   
 
       $id = $request->id;
       $status = $request->status;
