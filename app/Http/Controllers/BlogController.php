@@ -15,10 +15,10 @@ use File;
 
 class BlogController extends Controller
 {
-    public function index()
+    public function blog()
     {
-      $data = Blog::where('kategori', 'blog')->orWhere('kategori', 'komite')->orderBy('updated_at', 'desc')->get();
-      return Inertia::render('Admin/Blog', [
+      $data = Blog::with('user')->where('kategori', 'blog')->orWhere('kategori', 'komite')->orderBy('updated_at', 'desc')->get();
+      return response()->json([
         'data' => $data
       ]);
     }
@@ -74,7 +74,7 @@ class BlogController extends Controller
       ]);
     }
 
-    public function store(BlogRequest $request)
+    public function blog_post(BlogRequest $request)
     {
         $validated = $request->validated();
         $slug = $request->slug ?? Str::slug($request->judul, '-').'_'.rand();
@@ -97,7 +97,7 @@ class BlogController extends Controller
           ]);
 
         if ($blog) {
-          return redirect()->route('admin_blog')->with('status', 'Sukses menyimpan ' . $request->judul);
+          return response()->json('Sukses menyimpan ' . $request->judul);
         } 
     }
 
