@@ -9,6 +9,7 @@ use App\Http\Controllers\LaporanController;
 use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\PengaturanController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -153,3 +154,16 @@ Route::get('arsip/profil-penerima/{slug}', [ProfilController::class, 'arsip'])->
 Route::get('blog/{slug}', [BlogController::class, 'show'])->name('blog_show');
 Route::get('arsip/blog/{slug}', [BlogController::class, 'arsip'])->name('arsip_blog');
 Route::get('cari-penerima', [ProfilController::class, 'cari'])->name('cari_penerima');
+
+Route::post('user_login', [UserController::class, 'login'])->name('user_login');
+// Route::post('user_logout', [UserController::class, 'logout'])->name('user_logout');
+// Route::post('user_registrasi', [UserController::class, 'store'])->name('user_registrasi');
+
+Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
+    
+});
+
+// route untuk semua fitur admin untuk role superadmin & user
+Route::group(['middleware' => ['auth:sanctum', 'cek_admin']], function () {
+    Route::get('/dashboard/admin/user', [UserController::class, 'index'])->name('admin_user');
+});
