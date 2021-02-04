@@ -40,6 +40,8 @@
               <label for="blog">Blog</label><br>
               <input type="radio" id="komite" name="kategori" value="komite" v-model="form.kategori">
               <label for="komite">Komite</label><br>
+              <input type="radio" id="intro" name="kategori" value="intro" v-model="form.kategori">
+              <label for="intro">Intro</label><br>
               <jet-input-error :message="errors.komite" class="mt-2" />
             </div>
 
