@@ -169,4 +169,12 @@ Route::group(['middleware' => ['auth:sanctum', 'cek_admin']], function () {
     Route::get('/dashboard/admin/pengajuan', [PengajuanController::class, 'pengajuan'])->name('admin_pengajuan');
     Route::get('/dashboard/admin/blog', [BlogController::class, 'blog'])->name('admin_blog');
     Route::post('/dashboard/admin/blog/post', [BlogController::class, 'blog_post'])->name('admin_blog_post');
+    Route::get('/dashboard/admin/faq', [BlogController::class, 'faq'])->name('admin_faq');
+    Route::post('/dashboard/admin/faq/post', [BlogController::class, 'faq_post'])->name('admin_faq_post');
+    Route::post('/dashboard/admin/blog/destroy/{id}', [BlogController::class, 'destroy'])->name('admin_blog_destroy');
+    Route::get('/dashboard/admin/profil-penerima', [ProfilController::class, 'profil_penerima'])->name('admin_profil_penerima');
+    Route::get('/dashboard/admin/profil-penerima/{id}', [ProfilController::class, 'profil_penerima_show'])->name('admin_profil_penerima_show');
+    Route::post('/dashboard/admin/profil-penerima/post', [ProfilController::class, 'profil_penerima_post'])->name('admin_profil_penerima_post');
+    Route::post('/dashboard/admin/profil-penerima/destroy/{id}', [ProfilController::class, 'destroy'])->name('admin_profil_penerima_destroy');
+    Route::post('/dashboard/admin/upload', [BlogController::class, 'upload'])->name('admin_upload');
 });
