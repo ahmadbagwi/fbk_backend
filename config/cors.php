@@ -40,7 +40,9 @@ return [
     'allowed_origins' => [
         '*',
         'http://fbk.local',
-        'http://backend.fbk.local'
+        'http://backend.fbk.local',
+        'https://fbk.id',
+        'https://backend.fbk.id'
     ],
 
     'allowed_origins_patterns' => [],
