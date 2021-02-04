@@ -15,11 +15,10 @@ use Illuminate\Http\UploadedFile;
 
 class ProfilController extends Controller
 {
-    public function index()
+    public function profil_penerima()
     {
-        $data = Profil::orderBy('updated_at', 'desc')->get();
-
-        return Inertia::render('Admin/Profil', [
+        $data = Profil::with('user')->orderBy('updated_at', 'desc')->get();
+        return response()->json([
             'data' => $data
         ]);
     }
@@ -31,6 +30,14 @@ class ProfilController extends Controller
         return response()->json([
           'data' => $data,
           'penerimaAcak' => $penerimaAcak,
+      ]);
+    }
+
+    public function profil_penerima_show ($id)
+    {
+        $data = Profil::where('id', $id)->first();
+        return response()->json([
+          'data' => $data
       ]);
     }
 
@@ -52,10 +59,10 @@ class ProfilController extends Controller
       ]);
     }
 
-    public function store(Request $request)
+    public function profil_penerima_post(Request $request)
     {
         // $validated = $request->validated();
-        $media_sosial = $request->akun_facebook.','.$request->url_facebook.','.$request->akun_twitter.','.$request->url_twitter.','.$request->akun_instagram.','.$request->url_instagram.','.$request->url_youtube;
+        $media_sosial = $request->akun_facebook.','.$request->url_facebook.','.$request->akun_twitter.','.$request->url_twitter.','.$request->akun_instagram.','.$request->url_instagram.','.$request->url_youtube.','.$request->url_karya;
         $profil = Profil::updateOrCreate(
           [
             'id' => $request->id
@@ -78,11 +85,7 @@ class ProfilController extends Controller
           ]);
 
         if ($profil) {
-          return redirect()->route('admin_profil')->with('status', 'Sukses menyimpan data profil');
-        } else {
-          // return redirect()->route('dashboard')->with('status', 'Gagal menyimpan akun akun FBK');
-          // Session::flash('status', 'Gagal menyimpan data'); 
-          return Session::get('status');
+          return response()->json('Sukses menyimpan data profil');
         }
     }
 
@@ -131,12 +134,11 @@ class ProfilController extends Controller
       ]);
     } 
 
-    public function destroy(Request $request)
+    public function destroy($id)
     {
-        $id = $request->id;
         $profil = Profil::find($id);
         $profil->delete();
-        return redirect()->route('admin_profil')->with('status', 'Sukses hapus data');
+        return response()->json('Sukses hapus data');
     }
 
     // function import(Request $request)
