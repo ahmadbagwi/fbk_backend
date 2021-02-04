@@ -30,7 +30,9 @@ return [
         'profil-penerima/*',
         'blog/*',
         'arsip/*',
-        'upload'
+        'upload',
+        'laravel-filemanager',
+        'laravel-filemanager#'
     ],
 
     'allowed_methods' => ['*'],
