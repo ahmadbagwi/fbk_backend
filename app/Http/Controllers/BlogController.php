@@ -26,7 +26,7 @@ class BlogController extends Controller
     public function faq()
     {
       $data = Blog::orderBy('updated_at', 'desc')->where('kategori', 'faq')->get();
-      return Inertia::render('Admin/FAQ', [
+      return response()->json([
         'data' => $data
       ]);
     }
@@ -101,7 +101,7 @@ class BlogController extends Controller
         } 
     }
 
-    public function store_faq(Request $request)
+    public function faq_post(Request $request)
     {
         $slug = $request->slug ?? Str::slug($request->judul, '-').'_'.rand();
         $faq = Blog::updateOrCreate(
@@ -122,34 +122,41 @@ class BlogController extends Controller
           ]);
 
         if ($faq) {
-          return redirect()->route('admin_faq')->with('status', 'Sukses menyimpan ' . $request->judul);
+          return response()->json('Sukses menyimpan ' . $request->judul);
         } 
     }
 
-    public function destroy(Request $request)
+    public function destroy($id)
     {
-      $id = $request->id;
       $blog = Blog::find($id);
       $blog->delete();
-      return redirect()->route('admin_blog')->with('status', 'Sukses hapus data');
+      return response()->json('Sukses hapus data');
     }
 
     public function upload(Request $request)
     {
+        $name = auth()->user()->name;
+        $name_slug = Str::slug($name, '_');
+        $role = auth()->user()->role;
+        $path = '';
+        if($role == "superadmin"){
+          $path =  'storage/files/superadmin';
+        }else{
+          $path =  'storage/files/superadmin/'.$name_slug;
+        }
+        $file = $request->file;
+        $file_ori_name = $file->getClientOriginalName();
+        $file_path = realpath($file);
+        $file_name = explode('.',$file_ori_name)[0];
+        $file_extension = $file->getClientOriginalExtension();
+        $file_slug = Str::slug($file_name, '_').".".$file_extension;
 
-      $file = $request->file;
-      $file_ori_name = $file->getClientOriginalName();
-      $file_path = realpath($file);
-      $file_name = explode('.',$file_ori_name)[0];
-      $file_extension = $file->getClientOriginalExtension();
-      $file_slug = Str::slug($file_name, '_').".".$file_extension;
+        // $upload_dir = public_path('storage/files/').Auth::user()->id;
 
-      $upload_dir = public_path('storage/files/').Auth::user()->id;
-
-      if ($file->move($upload_dir, $file_slug)) {
-        $url = URL::to('/storage/files/superadmin/'.$file_slug);
-        return response()->json($url);
-      }
+        if ($file->move($path, $file_slug)) {
+            $url = URL::to($path.'/'.$file_slug);
+            return response()->json($url);
+        }
     }  
 
 }
