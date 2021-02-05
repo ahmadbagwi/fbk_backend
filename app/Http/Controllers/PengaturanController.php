@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Inertia\Inertia;
 use App\Models\Pengaturan;
 use App\Models\Menu;
+use App\Models\Periode;
 use Illuminate\Support\Facades\Auth;
 use Session;
 use Validator;
@@ -31,6 +32,41 @@ class PengaturanController extends Controller
       ]);
     }
 
+    public function slider_show()
+    {
+        $data = Pengaturan::where('nama', 'slider')->where('status', 'terbit')->first();
+        return response()->json([
+            'data' => $data
+        ]);
+    }
+
+    public function periode()
+    {
+        $data = Periode::all();
+        return response()->json([
+            'data' => $data
+        ]);
+    }
+
+    public function periode_post(Request $request)
+    {
+        $periode = Periode::updateOrCreate(
+          [
+            'id' => $request->id
+          ],
+          [
+            'periode' => $request->periode,
+            'tahun' => $request->tahun,
+            'keterangan' => $request->keterangan,
+            'status' => $request->status
+          ]);
+      
+        
+        if ($periode) {
+          return response()->json('Sukses menyimpan periode');
+        } 
+    }
+
     public function show ($slug)
     {
         $data = Pengaturan::where('slug', $slug)->first();
@@ -41,19 +77,10 @@ class PengaturanController extends Controller
       ]);
     }
 
-    public function create_slider($id = null)
-    {
-      $data = $id ? Pengaturan::where('id', $id)->first() : null;
-
-      return Inertia::render('Form/Slider', [
-        'data' => $data
-      ]);
-    }
-
-    public function store_slider(Request $request)
+    public function slider_post(Request $request)
     {
         $nilai = $request->nilai;
-        $slide = implode (", ", $nilai);
+        $slide = implode (",", $nilai);
 
         $slider = Pengaturan::updateOrCreate(
           [
@@ -68,7 +95,7 @@ class PengaturanController extends Controller
       
         
         if ($slider) {
-          return redirect()->route('admin_slider')->with('status', 'Sukses menyimpan slider');
+          return response()->json('Sukses menyimpan slider');
         } 
     }
 

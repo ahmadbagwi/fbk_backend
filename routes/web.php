@@ -177,4 +177,8 @@ Route::group(['middleware' => ['auth:sanctum', 'cek_admin']], function () {
     Route::post('/dashboard/admin/profil-penerima/post', [ProfilController::class, 'profil_penerima_post'])->name('admin_profil_penerima_post');
     Route::post('/dashboard/admin/profil-penerima/destroy/{id}', [ProfilController::class, 'destroy'])->name('admin_profil_penerima_destroy');
     Route::post('/dashboard/admin/upload', [BlogController::class, 'upload'])->name('admin_upload');
+    Route::get('/dashboard/admin/slider', [PengaturanController::class, 'slider_show'])->name('admin_slider_show');
+    Route::post('/dashboard/admin/slider/post', [PengaturanController::class, 'slider_post'])->name('admin_slider_post');
+    Route::get('/dashboard/admin/periode', [PengaturanController::class, 'periode'])->name('admin_periode');
+    Route::post('/dashboard/admin/periode/post', [PengaturanController::class, 'periode_post'])->name('admin_periode_post');
 });
