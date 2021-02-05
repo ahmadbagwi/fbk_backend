@@ -17,4 +17,9 @@ class Periode extends Model
       'keterangan',
       'status'
     ];
+
+    public function user()
+    {
+      return $this->hasMany('App\Models\User');
+    }
 }
