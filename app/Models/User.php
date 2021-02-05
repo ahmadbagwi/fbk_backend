@@ -24,6 +24,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
+        'periode_id',
         'name',
         'email',
         'password',
@@ -69,5 +70,9 @@ class User extends Authenticatable
     public function profil()
     {
         return $this->hasMany('App\Models\Profil');
+    }
+    public function periode()
+    {
+      return $this->belongsTo('App\Models\Periode');
     }
 }
