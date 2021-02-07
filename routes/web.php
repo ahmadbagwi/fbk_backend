@@ -160,8 +160,12 @@ Route::post('user_login', [UserController::class, 'login'])->name('user_login');
 // Route::post('user_registrasi', [UserController::class, 'store'])->name('user_registrasi');
 
 Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
-    
+    Route::get('test-verified', function () {
+        echo "hello verified";
+    });
 });
+
+Auth::routes(['verify' => true]);
 
 // route untuk semua fitur admin untuk role superadmin & user
 Route::group(['middleware' => ['auth:sanctum', 'cek_admin']], function () {
