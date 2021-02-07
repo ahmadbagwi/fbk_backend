@@ -31,6 +31,7 @@ class ResizeUploadedImage
         $path = $event->path();
         //your code, for example resizing and cropping
         // https://unisharp.github.io/laravel-filemanager/events
+        // https://laracasts.com/discuss/channels/tips/resize-and-optimize-images-upon-upload-with-laravel-filemanager
         $image = Image::make($path);
         if ($image->width() < 1000) {
             return;
