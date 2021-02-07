@@ -19,17 +19,18 @@
     ],
     "require": {
         "php": "^7.3",
+        "aleksa/laravel-visitors-statistics": "dev-ahmadbagwi",
         "fideloper/proxy": "^4.2",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
         "inertiajs/inertia-laravel": "^0.2.12",
+        "intervention/image": "^2.5",
         "laravel/framework": "^8.0",
         "laravel/jetstream": "^1.2",
         "laravel/sanctum": "^2.6",
         "laravel/tinker": "^2.0",
         "rap2hpoutre/fast-excel": "^2.2",
-        "unisharp/laravel-filemanager": "dev-ahmadbagwi",
-        "aleksa/laravel-visitors-statistics": "dev-ahmadbagwi"
+        "unisharp/laravel-filemanager": "dev-ahmadbagwi"
     },
     "require-dev": {
         "facade/ignition": "^2.3.6",

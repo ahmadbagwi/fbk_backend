@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "179e7dec1d44ea65407397f328798afb",
+    "content-hash": "d572cd86a1c31a836ee6f26ae9b171be",
     "packages": [
         {
             "name": "aleksa/laravel-visitors-statistics",
@@ -8488,8 +8488,8 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "unisharp/laravel-filemanager": 20,
-        "aleksa/laravel-visitors-statistics": 20
+        "aleksa/laravel-visitors-statistics": 20,
+        "unisharp/laravel-filemanager": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
