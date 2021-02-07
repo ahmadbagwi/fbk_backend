@@ -165,7 +165,7 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
     });
 });
 
-Auth::routes(['verify' => true]);
+// Auth::routes(['verify' => true]);
 
 // route untuk semua fitur admin untuk role superadmin & user
 Route::group(['middleware' => ['auth:sanctum', 'cek_admin']], function () {
