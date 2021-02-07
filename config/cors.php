@@ -27,6 +27,7 @@ return [
         'register',
         'dashboard',
         'dashboard/*',
+        'dashboard/user/*',
         'profil-penerima/*',
         'blog/*',
         'arsip/*',
