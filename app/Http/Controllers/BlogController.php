@@ -12,6 +12,7 @@ use Validator;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\URL;
 use File;
+use Image;
 
 class BlogController extends Controller
 {
@@ -45,16 +46,9 @@ class BlogController extends Controller
     {
         // $slug_kategori = ucwords($slug);
         $data = Blog::where('kategori', 'like', $slug . '%')->orderBy('updated_at', 'desc')->get();
-        if ($slug == 'komite') {
-          return response()->json([
+        return response()->json([
             'data' => $data
-          ]);
-        } else {
-          return response()->json([
-            'data' => $data
-          ]);
-        }
-        
+        ]);
     }
 
     public function create($id = null)
@@ -151,9 +145,18 @@ class BlogController extends Controller
         $file_extension = $file->getClientOriginalExtension();
         $file_slug = Str::slug($file_name, '_').".".$file_extension;
 
-        // $upload_dir = public_path('storage/files/').Auth::user()->id;
+        // resize https://www.itsolutionstuff.com/post/laravel-compress-image-before-upload-exampleexample.html
+        $img = Image::make($file->getRealPath());
+        $img->resize(1000, 476, function ($constraint) {
+            $constraint->aspectRatio();
+        })->save($path.'/'.$file_slug);
 
-        if ($file->move($path, $file_slug)) {
+        // if ($file->move($path, $file_slug)) {
+        //     $url = URL::to($path.'/'.$file_slug);
+        //     return response()->json($url);
+        // }
+
+        if ($img) {
             $url = URL::to($path.'/'.$file_slug);
             return response()->json($url);
         }
