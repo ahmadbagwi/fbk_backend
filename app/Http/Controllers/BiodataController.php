@@ -14,13 +14,13 @@ use Illuminate\Support\Facades\Hash;
 
 class BiodataController extends Controller
 {
-    public function biodata()
-    {
-      $data = Biodata::with('user')->get();
-      return response()->json([
-        'data' => $data
-      ]);
-    }
+    // public function biodata()
+    // {
+    //   $data = Biodata::with('user')->get();
+    //   return response()->json([
+    //     'data' => $data
+    //   ]);
+    // }
 
     public function user_show($id)
     {
@@ -89,7 +89,7 @@ class BiodataController extends Controller
       ]);
     }
 
-    public function store(BiodataRequest $request)
+    public function post(BiodataRequest $request)
     {
         $validated = $request->validated();
 
@@ -113,20 +113,16 @@ class BiodataController extends Controller
           ]);
 
         if ($biodata) {
-          return redirect()->route('biodata_show')->with('status', 'Sukses menyimpan biodata akun FBK');
-        } else {
-          // return redirect()->route('dashboard')->with('status', 'Gagal menyimpan biodata akun FBK');
-          Session::flash('status', 'Gagal menyimpan data'); 
-          return Session::get('status');
+          return response()->json('Sukses menyimpan biodata akun FBK');
         }
     }
 
-    public function show()
+    public function biodata()
     {
-      $data = Biodata::where('user_id', Auth::user()->id)->latest('id')->first();
+      $data = Biodata::where('user_id', auth()->user()->id)->first();
 
-      return Inertia::render('Show/Biodata', [
-          'data' => $data,
+      return response()->json([
+          'data' => $data
       ]);
     }
 
