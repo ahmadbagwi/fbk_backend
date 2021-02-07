@@ -62,11 +62,11 @@ Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
 
     Route::get('biodata/create', [BiodataController::class, 'create'])->name('biodata_create');
     Route::post('biodata/store', [BiodataController::class, 'store'])->name('biodata_store');
-    Route::get('biodata/show', [BiodataController::class, 'show'])->name('biodata_show');
+    // Route::get('biodata/show', [BiodataController::class, 'show'])->name('biodata_show');
 
     Route::get('pengajuan/create', [PengajuanController::class, 'create'])->name('pengajuan_create');
     Route::post('pengajuan/store', [PengajuanController::class, 'store'])->name('pengajuan_store');
-    Route::get('pengajuan/show', [PengajuanController::class, 'show'])->name('pengajuan_show');
+    // Route::get('pengajuan/show', [PengajuanController::class, 'show'])->name('pengajuan_show');
     Route::post('upload', [PengajuanController::class, 'upload'])->name('upload');
     
     Route::get('administrasi/create', [AdministrasiController::class, 'create'])->name('administrasi_create');
@@ -159,10 +159,14 @@ Route::post('user_login', [UserController::class, 'login'])->name('user_login');
 // Route::post('user_logout', [UserController::class, 'logout'])->name('user_logout');
 // Route::post('user_registrasi', [UserController::class, 'store'])->name('user_registrasi');
 
-Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
+Route::group(['middleware' => ['auth:sanctum'/* , 'verified' */]], function () {
     Route::get('test-verified', function () {
         echo "hello verified";
     });
+    Route::get('/dashboard/user/biodata', [BiodataController::class, 'biodata'])->name('user_biodata');
+    Route::post('/dashboard/user/biodata/post', [BiodataController::class, 'post'])->name('user_biodata_post');
+    Route::get('/dashboard/user/pengajuan', [PengajuanController::class, 'pengajuan'])->name('user_pengajuan');
+    Route::post('/dashboard/user/pengajuan/post', [PengajuanController::class, 'post'])->name('user_pengajuan_post');
 });
 
 // Auth::routes(['verify' => true]);
