@@ -16,13 +16,13 @@ use File;
 
 class PengajuanController extends Controller
 {
-    public function pengajuan()
-    {
-      $data = Pengajuan::leftJoin('users', 'users.id', '=', 'pengajuan.user_id')->select('users.name', 'pengajuan.*')->get();
-      return response()->json([
-        'data' => $data
-      ]);
-    }
+    // public function pengajuan()
+    // {
+    //   $data = Pengajuan::leftJoin('users', 'users.id', '=', 'pengajuan.user_id')->select('users.name', 'pengajuan.*')->get();
+    //   return response()->json([
+    //     'data' => $data
+    //   ]);
+    // }
 
     public function show_admin($id)
     {
@@ -55,7 +55,7 @@ class PengajuanController extends Controller
       ]);
     }
 
-    public function store(PengajuanRequest $request)
+    public function post(PengajuanRequest $request)
     {
         $validated = $request->validated();
 
@@ -77,19 +77,14 @@ class PengajuanController extends Controller
           ]);
 
         if ($pengajuan) {
-          return redirect()->route('pengajuan_show')->with('status', 'Sukses menyimpan data pengajuan');
-        } else {
-          // return redirect()->route('dashboard')->with('status', 'Gagal menyimpan akun akun FBK');
-          Session::flash('status', 'Gagal menyimpan data'); 
-          return Session::get('status');
+          return response()->json('Sukses menyimpan data pengajuan');
         }
     }
 
-    public function show()
+    public function pengajuan()
     {
       $data = Pengajuan::leftJoin('users', 'users.id', '=', 'pengajuan.user_id')->where('user_id', Auth::user()->id)->select('users.name', 'pengajuan.*')->first();
-
-      return Inertia::render('Show/Pengajuan', [
+      return response()->json([
           'data' => $data
       ]);
     }
