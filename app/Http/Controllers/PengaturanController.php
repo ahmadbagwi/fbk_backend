@@ -67,13 +67,11 @@ class PengaturanController extends Controller
         } 
     }
 
-    public function show ($slug)
+    public function web_show ($id)
     {
-        $data = Pengaturan::where('slug', $slug)->first();
-        $blogAcak = Pengaturan::where('kategori', 'blog')->get()->random(3);
-        return Inertia::render('Show/Pengaturan', [
+        $data = Pengaturan::where('id', $id)->first();
+        return response()->json([
           'data' => $data,
-          'blogAcak' => $blogAcak
       ]);
     }
 

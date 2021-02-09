@@ -191,5 +191,6 @@ Route::group(['middleware' => ['auth:sanctum', 'cek_admin']], function () {
     Route::get('/dashboard/admin/periode', [PengaturanController::class, 'periode'])->name('admin_periode');
     Route::post('/dashboard/admin/periode/post', [PengaturanController::class, 'periode_post'])->name('admin_periode_post');
     Route::get('/dashboard/admin/pengaturan/web', [PengaturanController::class, 'web'])->name('admin_pengaturan_web');
+    Route::get('/dashboard/admin/pengaturan/web/{id}', [PengaturanController::class, 'web_show'])->name('admin_pengaturan_web_show');
     Route::post('/dashboard/admin/pengaturan/web/post', [PengaturanController::class, 'web_post'])->name('admin_web_post');
 });
