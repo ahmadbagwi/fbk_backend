@@ -144,7 +144,8 @@ Route::get('/landing', function () {
             'intro' => App\Models\Blog::where('kategori', 'intro')->get(),
             'komite' => App\Models\Blog::where('kategori', 'komite')->get(),
             'blog' => App\Models\Blog::where('kategori', 'blog')->limit(3)->orderBy('created_at', 'desc')->get(),
-            'faq' => App\Models\Blog::where('kategori', 'faq')->get()
+            'faq' => App\Models\Blog::where('kategori', 'faq')->get(),
+            'maintenance' => App\Models\Pengaturan::where('nama', 'maintenance')->where('status', 'aktif')->first(),
         ]
     ]);
 })->name('landing');
@@ -189,4 +190,6 @@ Route::group(['middleware' => ['auth:sanctum', 'cek_admin']], function () {
     Route::post('/dashboard/admin/slider/post', [PengaturanController::class, 'slider_post'])->name('admin_slider_post');
     Route::get('/dashboard/admin/periode', [PengaturanController::class, 'periode'])->name('admin_periode');
     Route::post('/dashboard/admin/periode/post', [PengaturanController::class, 'periode_post'])->name('admin_periode_post');
+    Route::get('/dashboard/admin/pengaturan/web', [PengaturanController::class, 'web'])->name('admin_pengaturan_web');
+    Route::post('/dashboard/admin/pengaturan/web/post', [PengaturanController::class, 'web_post'])->name('admin_web_post');
 });
