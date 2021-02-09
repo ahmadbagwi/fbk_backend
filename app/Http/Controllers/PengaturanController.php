@@ -16,10 +16,10 @@ use File;
 
 class PengaturanController extends Controller
 {
-    public function index()
+    public function web()
     {
       $data = Pengaturan::all();
-      return Inertia::render('Admin/Pengaturan', [
+      return response()->json([
         'data' => $data
       ]);
     }
@@ -96,6 +96,25 @@ class PengaturanController extends Controller
         
         if ($slider) {
           return response()->json('Sukses menyimpan slider');
+        } 
+    }
+
+    public function web_post(Request $request)
+    {
+        $pengaturan = Pengaturan::updateOrCreate(
+          [
+            'id' => $request->id
+          ],
+          [
+            'nama' => $request->nama,
+            'output' => $request->output,
+            'nilai' => $request->nilai,
+            'status' => $request->status
+          ]);
+      
+        
+        if ($pengaturan) {
+          return response()->json('Sukses menyimpan pengaturan web');
         } 
     }
 
