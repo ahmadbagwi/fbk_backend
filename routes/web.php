@@ -146,6 +146,7 @@ Route::get('/landing', function () {
             'blog' => App\Models\Blog::where('kategori', 'blog')->limit(3)->orderBy('created_at', 'desc')->get(),
             'faq' => App\Models\Blog::where('kategori', 'faq')->get(),
             'maintenance' => App\Models\Pengaturan::where('nama', 'maintenance')->where('status', 'aktif')->first(),
+            'juknis' => App\Models\Pengaturan::where('nama', 'juknis')->where('status', 'aktif')->orderBy('updated_at', 'desc')->first(),
         ]
     ]);
 })->name('landing');
