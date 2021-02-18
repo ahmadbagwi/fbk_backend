@@ -41,7 +41,7 @@ Route::get('/', function () {
 
 Route::get('cari-data', [ProfilController::class, 'cari'])->name('cari');
 
-Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
+Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::get('dashboard', function() {
       if (auth()->user()->role =='user') {
         return Inertia\Inertia::render('Dashboard');
