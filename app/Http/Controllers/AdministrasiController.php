@@ -26,7 +26,7 @@ class AdministrasiController extends Controller
     {
       $this->cek_admin();
       $data = Administrasi::leftJoin('users', 'users.id', '=', 'administrasi.user_id')->select('users.name', 'administrasi.*')->get();
-      return Inertia::render('Admin/Administrasi', [
+      return response()->json([
         'data' => $data
       ]);
     }
@@ -69,33 +69,32 @@ class AdministrasiController extends Controller
 
         $administrasi = Administrasi::updateOrCreate(
           [
-            'user_id' => Auth::user()->id
+            'id' => $request->id
           ],
           [
-          'permohonan' => $request->permohonan, 
-          'proposal' => $request->proposal, 
-          'pertanggungjawaban' => $request->pertanggungjawaban, 
-          'kesanggupan' => $request->kesanggupan, 
-          'rekening' => $request->rekening, 
-          'npwp' => $request->npwp,
-          'ktp' => $request->ktp,  
-          'kk' => $request->kk, 
-          'integritas' => $request->integritas, 
-          'riwayat' => $request->riwayat, 
-          'politik' => $request->politik, 
-          'domisili' => $request->domisili, 
-          'komunitas' => $request->komunitas, 
-          'kesekretariatan' => $request->kesekretariatan, 
-          'prestasi' => $request->prestasi, 
-          'akta' => $request->akta
+            'user_id' => Auth::user()->id
+            'permohonan' => $request->permohonan, 
+            'proposal' => $request->proposal, 
+            'pertanggungjawaban' => $request->pertanggungjawaban, 
+            'kesanggupan' => $request->kesanggupan, 
+            'rekening' => $request->rekening, 
+            'npwp' => $request->npwp,
+            'ktp' => $request->ktp,  
+            'kk' => $request->kk, 
+            'integritas' => $request->integritas, 
+            'riwayat' => $request->riwayat, 
+            'politik' => $request->politik, 
+            'domisili' => $request->domisili, 
+            'komunitas' => $request->komunitas, 
+            'kesekretariatan' => $request->kesekretariatan, 
+            'prestasi' => $request->prestasi, 
+            'akta' => $request->akta
           ]);
 
         if ($administrasi) {
-          return redirect()->route('administrasi_show')->with('status', 'Sukses menyimpan data Administrasi');
+          return response()->json('Sukses menyimpan data Administrasi');
         } else {
-          // return redirect()->route('dashboard')->with('status', 'Gagal menyimpan biodata akun FBK');
-          Session::flash('status', 'Gagal menyimpan data'); 
-          return Session::get('status');
+          return response()->json('Gagal menyimpan data Administrasi');
         }
     }
 
@@ -103,23 +102,18 @@ class AdministrasiController extends Controller
     {
       $data = Administrasi::leftJoin('users', 'users.id', '=', 'administrasi.user_id')->select('users.name', 'administrasi.*')->where('user_id', Auth::user()->id)->first();
 
-      return Inertia::render('Show/Administrasi', [
+      return response()->json([
           'data' => $data
       ]);
     }
 
-    public function delete(Request $request)
+    public function delete($id)
     {
-      $this->cek_admin();
-
-      $id = $request->deleteId;
-      if ($id) {
-        $administrasi = Administrasi::find($id);
-        $administrasi->delete();
-        return redirect()->route('admin_administrasi')->with('status', 'Sukses hapus data');
+      $administrasi = Administrasi::find($id);
+      if ($administrasi->delete()) { 
+        return response()->json('Sukses menghapus data');
       } else {
-        return abort(404);
+        return response()->json('Gagal menghapus data');
       }
-
     }
 }

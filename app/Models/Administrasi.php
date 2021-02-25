@@ -11,7 +11,25 @@ class Administrasi extends Model
     use HasFactory, SoftDeletes;
 
     protected $table = 'administrasi';
-    protected $fillable = ['user_id', 'permohonan', 'proposal', 'pertanggungjawaban', 'kesanggupan', 'rekening', 'npwp', 'ktp', 'kk', 'integritas', 'riwayat', 'politik', 'domisili', 'komunitas', 'kesekretariatan', 'prestasi', 'akta'];
+    protected $fillable = [
+    	'user_id',
+    	'permohonan',
+    	'proposal',
+    	'pertanggungjawaban',
+    	'kesanggupan',
+    	'rekening',
+    	'npwp',
+    	'ktp',
+    	'kk',
+    	'integritas',
+    	'riwayat',
+    	'politik',
+    	'domisili',
+    	'komunitas',
+    	'kesekretariatan',
+    	'prestasi',
+    	'akta'
+    ];
 
     public function user()
     {

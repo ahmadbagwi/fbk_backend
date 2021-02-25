@@ -24,7 +24,8 @@ class Biodata extends Model
         'provinsi',
         'kota',
         'telp',
-        'email' ];
+        'email'
+    ];
 
     public function user()
     {
