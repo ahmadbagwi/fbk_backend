@@ -33,7 +33,8 @@ return [
         'arsip/*',
         'upload',
         'laravel-filemanager',
-        'laravel-filemanager#'
+        'laravel-filemanager#',
+        'biodata-pengajuan/*'
     ],
 
     'allowed_methods' => ['*'],
