@@ -10,6 +10,7 @@ use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\PengaturanController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\BiodataPengajuanController;
 
 /*
 |--------------------------------------------------------------------------
@@ -64,10 +65,13 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::post('biodata/store', [BiodataController::class, 'store'])->name('biodata_store');
     // Route::get('biodata/show', [BiodataController::class, 'show'])->name('biodata_show');
 
+    Route::get('biodata-pengajuan/user', [BiodataPengajuanController::class, 'user'])->name('biodata_pengajuan_user');
+    Route::post('biodata-pengajuan/store', [BiodataPengajuanController::class, 'store'])->name('biodata_pengajuan_store');
+
     Route::get('pengajuan/create', [PengajuanController::class, 'create'])->name('pengajuan_create');
     Route::post('pengajuan/store', [PengajuanController::class, 'store'])->name('pengajuan_store');
     // Route::get('pengajuan/show', [PengajuanController::class, 'show'])->name('pengajuan_show');
-    Route::post('upload', [PengajuanController::class, 'upload'])->name('upload');
+    Route::post('upload', [BiodataPengajuanController::class, 'upload'])->name('upload');
     
     Route::get('administrasi/create', [AdministrasiController::class, 'create'])->name('administrasi_create');
     Route::post('administrasi/store', [AdministrasiController::class, 'store'])->name('administrasi_store');
@@ -175,6 +179,10 @@ Route::group(['middleware' => ['auth:sanctum'/* , 'verified' */]], function () {
 
 // route untuk semua fitur admin untuk role superadmin & user
 Route::group(['middleware' => ['auth:sanctum', 'cek_admin']], function () {
+    Route::get('biodata-pengajuan/admin', [BiodataPengajuanController::class, 'admin'])->name('biodata_pengajuan_admin');
+    Route::post('biodata-pengajuan/admin/update', [BiodataPengajuanController::class, 'update'])->name('biodata_update_admin');
+    Route::get('/dashboard/admin/user', [UserController::class, 'user_admin'])->name('admin_user');
+    Route::post('/dashboard/admin/user/post', [UserController::class, 'store'])->name('admin_user_store');
     Route::get('/dashboard/admin/biodata', [BiodataController::class, 'biodata'])->name('admin_biodata');
     Route::get('/dashboard/admin/pengajuan', [PengajuanController::class, 'pengajuan'])->name('admin_pengajuan');
     Route::get('/dashboard/admin/blog', [BlogController::class, 'blog'])->name('admin_blog');
