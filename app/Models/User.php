@@ -67,10 +67,16 @@ class User extends Authenticatable
       return $this->hasOne('App\Models\Biodata');
     }
 
+    public function biodata_pengajuan()
+    {
+        return $this->hasOne('App\Models\BiodataPengajuan');
+    }
+
     public function profil()
     {
         return $this->hasMany('App\Models\Profil');
     }
+
     public function periode()
     {
       return $this->belongsTo('App\Models\Periode');
