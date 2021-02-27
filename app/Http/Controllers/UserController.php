@@ -29,7 +29,7 @@ class UserController extends Controller
 
     public function user_admin ()
     {
-        $data = User::all();
+        $data = User::with('periode')->get();
         return response()->json([
             'data' => $data
         ]);
