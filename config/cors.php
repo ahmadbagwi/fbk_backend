@@ -23,6 +23,8 @@ return [
         'cari-penerima/',
         'sanctum/csrf-cookie',
         'user_login',
+        'user_registrasi',
+        'user_logout',
         'logout',
         'register',
         'dashboard',

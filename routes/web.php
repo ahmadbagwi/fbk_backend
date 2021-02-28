@@ -23,22 +23,25 @@ use App\Http\Controllers\BiodataPengajuanController;
 |
 */
 
-Route::get('/', function () {
-    return Inertia\Inertia::render('Landing', [
-        'data' => [
-          'penerima' => [
-              'dokumentasi' => App\Models\Profil::where('kategori', 'like', 'Dokumentasi' . '%')->orderBy('updated_at', 'desc')->get(),
-              'penciptaan' => App\Models\Profil::where('kategori', 'like', 'Penciptaan' . '%')->orderBy('updated_at', 'desc')->get(),
-              'pendayagunaan' => App\Models\Profil::where('kategori', 'like', 'Pendayagunaan' . '%')->orderBy('updated_at', 'desc')->get(),
-          ],
-          'slider' => App\Models\Pengaturan::where('nama', 'slider')->where('status', 'terbit')->first(),
-          'komite' => App\Models\Blog::where('kategori', 'komite')->get(),
-          'blog' => App\Models\Blog::where('kategori', 'blog')->limit(3)->orderBy('created_at', 'desc')->get(),
-          'faq' => App\Models\Blog::where('kategori', 'faq')->get()
-        ]
-    ]);
-})->name('landing page');
+// Route::get('/', function () {
+//     return Inertia\Inertia::render('Landing', [
+//         'data' => [
+//           'penerima' => [
+//               'dokumentasi' => App\Models\Profil::where('kategori', 'like', 'Dokumentasi' . '%')->orderBy('updated_at', 'desc')->get(),
+//               'penciptaan' => App\Models\Profil::where('kategori', 'like', 'Penciptaan' . '%')->orderBy('updated_at', 'desc')->get(),
+//               'pendayagunaan' => App\Models\Profil::where('kategori', 'like', 'Pendayagunaan' . '%')->orderBy('updated_at', 'desc')->get(),
+//           ],
+//           'slider' => App\Models\Pengaturan::where('nama', 'slider')->where('status', 'terbit')->first(),
+//           'komite' => App\Models\Blog::where('kategori', 'komite')->get(),
+//           'blog' => App\Models\Blog::where('kategori', 'blog')->limit(3)->orderBy('created_at', 'desc')->get(),
+//           'faq' => App\Models\Blog::where('kategori', 'faq')->get()
+//         ]
+//     ]);
+// })->name('landing page');
 
+Route::get('/', function () {
+    return view('welcome');
+});
 
 Route::get('cari-data', [ProfilController::class, 'cari'])->name('cari');
 
@@ -163,7 +166,7 @@ Route::get('cari-penerima', [ProfilController::class, 'cari'])->name('cari_pener
 
 Route::post('user_login', [UserController::class, 'login'])->name('user_login');
 // Route::post('user_logout', [UserController::class, 'logout'])->name('user_logout');
-// Route::post('user_registrasi', [UserController::class, 'store'])->name('user_registrasi');
+Route::post('user_registrasi', [UserController::class, 'store'])->name('user_registrasi');
 
 Route::group(['middleware' => ['auth:sanctum'/* , 'verified' */]], function () {
     Route::get('test-verified', function () {

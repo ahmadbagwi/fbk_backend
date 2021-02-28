@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 // use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
-use App\Http\Requests\UserRequest;
+use App\Http\Requests\UserValidation;
 use App\Models\User;
 
 class UserController extends Controller
@@ -42,39 +42,6 @@ class UserController extends Controller
             'data' => $data
         ]);
     }
-    
-    public function dashboard_admin ()
-    {
-        $transaksi_proses = Transaksi::where('status', '!=', 'pesanan dikirim')->orWhere('status', '!=', 'pesanan selesai')->get();
-        $transaksi_dikirim = Transaksi::where('status', 'pesanan dikirm')->get();
-        $transaksi_selesai = Transaksi::where('status', 'pesanan selesai')->get();
-        $toko = Toko::all();
-        $produk = Produk::all();
-
-        return response()->json([
-            'transaksi_proses' => $transaksi_proses,
-            'transaksi_dikirim' => $transaksi_dikirim,
-            'transaksi_selesai' => $transaksi_selesai,
-            'toko' => $toko,
-            'produk' => $produk
-        ]);
-    }
-
-    public function dashboard_user()
-    {
-        $transaksi_proses = Transaksi::where('user_id', auth()->user()->id)->where('status', '!=', 'pesanan dikirim')->orWhere('status', '!=', 'pesanan selesai')->orderBy('updated_at', 'desc')->get()->toArray();
-        $transaksi_dikirim = Transaksi::where('user_id', auth()->user()->id)->where('status', 'pesanan dikirm')->orderBy('updated_at', 'desc')->get()->toArray();
-        $transaksi_selesai = Transaksi::where('user_id', auth()->user()->id)->where('status', 'pesanan selesai')->orderBy('updated_at', 'desc')->get()->toArray();
-        $biodata = auth()->user();
-
-        return response()->json([
-            'transaksi_proses' => $transaksi_proses,
-            'transaksi_dikirim' => $transaksi_dikirim,
-            'transaksi_selesai' => $transaksi_selesai,
-            'biodata' => $biodata 
-        ]);
-
-    }
 
     public function login(Request $request)
     {
@@ -107,7 +74,7 @@ class UserController extends Controller
         }
     }
 
-    public function store(UserRequest $request)
+    public function store(UserValidation $request)
     {
         $validated = $request->validated();
         $role = $request['role'] ? $request['role'] : 'user';
@@ -122,10 +89,12 @@ class UserController extends Controller
               'role' => $role
           ]
         );
-        return response()->json([
-            'user' => auth()->user(),
-            'sukses' => 'Pendaftaran akun berhasil'
-        ]);
+        if ($user) {
+          return response()->json([
+              'user' => auth()->user(),
+              'sukses' => 'Pendaftaran akun berhasil'
+          ]);
+        }
     }
 
 }

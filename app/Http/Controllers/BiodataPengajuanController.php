@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\BiodataPengajuanValidation;
 use App\Models\BiodataPengajuan;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
@@ -32,8 +33,10 @@ class BiodataPengajuanController extends Controller
     	]);
     }
 
-    public function store (Request $request)
+    public function store (BiodataPengajuanValidation $request)
     {
+        $validated = $request->validated();
+
     	$user_id = null;
     	if (auth()->user()->role == 'admin') {
     		$user_id = $request->user_id;
@@ -43,7 +46,7 @@ class BiodataPengajuanController extends Controller
 
     	// $durasi_pelaksanaan_array = $request->durasi_pelaksanaan;
     	// $durasi_pelaksanaan = implode(",", $durasi_pelaksanaan_array);
-        $durasi_pelaksanaan = $request->hari.','.$request->minggu.','.$request->bulan;
+        $durasi_pelaksanaan = $request->durasi_pelaksanaan;
 
     	$hasil_kegiatan_lainnya = $request->hasil_kegiatan_lainnya ? $request->hasil_kegiatan_lainnya : null;
     	$hasil_kegiatan_array = $request->hasil_kegiatan;
