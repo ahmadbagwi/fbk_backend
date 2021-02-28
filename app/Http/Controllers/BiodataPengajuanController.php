@@ -58,9 +58,9 @@ class BiodataPengajuanController extends Controller
     	} else {
     		$pesan = 'Sukses menyimpan pengajuan';
     	}
-
-        $email = BiodataPengajuan::where('user_id', auth()->user()->id)->first() ? BiodataPengajuan::where('user_id', auth()->user()->id)->first()->email : null;
-        if ($email == $request->email) {
+        $email = $request->email;
+        $cek_email = BiodataPengajuan::where('user_id', auth()->user()->id)->first() ? BiodataPengajuan::where('user_id', auth()->user()->id)->first()->email : null;
+        if ($email == $cek_email) { //tidak perlu update email
             $biodata_pengajuan = BiodataPengajuan::updateOrCreate(
                 [
                     'id' => $request->id
@@ -86,7 +86,7 @@ class BiodataPengajuanController extends Controller
                     'status' => $status
                 ]
             );
-        } else {
+        } else { // update email
             $biodata_pengajuan = BiodataPengajuan::updateOrCreate(
                 [
                     'id' => $request->id
@@ -96,7 +96,7 @@ class BiodataPengajuanController extends Controller
                     'kategori_pengusul' => $request->kategori_pengusul,
                     'nama_pengusul' => $request->nama_pengusul,
                     'telp' => $request->telp,
-                    'email' => $request->email,
+                    'email' => $email,
                     'alamat' => $request->alamat,
                     'kota' => $request->kota,
                     'provinsi' => $request->provinsi,
