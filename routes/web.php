@@ -154,6 +154,9 @@ Route::get('/landing', function () {
             'faq' => App\Models\Blog::where('kategori', 'faq')->get(),
             'maintenance' => App\Models\Pengaturan::where('nama', 'maintenance')->where('status', 'aktif')->first(),
             'juknis' => App\Models\Pengaturan::where('nama', 'juknis')->where('status', 'aktif')->orderBy('updated_at', 'desc')->first(),
+            'section_login' => App\Models\Pengaturan::where('nama', 'section-login')->where('status', 'aktif')->orderBy('updated_at', 'desc')->first(),
+            'login' => App\Models\Pengaturan::where('nama', 'login')->where('status', 'aktif')->orderBy('updated_at', 'desc')->first(),
+            'registrasi' => App\Models\Pengaturan::where('nama', 'registrasi')->where('status', 'aktif')->orderBy('updated_at', 'desc')->first(),
         ]
     ]);
 })->name('landing');
