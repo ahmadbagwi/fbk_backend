@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Aplikasi Log Harian PPNPM Direktorat KMA</title>
+        <title>Home</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -36,80 +36,38 @@
                 </div>
             @endif
 
-            <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
-                <div class="mt-8 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg">
-                    <div class="grid grid-cols-1 md:grid-cols-2">
-                        <div class="col-span-2 md:col-span-1 rounded p-4 m-2 shadow">
-                            <h2 class="text-lg text-center text-gray-700">Login</h2>
-                            <form method="POST" action="/user_login">
-                                @csrf
-                                <div class="flex justify-between m-2">
-                                    <label>NIP</label>
-                                    <input type="textl" id="nip" name="nip" class="mx-2 shadow py-1 px-2 rounded" placeholder="nip">
-                                </div>
-                                <div class="flex justify-between m-2">
-                                    <label>Password</label>
-                                    <input type="password" id="password" name="password" class="mx-2 shadow py-1 px-2 rounded" placeholder="password">
-                                </div>
-                                <div class="flex m-2">
-                                    <button type="submit" class="py-1 px-2 rounded bg-green-500 text-white shadow hover:shadow-none" placeholder="password">
-                                        Login
+            <div class="w-full mx-auto sm:px-6 lg:px-8">
+                <div class="flex flew-wrap h-auto min-h-screen mx-2 p-4 rounded shadow">
+                    <div class="w-1/5 p-4 bg-gray-200">
+                        <ul class="list-none m-2 p-2">
+                            <li class="border-b-2 border-gray-300 py-1"><a href="/home">Dashboard</a></li>
+                            <li class="border-b-2 border-gray-300 py-1"><a href="/laravel-filemanager">Filemanager</a></li>
+                            <li class="border-b-2 border-gray-300 py-1">
+                                <form method="post" action="/logout">
+                                    @csrf
+                                    <button type="submit">
+                                        Logout
                                     </button>
-                                </div>
-                            </form>
-                        </div>
-                        <div class="col-span-2 md:col-span-1 rounded p-4 m-2 shadow">
-                            <h2 class="text-lg text-center text-gray-700">Register</h2>
-                            <form method="POST" action="/user_registrasi">
-                                @csrf
-                                <!-- <div class="flex justify-between m-2">
-                                    <label>Id Mesin</label>
-                                    <input type="text" id="id_mesin" name="id_mesin" class="mx-2 shadow py-1 px-2 rounded" placeholder="id_mesin">
-                                </div> -->
-                                <div class="flex justify-between m-2">
-                                    <label>Nama</label>
-                                    <input type="text" id="name" name="name" class="mx-2 shadow py-1 px-2 rounded" placeholder="name">
-                                </div>
-                                <!-- <div class="flex justify-between m-2">
-                                    <label>NIP</label>
-                                    <input type="text" id="nip" name="nip" class="mx-2 shadow py-1 px-2 rounded" placeholder="nip">
-                                </div> -->
-                                <div class="flex justify-between m-2">
-                                    <label>Email</label>
-                                    <input type="email" id="email" name="email" class="mx-2 shadow py-1 px-2 rounded" placeholder="email">
-                                </div>
-                                <!-- <div class="flex justify-between m-2">
-                                    <label>Identitas</label>
-                                    <input type="text" id="identitas" name="identitas" class="mx-2 shadow py-1 px-2 rounded" placeholder="ktp/nip">
-                                </div> -->
-                                <div class="flex justify-between m-2">
-                                    <label>Password</label>
-                                    <input type="password" id="password" name="password" class="mx-2 shadow py-1 px-2 rounded" placeholder="password">
-                                </div>
-                                <div class="flex justify-between m-2">
-                                    <label>Konfirmasi Password</label>
-                                    <input type="password" id="password_confirmation" name="password_confirmation" class="mx-2 shadow py-1 px-2 rounded" placeholder="password">
-                                </div>
-                                <div class="flex m-2">
-                                    <button type="submit" class="py-1 px-2 rounded bg-blue-500 text-white shadow hover:shadow-none" placeholder="password">
-                                        Register
-                                    </button>
-                                </div>
-                            </form>
-                        </div>
+                                </form>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="w-4/5 p-4 bg-gray-100">
+                        Dashboard
+                        {{ auth()->user() }}
                     </div>
                 </div>
-
                 <div class="flex justify-center mt-4 sm:items-center sm:justify-between">
                     <div class="text-center text-sm text-gray-500 sm:text-left">
                         <div class="flex items-center">
-                            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="ml-4 -mt-px w-5 h-5 text-gray-400">
-                                <path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                            <svg fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor" class="-mt-px w-5 h-5 text-gray-400">
+                                <path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
                             </svg>
 
                             <a href="http://bitcode.id" class="ml-1 underline">
                                 bitcode.id
                             </a>
+
                         </div>
                     </div>
 

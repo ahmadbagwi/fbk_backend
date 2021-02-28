@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Aplikasi Log Harian PPNPM Direktorat KMA</title>
+        <title>Login</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -38,10 +38,10 @@
 
             <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
                 <div class="mt-8 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg">
-                    <div class="grid grid-cols-1 md:grid-cols-2">
-                        <div class="col-span-2 md:col-span-1 rounded p-4 m-2 shadow">
+                    <div class="grid grid-cols-1">
+                        <div class="col-span-1 rounded p-4 m-2 shadow">
                             <h2 class="text-lg text-center text-gray-700">Login</h2>
-                            <form method="POST" action="/user_login">
+                            <form method="POST" action="/login">
                                 @csrf
                                 <div class="flex justify-between m-2">
                                     <label>NIP</label>
@@ -54,45 +54,6 @@
                                 <div class="flex m-2">
                                     <button type="submit" class="py-1 px-2 rounded bg-green-500 text-white shadow hover:shadow-none" placeholder="password">
                                         Login
-                                    </button>
-                                </div>
-                            </form>
-                        </div>
-                        <div class="col-span-2 md:col-span-1 rounded p-4 m-2 shadow">
-                            <h2 class="text-lg text-center text-gray-700">Register</h2>
-                            <form method="POST" action="/user_registrasi">
-                                @csrf
-                                <!-- <div class="flex justify-between m-2">
-                                    <label>Id Mesin</label>
-                                    <input type="text" id="id_mesin" name="id_mesin" class="mx-2 shadow py-1 px-2 rounded" placeholder="id_mesin">
-                                </div> -->
-                                <div class="flex justify-between m-2">
-                                    <label>Nama</label>
-                                    <input type="text" id="name" name="name" class="mx-2 shadow py-1 px-2 rounded" placeholder="name">
-                                </div>
-                                <!-- <div class="flex justify-between m-2">
-                                    <label>NIP</label>
-                                    <input type="text" id="nip" name="nip" class="mx-2 shadow py-1 px-2 rounded" placeholder="nip">
-                                </div> -->
-                                <div class="flex justify-between m-2">
-                                    <label>Email</label>
-                                    <input type="email" id="email" name="email" class="mx-2 shadow py-1 px-2 rounded" placeholder="email">
-                                </div>
-                                <!-- <div class="flex justify-between m-2">
-                                    <label>Identitas</label>
-                                    <input type="text" id="identitas" name="identitas" class="mx-2 shadow py-1 px-2 rounded" placeholder="ktp/nip">
-                                </div> -->
-                                <div class="flex justify-between m-2">
-                                    <label>Password</label>
-                                    <input type="password" id="password" name="password" class="mx-2 shadow py-1 px-2 rounded" placeholder="password">
-                                </div>
-                                <div class="flex justify-between m-2">
-                                    <label>Konfirmasi Password</label>
-                                    <input type="password" id="password_confirmation" name="password_confirmation" class="mx-2 shadow py-1 px-2 rounded" placeholder="password">
-                                </div>
-                                <div class="flex m-2">
-                                    <button type="submit" class="py-1 px-2 rounded bg-blue-500 text-white shadow hover:shadow-none" placeholder="password">
-                                        Register
                                     </button>
                                 </div>
                             </form>
