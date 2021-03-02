@@ -70,6 +70,7 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
 
     Route::get('biodata-pengajuan/user', [BiodataPengajuanController::class, 'user'])->name('biodata_pengajuan_user');
     Route::post('biodata-pengajuan/store', [BiodataPengajuanController::class, 'store'])->name('biodata_pengajuan_store');
+    Route::post('biodata-pengajuan/store/video', [BiodataPengajuanController::class, 'store_video'])->name('biodata_pengajuan_store_video');
 
     Route::get('pengajuan/create', [PengajuanController::class, 'create'])->name('pengajuan_create');
     Route::post('pengajuan/store', [PengajuanController::class, 'store'])->name('pengajuan_store');
@@ -188,7 +189,9 @@ Route::group(['middleware' => ['auth:sanctum', 'cek_admin']], function () {
     Route::get('biodata-pengajuan/admin', [BiodataPengajuanController::class, 'admin'])->name('biodata_pengajuan_admin');
     Route::post('biodata-pengajuan/admin/update', [BiodataPengajuanController::class, 'update'])->name('biodata_update_admin');
     Route::get('/dashboard/admin/user', [UserController::class, 'user_admin'])->name('admin_user');
+    Route::get('/dashboard/admin/user/{id}', [UserController::class, 'user_admin_show'])->name('admin_user_show');
     Route::post('/dashboard/admin/user/post', [UserController::class, 'store'])->name('admin_user_store');
+    Route::post('/dashboard/admin/user/update', [UserController::class, 'update'])->name('admin_user_update');
     Route::get('/dashboard/admin/biodata', [BiodataController::class, 'biodata'])->name('admin_biodata');
     Route::get('/dashboard/admin/pengajuan', [PengajuanController::class, 'pengajuan'])->name('admin_pengajuan');
     Route::get('/dashboard/admin/blog', [BlogController::class, 'blog'])->name('admin_blog');
