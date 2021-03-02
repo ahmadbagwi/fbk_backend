@@ -33,9 +33,30 @@ class BiodataPengajuanController extends Controller
     	]);
     }
 
+    public function maxWord($word, $limit)
+    {
+        try {
+            if (count(explode(' ', $word)) > $limit) {
+                // return response()->json('Melebihi batas 500 kata', 422);
+                throw new Exception("Melebihi batas 500 kata");
+            }
+            // Everything is fine, logic continues here...
+        }
+        catch( Exception $e ) {
+            $message = $e->getMessage();
+            die( $message );
+        }
+        // if (count(explode(' ', $word)) > $limit) {
+        //     return response()->json('Melebihi batas 500 kata', 422);
+        //     die(422);
+        //     exit();
+        // }
+    }
+
     public function store (BiodataPengajuanValidation $request)
     {
         $validated = $request->validated();
+        $this->maxWord($request->deskripsi_kegiatan, 500);
 
     	$user_id = null;
     	if (auth()->user()->role == 'admin') {
@@ -43,6 +64,8 @@ class BiodataPengajuanController extends Controller
     	} else {
     		$user_id = auth()->user()->id;
     	}
+
+        $deskripsi_kegiatan = $request->deskripsi_kegiatan;
 
     	// $durasi_pelaksanaan_array = $request->durasi_pelaksanaan;
     	// $durasi_pelaksanaan = implode(",", $durasi_pelaksanaan_array);
@@ -119,6 +142,19 @@ class BiodataPengajuanController extends Controller
     	} else {
     		return response()->json('Gagal menyimpan data pengajuan');
     	}
+    }
+
+    public function store_video (Request $request)
+    {
+        $id = $request->id;
+        $video = $request->video;
+        $biodata_pengajuan = BiodataPengajuan::find($id);
+        $biodata_pengajuan->video = $video;
+        if ($biodata_pengajuan->save()) {
+            return response()->json('Sukses update video');
+        } else {
+            return response()->json('Gagal menyimpan data video');
+        }
     }
 
     public function update(Request $request)
