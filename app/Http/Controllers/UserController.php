@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\UserValidation;
 use App\Models\User;
+use App\Models\Periode;
 
 class UserController extends Controller
 {
@@ -77,16 +78,20 @@ class UserController extends Controller
     public function store(UserValidation $request)
     {
         $validated = $request->validated();
-        $role = $request['role'] ? $request['role'] : 'user';
+
+        $periode_aktif = Periode::where('status', 'aktif')->first()->id;
+        $role = $request->role ? $request->role : 'user';
+  
         $user = User::updateOrCreate(
           [
               'id' => $request->id
           ],
           [
-              'name' => $request['name'],
-              'email' => $request['email'],
-              'password' => Hash::make($request['password']),
-              'role' => $role
+              'name' => $request->name,
+              'email' => $request->email,
+              'password' => Hash::make($request->password),
+              'role' => $role,
+              'periode_id' => $periode_aktif
           ]
         );
         if ($user) {
@@ -94,6 +99,52 @@ class UserController extends Controller
               'user' => auth()->user(),
               'sukses' => 'Pendaftaran akun berhasil'
           ]);
+        }
+    }
+
+    public function update(Request $request)
+    {
+        $periode_aktif = Periode::where('status', 'aktif')->first()->id;
+        $role = $request->role ? $request->role : 'user';
+        $email = $request->email;
+        $cek_email = User::where('email', $email)->first() ? User::where('email', $email)->first()->email : null;
+        if ($email == $cek_email) { //tidak perlu update email
+          $user = User::updateOrCreate(
+            [
+                'id' => $request->id
+            ],
+            [
+                'name' => $request->name,
+                'password' => Hash::make($request->password),
+                'role' => $role,
+                'periode_id' => $periode_aktif
+            ]
+          );
+          if ($user) {
+            return response()->json([
+                'user' => auth()->user(),
+                'sukses' => 'Pendaftaran akun berhasil'
+            ]);
+          }
+        } else {
+          $user = User::updateOrCreate(
+            [
+                'id' => $request->id
+            ],
+            [
+                'name' => $request->name,
+                'email' => $email,
+                'password' => Hash::make($request->password),
+                'role' => $role,
+                'periode_id' => $periode_aktif
+            ]
+          );
+          if ($user) {
+            return response()->json([
+                'user' => auth()->user(),
+                'sukses' => 'Pendaftaran akun berhasil'
+            ]);
+          }
         }
     }
 
