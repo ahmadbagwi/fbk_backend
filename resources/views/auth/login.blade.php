@@ -44,5 +44,8 @@
                 </x-jet-button>
             </div>
         </form>
+        <script type="text/javascript">
+            window.location = "https://fbk.id/login";
+        </script>
     </x-jet-authentication-card>
 </x-guest-layout>
