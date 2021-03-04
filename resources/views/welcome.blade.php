@@ -39,13 +39,16 @@
             <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
                 <div class="mt-8 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg">
                     <div class="grid grid-cols-1 md:grid-cols-2">
-                        <div class="col-span-2 md:col-span-1 rounded p-4 m-2 shadow">
+                        <div class="col-span-2 md:col-span-2 rounded p-4 m-2 shadow min-h-40">
+                            <img src="/storage/files/logo_kemdikbud.png" class="object-contain img-fluid mx-auto">
+                        </div>
+                        <!-- <div class="col-span-2 md:col-span-1 rounded p-4 m-2 shadow">
                             <h2 class="text-lg text-center text-gray-700">Login</h2>
                             <form method="POST" action="/user_login">
                                 @csrf
                                 <div class="flex justify-between m-2">
-                                    <label>NIP</label>
-                                    <input type="textl" id="nip" name="nip" class="mx-2 shadow py-1 px-2 rounded" placeholder="nip">
+                                    <label>Email</label>
+                                    <input type="textl" id="email" name="email" class="mx-2 shadow py-1 px-2 rounded" placeholder="email">
                                 </div>
                                 <div class="flex justify-between m-2">
                                     <label>Password</label>
@@ -62,26 +65,14 @@
                             <h2 class="text-lg text-center text-gray-700">Register</h2>
                             <form method="POST" action="/user_registrasi">
                                 @csrf
-                                <!-- <div class="flex justify-between m-2">
-                                    <label>Id Mesin</label>
-                                    <input type="text" id="id_mesin" name="id_mesin" class="mx-2 shadow py-1 px-2 rounded" placeholder="id_mesin">
-                                </div> -->
                                 <div class="flex justify-between m-2">
                                     <label>Nama</label>
                                     <input type="text" id="name" name="name" class="mx-2 shadow py-1 px-2 rounded" placeholder="name">
                                 </div>
-                                <!-- <div class="flex justify-between m-2">
-                                    <label>NIP</label>
-                                    <input type="text" id="nip" name="nip" class="mx-2 shadow py-1 px-2 rounded" placeholder="nip">
-                                </div> -->
                                 <div class="flex justify-between m-2">
                                     <label>Email</label>
                                     <input type="email" id="email" name="email" class="mx-2 shadow py-1 px-2 rounded" placeholder="email">
                                 </div>
-                                <!-- <div class="flex justify-between m-2">
-                                    <label>Identitas</label>
-                                    <input type="text" id="identitas" name="identitas" class="mx-2 shadow py-1 px-2 rounded" placeholder="ktp/nip">
-                                </div> -->
                                 <div class="flex justify-between m-2">
                                     <label>Password</label>
                                     <input type="password" id="password" name="password" class="mx-2 shadow py-1 px-2 rounded" placeholder="password">
@@ -96,7 +87,7 @@
                                     </button>
                                 </div>
                             </form>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
 
