@@ -182,7 +182,7 @@ Route::group(['middleware' => ['auth:sanctum'/* , 'verified' */]], function () {
     Route::post('/dashboard/user/pengajuan/post', [PengajuanController::class, 'post'])->name('user_pengajuan_post');
 });
 
-// Auth::routes(['verify' => true]);
+// Auth::routes();
 
 // route untuk semua fitur admin untuk role superadmin & user
 Route::group(['middleware' => ['auth:sanctum', 'cek_admin']], function () {
