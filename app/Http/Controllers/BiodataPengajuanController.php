@@ -14,6 +14,8 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Facades\URL;
 use File;
 use Image;
+use App\Exceptions\Handler;
+use Exception;
 
 class BiodataPengajuanController extends Controller
 {
@@ -37,15 +39,27 @@ class BiodataPengajuanController extends Controller
     {
         try {
             if (count(explode(' ', $word)) > $limit) {
-                // return response()->json('Melebihi batas 500 kata', 422);
                 throw new Exception("Melebihi batas 500 kata");
+                return false;
+                die();
             }
-            // Everything is fine, logic continues here...
+            return true;
+        } catch (Throwable $e) {
+            report($e);
+            return false;
+            die();
         }
-        catch( Exception $e ) {
-            $message = $e->getMessage();
-            die( $message );
-        }
+        // try {
+        //     if (count(explode(' ', $word)) > $limit) {
+        //         // return response()->json('Melebihi batas 500 kata', 422);
+        //         throw new Exception("Melebihi batas 500 kata");
+        //     }
+        //     // Everything is fine, logic continues here...
+        // }
+        // catch( Exception $e ) {
+        //     $message = $e->getMessage();
+        //     die( $message );
+        // }
         // if (count(explode(' ', $word)) > $limit) {
         //     return response()->json('Melebihi batas 500 kata', 422);
         //     die(422);
@@ -56,7 +70,7 @@ class BiodataPengajuanController extends Controller
     public function store (BiodataPengajuanValidation $request)
     {
         $validated = $request->validated();
-        $this->maxWord($request->deskripsi_kegiatan, 500);
+        // $this->maxWord($request->deskripsi_kegiatan, 500);
 
     	$user_id = null;
     	if (auth()->user()->role == 'admin') {
