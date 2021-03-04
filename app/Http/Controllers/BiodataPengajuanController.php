@@ -95,61 +95,31 @@ class BiodataPengajuanController extends Controller
     	} else {
     		$pesan = 'Sukses menyimpan pengajuan';
     	}
-        $email = $request->email;
-        $cek_email = BiodataPengajuan::where('user_id', auth()->user()->id)->first() ? BiodataPengajuan::where('user_id', auth()->user()->id)->first()->email : null;
-        if ($email == $cek_email) { //tidak perlu update email
-            $biodata_pengajuan = BiodataPengajuan::updateOrCreate(
-                [
-                    'id' => $request->id
-                ],
-                [
-                    'user_id' => $user_id,
-                    'kategori_pengusul' => $request->kategori_pengusul,
-                    'nama_pengusul' => $request->nama_pengusul,
-                    'telp' => $request->telp,
-                    // 'email' => $request->email,
-                    'alamat' => $request->alamat,
-                    'kota' => $request->kota,
-                    'provinsi' => $request->provinsi,
-                    'kategori_kegiatan' => $request->kategori_kegiatan,
-                    'judul_kegiatan' => $request->judul_kegiatan,
-                    'deskripsi_kegiatan' => $request->deskripsi_kegiatan,
-                    'durasi_pelaksanaan' => $durasi_pelaksanaan,
-                    'hasil_kegiatan' => $hasil_kegiatan,
-                    'penerima_manfaat' => $request->penerima_manfaat,
-                    'biaya_diajukan' => $request->biaya_diajukan,
-                    'pertanyaan' => $request->pertanyaan,
-                    'rab' => $request->rab,
-                    'status' => $status
-                ]
-            );
-        } else { // update email
-            $biodata_pengajuan = BiodataPengajuan::updateOrCreate(
-                [
-                    'id' => $request->id
-                ],
-                [
-                    'user_id' => $user_id,
-                    'kategori_pengusul' => $request->kategori_pengusul,
-                    'nama_pengusul' => $request->nama_pengusul,
-                    'telp' => $request->telp,
-                    'email' => $email,
-                    'alamat' => $request->alamat,
-                    'kota' => $request->kota,
-                    'provinsi' => $request->provinsi,
-                    'kategori_kegiatan' => $request->kategori_kegiatan,
-                    'judul_kegiatan' => $request->judul_kegiatan,
-                    'deskripsi_kegiatan' => $request->deskripsi_kegiatan,
-                    'durasi_pelaksanaan' => $durasi_pelaksanaan,
-                    'hasil_kegiatan' => $hasil_kegiatan,
-                    'penerima_manfaat' => $request->penerima_manfaat,
-                    'biaya_diajukan' => $request->biaya_diajukan,
-                    'pertanyaan' => $request->pertanyaan,
-                    'rab' => $request->rab,
-                    'status' => $status
-                ]
-            );
-        }
+        $biodata_pengajuan = BiodataPengajuan::updateOrCreate(
+            [
+                'id' => $request->id
+            ],
+            [
+                'user_id' => $user_id,
+                'kategori_pengusul' => $request->kategori_pengusul,
+                'nama_pengusul' => $request->nama_pengusul,
+                'telp' => $request->telp,
+                'email' => $request->email,
+                'alamat' => $request->alamat,
+                'kota' => $request->kota,
+                'provinsi' => $request->provinsi,
+                'kategori_kegiatan' => $request->kategori_kegiatan,
+                'judul_kegiatan' => $request->judul_kegiatan,
+                'deskripsi_kegiatan' => $request->deskripsi_kegiatan,
+                'durasi_pelaksanaan' => $durasi_pelaksanaan,
+                'hasil_kegiatan' => $hasil_kegiatan,
+                'penerima_manfaat' => $request->penerima_manfaat,
+                'biaya_diajukan' => $request->biaya_diajukan,
+                'pertanyaan' => $request->pertanyaan,
+                'rab' => $request->rab,
+                'status' => $status
+            ]
+        );
 
     	if ($biodata_pengajuan) {
     		return response()->json($pesan);
