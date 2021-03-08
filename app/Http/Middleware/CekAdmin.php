@@ -16,7 +16,7 @@ class CekAdmin
      */
     public function handle(Request $request, Closure $next)
     {
-        if (auth()->user()->role == 'guest' || !auth()->user()) {
+        if (auth()->user()->role == 'user' || !auth()->user()) {
             return abort(401);
         }
 
