@@ -11,6 +11,7 @@ use App\Http\Controllers\BlogController;
 use App\Http\Controllers\PengaturanController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\BiodataPengajuanController;
+use App\Http\Controllers\EmailController;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,6 +42,11 @@ use App\Http\Controllers\BiodataPengajuanController;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+
+Route::get('/home', function () {
+    return view('home');
 });
 
 Route::get('cari-data', [ProfilController::class, 'cari'])->name('cari');
@@ -176,6 +182,8 @@ Route::group(['middleware' => ['auth:sanctum'/* , 'verified' */]], function () {
     Route::get('test-verified', function () {
         echo "hello verified";
     });
+    Route::get('/email/kirim-email', [EmailController::class, 'index'])->name('email');
+
     Route::get('/dashboard/user/biodata', [BiodataController::class, 'biodata'])->name('user_biodata');
     Route::post('/dashboard/user/biodata/post', [BiodataController::class, 'post'])->name('user_biodata_post');
     Route::get('/dashboard/user/pengajuan', [PengajuanController::class, 'pengajuan'])->name('user_pengajuan');
@@ -211,4 +219,7 @@ Route::group(['middleware' => ['auth:sanctum', 'cek_admin']], function () {
     Route::get('/dashboard/admin/pengaturan/web', [PengaturanController::class, 'web'])->name('admin_pengaturan_web');
     Route::get('/dashboard/admin/pengaturan/web/{id}', [PengaturanController::class, 'web_show'])->name('admin_pengaturan_web_show');
     Route::post('/dashboard/admin/pengaturan/web/post', [PengaturanController::class, 'web_post'])->name('admin_web_post');
+
+    Route::get('email/view-email', [EmailController::class, 'view'])->name('view_email');
+    Route::get('email/bulk/{awal}/{akhir}', [EmailController::class, 'bulk'])->name('bulk');
 });
