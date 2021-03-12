@@ -19,6 +19,7 @@ return [
         'api/*',
         'landing',
         'landing/*',
+        'email/*',
         'cari-penerima',
         'cari-penerima/',
         'sanctum/csrf-cookie',
