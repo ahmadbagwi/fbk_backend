@@ -50,6 +50,7 @@ class EmailController extends Controller
 				$log->keterangan = 'proposal '.$data->id.' '.$data->email.' '.$data->status;
 				$log->status = 'gagal';
 				$log->save();
+				echo 'proposal '.$data->id.' tujuan '.$data->email.' gagal<br>';
 			} else {
 				$log = new Email;
 				$log->user_id = auth()->user()->id;
@@ -57,6 +58,7 @@ class EmailController extends Controller
 				$log->keterangan = 'proposal '.$data->id.' '.$data->email.' '.$data->status;
 				$log->status = 'terkirim';
 				$log->save();
+				echo 'proposal '.$data->id.' tujuan '.$data->email.' terkirim<br>';
 			}
 			sleep(2);
 		}
