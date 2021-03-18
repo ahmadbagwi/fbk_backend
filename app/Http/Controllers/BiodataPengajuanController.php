@@ -16,6 +16,8 @@ use File;
 use Image;
 use App\Exceptions\Handler;
 use Exception;
+use App\Exports\BiodataPengajuanExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class BiodataPengajuanController extends Controller
 {
@@ -187,5 +189,10 @@ class BiodataPengajuanController extends Controller
     	} else {
     		return response()->json('Gagal menghapus data pengajuan');
     	}
+    }
+
+    public function export ()
+    {
+        return Excel::download(new BiodataPengajuanExport, 'data_fbk.xlsx');
     }
 }
