@@ -222,4 +222,6 @@ Route::group(['middleware' => ['auth:sanctum', 'cek_admin']], function () {
 
     Route::get('email/view-email', [EmailController::class, 'view'])->name('view_email');
     Route::get('email/bulk/{awal}/{akhir}', [EmailController::class, 'bulk'])->name('bulk');
+
+    Route::get('biodata-pengajuan/export', [BiodataPengajuanController::class, 'export'])->name('biodata_pengajuan_export');
 });
