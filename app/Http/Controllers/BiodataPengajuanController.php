@@ -80,11 +80,10 @@ class BiodataPengajuanController extends Controller
     	}
 
         $deskripsi_kegiatan = $request->deskripsi_kegiatan;
-
-    	// $durasi_pelaksanaan_array = $request->durasi_pelaksanaan;
-    	// $durasi_pelaksanaan = implode(",", $durasi_pelaksanaan_array);
-        $durasi_pelaksanaan = $request->durasi_pelaksanaan;
-
+        $hari = $request->hari ? $request->hari : 0;
+        $minggu = $request->minggu ? $request->minggu : 0;
+        $bulan = $request->bulan ? $request->bulan: 0;
+        $durasi_pelaksanaan = $hari.' hari,'.$minggu.' minggu'.$bulan.' bulan';
     	$hasil_kegiatan_lainnya = $request->hasil_kegiatan_lainnya ? $request->hasil_kegiatan_lainnya : null;
     	$hasil_kegiatan_array = $request->hasil_kegiatan;
         $hasil_kegiatan = implode(",", $hasil_kegiatan_array).','.$hasil_kegiatan_lainnya;

@@ -35,7 +35,7 @@ class BiodataPengajuanValidation extends FormRequest
             'kategori_kegiatan' => 'required',
             'judul_kegiatan' => 'required|max:250',
             'deskripsi_kegiatan' => 'required',
-            'durasi_pelaksanaan' => 'required',
+            // 'durasi_pelaksanaan' => 'required',
             'hasil_kegiatan' => 'required',
             'penerima_manfaat' => 'required',
             'biaya_diajukan' => 'required',
