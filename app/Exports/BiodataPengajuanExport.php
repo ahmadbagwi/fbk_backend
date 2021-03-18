@@ -14,6 +14,7 @@ class BiodataPengajuanExport implements FromCollection
     {
         return BiodataPengajuan::select(
         'user_id',
+        'id',
         'kategori_pengusul',
         'nama_pengusul',
         'telp',
