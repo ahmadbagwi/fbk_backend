@@ -163,22 +163,27 @@ class BiodataPengajuanController extends Controller
         $file_extension = $file->getClientOriginalExtension();
         $file_slug = Str::slug($file_name, '_').".".$file_extension;
 
-        $name = auth()->user()->name;
-        $name_slug = Str::slug($name, '_');
-        $role = auth()->user()->role;
-        $path = '';
-        if($role == "superadmin"){
-          $path =  'storage/files/superadmin';
-        }else{
-          $path =  'storage/files/superadmin/'.$name_slug;
+        if ($file_extension == 'xls' || $file_extension == 'xlsx') {
+            $name = auth()->user()->name;
+            $name_slug = Str::slug($name, '_');
+            $role = auth()->user()->role;
+            $path = '';
+            if($role == "superadmin"){
+              $path =  'storage/files/superadmin';
+            }else{
+              $path =  'storage/files/superadmin/'.$name_slug;
+            }
+
+            // $upload_dir = public_path('storage/files/upload');
+
+            if ($file->move($path, $file_slug)) {
+                $url = $path.'/'.$file_slug;
+                return response()->json($url);
+            }
+        } else {
+            return response()->json('Jenis file tidak diizinkan, pastikan file anda xls atau xlsx.', 302);
         }
 
-        // $upload_dir = public_path('storage/files/upload');
-
-        if ($file->move($path, $file_slug)) {
-            $url = $path.'/'.$file_slug;
-            return response()->json($url);
-        }
     }
 
     public function destroy ($id)
