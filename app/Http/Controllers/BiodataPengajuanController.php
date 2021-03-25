@@ -85,7 +85,7 @@ class BiodataPengajuanController extends Controller
         $hari = $request->hari ? $request->hari : 0;
         $minggu = $request->minggu ? $request->minggu : 0;
         $bulan = $request->bulan ? $request->bulan: 0;
-        $durasi_pelaksanaan = $hari.' hari,'.$minggu.' minggu, '.$bulan.' bulan';
+        $durasi_pelaksanaan = $hari.' hari, '.$minggu.' minggu, '.$bulan.' bulan';
     	$hasil_kegiatan_lainnya = $request->hasil_kegiatan_lainnya ? $request->hasil_kegiatan_lainnya : null;
     	$hasil_kegiatan_array = $request->hasil_kegiatan;
         $hasil_kegiatan = implode(",", $hasil_kegiatan_array).','.$hasil_kegiatan_lainnya;
