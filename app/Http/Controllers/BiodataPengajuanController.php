@@ -18,6 +18,7 @@ use App\Exceptions\Handler;
 use Exception;
 use App\Exports\BiodataPengajuanExport;
 use Maatwebsite\Excel\Facades\Excel;
+use PDF;
 
 class BiodataPengajuanController extends Controller
 {
@@ -199,5 +200,19 @@ class BiodataPengajuanController extends Controller
     public function export ()
     {
         return Excel::download(new BiodataPengajuanExport, 'data_fbk.xlsx');
+    }
+
+    public function pdf ()
+    {
+        // $data_seleksi = BiodataPengajuan::limit(5)->get();
+        // foreach ($data_seleksi as $data) {
+        //     $pdf = PDF::loadView('pdf.biodata_pengajuan', ['data'=>$data]);
+        //     // return $pdf->save(public_path().'/storage/files/seleksi/'.$data->id);
+        //     // echo "pdf ".$data->id."<br>";
+        //     return $pdf->download('laporan-pegawai-pdf.pdf');
+        // }
+        $data = BiodataPengajuan::first();
+        $pdf = PDF::loadView('pdf.biodata_pengajuan', ['data'=>$data]);
+        return $pdf->stream();
     }
 }
