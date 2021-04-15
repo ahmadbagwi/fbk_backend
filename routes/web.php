@@ -225,3 +225,4 @@ Route::group(['middleware' => ['auth:sanctum', 'cek_admin']], function () {
 
     Route::get('biodata-pengajuan/export', [BiodataPengajuanController::class, 'export'])->name('biodata_pengajuan_export');
 });
+Route::get('pdf/export', [BiodataPengajuanController::class, 'pdf'])->name('pdf_export');
