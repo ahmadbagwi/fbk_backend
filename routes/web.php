@@ -164,6 +164,7 @@ Route::get('/landing', function () {
             'section_login' => App\Models\Pengaturan::where('nama', 'section-login')->where('status', 'aktif')->orderBy('updated_at', 'desc')->first(),
             'login' => App\Models\Pengaturan::where('nama', 'login')->where('status', 'aktif')->orderBy('updated_at', 'desc')->first(),
             'registrasi' => App\Models\Pengaturan::where('nama', 'registrasi')->where('status', 'aktif')->orderBy('updated_at', 'desc')->first(),
+            'modal' => App\Models\Pengaturan::where('nama', 'like', 'modal-landing' . '%')->where('status', 'aktif')->orderBy('updated_at', 'desc')->first(),
         ]
     ]);
 })->name('landing');
