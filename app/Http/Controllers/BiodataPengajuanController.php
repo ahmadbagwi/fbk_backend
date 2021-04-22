@@ -211,8 +211,21 @@ class BiodataPengajuanController extends Controller
         //     // echo "pdf ".$data->id."<br>";
         //     return $pdf->download('laporan-pegawai-pdf.pdf');
         // }
-        $data = BiodataPengajuan::first();
-        $pdf = PDF::loadView('pdf.biodata_pengajuan', ['data'=>$data]);
-        return $pdf->stream();
+        // $data = BiodataPengajuan::first();
+        // $pdf = PDF::loadView('pdf.biodata_pengajuan', ['data'=>$data]);
+        // return $pdf->stream();
+
+        $data_seleksi = BiodataPengajuan::limit(5)->get();
+        foreach ($data_seleksi as $data) {
+            $pdf = PDF::loadHTML('
+                <h1 style="text:center">Formulir FBK</h1>
+                <h2>'.$data->kategori_pengusul.'</h2>'.
+                '<br><p>'.$data->id.'</p>'
+            );
+            // return $pdf->save(public_path().'/storage/files/seleksi/'.$data->id);
+            // echo "pdf ".$data->id."<br>";
+            $pdf->save(public_path().'/storage/files/seleksi'.$data->id);
+            // return $pdf->stream();
+        }
     }
 }
