@@ -31,7 +31,8 @@ class BiodataPengajuanExport implements FromCollection
         'biaya_diajukan',
         'pertanyaan',
         'rab',
-        'status'
+        'status',
+        'video'
         )->get();
     }
 }
