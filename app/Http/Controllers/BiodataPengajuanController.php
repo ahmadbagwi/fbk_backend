@@ -24,7 +24,13 @@ class BiodataPengajuanController extends Controller
 {
     public function user ()
     {
-    	$data = BiodataPengajuan::with('user')->where('user_id', auth()->user()->id)->orderBy('updated_at', 'desc')->first();
+    	// $data = BiodataPengajuan::with('user')->where('user_id', auth()->user()->id)->orderBy('updated_at', 'desc')->first();
+        $data = DB::table('biodata_pengajuan')
+                ->join('users', 'biodata_pengajuan.user_id', '=', 'users.id')
+                ->where('user_id', auth()->user()->id)
+                ->select('biodata_pengajuan.id', 'users.name', 'biodata_pengajuan.kategori_pengusul', 'biodata_pengajuan.nama_pengusul', 'biodata_pengajuan.telp', 'biodata_pengajuan.email', 'biodata_pengajuan.alamat', 'biodata_pengajuan.kota', 'biodata_pengajuan.provinsi', 'biodata_pengajuan.kategori_kegiatan', 'biodata_pengajuan.judul_kegiatan', 'biodata_pengajuan.deskripsi_kegiatan', 'biodata_pengajuan.durasi_pelaksanaan', 'biodata_pengajuan.hasil_kegiatan', 'biodata_pengajuan.penerima_manfaat', 'biodata_pengajuan.biaya_diajukan', 'biodata_pengajuan.pertanyaan', 'biodata_pengajuan.rab', 'biodata_pengajuan.status')
+                ->orderBy('biodata_pengajuan.updated_at', 'desc')
+                ->get();
     	return response()->json([
     		'data' => $data
     	]);
