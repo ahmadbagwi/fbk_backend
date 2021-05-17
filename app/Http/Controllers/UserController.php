@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\UserValidation;
 use App\Models\User;
 use App\Models\Periode;
+use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
@@ -30,7 +31,12 @@ class UserController extends Controller
 
     public function user_admin ()
     {
-        $data = User::with('periode')->get();
+        // $data = User::with('periode')->get();
+        $data = DB::table('users')
+                ->join('periode', 'users.periode_id', '=', 'periode.id')
+                ->select('users.id', 'users.name', 'users.email', 'users.role', 'periode.periode', 'users.created_at')
+                ->orderBy('users.created_at', 'desc')
+                ->get();
         return response()->json([
             'data' => $data
         ]);
