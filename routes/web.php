@@ -197,6 +197,7 @@ Route::group(['middleware' => ['auth:sanctum'/* , 'verified' */]], function () {
 Route::group(['middleware' => ['auth:sanctum', 'cek_admin']], function () {
     Route::get('biodata-pengajuan/admin', [BiodataPengajuanController::class, 'admin'])->name('biodata_pengajuan_admin');
     Route::post('biodata-pengajuan/admin/update', [BiodataPengajuanController::class, 'update'])->name('biodata_update_admin');
+    Route::post('biodata-pengajuan/admin/bulk-update', [BiodataPengajuanController::class, 'bulk_update'])->name('biodata_bulk_update_admin');
     Route::get('/dashboard/admin/user', [UserController::class, 'user_admin'])->name('admin_user');
     Route::get('/dashboard/admin/user/{id}', [UserController::class, 'user_admin_show'])->name('admin_user_show');
     Route::post('/dashboard/admin/user/post', [UserController::class, 'store'])->name('admin_user_store');
