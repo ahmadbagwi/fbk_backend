@@ -43,7 +43,7 @@ class BiodataPengajuanController extends Controller
         $data = DB::table('biodata_pengajuan')
                 ->join('users', 'biodata_pengajuan.user_id', '=', 'users.id')
                 ->select('biodata_pengajuan.id', 'users.name', 'biodata_pengajuan.kategori_pengusul', 'biodata_pengajuan.nama_pengusul', 'biodata_pengajuan.telp', 'biodata_pengajuan.email', 'biodata_pengajuan.alamat', 'biodata_pengajuan.kota', 'biodata_pengajuan.provinsi', 'biodata_pengajuan.kategori_kegiatan', 'biodata_pengajuan.judul_kegiatan', 'biodata_pengajuan.deskripsi_kegiatan', 'biodata_pengajuan.durasi_pelaksanaan', 'biodata_pengajuan.hasil_kegiatan', 'biodata_pengajuan.penerima_manfaat', 'biodata_pengajuan.biaya_diajukan', 'biodata_pengajuan.pertanyaan', 'biodata_pengajuan.rab', 'biodata_pengajuan.status')
-                ->orderBy('biodata_pengajuan.updated_at', 'desc')
+                ->orderBy('biodata_pengajuan.status', 'asc')
                 ->get();
     	return response()->json([
     		'data' => $data
@@ -165,6 +165,37 @@ class BiodataPengajuanController extends Controller
         } else {
             return response()->json('Gagal perbarui data pengajuan');
         }
+    }
+
+    public function bulk_update(Request $request)
+    {
+        $biodata_pengajuan_lolos = explode(',', $request->id_proposal);
+        $biodata_pengajuan = DB::table('biodata_pengajuan')->select('id')->get();
+        $hasil_lolos = [];
+        $hasil_tidak_lolos = [];
+
+        // foreach ($biodata_pengajuan as $pengajuan) {
+        //     $biodata_pengajuan_update = BiodataPengajuan::find($pengajuan->id);
+        //     foreach ($biodata_pengajuan_lolos as $lolos) {
+        //         if ($biodata_pengajuan_update->id == $lolos) {
+        //             $biodata_pengajuan_update->status = 'lolos';
+        //             $biodata_pengajuan_update->save();
+        //             array_push($hasil_lolos, $biodata_pengajuan_update->id);
+        //         } else {
+        //             $biodata_pengajuan_update->status = 'tidak lolos';
+        //             $biodata_pengajuan_update->save();
+        //             array_push($hasil_tidak_lolos, $biodata_pengajuan_update->id);
+        //         }
+        //     }
+
+        // }
+        $update_lolos = BiodataPengajuan::whereIn('id', $biodata_pengajuan_lolos)->update(['status' => 'lolos']);
+        $update_tidak_lolos = BiodataPengajuan::whereNotIn('id', $biodata_pengajuan_lolos)->update(['status' => 'tidak lolos']);
+        return response()->json([
+            // 'lolos' => $hasil_lolos,
+            // 'tidak_lolos' => $hasil_tidak_lolos
+            'data' => 'berhasil'
+        ]);
     }
 
     public function upload(Request $request)
