@@ -36,4 +36,9 @@ class BiodataPengajuan extends Model
     {
       return $this->belongsTo('App\Models\User');
     }
+
+    public function administrasi_lengkap()
+    {
+        return $this->hasOne('App\Models\AdministrasiLengkap');
+    }
 }
