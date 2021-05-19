@@ -24,8 +24,12 @@ class AdministrasiController extends Controller
 
     public function index()
     {
-      $this->cek_admin();
-      $data = Administrasi::leftJoin('users', 'users.id', '=', 'administrasi.user_id')->select('users.name', 'administrasi.*')->get();
+      $data = Administrasi::
+          join('users', 'users.id', '=', 'administrasi.user_id')
+          ->whereNotNull('administrasi.user_id')
+          ->select('users.name', 'administrasi.*')
+          ->get();
+          
       return response()->json([
         'data' => $data
       ]);
@@ -72,8 +76,8 @@ class AdministrasiController extends Controller
             'id' => $request->id
           ],
           [
-            'user_id' => Auth::user()->id
-            'permohonan' => $request->permohonan, 
+            'user_id' => Auth::user()->id,
+            'permohonan' => $request->permohonan,
             'proposal' => $request->proposal, 
             'pertanggungjawaban' => $request->pertanggungjawaban, 
             'kesanggupan' => $request->kesanggupan, 
