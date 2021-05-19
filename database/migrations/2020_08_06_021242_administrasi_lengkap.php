@@ -40,6 +40,7 @@ class AdministrasiLengkap extends Migration
             $table->longText('foto_kegiatan')->nullable();
             $table->longText('akta')->nullable();
             $table->longText('pengesahan')->nullable();
+            $table->longText('status')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

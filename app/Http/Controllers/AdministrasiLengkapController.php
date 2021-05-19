@@ -74,7 +74,8 @@ class AdministrasiLengkapController extends Controller
 		        'foto_sekretariat', => $request->foto_sekretariat,
 		    	'foto_kegiatan', => $request->foto_kegiatan,
 		    	'akta', => $request->akta,
-		    	'pengesahan' => $request->pengesahan
+		    	'pengesahan' => $request->pengesahan,
+		    	'status' => $request->status
 		    ]);
 
         if ($administrasi_lengkap) {

@@ -36,7 +36,8 @@ class AdministrasiLengkap extends Model
     	'foto_sekretariat',
     	'foto_kegiatan',
     	'akta',
-    	'pengesahan'
+    	'pengesahan',
+        'status'
     ];
 
     public function user()
