@@ -19,6 +19,8 @@ return [
         'api/*',
         'landing',
         'landing/*',
+        'admin/*',
+        'user/*',
         'email/*',
         'cari-penerima',
         'cari-penerima/',
