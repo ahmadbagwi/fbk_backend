@@ -138,8 +138,8 @@ class BiodataPengajuanController extends Controller
         $hasil_lolos = [];
         $hasil_tidak_lolos = [];
 
-        $update_lolos = BiodataPengajuan::whereIn('id', $biodata_pengajuan_lolos)->update(['status' => 'lolos']);
-        $update_tidak_lolos = BiodataPengajuan::whereNotIn('id', $biodata_pengajuan_lolos)->update(['status' => 'tidak lolos']);
+        $update_lolos = BiodataPengajuan::whereIn('id', $biodata_pengajuan_lolos)->update(['status' => 'lulus']);
+        $update_tidak_lolos = BiodataPengajuan::whereNotIn('id', $biodata_pengajuan_lolos)->update(['status' => 'tidak lulus']);
         return response()->json([
             'data' => 'berhasil'
         ]);
