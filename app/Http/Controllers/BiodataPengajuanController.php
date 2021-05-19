@@ -23,9 +23,20 @@ use Illuminate\Support\Facades\DB;
 
 class BiodataPengajuanController extends Controller
 {
-    public function user ()
+    public function index ()
     {
-    	// $data = BiodataPengajuan::with('user')->where('user_id', auth()->user()->id)->orderBy('updated_at', 'desc')->first();
+        $data = DB::table('biodata_pengajuan')
+                ->join('users', 'biodata_pengajuan.user_id', '=', 'users.id')
+                ->select('biodata_pengajuan.id', 'users.name', 'biodata_pengajuan.kategori_pengusul', 'biodata_pengajuan.nama_pengusul', 'biodata_pengajuan.telp', 'biodata_pengajuan.email', 'biodata_pengajuan.alamat', 'biodata_pengajuan.kota', 'biodata_pengajuan.provinsi', 'biodata_pengajuan.kategori_kegiatan', 'biodata_pengajuan.judul_kegiatan', 'biodata_pengajuan.deskripsi_kegiatan', 'biodata_pengajuan.durasi_pelaksanaan', 'biodata_pengajuan.hasil_kegiatan', 'biodata_pengajuan.penerima_manfaat', 'biodata_pengajuan.biaya_diajukan', 'biodata_pengajuan.pertanyaan', 'biodata_pengajuan.rab', 'biodata_pengajuan.status')
+                ->orderBy('biodata_pengajuan.status', 'asc')
+                ->get();
+        return response()->json([
+            'data' => $data
+        ]);
+    }
+
+    public function show ()
+    {
         $data = DB::table('biodata_pengajuan')
                 ->join('users', 'biodata_pengajuan.user_id', '=', 'users.id')
                 ->where('user_id', auth()->user()->id)
@@ -37,56 +48,9 @@ class BiodataPengajuanController extends Controller
     	]);
     }
 
-    public function admin ()
-    {
-    	// $data = BiodataPengajuan::with('user')->orderBy('created_at', 'desc')->get();
-        $data = DB::table('biodata_pengajuan')
-                ->join('users', 'biodata_pengajuan.user_id', '=', 'users.id')
-                ->select('biodata_pengajuan.id', 'users.name', 'biodata_pengajuan.kategori_pengusul', 'biodata_pengajuan.nama_pengusul', 'biodata_pengajuan.telp', 'biodata_pengajuan.email', 'biodata_pengajuan.alamat', 'biodata_pengajuan.kota', 'biodata_pengajuan.provinsi', 'biodata_pengajuan.kategori_kegiatan', 'biodata_pengajuan.judul_kegiatan', 'biodata_pengajuan.deskripsi_kegiatan', 'biodata_pengajuan.durasi_pelaksanaan', 'biodata_pengajuan.hasil_kegiatan', 'biodata_pengajuan.penerima_manfaat', 'biodata_pengajuan.biaya_diajukan', 'biodata_pengajuan.pertanyaan', 'biodata_pengajuan.rab', 'biodata_pengajuan.status')
-                ->orderBy('biodata_pengajuan.status', 'asc')
-                ->get();
-    	return response()->json([
-    		'data' => $data
-    	]);
-    }
-
-    public function maxWord($word, $limit)
-    {
-        try {
-            if (count(explode(' ', $word)) > $limit) {
-                throw new Exception("Melebihi batas 500 kata");
-                return false;
-                die();
-            }
-            return true;
-        } catch (Throwable $e) {
-            report($e);
-            return false;
-            die();
-        }
-        // try {
-        //     if (count(explode(' ', $word)) > $limit) {
-        //         // return response()->json('Melebihi batas 500 kata', 422);
-        //         throw new Exception("Melebihi batas 500 kata");
-        //     }
-        //     // Everything is fine, logic continues here...
-        // }
-        // catch( Exception $e ) {
-        //     $message = $e->getMessage();
-        //     die( $message );
-        // }
-        // if (count(explode(' ', $word)) > $limit) {
-        //     return response()->json('Melebihi batas 500 kata', 422);
-        //     die(422);
-        //     exit();
-        // }
-    }
-
     public function store (BiodataPengajuanValidation $request)
     {
         $validated = $request->validated();
-        // $this->maxWord($request->deskripsi_kegiatan, 500);
-
     	$user_id = null;
     	if (auth()->user()->role == 'admin') {
     		$user_id = $request->user_id;
@@ -174,26 +138,9 @@ class BiodataPengajuanController extends Controller
         $hasil_lolos = [];
         $hasil_tidak_lolos = [];
 
-        // foreach ($biodata_pengajuan as $pengajuan) {
-        //     $biodata_pengajuan_update = BiodataPengajuan::find($pengajuan->id);
-        //     foreach ($biodata_pengajuan_lolos as $lolos) {
-        //         if ($biodata_pengajuan_update->id == $lolos) {
-        //             $biodata_pengajuan_update->status = 'lolos';
-        //             $biodata_pengajuan_update->save();
-        //             array_push($hasil_lolos, $biodata_pengajuan_update->id);
-        //         } else {
-        //             $biodata_pengajuan_update->status = 'tidak lolos';
-        //             $biodata_pengajuan_update->save();
-        //             array_push($hasil_tidak_lolos, $biodata_pengajuan_update->id);
-        //         }
-        //     }
-
-        // }
         $update_lolos = BiodataPengajuan::whereIn('id', $biodata_pengajuan_lolos)->update(['status' => 'lolos']);
         $update_tidak_lolos = BiodataPengajuan::whereNotIn('id', $biodata_pengajuan_lolos)->update(['status' => 'tidak lolos']);
         return response()->json([
-            // 'lolos' => $hasil_lolos,
-            // 'tidak_lolos' => $hasil_tidak_lolos
             'data' => 'berhasil'
         ]);
     }
@@ -207,7 +154,7 @@ class BiodataPengajuanController extends Controller
         $file_extension = $file->getClientOriginalExtension();
         $file_slug = Str::slug($file_name, '_').".".$file_extension;
 
-        if ($file_extension == 'xls' || $file_extension == 'xlsx' || $file_extension == 'doc' || $file_extension == 'docx' || $file_extension == 'pdf' || $file_extension == 'jpg' || $file_extension == 'jpeg' || $file_extension == 'png') {
+        if ($file_extension == 'xls' || $file_extension == 'xlsx') {
             $name = auth()->user()->name;
             $name_slug = Str::slug($name, '_');
             $role = auth()->user()->role;
@@ -218,8 +165,6 @@ class BiodataPengajuanController extends Controller
               $path =  'storage/files/superadmin/'.$name_slug;
             }
 
-            // $upload_dir = public_path('storage/files/upload');
-
             if ($file->move($path, $file_slug)) {
                 $url = $path.'/'.$file_slug;
                 return response()->json($url);
@@ -227,7 +172,6 @@ class BiodataPengajuanController extends Controller
         } else {
             return response()->json('Jenis file tidak diizinkan, pastikan file anda xls, xlsx, doc, docx, pdf, jpg, jpeg, png.', 302);
         }
-
     }
 
     public function destroy ($id)
@@ -247,17 +191,6 @@ class BiodataPengajuanController extends Controller
 
     public function pdf ()
     {
-        // $data_seleksi = BiodataPengajuan::limit(5)->get();
-        // foreach ($data_seleksi as $data) {
-        //     $pdf = PDF::loadView('pdf.biodata_pengajuan', ['data'=>$data]);
-        //     // return $pdf->save(public_path().'/storage/files/seleksi/'.$data->id);
-        //     // echo "pdf ".$data->id."<br>";
-        //     return $pdf->download('laporan-pegawai-pdf.pdf');
-        // }
-        // $data = BiodataPengajuan::first();
-        // $pdf = PDF::loadView('pdf.biodata_pengajuan', ['data'=>$data]);
-        // return $pdf->stream();
-
         $data_seleksi = BiodataPengajuan::limit(5)->get();
         foreach ($data_seleksi as $data) {
             $pdf = PDF::loadHTML('
