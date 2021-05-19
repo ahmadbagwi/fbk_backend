@@ -25,19 +25,19 @@ class ResizeUploadedImage
      * @param  object  $event
      * @return void
      */
+
+    // https://unisharp.github.io/laravel-filemanager/events
+    // https://laracasts.com/discuss/channels/tips/resize-and-optimize-images-upon-upload-with-laravel-filemanager
     
     public function handle(ImageWasUploaded $event)
     {
-        $path = $event->path();
-        //your code, for example resizing and cropping
-        // https://unisharp.github.io/laravel-filemanager/events
-        // https://laracasts.com/discuss/channels/tips/resize-and-optimize-images-upon-upload-with-laravel-filemanager
-        $image = Image::make($path);
-        if ($image->width() < 1000) {
-            return;
-        }
-        $image->resize(1000, null, function ($constraint) {
-            $constraint->aspectRatio();
-        })->save($path);
+        // $path = $event->path();
+        // $image = Image::make($path);
+        // if ($image->width() < 1000) {
+        //     return;
+        // }
+        // $image->resize(1000, null, function ($constraint) {
+        //     $constraint->aspectRatio();
+        // })->save($path);
     }
 }
