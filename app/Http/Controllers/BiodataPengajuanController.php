@@ -207,7 +207,7 @@ class BiodataPengajuanController extends Controller
         $file_extension = $file->getClientOriginalExtension();
         $file_slug = Str::slug($file_name, '_').".".$file_extension;
 
-        if ($file_extension == 'xls' || $file_extension == 'xlsx') {
+        if ($file_extension == 'xls' || $file_extension == 'xlsx' || $file_extension == 'doc' || $file_extension == 'docx' || $file_extension == 'pdf' || $file_extension == 'jpg' || $file_extension == 'jpeg' || $file_extension == 'png') {
             $name = auth()->user()->name;
             $name_slug = Str::slug($name, '_');
             $role = auth()->user()->role;
@@ -225,7 +225,7 @@ class BiodataPengajuanController extends Controller
                 return response()->json($url);
             }
         } else {
-            return response()->json('Jenis file tidak diizinkan, pastikan file anda xls atau xlsx.', 302);
+            return response()->json('Jenis file tidak diizinkan, pastikan file anda xls, xlsx, doc, docx, pdf, jpg, jpeg, png.', 302);
         }
 
     }
