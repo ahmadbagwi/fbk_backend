@@ -74,19 +74,13 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::post('biodata/store', [BiodataController::class, 'store'])->name('biodata_store');
     // Route::get('biodata/show', [BiodataController::class, 'show'])->name('biodata_show');
 
-    Route::get('biodata-pengajuan/user', [BiodataPengajuanController::class, 'user'])->name('biodata_pengajuan_user');
-    Route::post('biodata-pengajuan/store', [BiodataPengajuanController::class, 'store'])->name('biodata_pengajuan_store');
-    Route::post('biodata-pengajuan/store/video', [BiodataPengajuanController::class, 'store_video'])->name('biodata_pengajuan_store_video');
-
     Route::get('pengajuan/create', [PengajuanController::class, 'create'])->name('pengajuan_create');
     Route::post('pengajuan/store', [PengajuanController::class, 'store'])->name('pengajuan_store');
     // Route::get('pengajuan/show', [PengajuanController::class, 'show'])->name('pengajuan_show');
     Route::post('upload', [BiodataPengajuanController::class, 'upload'])->name('upload');
     
     Route::get('administrasi/create', [AdministrasiController::class, 'create'])->name('administrasi_create');
-    Route::post('administrasi/store', [AdministrasiController::class, 'store'])->name('administrasi_store');
-    Route::get('administrasi/show', [AdministrasiController::class, 'show'])->name('administrasi_show');
-
+    
     Route::get('laporan/create/{id}', [LaporanController::class, 'create'])->name('laporan_create');
     Route::get('laporan/edit', [LaporanController::class, 'edit'])->name('laporan_edit');
     Route::post('laporan/store', [LaporanController::class, 'store'])->name('laporan_store');
@@ -100,7 +94,7 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::post('admin/pengajuan/verifikasi', [PengajuanController::class, 'verifikasi'])->name('admin_pengajuan_verifikasi');
     Route::post('admin/pengajuan/delete', [PengajuanController::class, 'delete'])->name('admin_pengajuan_delete');
 
-    Route::get('admin/administrasi', [AdministrasiController::class, 'index'])->name('admin_administrasi');
+    
     Route::get('admin/administrasi/show/{id}', [AdministrasiController::class, 'show_admin'])->name('admin_administrasi_show');
     Route::post('admin/administrasi/verifikasi', [AdministrasiController::class, 'verifikasi'])->name('admin_administrasi_verifikasi');
     Route::post('admin/administrasi/delete', [AdministrasiController::class, 'delete'])->name('admin_administrasi_delete');
@@ -180,15 +174,30 @@ Route::post('user_login', [UserController::class, 'login'])->name('user_login');
 Route::post('user_registrasi', [UserController::class, 'store'])->name('user_registrasi');
 
 Route::group(['middleware' => ['auth:sanctum'/* , 'verified' */]], function () {
-    Route::get('test-verified', function () {
-        echo "hello verified";
+    Route::get('dashboard/user', function () {
+        return response()->json([
+            'data' => [
+                'pengajuan' => App\Models\Pengaturan::where('nama', 'pengajuan')->where('status', 'aktif')->orderBy('updated_at', 'desc')->first(),
+                'administrasi' => App\Models\Pengaturan::where('nama', 'administrasi')->where('status', 'aktif')->orderBy('updated_at', 'desc')->first(),
+                'laporan' => App\Models\Pengaturan::where('nama', 'laporan')->where('status', 'aktif')->orderBy('updated_at', 'desc')->first(),
+            ],
+        ]);
     });
+    Route::post('dashboard/user/upload', [BiodataPengajuanController::class, 'upload'])->name('user_upload');
     Route::get('/email/kirim-email', [EmailController::class, 'index'])->name('email');
 
     Route::get('/dashboard/user/biodata', [BiodataController::class, 'biodata'])->name('user_biodata');
     Route::post('/dashboard/user/biodata/post', [BiodataController::class, 'post'])->name('user_biodata_post');
     Route::get('/dashboard/user/pengajuan', [PengajuanController::class, 'pengajuan'])->name('user_pengajuan');
     Route::post('/dashboard/user/pengajuan/post', [PengajuanController::class, 'post'])->name('user_pengajuan_post');
+
+    Route::get('biodata-pengajuan/user', [BiodataPengajuanController::class, 'user'])->name('biodata_pengajuan_user');
+    Route::post('biodata-pengajuan/store', [BiodataPengajuanController::class, 'store'])->name('biodata_pengajuan_store');
+    Route::post('biodata-pengajuan/store/video', [BiodataPengajuanController::class, 'store_video'])->name('biodata_pengajuan_store_video');
+
+    Route::get('dashboard/user/administrasi', [AdministrasiController::class, 'show'])->name('administrasi_show');
+    Route::post('dashboard/user/administrasi/store', [AdministrasiController::class, 'store'])->name('administrasi_store');
+    
 });
 
 // Auth::routes();
@@ -198,6 +207,7 @@ Route::group(['middleware' => ['auth:sanctum', 'cek_admin']], function () {
     Route::get('biodata-pengajuan/admin', [BiodataPengajuanController::class, 'admin'])->name('biodata_pengajuan_admin');
     Route::post('biodata-pengajuan/admin/update', [BiodataPengajuanController::class, 'update'])->name('biodata_update_admin');
     Route::post('biodata-pengajuan/admin/bulk-update', [BiodataPengajuanController::class, 'bulk_update'])->name('biodata_bulk_update_admin');
+    Route::get('dashboard/admin/administrasi', [AdministrasiController::class, 'index'])->name('admin_administrasi');
     Route::get('/dashboard/admin/user', [UserController::class, 'user_admin'])->name('admin_user');
     Route::get('/dashboard/admin/user/{id}', [UserController::class, 'user_admin_show'])->name('admin_user_show');
     Route::post('/dashboard/admin/user/post', [UserController::class, 'store'])->name('admin_user_store');
