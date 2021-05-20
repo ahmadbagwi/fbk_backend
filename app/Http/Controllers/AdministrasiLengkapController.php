@@ -18,7 +18,7 @@ class AdministrasiLengkapController extends Controller
     {
       $data = AdministrasiLengkap::
 	        join('users', 'users.id', '=', 'administrasi_lengkap.user_id')
-	        join('biodata_pengajuan', 'biodata_pengajuan.id', '=', 'administrasi_lengkap.biodata_pengajuan_id')
+	        ->join('biodata_pengajuan', 'biodata_pengajuan.id', '=', 'administrasi_lengkap.biodata_pengajuan_id')
 	        ->whereNotNull('administrasi_lengkap.user_id')
 	        ->select('users.name', 'biodata_pengajuan.id as pengajuan_id', 'administrasi_lengkap.*')
 	        ->get();
@@ -32,7 +32,7 @@ class AdministrasiLengkapController extends Controller
     {
       $data = AdministrasiLengkap::
 	        join('users', 'users.id', '=', 'administrasi_lengkap.user_id')
-	        join('biodata_pengajuan', 'biodata_pengajuan.id', '=', 'administrasi_lengkap.biodata_pengajuan_id')
+	        ->join('biodata_pengajuan', 'biodata_pengajuan.id', '=', 'administrasi_lengkap.biodata_pengajuan_id')
 	        ->where('administrasi_lengkap.user_id', auth()->user()->id)
 	        ->select('users.name', 'biodata_pengajuan.id as pengajuan_id', 'administrasi_lengkap.*')
 	        ->first();
@@ -71,9 +71,9 @@ class AdministrasiLengkapController extends Controller
 		        'profil' => $request->profil,
 		        'konflik' => $request->konflik,
 		        'keberadaan' => $request->keberadaan,
-		        'foto_sekretariat', => $request->foto_sekretariat,
-		    	'foto_kegiatan', => $request->foto_kegiatan,
-		    	'akta', => $request->akta,
+		        'foto_sekretariat' => $request->foto_sekretariat,
+		    	'foto_kegiatan' => $request->foto_kegiatan,
+		    	'akta' => $request->akta,
 		    	'pengesahan' => $request->pengesahan,
 		    	'status' => $request->status
 		    ]);
