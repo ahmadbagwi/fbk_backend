@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\BiodataController;
 use App\Http\Controllers\PengajuanController;
 use App\Http\Controllers\AdministrasiController;
+use App\Http\Controllers\AdministrasiLengkapController;
 use App\Http\Controllers\LaporanController;
 use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\BlogController;
