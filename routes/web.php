@@ -115,6 +115,15 @@ Route::group(['prefix' => '/admin/administrasi-lengkap', 'middleware' => ['auth:
     Route::post('/destroy/{id}', [AdministrasiLengkapController::class, 'destroy'])->name('administrasi_lengkap_destroy');
 });
 
+Route::group(['prefix' => '/admin/email', 'middleware' => ['auth:sanctum', 'cek_admin']], function () {
+    Route::get('/view-email', [EmailController::class, 'view'])->name('view_email');
+    Route::get('/bulk/{awal}/{akhir}', [EmailController::class, 'bulk'])->name('bulk');
+    Route::get('/administrasi/lulus/view', [EmailController::class, 'administrasi_lulus_view'])->name('email_administrasi_lulus_view');
+    Route::get('/administrasi/lulus', [EmailController::class, 'administrasi_lulus'])->name('email_administrasi_lulus');
+    Route::get('/administrasi/tidak-lulus/view', [EmailController::class, 'administrasi_tidak_lulus_view'])->name('email_administrasi_tidak_lulus_view');
+    Route::get('/administrasi/tidak-lulus', [EmailController::class, 'administrasi_tidak_lulus'])->name('email_administrasi_tidak_lulus');
+});
+
 // Auth::routes();
 
 // route untuk semua fitur admin untuk role superadmin & user
@@ -147,8 +156,7 @@ Route::group(['middleware' => ['auth:sanctum', 'cek_admin']], function () {
     Route::get('/dashboard/admin/pengaturan/web/{id}', [PengaturanController::class, 'web_show'])->name('admin_pengaturan_web_show');
     Route::post('/dashboard/admin/pengaturan/web/post', [PengaturanController::class, 'web_post'])->name('admin_web_post');
 
-    Route::get('email/view-email', [EmailController::class, 'view'])->name('view_email');
-    Route::get('email/bulk/{awal}/{akhir}', [EmailController::class, 'bulk'])->name('bulk');
+    
 
     Route::get('biodata-pengajuan/export', [BiodataPengajuanController::class, 'export'])->name('biodata_pengajuan_export');
 });
