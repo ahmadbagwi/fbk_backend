@@ -12,6 +12,8 @@ use Validator;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\URL;
 use File;
+use App\Exports\AdministrasiLengkapExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class AdministrasiLengkapController extends Controller
 {
@@ -35,7 +37,7 @@ class AdministrasiLengkapController extends Controller
 	        join('users', 'users.id', '=', 'administrasi_lengkap.user_id')
 	        ->join('biodata_pengajuan', 'biodata_pengajuan.id', '=', 'administrasi_lengkap.biodata_pengajuan_id')
 	        ->where('administrasi_lengkap.user_id', auth()->user()->id)
-	        ->select('users.name', 'biodata_pengajuan.id as pengajuan_id', 'administrasi_lengkap.*')
+	        ->select('users.name', 'biodata_pengajuan.id as pengajuan_id', 'biodata_pengajuan.kategori_kegiatan', 'biodata_pengajuan.kategori_pengusul', 'administrasi_lengkap.*')
 	        ->first();
           
       return response()->json([
@@ -121,6 +123,11 @@ class AdministrasiLengkapController extends Controller
     	return response()->json([
     		'data' => $data
     	]);
+    }
+
+    public function export_excel ()
+    {
+        return Excel::download(new AdministrasiLengkapExport, 'data_administrasi_fbk.xlsx');
     }
 
     public function destroy($id)
