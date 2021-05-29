@@ -114,6 +114,7 @@ Route::group(['prefix' => '/admin/biodata-pengajuan', 'middleware' => ['auth:san
 
 Route::group(['prefix' => '/admin/administrasi-lengkap', 'middleware' => ['auth:sanctum', 'cek_admin']], function () {
     Route::get('/', [AdministrasiLengkapController::class, 'index'])->name('administrasi_lengkap_index');
+    Route::get('/export-excel', [AdministrasiLengkapController::class, 'export_excel'])->name('administrasi_lengkap_export_excel');
     Route::post('/destroy/{id}', [AdministrasiLengkapController::class, 'destroy'])->name('administrasi_lengkap_destroy');
 });
 
