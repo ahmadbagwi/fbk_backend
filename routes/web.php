@@ -102,6 +102,7 @@ Route::group(['prefix' => '/user/administrasi-lengkap', 'middleware' => ['auth:s
     Route::get('/', [AdministrasiLengkapController::class, 'show'])->name('administrasi_lengkap_show');
     Route::post('/store', [AdministrasiLengkapController::class, 'store'])->name('administrasi_lengkap_store');
     Route::post('/upload', [AdministrasiLengkapController::class, 'upload'])->name('administrasi_lengkap_upload');
+    Route::get('/status-formulir', [AdministrasiLengkapController::class, 'status_formulir'])->name('administrasi_lengkap_status_formulir');
 });
 
 Route::group(['prefix' => '/admin/biodata-pengajuan', 'middleware' => ['auth:sanctum', 'cek_admin']], function () {

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\AdministrasiLengkap;
 use App\Models\BiodataPengajuan;
+use App\Models\Pengaturan;
 use Illuminate\Support\Facades\Auth;
 use Session;
 use Validator;
@@ -112,6 +113,14 @@ class AdministrasiLengkapController extends Controller
             return response()->json('Jenis file tidak diizinkan, pastikan file anda xls, xlsx, doc, docx, pdf, jpg, jpeg, png, zip, rar');
         }
 
+    }
+
+    public function status_formulir()
+    {
+    	$data = Pengaturan::where('nama', 'status formulir')->where('status', 'aktif')->select('nama', 'status', 'nilai')->first();
+    	return response()->json([
+    		'data' => $data
+    	]);
     }
 
     public function destroy($id)
