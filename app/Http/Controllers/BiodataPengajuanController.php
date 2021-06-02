@@ -133,13 +133,20 @@ class BiodataPengajuanController extends Controller
 
     public function bulk_update(Request $request)
     {
-        $biodata_pengajuan_lolos = explode(',', $request->id_proposal);
+        $biodata_pengajuan_lulus = explode(',', $request->id_proposal);
         $biodata_pengajuan = DB::table('biodata_pengajuan')->select('id')->get();
-        $hasil_lolos = [];
-        $hasil_tidak_lolos = [];
+        $hasil_lulus = [];
+        $hasil_tidak_lulus = [];
 
-        $update_lolos = BiodataPengajuan::whereIn('id', $biodata_pengajuan_lolos)->update(['status' => 'lulus']);
-        $update_tidak_lolos = BiodataPengajuan::whereNotIn('id', $biodata_pengajuan_lolos)->update(['status' => 'tidak lulus']);
+        // $update_lulus = BiodataPengajuan::whereIn('id', $biodata_pengajuan_lulus)->update(['status' => 'lulus']);
+        // $update_tidak_lulus = BiodataPengajuan::whereNotIn('id', $biodata_pengajuan_lulus)->update(['status' => 'tidak lulus']);
+
+        foreach ($biodata_pengajuan_lulus as $lulus) {
+            $update_lulus = BiodataPengajuan::find(intval($lulus));
+            $update_lulus->status = 'lulus';
+            $update_lulus->save();
+        }
+
         return response()->json([
             'data' => 'berhasil'
         ]);
