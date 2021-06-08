@@ -28,7 +28,7 @@ class BiodataPengajuanController extends Controller
         $data = DB::table('biodata_pengajuan')
                 ->join('users', 'biodata_pengajuan.user_id', '=', 'users.id')
                 ->select('biodata_pengajuan.id', 'users.name', 'biodata_pengajuan.kategori_pengusul', 'biodata_pengajuan.nama_pengusul', 'biodata_pengajuan.telp', 'biodata_pengajuan.email', 'biodata_pengajuan.alamat', 'biodata_pengajuan.kota', 'biodata_pengajuan.provinsi', 'biodata_pengajuan.kategori_kegiatan', 'biodata_pengajuan.judul_kegiatan', 'biodata_pengajuan.deskripsi_kegiatan', 'biodata_pengajuan.durasi_pelaksanaan', 'biodata_pengajuan.hasil_kegiatan', 'biodata_pengajuan.penerima_manfaat', 'biodata_pengajuan.biaya_diajukan', 'biodata_pengajuan.pertanyaan', 'biodata_pengajuan.rab', 'biodata_pengajuan.status')
-                ->orderBy('biodata_pengajuan.status', 'asc')
+                ->orderBy('biodata_pengajuan.updated_at', 'desc')
                 ->get();
         return response()->json([
             'data' => $data
@@ -135,20 +135,20 @@ class BiodataPengajuanController extends Controller
     {
         $biodata_pengajuan_lulus = explode(',', $request->id_proposal);
         $biodata_pengajuan = DB::table('biodata_pengajuan')->select('id')->get();
-        $hasil_lulus = [];
-        $hasil_tidak_lulus = [];
-
+        // $hasil_lulus = [];
+        // $hasil_tidak_lulus = [];
+        $status = $request->status;
         // $update_lulus = BiodataPengajuan::whereIn('id', $biodata_pengajuan_lulus)->update(['status' => 'lulus']);
         // $update_tidak_lulus = BiodataPengajuan::whereNotIn('id', $biodata_pengajuan_lulus)->update(['status' => 'tidak lulus']);
 
         foreach ($biodata_pengajuan_lulus as $lulus) {
             $update_lulus = BiodataPengajuan::find(intval($lulus));
-            $update_lulus->status = 'lulus';
+            $update_lulus->status = $status;
             $update_lulus->save();
         }
 
         return response()->json([
-            'data' => 'berhasil'
+            'data' => 'Berhasil update status '.$status
         ]);
     }
 
