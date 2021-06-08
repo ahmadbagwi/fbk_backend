@@ -84,7 +84,8 @@ Route::group(['middleware' => ['auth:sanctum'/* , 'verified' */]], function () {
                 'pengajuan' => App\Models\Pengaturan::where('nama', 'pengajuan')->where('status', 'aktif')->orderBy('updated_at', 'desc')->first(),
                 'administrasi' => App\Models\Pengaturan::where('nama', 'administrasi')->where('status', 'aktif')->orderBy('updated_at', 'desc')->first(),
                 'laporan' => App\Models\Pengaturan::where('nama', 'laporan')->where('status', 'aktif')->orderBy('updated_at', 'desc')->first(),
-                'seleksi' => App\Models\BiodataPengajuan::where('user_id', auth()->user()->id)->select('id', 'status')->first()
+                'seleksi' => App\Models\BiodataPengajuan::where('user_id', auth()->user()->id)->select('id', 'status')->first(),
+                'popup' => App\Models\Pengaturan::where('output', 'popup')->where('status', 'aktif')->get()
             ],
         ]);
     });
