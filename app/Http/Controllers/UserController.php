@@ -35,7 +35,7 @@ class UserController extends Controller
         $data = DB::table('users')
                 ->join('periode', 'users.periode_id', '=', 'periode.id')
                 ->select('users.id', 'users.name', 'users.email', 'users.role', 'periode.periode', 'users.created_at')
-                ->orderBy('users.created_at', 'desc')
+                ->orderBy('users.updated_at', 'desc')
                 ->get();
         return response()->json([
             'data' => $data
