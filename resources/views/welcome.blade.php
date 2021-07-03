@@ -42,52 +42,6 @@
                         <div class="col-span-2 md:col-span-2 rounded p-4 m-2 shadow min-h-40">
                             <img src="/storage/files/logo_kemdikbud.png" class="object-contain img-fluid mx-auto">
                         </div>
-                        <!-- <div class="col-span-2 md:col-span-1 rounded p-4 m-2 shadow">
-                            <h2 class="text-lg text-center text-gray-700">Login</h2>
-                            <form method="POST" action="/user_login">
-                                @csrf
-                                <div class="flex justify-between m-2">
-                                    <label>Email</label>
-                                    <input type="textl" id="email" name="email" class="mx-2 shadow py-1 px-2 rounded" placeholder="email">
-                                </div>
-                                <div class="flex justify-between m-2">
-                                    <label>Password</label>
-                                    <input type="password" id="password" name="password" class="mx-2 shadow py-1 px-2 rounded" placeholder="password">
-                                </div>
-                                <div class="flex m-2">
-                                    <button type="submit" class="py-1 px-2 rounded bg-green-500 text-white shadow hover:shadow-none" placeholder="password">
-                                        Login
-                                    </button>
-                                </div>
-                            </form>
-                        </div>
-                        <div class="col-span-2 md:col-span-1 rounded p-4 m-2 shadow">
-                            <h2 class="text-lg text-center text-gray-700">Register</h2>
-                            <form method="POST" action="/user_registrasi">
-                                @csrf
-                                <div class="flex justify-between m-2">
-                                    <label>Nama</label>
-                                    <input type="text" id="name" name="name" class="mx-2 shadow py-1 px-2 rounded" placeholder="name">
-                                </div>
-                                <div class="flex justify-between m-2">
-                                    <label>Email</label>
-                                    <input type="email" id="email" name="email" class="mx-2 shadow py-1 px-2 rounded" placeholder="email">
-                                </div>
-                                <div class="flex justify-between m-2">
-                                    <label>Password</label>
-                                    <input type="password" id="password" name="password" class="mx-2 shadow py-1 px-2 rounded" placeholder="password">
-                                </div>
-                                <div class="flex justify-between m-2">
-                                    <label>Konfirmasi Password</label>
-                                    <input type="password" id="password_confirmation" name="password_confirmation" class="mx-2 shadow py-1 px-2 rounded" placeholder="password">
-                                </div>
-                                <div class="flex m-2">
-                                    <button type="submit" class="py-1 px-2 rounded bg-blue-500 text-white shadow hover:shadow-none" placeholder="password">
-                                        Register
-                                    </button>
-                                </div>
-                            </form>
-                        </div> -->
                     </div>
                 </div>
 
